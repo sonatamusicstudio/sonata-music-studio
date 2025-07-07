@@ -2,133 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sonata Music Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonata Music Studio – Felix Satia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background-color: #0C1F3F;
-      color: #F1E9DB;
-      line-height: 1.6;
+      background-color: #f4f6f9;
+      color: #222;
     }
     header {
-      background-color: #0C1F3F;
+      background-color: #1A263B;
+      color: white;
       padding: 60px 20px;
       text-align: center;
-      border-bottom: 2px solid #F1E9DB;
     }
     header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      margin: 0;
-      color: #F1E9DB;
-    }
-    header p {
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #DCCBA0;
-      margin-top: 10px;
+      font-family: 'Lora', serif;
+      font-size: 3em;
+      margin-bottom: 10px;
     }
     nav {
+      background-color: #2C3E50;
+      padding: 12px;
       display: flex;
       justify-content: center;
-      gap: 40px;
-      background-color: #071427;
-      padding: 15px;
-      font-size: 1rem;
+      flex-wrap: wrap;
+      gap: 20px;
     }
     nav a {
-      color: #F1E9DB;
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover {
-      color: #DCCBA0;
-    }
-    .section {
-      padding: 60px 20px;
+    section {
+      padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
     }
-    .section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      border-bottom: 1px solid #F1E9DB;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
+    section h2 {
+      font-family: 'Lora', serif;
+      color: #1A263B;
+      margin-bottom: 20px;
     }
-    .section p {
-      font-size: 1.1rem;
+    ul {
+      padding-left: 20px;
     }
-    footer {
-      background-color: #071427;
-      text-align: center;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    .footer {
+      background-color: #1A263B;
+      color: white;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #AFAFAF;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sonata Music Studio</h1>
-    <p>Where Sacred Discipline Meets Cultural Artistry</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <h1>Sonata Music Studio</h1>
+  <p>by Felix Satia – Musician | Composer | Educator</p>
+</header>
 
-  <section class="section" id="about">
-    <h2>About</h2>
-    <p>
-      Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—educator, performer, and liturgical musician—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.
-    </p>
-  </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="section" id="programs">
-    <h2>Programs</h2>
-    <p>
-      We offer private and group instruction in:
-      <ul>
-        <li>Piano – Classical Repertoire & Technique</li>
-        <li>Music Theory – ABRSM & Internal Curriculum</li>
-        <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-      </ul>
-    </p>
-  </section>
+<section id="about">
+  <h2>About</h2>
+  <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—educator, performer, and liturgical musician—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+</section>
 
-  <section class="section" id="philosophy">
-    <h2>Philosophy</h2>
-    <p>
-      Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.
-    </p>
-  </section>
+<section id="programs">
+  <h2>Programs</h2>
+  <ul>
+    <li>Piano – Classical Repertoire & Technique</li>
+    <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+    <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+  </ul>
+</section>
 
-  <section class="section" id="portfolio">
-    <h2>Portfolio</h2>
-    <p>
-      Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.
-    </p>
-  </section>
+<section id="philosophy">
+  <h2>Philosophy</h2>
+  <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+</section>
 
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>
-      WhatsApp: +62 XXX-XXXX-XXXX<br />
-      Email: yourname@email.com<br />
-      Location: Jakarta, Indonesia
-    </p>
-  </section>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+</section>
 
-  <footer>
-    &copy; 2025 Sonata Music Studio. Designed with reverence and discipline.
-  </footer>
+<section id="gallery">
+  <h2>Gallery & Certificates</h2>
+  <div class="gallery">
+    <img src="LP3KD - 1.jpg" alt="LP3KD - 1" />
+    <img src="LP3KD - 2.jpg" alt="LP3KD - 2" />
+    <img src="LP3KD - 3.jpg" alt="LP3KD - 3" />
+    <img src="KAJ-2.jpg" alt="KAJ-2" />
+    <img src="KAJ - 3.jpg" alt="KAJ - 3" />
+    <img src="Satya Dharma 1.jpg" alt="Satya Dharma 1" />
+    <img src="Satya Dharma 2.jpg" alt="Satya Dharma 2" />
+    <img src="Lomba Cipta Melodi Mazmur.jpg" alt="Lomba Cipta Melodi Mazmur" />
+    <img src="Lomba Cipta Lagu Arwah - KAJ 2018.jpg" alt="Lomba Cipta Lagu Arwah - KAJ 2018" />
+    <img src="Gold Award Painting YMJ.jpg" alt="Gold Award Painting YMJ" />
+    <img src="Best Teacher Award Cantata.jpg" alt="Best Teacher Award Cantata" />
+    <img src="Konser Journey Through The Era - 2014.jpg" alt="Konser Journey Through The Era - 2014" />
+    <img src="Konser Journey Through The Era.jpg" alt="Konser Journey Through The Era" />
+    <img src="setelah koor.jpg" alt="setelah koor" />
+    <img src="Difoto ketika mengajar teori di YMJ.jpg" alt="Difoto ketika mengajar teori di YMJ" />
+    <img src="Difoto ketika mengajar teori di Cantata.jpg" alt="Difoto ketika mengajar teori di Cantata" />
+    <img src="Cantata Christmas Concert.jpg" alt="Cantata Christmas Concert" />
+    <img src="Cantata Teacher Gathering.jpg" alt="Cantata Teacher Gathering" />
+    <img src="2012 Home Concert.jpg" alt="2012 Home Concert" />
+    <img src="After Performance.jpg" alt="After Performance" />
+    <img src="After Choir With Kristoforus Teachers.jpg" alt="After Choir With Kristoforus Teachers" />
+    <img src="Dengan murid dan guru di Paroki Kristo.jpg" alt="Dengan murid dan guru di Paroki Kristo" />
+    <img src="After Recital 2018.jpg" alt="After Recital 2018" />
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Whatsapp: <a href="https://wa.me/6289656684852" target="_blank">0896 5668 4852</a></p>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@felixsatia" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/felixsatia" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<div class="footer">
+  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+</div>
+
 </body>
 </html>
+
