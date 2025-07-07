@@ -2,78 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sonata Music Studio – Felix Satia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f6f9;
-      color: #222;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a1128;
+      color: #f1f1f1;
     }
     header {
-      background-color: #1A263B;
-      color: white;
-      padding: 60px 20px;
+      background-color: #050d1a;
+      padding: 80px 20px 40px;
       text-align: center;
     }
     header h1 {
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 3em;
-      margin-bottom: 10px;
+      margin: 0;
+      color: #ffffff;
+    }
+    header p {
+      font-style: italic;
+      color: #d0d0ff;
     }
     nav {
-      background-color: #2C3E50;
+      background-color: #0f1e40;
       padding: 12px;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
     }
     nav a {
-      color: white;
+      color: #cbd7ff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffffff;
     }
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
+      padding: 60px 20px;
+      max-width: 960px;
       margin: auto;
     }
     section h2 {
-      font-family: 'Lora', serif;
-      color: #1A263B;
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
       margin-bottom: 20px;
+      border-bottom: 2px solid #394867;
+      padding-bottom: 10px;
+      color: #e0e4f1;
     }
     ul {
       padding-left: 20px;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
     .gallery img {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
     }
     .gallery img:hover {
       transform: scale(1.03);
     }
     .footer {
-      background-color: #1A263B;
-      color: white;
-      padding: 20px;
+      background-color: #050d1a;
+      color: #a0b0ff;
+      padding: 30px;
       text-align: center;
+      font-size: 0.9em;
     }
     .social-icons a {
       margin: 0 10px;
-      color: white;
+      color: #cbd7ff;
       text-decoration: none;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -118,37 +129,47 @@
 </section>
 
 <section id="gallery">
-  <h2>Gallery & Certificates</h2>
+  <h2>Gallery</h2>
   <div class="gallery">
-    <img src="LP3KD - 1.jpg" alt="LP3KD - 1" />
-    <img src="LP3KD - 2.jpg" alt="LP3KD - 2" />
-    <img src="LP3KD - 3.jpg" alt="LP3KD - 3" />
-    <img src="KAJ-2.jpg" alt="KAJ-2" />
-    <img src="KAJ - 3.jpg" alt="KAJ - 3" />
-    <img src="Satya Dharma 1.jpg" alt="Satya Dharma 1" />
-    <img src="Satya Dharma 2.jpg" alt="Satya Dharma 2" />
-    <img src="Lomba Cipta Melodi Mazmur.jpg" alt="Lomba Cipta Melodi Mazmur" />
-    <img src="Lomba Cipta Lagu Arwah - KAJ 2018.jpg" alt="Lomba Cipta Lagu Arwah - KAJ 2018" />
-    <img src="Gold Award Painting YMJ.jpg" alt="Gold Award Painting YMJ" />
-    <img src="Best Teacher Award Cantata.jpg" alt="Best Teacher Award Cantata" />
-    <img src="Konser Journey Through The Era - 2014.jpg" alt="Konser Journey Through The Era - 2014" />
-    <img src="Konser Journey Through The Era.jpg" alt="Konser Journey Through The Era" />
-    <img src="setelah koor.jpg" alt="setelah koor" />
-    <img src="Difoto ketika mengajar teori di YMJ.jpg" alt="Difoto ketika mengajar teori di YMJ" />
-    <img src="Difoto ketika mengajar teori di Cantata.jpg" alt="Difoto ketika mengajar teori di Cantata" />
-    <img src="Cantata Christmas Concert.jpg" alt="Cantata Christmas Concert" />
-    <img src="Cantata Teacher Gathering.jpg" alt="Cantata Teacher Gathering" />
-    <img src="2012 Home Concert.jpg" alt="2012 Home Concert" />
-    <img src="After Performance.jpg" alt="After Performance" />
-    <img src="After Choir With Kristoforus Teachers.jpg" alt="After Choir With Kristoforus Teachers" />
-    <img src="Dengan murid dan guru di Paroki Kristo.jpg" alt="Dengan murid dan guru di Paroki Kristo" />
-    <img src="After Recital 2018.jpg" alt="After Recital 2018" />
+    <img src="1728277097784.jpeg" alt="Image" />
+    <img src="1728277959315.jpeg" alt="Image" />
+    <img src="1728277994217.jpeg" alt="Image" />
+    <img src="1728278062357.jpeg" alt="Image" />
+    <img src="1728278362077.jpeg" alt="Image" />
+    <img src="1728278413639.jpeg" alt="Image" />
+    <img src="1728278498612.jpeg" alt="Image" />
+    <img src="1728278535664.jpeg" alt="Image" />
+    <img src="1728278677799.jpeg" alt="Image" />
+    <img src="1728278743638.jpeg" alt="Image" />
+    <img src="1728278972071.jpeg" alt="Image" />
+    <img src="1728279819431.jpeg" alt="Image" />
+    <img src="1728294846403.jpeg" alt="Image" />
+    <img src="1728294894368.jpeg" alt="Image" />
+    <img src="1728295139439.jpeg" alt="Image" />
+    <img src="1728295173689.jpeg" alt="Image" />
+    <img src="1728295202953.jpeg" alt="Image" />
+    <img src="1728295402904.jpeg" alt="Image" />
+    <img src="1728295429712.jpeg" alt="Image" />
+    <img src="1728296617350.jpeg" alt="Image" />
+    <img src="1728300782229.jpeg" alt="Image" />
+    <img src="1728301815288.jpeg" alt="Image" />
+    <img src="1728302182364.jpeg" alt="Image" />
+    <img src="1728302212548.jpeg" alt="Image" />
+    <img src="1728303826998.jpeg" alt="Image" />
+    <img src="1728311786057.jpeg" alt="Image" />
+    <img src="1728349078427.jpeg" alt="Image" />
+    <img src="1728368821890.jpeg" alt="Image" />
+    <img src="1728368987536.jpeg" alt="Image" />
+    <img src="1728450148208.jpeg" alt="Image" />
+    <img src="1728450200661.jpeg" alt="Image" />
+    <img src="1728450222173.jpeg" alt="Image" />
+    <img src="1728450251141.jpeg" alt="Image" />
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>Whatsapp: <a href="https://wa.me/6289656684852" target="_blank">0896 5668 4852</a></p>
+  <p>Whatsapp: <a href="https://wa.me/6289656684852" style="color:#aac6ff">0896 5668 4852</a></p>
   <div class="social-icons">
     <a href="https://www.youtube.com/@felixsatia" target="_blank">YouTube</a>
     <a href="https://www.instagram.com/felixsatia" target="_blank">Instagram</a>
@@ -157,9 +178,10 @@
 </section>
 
 <div class="footer">
-  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+  <p>&copy; 2025 Sonata Music Studio &mdash; Designed with reverence and clarity</p>
 </div>
 
 </body>
 </html>
+
 
