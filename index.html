@@ -11,10 +11,7 @@
       --secondary-color: #c5a552;
       --text-light: #f4f6fa;
       --text-muted: #c8d0e8;
-      --background-panel: #304d80;
-    }
-    html {
-      scroll-behavior: smooth;
+      --background-panel: #1c2a4a;
     }
     body {
       margin: 0;
@@ -62,15 +59,13 @@
       padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
-      margin-bottom: 60px;
     }
     section h2 {
-      font-size: 2.4em;
+      font-size: 2em;
       color: var(--secondary-color);
       border-bottom: 1px solid #3a4a67;
       padding-bottom: 6px;
       font-weight: 500;
-      letter-spacing: 0.5px;
     }
     section p, section li {
       line-height: 1.7;
@@ -137,29 +132,10 @@
       flex: 1;
       min-width: 280px;
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.4em;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .section-with-image {
-        flex-direction: column;
-        align-items: center;
-      }
-      .section-with-image img {
-        width: 90%;
-      }
-      .panel {
-        padding: 20px;
-      }
-    }
   </style>
 </head>
 <body>
-<a name="top"></a>
+
 <header>
   <h1>Sonata Music Studio</h1>
   <p>Music Instructor | Arranger | Composer</p>
@@ -173,6 +149,60 @@
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
+
+<section id="about">
+  <div class="panel">
+    <h2>About</h2>
+    <div class="section-with-image">
+      <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
+      <div class="text">
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
+        Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
+        contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="panel">
+    <h2>Programs</h2>
+    <div class="section-with-image">
+      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata"/>
+      <div class="text">
+        <ul>
+          <li>Piano – Classical Repertoire & Technique</li>
+          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy">
+  <div class="panel">
+    <h2>Philosophy</h2>
+    <div class="section-with-image">
+      <img src="1728277097784.jpeg" alt="YMJ Concert Photo"/>
+      <div class="text">
+        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="panel">
+    <h2>Portfolio</h2>
+    <div class="section-with-image">
+      <img src="20211028_112040.jpg" alt="Felix Satia Teaching"/>
+      <div class="text">
+        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="gallery">
   <h2>Gallery</h2>
@@ -225,10 +255,9 @@
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-<a href="#top" style="position:fixed;bottom:20px;right:20px;background:#c5a552;padding:10px 14px;border-radius:50%;color:#0a1128;text-decoration:none;font-weight:bold;">↑</a>
-
 </body>
 </html>
+
 
     
 
