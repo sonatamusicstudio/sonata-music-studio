@@ -1,26 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sonata Music Studio – Felix Satia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-color: #0a1128; /* navy blue */
+      --secondary-color: #c5a552; /* elegant gold */
+      --text-light: #f4f6fa;
+      --text-muted: #d6e0ff;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0a1128;
-      color: #f4f6fa;
+      background-color: var(--primary-color);
+      color: var(--text-light);
     }
     header.hero {
       position: relative;
-      height: 90vh;
+      height: 70vh;
       background: url('1728278677799.jpeg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       text-align: center;
+      color: white;
     }
     header.hero::after {
       content: '';
@@ -30,14 +37,15 @@
       backdrop-filter: blur(2px);
     }
     header.hero h1 {
-      font-size: 3.5em;
+      font-size: 4.5em;
       z-index: 2;
+      margin: 0;
+      color: var(--secondary-color);
     }
     header.hero p {
-      font-style: italic;
       font-size: 1.2em;
       z-index: 2;
-      color: #d6e0ff;
+      color: var(--text-muted);
     }
     nav {
       background-color: #0f1e40;
@@ -50,12 +58,12 @@
       z-index: 1000;
     }
     nav a {
-      color: #cbd7ff;
+      color: var(--text-muted);
       text-decoration: none;
       font-weight: 600;
     }
     nav a:hover {
-      color: #fff;
+      color: var(--secondary-color);
     }
     section {
       padding: 60px 20px;
@@ -64,7 +72,7 @@
     }
     section h2 {
       font-size: 2.2em;
-      color: #e0e4f1;
+      color: var(--secondary-color);
       border-bottom: 2px solid #394867;
       padding-bottom: 10px;
     }
@@ -93,8 +101,8 @@
       flex-wrap: wrap;
     }
     .social-icons a {
-      background-color: #1e2e6a;
-      color: #f0f6ff;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
       padding: 10px 18px;
       border-radius: 30px;
       text-decoration: none;
@@ -103,7 +111,7 @@
       transition: background-color 0.3s ease;
     }
     .social-icons a:hover {
-      background-color: #3b4d91;
+      background-color: #e8cc78;
     }
     .footer {
       background-color: #050d1a;
@@ -119,7 +127,7 @@
 <header class="hero">
   <div>
     <h1>Sonata Music Studio</h1>
-    <p>by Felix Satia – Musician | Composer | Educator</p>
+    <p>Music Instructor | Arranger | Composer</p>
   </div>
 </header>
 
@@ -134,7 +142,7 @@
 
 <section id="about">
   <h2>About</h2>
-  <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—educator, performer, and liturgical musician—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+  <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
 </section>
 
 <section id="programs">
@@ -166,7 +174,6 @@
     <img src="1728278413639.jpeg" alt="Image" />
     <img src="1728278498612.jpeg" alt="Image" />
     <img src="1728278535664.jpeg" alt="Image" />
-    <img src="1728278677799.jpeg" alt="Image" />
     <img src="1728278743638.jpeg" alt="Image" />
     <img src="1728278972071.jpeg" alt="Image" />
     <img src="1728279819431.jpeg" alt="Image" />
