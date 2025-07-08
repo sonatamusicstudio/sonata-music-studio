@@ -11,6 +11,7 @@
       --secondary-color: #c5a552;
       --text-light: #f4f6fa;
       --text-muted: #c8d0e8;
+      --background-panel: #1c2a4a;
     }
     body {
       margin: 0;
@@ -56,7 +57,7 @@
     }
     section {
       padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
     section h2 {
@@ -68,6 +69,12 @@
     }
     section p, section li {
       line-height: 1.7;
+    }
+    .panel {
+      background-color: var(--background-panel);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
     .gallery {
       display: grid;
@@ -121,6 +128,10 @@
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
+    .section-with-image .text {
+      flex: 1;
+      min-width: 280px;
+    }
   </style>
 </head>
 <body>
@@ -140,42 +151,56 @@
 </nav>
 
 <section id="about">
-  <h2>About</h2>
-  <div class="section-with-image">
-    <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
-    <p>
-      Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
-      Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
-      contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.
-    </p>
+  <div class="panel">
+    <h2>About</h2>
+    <div class="section-with-image">
+      <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
+      <div class="text">
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
+        Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
+        contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="programs">
-  <h2>Programs</h2>
-  <div class="section-with-image">
-    <img src="1728277959315.jpeg" alt="Teaching Photo Cantata"/>
-    <ul>
-      <li>Piano – Classical Repertoire & Technique</li>
-      <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-      <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-    </ul>
+  <div class="panel">
+    <h2>Programs</h2>
+    <div class="section-with-image">
+      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata"/>
+      <div class="text">
+        <ul>
+          <li>Piano – Classical Repertoire & Technique</li>
+          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="philosophy">
-  <h2>Philosophy</h2>
-  <div class="section-with-image">
-    <img src="1728277097784.jpeg" alt="YMJ Concert Photo"/>
-    <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+  <div class="panel">
+    <h2>Philosophy</h2>
+    <div class="section-with-image">
+      <img src="1728277097784.jpeg" alt="YMJ Concert Photo"/>
+      <div class="text">
+        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="portfolio">
-  <h2>Portfolio</h2>
-  <div class="section-with-image">
-    <img src="20211028_112040.jpg" alt="Felix Satia Teaching"/>
-    <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+  <div class="panel">
+    <h2>Portfolio</h2>
+    <div class="section-with-image">
+      <img src="20211028_112040.jpg" alt="Felix Satia Teaching"/>
+      <div class="text">
+        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -232,5 +257,7 @@
 
 </body>
 </html>
+
+    
 
       
