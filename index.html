@@ -13,39 +13,38 @@
       --text-muted: #c8d0e8;
       --background-panel: #1c2a4a;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-light);
-      scroll-behavior: smooth;
     }
     header {
       background-color: var(--primary-color);
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 80px 20px 40px;
     }
     header h1 {
-      font-size: 3.8em;
+      font-size: 4em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
     }
     header p {
-      font-size: 1em;
+      font-size: 1.1em;
       color: var(--text-muted);
       margin-top: 12px;
       font-weight: 400;
     }
     nav {
       background-color: #0f1e40;
-      padding: 14px 20px;
+      padding: 14px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      width: 100%;
-      box-sizing: border-box;
+      gap: 25px;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -68,8 +67,9 @@
       font-size: 2em;
       color: var(--secondary-color);
       border-bottom: 2px solid var(--secondary-color);
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       font-weight: 500;
+      margin-bottom: 30px;
     }
     section p, section li {
       line-height: 1.7;
@@ -128,7 +128,8 @@
       flex-wrap: wrap;
     }
     .section-with-image img {
-      width: 300px;
+      flex: 1;
+      max-width: 300px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
@@ -261,6 +262,8 @@
 
 </body>
 </html>
+
+      
 
      
       
