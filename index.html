@@ -11,30 +11,29 @@
       --secondary-color: #c5a552;
       --text-light: #f4f6fa;
       --text-muted: #c8d0e8;
-      --background-panel: #162e57;
+      --background-panel: #1e3676;
     }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-light);
+      scroll-behavior: smooth;
     }
     header {
       background-color: var(--primary-color);
       text-align: center;
-      padding: 80px 20px 60px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      padding: 80px 20px 40px;
+      position: relative;
     }
     header h1 {
-      font-size: 4em;
+      font-size: 3em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
     }
     header p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: var(--text-muted);
       margin-top: 10px;
       font-weight: 400;
@@ -46,8 +45,9 @@
       justify-content: center;
       gap: 25px;
       position: sticky;
-      top: 140px;
-      z-index: 998;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     nav a {
       color: var(--text-muted);
@@ -75,9 +75,9 @@
     }
     .panel {
       background-color: var(--background-panel);
-      border-radius: 0;
       padding: 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      margin-top: 40px;
     }
     .gallery {
       display: grid;
@@ -86,7 +86,6 @@
     }
     .gallery img {
       width: 100%;
-      border-radius: 8px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       transition: transform 0.4s ease;
     }
@@ -104,7 +103,7 @@
       background-color: var(--secondary-color);
       color: var(--primary-color);
       padding: 10px 18px;
-      border-radius: 30px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
@@ -128,12 +127,25 @@
     }
     .section-with-image img {
       width: 300px;
-      border-radius: 0;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
     .section-with-image .text {
       flex: 1;
       min-width: 280px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      .section-with-image {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .section-with-image img {
+        width: 100%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
@@ -159,9 +171,7 @@
     <div class="section-with-image">
       <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
       <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
-        Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
-        contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
     </div>
   </div>
@@ -262,6 +272,7 @@
 
 </body>
 </html>
+
 
 
       
