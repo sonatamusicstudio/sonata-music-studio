@@ -26,24 +26,26 @@
       padding: 80px 20px 60px;
     }
     header h1 {
-      font-size: 4em;
+      font-size: 3.8em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
     }
-    header p.subheadline {
-      font-size: 1.1em;
+    header p {
+      font-size: 1em;
       color: var(--text-muted);
       margin-top: 12px;
       font-weight: 400;
-      letter-spacing: 0.5px;
     }
     nav {
       background-color: #0f1e40;
-      padding: 14px;
+      padding: 14px 20px;
       display: flex;
       justify-content: center;
-      gap: 25px;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+      box-sizing: border-box;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -134,29 +136,13 @@
       flex: 1;
       min-width: 280px;
     }
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      display: none;
-      z-index: 999;
-    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Sonata Music Studio</h1>
-  <p class="subheadline">Music Instructor | Arranger | Composer</p>
+  <p>Music Instructor | Arranger | Composer</p>
 </header>
 
 <nav>
@@ -174,7 +160,9 @@
     <div class="section-with-image">
       <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
       <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
+        Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
+        contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
     </div>
   </div>
@@ -223,7 +211,6 @@
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
-    <!-- Gambar-gambar seperti sebelumnya, kamu tinggal paste semua image tag di sini -->
     <img src="1728277097784.jpeg" />
     <img src="1728277959315.jpeg" />
     <img src="1728277994217.jpeg" />
@@ -272,24 +259,10 @@
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-<!-- Tombol Back to Top -->
-<button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
-
-<script>
-  // Tampilkan tombol jika scroll turun
-  window.onscroll = function() {
-    const btn = document.getElementById("backToTop");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-</script>
-
 </body>
 </html>
 
+     
       
 
 
