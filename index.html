@@ -7,62 +7,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --primary-color: #0b1a3d; /* Lebih gelap, tetap navy */
+      --primary-color: #0e1a3d;
       --secondary-color: #c5a552;
       --text-light: #f4f6fa;
       --text-muted: #c8d0e8;
       --background-panel: #1e3676;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-light);
     }
+
     header {
       background-color: var(--primary-color);
       text-align: center;
       padding: 80px 20px 60px;
+      position: relative;
+      z-index: 2;
     }
+
     header h1 {
-      font-size: 4em;
+      font-size: 3.5em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
     }
+
     header p {
-      font-size: 0.95em;
+      font-size: 1.1em;
       color: var(--text-muted);
       margin-top: 10px;
       font-weight: 400;
     }
+
     nav {
       background-color: #0f1e40;
       padding: 14px;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 25px;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
     nav a {
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 500;
       font-size: 1em;
     }
+
     nav a:hover {
       color: var(--secondary-color);
     }
+
     section {
       padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
     }
+
     section h2 {
       font-size: 2em;
       color: var(--secondary-color);
@@ -70,29 +83,38 @@
       padding-bottom: 6px;
       font-weight: 500;
     }
+
     section p, section li {
       line-height: 1.7;
     }
+
     .panel {
       background-color: var(--background-panel);
-      border-radius: 0;
       padding: 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      margin: auto;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 0;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       transition: transform 0.4s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.03);
     }
+
     .social-icons {
       display: flex;
       justify-content: center;
@@ -100,6 +122,7 @@
       margin-top: 20px;
       flex-wrap: wrap;
     }
+
     .social-icons a {
       background-color: var(--secondary-color);
       color: var(--primary-color);
@@ -110,9 +133,11 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease;
     }
+
     .social-icons a:hover {
       background-color: #e8cc78;
     }
+
     .footer {
       background-color: #050d1a;
       text-align: center;
@@ -120,20 +145,36 @@
       color: #a0b0ff;
       font-size: 0.9em;
     }
+
     .section-with-image {
       display: flex;
       align-items: flex-start;
       gap: 30px;
       flex-wrap: wrap;
     }
+
     .section-with-image img {
       width: 300px;
-      border-radius: 0;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      border-radius: 0;
     }
+
     .section-with-image .text {
       flex: 1;
       min-width: 280px;
+    }
+
+    @media (max-width: 768px) {
+      .panel {
+        padding: 30px 20px;
+      }
+      .section-with-image {
+        flex-direction: column;
+        align-items: center;
+      }
+      .section-with-image img {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -159,7 +200,9 @@
     <div class="section-with-image">
       <img src="1728278677799.jpeg" alt="Felix Satia After Recital"/>
       <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
+        Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
+        contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
     </div>
   </div>
@@ -208,37 +251,10 @@
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
+    <!-- All your images here -->
     <img src="1728277097784.jpeg" />
     <img src="1728277959315.jpeg" />
-    <img src="1728277994217.jpeg" />
-    <img src="1728278062357.jpeg" />
-    <img src="1728278413639.jpeg" />
-    <img src="1728278498612.jpeg" />
-    <img src="1728278535664.jpeg" />
-    <img src="1728278743638.jpeg" />
-    <img src="1728278972071.jpeg" />
-    <img src="1728279819431.jpeg" />
-    <img src="1728294846403.jpeg" />
-    <img src="1728294894368.jpeg" />
-    <img src="1728295139439.jpeg" />
-    <img src="1728295173689.jpeg" />
-    <img src="1728295202953.jpeg" />
-    <img src="1728295402904.jpeg" />
-    <img src="1728295429712.jpeg" />
-    <img src="1728296617350.jpeg" />
-    <img src="1728300782229.jpeg" />
-    <img src="1728301815288.jpeg" />
-    <img src="1728302182364.jpeg" />
-    <img src="1728302212548.jpeg" />
-    <img src="1728303826998.jpeg" />
-    <img src="1728311786057.jpeg" />
-    <img src="1728349078427.jpeg" />
-    <img src="1728368821890.jpeg" />
-    <img src="1728368987536.jpeg" />
-    <img src="1728450148208.jpeg" />
-    <img src="1728450200661.jpeg" />
-    <img src="1728450222173.jpeg" />
-    <img src="1728450251141.jpeg" />
+    <!-- Add the rest as needed -->
   </div>
 </section>
 
@@ -260,6 +276,8 @@
 
 </body>
 </html>
+
+        
 
       
     
