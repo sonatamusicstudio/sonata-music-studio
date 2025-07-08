@@ -67,7 +67,6 @@
       font-weight: 500;
     }
     section p, section li {
-      text-align: justify;
       line-height: 1.7;
     }
     .gallery {
@@ -131,8 +130,15 @@
 
 <section id="about">
   <h2>About</h2>
-  <img src="1728278677799.jpeg" alt="Felix Satia After Recital" style="width:60%; max-width:500px; border-radius:10px; margin: 20px auto; display: block;">
-  <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+  <div style="display: flex; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+    <img src="1728278677799.jpeg" alt="Felix Satia After Recital"
+         style="width: 300px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);"/>
+    <p style="flex: 1; min-width: 250px;">
+      Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence.
+      Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with
+      contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.
+    </p>
+  </div>
 </section>
 
 <section id="programs">
@@ -208,3 +214,5 @@
 
 </body>
 </html>
+
+      
