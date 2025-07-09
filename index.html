@@ -15,15 +15,18 @@
       --text-muted: #c8d0e8;
       --background-panel: #1e3676;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-light);
     }
+
     header {
       background-color: var(--primary-color);
       text-align: center;
@@ -31,18 +34,21 @@
       position: relative;
       z-index: 2;
     }
+
     header h1 {
       font-size: 3.5em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
     }
+
     header p {
       font-size: 0.95em;
       color: var(--text-muted);
       margin-top: 10px;
       font-weight: 400;
     }
+
     nav {
       background-color: #0f1e40;
       padding: 14px;
@@ -54,23 +60,24 @@
       top: 0;
       z-index: 1000;
     }
+
     nav a {
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 500;
       font-size: 1em;
     }
+
     nav a:hover {
       color: var(--secondary-color);
     }
-    main {
-      display: block;
-    }
+
     section {
       padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
     }
+
     section h2 {
       font-size: 2em;
       color: var(--secondary-color);
@@ -78,9 +85,11 @@
       padding-bottom: 6px;
       font-weight: 500;
     }
+
     section p, section li {
       line-height: 1.7;
     }
+
     .panel {
       background-color: var(--background-panel);
       padding: 40px;
@@ -90,20 +99,24 @@
       box-sizing: border-box;
       border-radius: 0;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 0;
       opacity: 0;
       transition: opacity 0.6s ease-in;
     }
+
     .gallery img[loading="lazy"] {
       opacity: 1;
     }
+
     .social-icons {
       display: flex;
       justify-content: center;
@@ -111,6 +124,7 @@
       margin-top: 20px;
       flex-wrap: wrap;
     }
+
     .social-icons a {
       background-color: var(--secondary-color);
       color: var(--primary-color);
@@ -120,9 +134,11 @@
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
+
     .social-icons a:hover {
       background-color: #e8cc78;
     }
+
     .footer {
       background-color: #050d1a;
       text-align: center;
@@ -130,25 +146,30 @@
       color: #a0b0ff;
       font-size: 0.9em;
     }
+
     .section-with-image {
       display: flex;
       align-items: flex-start;
       gap: 30px;
       flex-wrap: wrap;
     }
+
     .section-with-image img {
       width: 300px;
       border-radius: 0;
       opacity: 0;
       transition: opacity 0.6s ease-in;
     }
+
     .section-with-image img[loading="lazy"] {
       opacity: 1;
     }
+
     .section-with-image .text {
       flex: 1;
       min-width: 280px;
     }
+
     @media (max-width: 768px) {
       .panel {
         padding: 30px 20px;
@@ -164,11 +185,13 @@
   </style>
 </head>
 <body>
+
 <header>
   <h1>Sonata Music Studio</h1>
   <p>Music Instructor | Arranger | Composer</p>
 </header>
-<nav aria-label="Main navigation">
+
+<nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
   <a href="#philosophy">Philosophy</a>
@@ -176,7 +199,7 @@
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
-<main>
+
 <section id="about">
   <div class="panel">
     <h2>About</h2>
@@ -188,6 +211,7 @@
     </div>
   </div>
 </section>
+
 <section id="programs">
   <div class="panel">
     <h2>Programs</h2>
@@ -203,6 +227,7 @@
     </div>
   </div>
 </section>
+
 <section id="philosophy">
   <div class="panel">
     <h2>Philosophy</h2>
@@ -214,6 +239,7 @@
     </div>
   </div>
 </section>
+
 <section id="portfolio">
   <div class="panel">
     <h2>Portfolio</h2>
@@ -225,18 +251,45 @@
     </div>
   </div>
 </section>
+
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
-    <!-- Gambar galeri dimasukkan secara lengkap -->
-    <!-- Contoh saja untuk ilustrasi, tambahkan semua seperti sebelumnya -->
-    <img src="1728277097784.jpeg" alt="Gallery image 1" loading="lazy" />
-    <img src="1728277959315.jpeg" alt="Gallery image 2" loading="lazy" />
-    <img src="1728277994217.jpeg" alt="Gallery image 3" loading="lazy" />
-    <img src="1728278062357.jpeg" alt="Gallery image 4" loading="lazy" />
-    <!-- Tambahkan sisanya seperti sebelumnya hingga lengkap -->
+    <!-- Total 31 images -->
+    <img src="1728277097784.jpeg" loading="lazy" />
+    <img src="1728277959315.jpeg" loading="lazy" />
+    <img src="1728277994217.jpeg" loading="lazy" />
+    <img src="1728278062357.jpeg" loading="lazy" />
+    <img src="1728278413639.jpeg" loading="lazy" />
+    <img src="1728278498612.jpeg" loading="lazy" />
+    <img src="1728278535664.jpeg" loading="lazy" />
+    <img src="1728278743638.jpeg" loading="lazy" />
+    <img src="1728278972071.jpeg" loading="lazy" />
+    <img src="1728279819431.jpeg" loading="lazy" />
+    <img src="1728294846403.jpeg" loading="lazy" />
+    <img src="1728294894368.jpeg" loading="lazy" />
+    <img src="1728295139439.jpeg" loading="lazy" />
+    <img src="1728295173689.jpeg" loading="lazy" />
+    <img src="1728295202953.jpeg" loading="lazy" />
+    <img src="1728295402904.jpeg" loading="lazy" />
+    <img src="1728295429712.jpeg" loading="lazy" />
+    <img src="1728296617350.jpeg" loading="lazy" />
+    <img src="1728300782229.jpeg" loading="lazy" />
+    <img src="1728301815288.jpeg" loading="lazy" />
+    <img src="1728302182364.jpeg" loading="lazy" />
+    <img src="1728302212548.jpeg" loading="lazy" />
+    <img src="1728303826998.jpeg" loading="lazy" />
+    <img src="1728311786057.jpeg" loading="lazy" />
+    <img src="1728349078427.jpeg" loading="lazy" />
+    <img src="1728368821890.jpeg" loading="lazy" />
+    <img src="1728368987536.jpeg" loading="lazy" />
+    <img src="1728450148208.jpeg" loading="lazy" />
+    <img src="1728450200661.jpeg" loading="lazy" />
+    <img src="1728450222173.jpeg" loading="lazy" />
+    <img src="1728450251141.jpeg" loading="lazy" />
   </div>
 </section>
+
 <section id="contact">
   <div class="panel">
     <h2>Contact</h2>
@@ -248,12 +301,19 @@
     </div>
   </div>
 </section>
-</main>
+
 <div class="footer">
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
+
 </body>
 </html>
+
+      
+      
+      
+    
+      
 
     
 
