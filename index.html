@@ -29,31 +29,39 @@
 
     header {
       background-color: var(--primary-color);
-      text-align: center;
       padding: 80px 20px 60px;
+      text-align: center;
       position: relative;
       z-index: 2;
     }
 
-    header .logo-container img {
-      width: 234px;
-      margin-top: 40px;
-      margin-bottom: 25px;
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .header-flex img {
+      width: 160px;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
     }
 
-    header h1 {
-      font-size: 3.5em;
+    .header-text h1 {
+      font-size: 3em;
       margin: 0;
       color: var(--secondary-color);
       font-weight: 600;
+      text-align: left;
     }
 
-    header p {
+    .header-text p {
       font-size: 0.85em;
       color: var(--text-muted);
-      margin-top: 10px;
+      margin-top: 8px;
       font-weight: 400;
+      text-align: left;
     }
 
     nav {
@@ -101,10 +109,8 @@
       background-color: var(--background-panel);
       padding: 40px;
       margin: auto;
-      max-width: 100%;
       width: 100%;
       box-sizing: border-box;
-      border-radius: 0;
     }
 
     .gallery {
@@ -181,17 +187,25 @@
       .panel {
         padding: 30px 20px;
       }
+
       .section-with-image {
         flex-direction: column;
         align-items: center;
       }
+
       .section-with-image img {
         width: 90%;
       }
-      header .logo-container img {
-        width: 234px;
-        margin-top: 40px;
-        margin-bottom: 25px;
+
+      .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-text h1,
+      .header-text p {
+        text-align: center;
       }
     }
   </style>
@@ -199,11 +213,13 @@
 <body>
 
 <header>
-  <div class="logo-container">
+  <div class="header-flex">
     <img src="Burung%20Merpati%20dan%20Simbol%20Harmoni.png" alt="Sonata Music Studio Logo" loading="lazy" />
+    <div class="header-text">
+      <h1>Sonata Music Studio</h1>
+      <p>Instruction | Composition | Educational Materials</p>
+    </div>
   </div>
-  <h1>Sonata Music Studio</h1>
-  <p>Instruction | Composition | Educational Materials</p>
 </header>
 
 <nav>
@@ -324,14 +340,6 @@
 
 </body>
 </html>
-
-    
-  
-    
-      
-      
-      
-      
 
   
 
