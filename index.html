@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sonata Music Studio by Felix Satia – Classical piano, theory, and sacred musical philosophy rooted in excellence." />
   <title>Sonata Music Studio – Felix Satia</title>
 
@@ -12,11 +12,11 @@
 
   <style>
     :root {
-      --primary-color: #1a2d6a;
+      --primary-color: #1a265a;
       --secondary-color: #c5a552;
       --text-light: #f4f6fa;
       --text-muted: #c8d0e8;
-      --background-panel: #35559a;
+      --background-panel: #2f4685;
     }
 
     html {
@@ -75,7 +75,7 @@
     }
 
     nav {
-      background: linear-gradient(90deg, #141e4f 0%, #1a2d6a 100%);
+      background: linear-gradient(90deg, #141e4f 0%, #1a265a 100%);
       padding: 12px;
       display: flex;
       justify-content: center;
@@ -97,18 +97,116 @@
     nav a:hover {
       color: #f5e8b3;
     }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2em;
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 6px;
+      font-weight: 500;
+    }
+
+    section p, section li {
+      line-height: 1.7;
+    }
+
+    .panel {
+      background-color: var(--background-panel);
+      padding: 40px;
+      margin: auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 0;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 10px 18px;
+      border-radius: 0;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer {
+      background-color: #050d1a;
+      text-align: center;
+      padding: 30px;
+      color: #a0b0ff;
+      font-size: 0.9em;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .section-with-image {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .section-with-image img {
+      width: 300px;
+    }
+
+    .section-with-image .text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    @media (max-width: 768px) {
+      .panel {
+        padding: 30px 20px;
+      }
+      .section-with-image {
+        flex-direction: column;
+        align-items: center;
+      }
+      .section-with-image img {
+        width: 90%;
+      }
+      .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .header-text h1,
+      .header-text p {
+        text-align: center;
+        padding-left: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="header-flex">
-    <img 
-      src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250712_185211.png" 
-      alt="Sonata Music Studio Logo" 
-      loading="lazy"
-      style="transform: translate(4px, -6px);" 
-    />
+    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250712_185211.png" alt="Sonata Music Studio Logo" style="transform: translate(4px, -6px);"/>
     <div class="header-text">
       <h1>Sonata Music Studio</h1>
       <p>Instruction | Composition | Educational Materials</p>
@@ -125,17 +223,11 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- Konten halaman selanjutnya bisa ditempatkan di bawah sini -->
-
-</body>
-</html>
-
-
 <section id="about">
   <div class="panel">
     <h2>About</h2>
     <div class="section-with-image">
-      <img src="1728278677799.jpeg" alt="Felix Satia After Recital" loading="lazy"/>
+      <img src="1728278677799.jpeg" alt="Felix Satia After Recital" />
       <div class="text">
         <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
@@ -147,7 +239,7 @@
   <div class="panel">
     <h2>Programs</h2>
     <div class="section-with-image">
-      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata" loading="lazy"/>
+      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata" />
       <div class="text">
         <ul>
           <li>Piano – Classical Repertoire & Technique</li>
@@ -163,7 +255,7 @@
   <div class="panel">
     <h2>Philosophy</h2>
     <div class="section-with-image">
-      <img src="1728277097784.jpeg" alt="YMJ Concert Photo" loading="lazy"/>
+      <img src="1728277097784.jpeg" alt="YMJ Concert Photo" />
       <div class="text">
         <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
       </div>
@@ -175,7 +267,7 @@
   <div class="panel">
     <h2>Portfolio</h2>
     <div class="section-with-image">
-      <img src="20211028_112040.jpg" alt="Felix Satia Teaching" loading="lazy"/>
+      <img src="20211028_112040.jpg" alt="Felix Satia Teaching" />
       <div class="text">
         <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
       </div>
@@ -187,37 +279,37 @@
   <div class="panel">
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="1728277097784.jpeg" alt="Gallery Image 1" loading="lazy" />
-      <img src="1728277959315.jpeg" alt="Gallery Image 2" loading="lazy" />
-      <img src="1728277994217.jpeg" alt="Gallery Image 3" loading="lazy" />
-      <img src="1728278062357.jpeg" alt="Gallery Image 4" loading="lazy" />
-      <img src="1728278413639.jpeg" alt="Gallery Image 5" loading="lazy" />
-      <img src="1728278498612.jpeg" alt="Gallery Image 6" loading="lazy" />
-      <img src="1728278535664.jpeg" alt="Gallery Image 7" loading="lazy" />
-      <img src="1728278743638.jpeg" alt="Gallery Image 8" loading="lazy" />
-      <img src="1728278972071.jpeg" alt="Gallery Image 9" loading="lazy" />
-      <img src="1728279819431.jpeg" alt="Gallery Image 10" loading="lazy" />
-      <img src="1728294846403.jpeg" alt="Gallery Image 11" loading="lazy" />
-      <img src="1728294894368.jpeg" alt="Gallery Image 12" loading="lazy" />
-      <img src="1728295139439.jpeg" alt="Gallery Image 13" loading="lazy" />
-      <img src="1728295173689.jpeg" alt="Gallery Image 14" loading="lazy" />
-      <img src="1728295202953.jpeg" alt="Gallery Image 15" loading="lazy" />
-      <img src="1728295402904.jpeg" alt="Gallery Image 16" loading="lazy" />
-      <img src="1728295429712.jpeg" alt="Gallery Image 17" loading="lazy" />
-      <img src="1728296617350.jpeg" alt="Gallery Image 18" loading="lazy" />
-      <img src="1728300782229.jpeg" alt="Gallery Image 19" loading="lazy" />
-      <img src="1728301815288.jpeg" alt="Gallery Image 20" loading="lazy" />
-      <img src="1728302182364.jpeg" alt="Gallery Image 21" loading="lazy" />
-      <img src="1728302212548.jpeg" alt="Gallery Image 22" loading="lazy" />
-      <img src="1728303826998.jpeg" alt="Gallery Image 23" loading="lazy" />
-      <img src="1728311786057.jpeg" alt="Gallery Image 24" loading="lazy" />
-      <img src="1728349078427.jpeg" alt="Gallery Image 25" loading="lazy" />
-      <img src="1728368821890.jpeg" alt="Gallery Image 26" loading="lazy" />
-      <img src="1728368987536.jpeg" alt="Gallery Image 27" loading="lazy" />
-      <img src="1728450148208.jpeg" alt="Gallery Image 28" loading="lazy" />
-      <img src="1728450200661.jpeg" alt="Gallery Image 29" loading="lazy" />
-      <img src="1728450222173.jpeg" alt="Gallery Image 30" loading="lazy" />
-      <img src="1728450251141.jpeg" alt="Gallery Image 31" loading="lazy" />
+    <img src="1728277097784.jpeg" alt="Gallery Image 1" loading="lazy" />
+      <img src="1728277959315.jpeg" alt="Gallery Image 2" loading="lazy" />
+      <img src="1728277994217.jpeg" alt="Gallery Image 3" loading="lazy" />
+      <img src="1728278062357.jpeg" alt="Gallery Image 4" loading="lazy" />
+      <img src="1728278413639.jpeg" alt="Gallery Image 5" loading="lazy" />
+      <img src="1728278498612.jpeg" alt="Gallery Image 6" loading="lazy" />
+      <img src="1728278535664.jpeg" alt="Gallery Image 7" loading="lazy" />
+      <img src="1728278743638.jpeg" alt="Gallery Image 8" loading="lazy" />
+      <img src="1728278972071.jpeg" alt="Gallery Image 9" loading="lazy" />
+      <img src="1728279819431.jpeg" alt="Gallery Image 10" loading="lazy" />
+      <img src="1728294846403.jpeg" alt="Gallery Image 11" loading="lazy" />
+      <img src="1728294894368.jpeg" alt="Gallery Image 12" loading="lazy" />
+      <img src="1728295139439.jpeg" alt="Gallery Image 13" loading="lazy" />
+      <img src="1728295173689.jpeg" alt="Gallery Image 14" loading="lazy" />
+      <img src="1728295202953.jpeg" alt="Gallery Image 15" loading="lazy" />
+      <img src="1728295402904.jpeg" alt="Gallery Image 16" loading="lazy" />
+      <img src="1728295429712.jpeg" alt="Gallery Image 17" loading="lazy" />
+      <img src="1728296617350.jpeg" alt="Gallery Image 18" loading="lazy" />
+      <img src="1728300782229.jpeg" alt="Gallery Image 19" loading="lazy" />
+      <img src="1728301815288.jpeg" alt="Gallery Image 20" loading="lazy" />
+      <img src="1728302182364.jpeg" alt="Gallery Image 21" loading="lazy" />
+      <img src="1728302212548.jpeg" alt="Gallery Image 22" loading="lazy" />
+      <img src="1728303826998.jpeg" alt="Gallery Image 23" loading="lazy" />
+      <img src="1728311786057.jpeg" alt="Gallery Image 24" loading="lazy" />
+      <img src="1728349078427.jpeg" alt="Gallery Image 25" loading="lazy" />
+      <img src="1728368821890.jpeg" alt="Gallery Image 26" loading="lazy" />
+      <img src="1728368987536.jpeg" alt="Gallery Image 27" loading="lazy" />
+      <img src="1728450148208.jpeg" alt="Gallery Image 28" loading="lazy" />
+      <img src="1728450200661.jpeg" alt="Gallery Image 29" loading="lazy" />
+      <img src="1728450222173.jpeg" alt="Gallery Image 30" loading="lazy" />
+      <img src="1728450251141.jpeg" alt="Gallery Image 31" loading="lazy" />
     </div>
   </div>
 </section>
@@ -241,7 +333,6 @@
 </body>
 </html>
 
-      
       
       
       
