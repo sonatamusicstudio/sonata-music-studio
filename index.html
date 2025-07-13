@@ -74,29 +74,32 @@
       padding-left: 4px;
     }
     
-     nav {
-      background: linear-gradient(90deg, #141e4f 0%, #1a2d6a 100%);
-      padding: 12px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    nav {
+  background: linear-gradient(90deg, #101c3c 0%, #192c5a 100%);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* subtle sacred separation */
+}
+nav a {
+  color: #dde3f8; /* Misty classic blue-white */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  padding: 4px 8px;
+}
 
-     nav a {
-      color: #e2e8f0; /* Light cool blue-white */
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1em;
-      transition: color 0.3s ease;
-     }
+nav a:hover {
+  color: #e4c97a; /* Antique sacred gold */
+}
 
-     nav a:hover {
-     color: #f5e8b3; /* Lembut keemasan, cocok dengan tema sacred */
-     }
 
     section {
       padding: 60px 20px;
