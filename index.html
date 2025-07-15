@@ -12,11 +12,11 @@
 
   <style>
     :root {
-      --primary-color: #090C0D;
-      --accent-red: #EF250F;
+      --primary-color: #EF250F;
+      --secondary-color: #3C3B37;
       --text-light: #FFFFFF;
-      --trace-dark: #3C3B37;
-      --trace-soft: #938B81;
+      --text-muted: #e0e0e0;
+      --background-panel: #090C0D;
     }
 
     html {
@@ -31,8 +31,8 @@
     }
 
     header {
-      background-color: var(--accent-red);
-      padding: 20px;
+      background-color: var(--primary-color);
+      padding: 20px 20px 15px;
       text-align: center;
     }
 
@@ -42,52 +42,60 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
+      margin-bottom: -20px;
     }
 
     .header-flex img {
       width: 200px;
+      margin-bottom: -8px;
+    }
+
+    .header-text h1,
+    .header-text p,
+    nav a,
+    h2 {
+      font-family: 'Inter', sans-serif;
     }
 
     .header-text h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 2.8em;
+      font-size: 3em;
       margin: 0;
-      color: var(--primary-color);
-      font-weight: 600;
+      color: var(--text-light);
+      font-weight: 500;
+      text-align: left;
     }
 
     .header-text p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.1em;
-      color: var(--text-light);
-      margin-top: 5px;
+      font-size: 1.15em;
+      color: #ffffff;
+      margin-top: 8px;
+      font-weight: 400;
+      text-align: left;
+      padding-left: 4px;
     }
 
     nav {
-  background-color: #3C3B37; /* trace-dark */
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+      background-color: var(--secondary-color);
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-nav a {
-  color: #FFFFFF; /* text-light */
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1em;
-  transition: color 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
 
-nav a:hover {
-  color: #938B81; /* trace-soft */
-}
-
+    nav a:hover {
+      color: #fddbbd;
     }
 
     section {
@@ -97,35 +105,26 @@ nav a:hover {
     }
 
     section h2 {
-      font-family: 'Inter', sans-serif;
       font-size: 2em;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-color);
+      color: #f5a623;
+      border-bottom: 2px solid #f5a623;
       padding-bottom: 6px;
+      font-weight: 500;
+    }
+
+    #about p, #about li,
+    #programs p, #programs li,
+    #philosophy p, #philosophy li,
+    #portfolio p, #portfolio li {
+      font-family: 'Poppins', sans-serif;
     }
 
     .panel {
-      background-color: var(--accent-red);
-      color: var(--text-light);
+      background-color: var(--background-panel);
       padding: 40px;
-      margin-top: 20px;
-    }
-
-    .section-with-image {
-      display: flex;
-      align-items: flex-start;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .section-with-image img {
-      width: 300px;
-      border-radius: 0;
-    }
-
-    .section-with-image .text {
-      flex: 1;
-      min-width: ily: 'Poppins', sans-serif;
+      margin: auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .gallery {
@@ -139,6 +138,12 @@ nav a:hover {
       height: auto;
       object-fit: cover;
       border-radius: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+    }
+
+    .gallery img[loading="lazy"] {
+      opacity: 1;
     }
 
     .social-icons {
@@ -150,24 +155,56 @@ nav a:hover {
     }
 
     .social-icons a {
-      background-color: var(--text-light);
-      color: var(--primary-color);
+      background-color: #f5a623;
+      color: #3C3B37;
       padding: 10px 18px;
       border-radius: 0;
       text-decoration: none;
       font-weight: 600;
+      transition: background-color 0.3s ease;
       font-family: 'Poppins', sans-serif;
+    }
+
+    .social-icons a:hover {
+      background-color: #ffd384;
     }
 
     .footer {
-      background-color: var(--primary-color);
-      color: var(--trace-soft);
+      background-color: #050d1a;
       text-align: center;
       padding: 30px;
+      color: #a0b0ff;
+      font-size: 0.9em;
       font-family: 'Poppins', sans-serif;
     }
 
+    .section-with-image {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .section-with-image img {
+      width: 300px;
+      border-radius: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+    }
+
+    .section-with-image img[loading="lazy"] {
+      opacity: 1;
+    }
+
+    .section-with-image .text {
+      flex: 1;
+      min-width: 280px;
+    }
+
     @media (max-width: 768px) {
+      .panel {
+        padding: 30px 20px;
+      }
       .section-with-image {
         flex-direction: column;
         align-items: center;
@@ -177,7 +214,13 @@ nav a:hover {
       }
       .header-flex {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+      }
+      .header-text h1,
+      .header-text p {
+        text-align: center;
+        padding-left: 0;
       }
     }
   </style>
@@ -186,7 +229,7 @@ nav a:hover {
 
 <header>
   <div class="header-flex">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Logo%20Simbol%20Keagamaan%20Elegan.png" alt="Sonata Music Studio Logo" />
+    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250712_185211.png" alt="Sonata Music Studio Logo" loading="lazy" style="transform: translate(4px, -6px); width: 200px;" />
     <div class="header-text">
       <h1>Sonata Music Studio</h1>
       <p>Instruction | Composition | Educational Materials</p>
@@ -207,7 +250,7 @@ nav a:hover {
   <div class="panel">
     <h2>About</h2>
     <div class="section-with-image">
-      <img src="1728278677799.jpeg" alt="Felix Satia After Recital" />
+      <img src="1728278677799.jpeg" alt="Felix Satia After Recital" loading="lazy" />
       <div class="text">
         <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
@@ -219,7 +262,7 @@ nav a:hover {
   <div class="panel">
     <h2>Programs</h2>
     <div class="section-with-image">
-      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata" />
+      <img src="1728277959315.jpeg" alt="Teaching Photo Cantata" loading="lazy"/>
       <div class="text">
         <ul>
           <li>Piano – Classical Repertoire & Technique</li>
@@ -235,7 +278,7 @@ nav a:hover {
   <div class="panel">
     <h2>Philosophy</h2>
     <div class="section-with-image">
-      <img src="1728277097784.jpeg" alt="YMJ Concert Photo" />
+      <img src="1728277097784.jpeg" alt="YMJ Concert Photo" loading="lazy"/>
       <div class="text">
         <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
       </div>
@@ -247,7 +290,7 @@ nav a:hover {
   <div class="panel">
     <h2>Portfolio</h2>
     <div class="section-with-image">
-      <img src="20211028_112040.jpg" alt="Felix Satia Teaching" />
+      <img src="20211028_112040.jpg" alt="Felix Satia Teaching" loading="lazy"/>
       <div class="text">
         <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
       </div>
@@ -255,45 +298,42 @@ nav a:hover {
   </div>
 </section>
 
-      <section id="gallery">
+<section id="gallery">
   <div class="panel">
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="1728277097784.jpeg" alt="Gallery Image 1" loading="lazy" />
-      <img src="1728277959315.jpeg" alt="Gallery Image 2" loading="lazy" />
-      <img src="1728277994217.jpeg" alt="Gallery Image 3" loading="lazy" />
-      <img src="1728278062357.jpeg" alt="Gallery Image 4" loading="lazy" />
-      <img src="1728278413639.jpeg" alt="Gallery Image 5" loading="lazy" />
-      <img src="1728278498612.jpeg" alt="Gallery Image 6" loading="lazy" />
-      <img src="1728278535664.jpeg" alt="Gallery Image 7" loading="lazy" />
-      <img src="1728278743638.jpeg" alt="Gallery Image 8" loading="lazy" />
-      <img src="1728278972071.jpeg" alt="Gallery Image 9" loading="lazy" />
-      <img src="1728279819431.jpeg" alt="Gallery Image 10" loading="lazy" />
-      <img src="1728294846403.jpeg" alt="Gallery Image 11" loading="lazy" />
-      <img src="1728294894368.jpeg" alt="Gallery Image 12" loading="lazy" />
-      <img src="1728295139439.jpeg" alt="Gallery Image 13" loading="lazy" />
-      <img src="1728295173689.jpeg" alt="Gallery Image 14" loading="lazy" />
-      <img src="1728295202953.jpeg" alt="Gallery Image 15" loading="lazy" />
-      <img src="1728295402904.jpeg" alt="Gallery Image 16" loading="lazy" />
-      <img src="1728295429712.jpeg" alt="Gallery Image 17" loading="lazy" />
-      <img src="1728296617350.jpeg" alt="Gallery Image 18" loading="lazy" />
-      <img src="1728300782229.jpeg" alt="Gallery Image 19" loading="lazy" />
-      <img src="1728301815288.jpeg" alt="Gallery Image 20" loading="lazy" />
-      <img src="1728302182364.jpeg" alt="Gallery Image 21" loading="lazy" />
-      <img src="1728302212548.jpeg" alt="Gallery Image 22" loading="lazy" />
-      <img src="1728303826998.jpeg" alt="Gallery Image 23" loading="lazy" />
-      <img src="1728311786057.jpeg" alt="Gallery Image 24" loading="lazy" />
-      <img src="1728349078427.jpeg" alt="Gallery Image 25" loading="lazy" />
-      <img src="1728368821890.jpeg" alt="Gallery Image 26" loading="lazy" />
-      <img src="1728368987536.jpeg" alt="Gallery Image 27" loading="lazy" />
-      <img src="1728450148208.jpeg" alt="Gallery Image 28" loading="lazy" />
-      <img src="1728450200661.jpeg" alt="Gallery Image 29" loading="lazy" />
-      <img src="1728450222173.jpeg" alt="Gallery Image 30" loading="lazy" />
-      <img src="1728450251141.jpeg" alt="Gallery Image 31" loading="lazy" />
-    </div>
-  </div>
-</section>
-
+      <!-- Gambar 1–31 -->
+      <img src="1728277097784.jpeg" alt="" loading="lazy" />
+      <img src="1728277959315.jpeg" alt="" loading="lazy" />
+      <img src="1728277994217.jpeg" alt="" loading="lazy" />
+      <img src="1728278062357.jpeg" alt="" loading="lazy" />
+      <img src="1728278413639.jpeg" alt="" loading="lazy" />
+      <img src="1728278498612.jpeg" alt="" loading="lazy" />
+      <img src="1728278535664.jpeg" alt="" loading="lazy" />
+      <img src="1728278743638.jpeg" alt="" loading="lazy" />
+      <img src="1728278972071.jpeg" alt="" loading="lazy" />
+      <img src="1728279819431.jpeg" alt="" loading="lazy" />
+      <img src="1728294846403.jpeg" alt="" loading="lazy" />
+      <img src="1728294894368.jpeg" alt="" loading="lazy" />
+      <img src="1728295139439.jpeg" alt="" loading="lazy" />
+      <img src="1728295173689.jpeg" alt="" loading="lazy" />
+      <img src="1728295202953.jpeg" alt="" loading="lazy" />
+      <img src="1728295402904.jpeg" alt="" loading="lazy" />
+      <img src="1728295429712.jpeg" alt="" loading="lazy" />
+      <img src="1728296617350.jpeg" alt="" loading="lazy" />
+      <img src="1728300782229.jpeg" alt="" loading="lazy" />
+      <img src="1728301815288.jpeg" alt="" loading="lazy" />
+      <img src="1728302182364.jpeg" alt="" loading="lazy" />
+      <img src="1728302212548.jpeg" alt="" loading="lazy" />
+      <img src="1728303826998.jpeg" alt="" loading="lazy" />
+      <img src="1728311786057.jpeg" alt="" loading="lazy" />
+      <img src="1728349078427.jpeg" alt="" loading="lazy" />
+      <img src="1728368821890.jpeg" alt="" loading="lazy" />
+      <img src="1728368987536.jpeg" alt="" loading="lazy" />
+      <img src="1728450148208.jpeg" alt="" loading="lazy" />
+      <img src="1728450200661.jpeg" alt="" loading="lazy" />
+      <img src="1728450222173.jpeg" alt="" loading="lazy" />
+      <img src="1728450251141.jpeg" alt="" loading="lazy" />
     </div>
   </div>
 </section>
