@@ -31,46 +31,48 @@
     }
 
     header {
-      background-color: #ffffff;
-      padding: 20px;
-      text-align: center;
-    }
+  display: flex;
+  height: 100px;
+  font-family: 'Poppins', sans-serif;
+}
 
-    .header-flex {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: -20px;
-    }
+.header-left {
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex: 2;
+}
 
-    .header-flex img {
-      width: 200px;
-    }
+.header-left img {
+  height: 60px;
+  margin-right: 15px;
+}
 
-    .header-text h1,
-    .header-text p,
-    nav a,
-    h2 {
-      font-family: 'Inter', sans-serif;
-    }
+.header-left .text-block h1 {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: 600;
+}
 
-    .header-text h1 {
-      font-size: 3em;
-      margin: 0;
-      color: #191A1D;
-      font-weight: 500;
-      text-align: left;
-    }
+.header-left .text-block p {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
 
-    .header-text p {
-      font-size: 1.10em;
-      color: #191A1D;
-      margin-top: 8px;
-      font-weight: 400;
-      text-align: left;
-      padding-left: 4px;
+.header-right {
+  background-color: #E01E15;
+  color: #ffffff;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 10px;
     }
 
     nav {
@@ -112,7 +114,7 @@
     }
 
     .panel {
-      background-color: var(--background-panel);
+    ;
       padding: 40px;
       box-sizing: border-box;
     }
@@ -201,12 +203,15 @@
 <body>
 
 <header>
-  <div class="header-flex">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keimanan%20dalam%20Desain%20Merah%20(1).png" alt="Sonata Music Studio Logo" loading="lazy" style="transform: translate(4px, -6px); width: 200px;" />
-    <div class="header-text">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keimanan%20dalam%20Desain%20Merah%20(1).png" alt="Sonata Music Studio Logo" />
+    <div class="text-block">
       <h1>Sonata Music Studio</h1>
       <p>Instruction | Composition | Educational Materials</p>
     </div>
+  </div>
+  <div class="header-right">
+    <p>Sacred Precision, Artistic Refinement</p>
   </div>
 </header>
 
