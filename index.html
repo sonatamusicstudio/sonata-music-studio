@@ -30,11 +30,47 @@
       color: var(--text-light);
     }
 
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: -5px;
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: -20px;
+    }
+
+    .header-flex img {
+      width: 200px;
+    }
+
+    .header-text h1,
+    .header-text p,
+    nav a,
+    h2 {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .header-text h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #191A1D;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .header-text p {
+      font-size: 1.10em;
+      color: #191A1D;
+      margin-top: 8px;
+      font-weight: 400;
+      text-align: left;
+      padding-left: 4px;
     }
 
     nav {
@@ -73,7 +109,6 @@
       border-bottom: 2px solid var(--secondary-color);
       padding-bottom: 6px;
       font-weight: 500;
-      font-family: 'Inter', sans-serif;
     }
 
     .panel {
@@ -135,7 +170,6 @@
 
     .social-icons a:hover {
       background-color: #dddddd;
-      color: #191A1D;
     }
 
     .footer {
@@ -157,20 +191,25 @@
         width: 90%;
       }
 
-      .panel {
-        padding: 40px 16px;
+      .header-flex {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Banner Header Image -->
 <header>
-  <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Yellow%20Monochrome%20Photo%20LinkedIn%20Banner_20250717_131949_0000.png" alt="Sonata Music Studio Banner" loading="lazy" />
+  <div class="header-flex">
+    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keimanan%20dalam%20Desain%20Merah%20(1).png" alt="Sonata Music Studio Logo" loading="lazy" style="transform: translate(4px, -6px); width: 200px;" />
+    <div class="header-text">
+      <h1>Sonata Music Studio</h1>
+      <p>Instruction | Composition | Educational Materials</p>
+    </div>
+  </div>
 </header>
 
-<!-- Navigation -->
 <nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
@@ -180,7 +219,6 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- About Section -->
 <section id="about">
   <div class="panel">
     <h2>About</h2>
@@ -193,7 +231,6 @@
   </div>
 </section>
 
-<!-- Programs Section -->
 <section id="programs">
   <div class="panel">
     <h2>Programs</h2>
@@ -210,7 +247,6 @@
   </div>
 </section>
 
-<!-- Philosophy Section -->
 <section id="philosophy">
   <div class="panel">
     <h2>Philosophy</h2>
@@ -223,7 +259,6 @@
   </div>
 </section>
 
-<!-- Portfolio Section -->
 <section id="portfolio">
   <div class="panel">
     <h2>Portfolio</h2>
@@ -236,11 +271,11 @@
   </div>
 </section>
 
-<!-- Gallery Section -->
 <section id="gallery">
   <div class="panel">
     <h2>Gallery</h2>
     <div class="gallery">
+      <!-- Tambahkan semua gambar yang kamu upload -->
       <img src="1728277097784.jpeg" />
       <img src="1728277959315.jpeg" />
       <img src="1728277994217.jpeg" />
@@ -276,7 +311,6 @@
   </div>
 </section>
 
-<!-- Contact Section -->
 <section id="contact">
   <div class="panel">
     <h2>Contact</h2>
@@ -289,70 +323,9 @@
   </div>
 </section>
 
-<!-- Footer -->
 <div class="footer">
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
 </body>
-</html>
-
-
-
-      
-
-
-    
-
-  
-      
-
-    
-      
-
-
-      
-      
-
-
-
-    
-
-
-
-
-      
-      
-
-
-
-    
-
-
-    
-
-      
-      
-      
-
-
-    
-
-  
-      
-
-    
-      
-
-
-      
-      
-
-
-
-    
-
-
-    
-
-      
+        </html>
