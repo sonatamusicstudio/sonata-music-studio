@@ -11,6 +11,33 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
+  .corporate-header {
+  display: flex;
+  align-items: center;
+  background: #000; /* black */
+  padding: 20px 40px;
+  color: white;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.logo-box img {
+  height: 60px;
+}
+
+.text-box h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.text-box p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  color: #ccc;
+}
     :root {
       --primary-color: #f7f7f7;
       --secondary-color: #ffffff;
@@ -207,12 +234,16 @@
 
 <header>
   <div class="header-flex">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keimanan%20dalam%20Desain%20Merah%20(1).png" alt="Sonata Music Studio Logo" loading="lazy" style="transform: translate(4px, -4px); width: 200px;" />
-    <div class="header-text">
-      <h1>Sonata Music Studio</h1>
-      <p>Instruction | Composition | Educational Materials</p>
-    </div>
+    <!-- Corporate Style Header - DBS Look -->
+<div class="corporate-header">
+  <div class="logo-box">
+    <img src="logo-sonata.png" alt="Sonata Logo" />
   </div>
+  <div class="text-box">
+    <h1>Sonata Music Studio</h1>
+    <p>Instruction | Composition | Educational Materials</p>
+  </div>
+</div>
 </header>
 
 <nav>
