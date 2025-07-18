@@ -17,6 +17,7 @@
       --text-light: #ffffff;
       --text-muted: #cccccc;
       --background-panel: #e01e15;
+      --header-height: 100px;
     }
 
     html {
@@ -32,7 +33,7 @@
 
     header {
       display: flex;
-      height: 100px;
+      height: var(--header-height);
       font-family: 'Poppins', sans-serif;
     }
 
@@ -76,6 +77,7 @@
     }
 
     nav {
+      font-family: 'Poppins', sans-serif;
       background-color: #443b35;
       padding: 12px;
       display: flex;
@@ -83,9 +85,8 @@
       flex-wrap: wrap;
       gap: 25px;
       position: sticky;
-      top: 100px;
-      z-index: 1000;
-      font-family: 'Poppins', sans-serif;
+      top: var(--header-height);
+      z-index: 999;
     }
 
     nav a {
@@ -102,7 +103,7 @@
 
     section {
       padding: 60px 20px;
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
     }
 
@@ -121,8 +122,6 @@
       box-sizing: border-box;
       border-radius: 4px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-left: 10px;
-      margin-right: 10px;
     }
 
     .section-with-image {
@@ -191,6 +190,18 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .header-left,
+      .header-right {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 0;
+      }
+
       .section-with-image {
         flex-direction: column;
         align-items: center;
@@ -200,15 +211,15 @@
         width: 90%;
       }
 
-      .header-flex {
-        flex-direction: column;
-        text-align: center;
+      section {
+        padding: 40px 20px;
       }
     }
   </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-left">
     <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keimanan%20dalam%20Desain%20Merah%20(1).png" alt="Sonata Music Studio Logo" />
@@ -222,6 +233,7 @@
   </div>
 </header>
 
+<!-- NAVBAR -->
 <nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
@@ -231,6 +243,7 @@
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- SECTIONS -->
 <section id="about">
   <div class="panel">
     <h2>About</h2>
@@ -287,6 +300,7 @@
   <div class="panel">
     <h2>Gallery</h2>
     <div class="gallery">
+      <!-- [30+ image filenames tetap disini] -->
       <img src="1728277097784.jpeg" />
       <img src="1728277959315.jpeg" />
       <img src="1728277994217.jpeg" />
