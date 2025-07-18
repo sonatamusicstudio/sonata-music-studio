@@ -35,6 +35,8 @@
       display: flex;
       height: var(--header-height);
       font-family: 'Poppins', sans-serif;
+      z-index: 10000;
+      position: relative;
     }
 
     .header-left {
@@ -85,8 +87,8 @@
       flex-wrap: wrap;
       gap: 25px;
       position: sticky;
-      top: var(--header-height);
-      z-index: 999;
+      top: 0;
+      z-index: 9999;
     }
 
     nav a {
