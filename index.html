@@ -51,7 +51,6 @@
     .header-left img {
       height: 80px;
       margin-right: 15px;
-      margin-top: 4px;
     }
 
     .header-left .text-block h1 {
@@ -111,12 +110,12 @@
     }
 
     section h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2em;
-  color: var(--secondary-color);
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 6px;
-  font-weight: 500;
+      font-size: 2em;
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 6px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
     }
 
     .panel {
@@ -133,6 +132,7 @@
       align-items: flex-start;
       gap: 30px;
       flex-wrap: wrap;
+      padding-top: 20px;
     }
 
     .section-with-image img {
@@ -147,18 +147,6 @@
 
     #about p, #programs li, #philosophy p, #portfolio p {
       font-family: 'Poppins', sans-serif;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
     }
 
     .social-icons {
@@ -243,11 +231,10 @@
   <a href="#programs">Programs</a>
   <a href="#philosophy">Philosophy</a>
   <a href="#portfolio">Portfolio</a>
-  <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- SECTIONS -->
+<!-- ABOUT -->
 <section id="about">
   <div class="panel">
     <h2>About</h2>
@@ -260,6 +247,7 @@
   </div>
 </section>
 
+<!-- PROGRAMS -->
 <section id="programs">
   <div class="panel">
     <h2>Programs</h2>
@@ -276,6 +264,7 @@
   </div>
 </section>
 
+<!-- PHILOSOPHY -->
 <section id="philosophy">
   <div class="panel">
     <h2>Philosophy</h2>
@@ -288,6 +277,7 @@
   </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="panel">
     <h2>Portfolio</h2>
