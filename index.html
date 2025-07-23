@@ -13,10 +13,12 @@
   <style>
     :root {
       --primary-color: #ffffff;
-      --secondary-color: #ffffff;
+      --secondary-color: #002f6c;
+      --accent-color: #2d8cff;
       --text-light: #ffffff;
-      --text-muted: #cccccc;
-      --background-panel: #0a5cfe;
+      --text-dark: #002f6c;
+      --text-muted: #666666;
+      --background-panel: #f5f5f5;
       --header-height: 100px;
     }
 
@@ -27,8 +29,8 @@
     body {
       margin: 0;
       font-family: 'Source Serif 4', serif;
-      background-color: #ffffff;
-      color: var(--text-light);
+      background-color: var(--primary-color);
+      color: var(--text-dark);
     }
 
     header {
@@ -40,8 +42,8 @@
     }
 
     .header-left {
-      background-color: #000000;
-      color: #ffffff;
+      background-color: var(--text-dark);
+      color: var(--text-light);
       display: flex;
       align-items: center;
       padding: 0 20px;
@@ -67,8 +69,8 @@
     }
 
     .header-right {
-      background-color: #0a5cfe;
-      color: #ffffff;
+      background-color: var(--accent-color);
+      color: var(--text-light);
       flex: 1;
       display: flex;
       justify-content: center;
@@ -81,7 +83,7 @@
 
     nav {
       font-family: 'Poppins', sans-serif;
-      background-color: #443b35;
+      background-color: var(--text-dark);
       padding: 12px;
       display: flex;
       justify-content: center;
@@ -101,7 +103,7 @@
     }
 
     nav a:hover {
-      color: var(--text-muted);
+      color: var(--accent-color);
     }
 
     section {
@@ -113,7 +115,7 @@
     section h2 {
       font-size: 2em;
       color: var(--secondary-color);
-      border-bottom: 2px solid var(--secondary-color);
+      border-bottom: 2px solid var(--accent-color);
       padding-bottom: 6px;
       font-weight: 500;
       font-family: 'Poppins', sans-serif;
@@ -121,11 +123,11 @@
 
     .panel {
       background-color: var(--background-panel);
-      color: #fff;
+      color: var(--text-dark);
       padding: 40px;
       box-sizing: border-box;
       border-radius: 4px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     .section-with-image {
@@ -159,25 +161,26 @@
     }
 
     .social-icons a {
-      background-color: #443b35;
-      color: #ffffff;
+      background-color: var(--accent-color);
+      color: var(--text-light);
       padding: 10px 18px;
       border-radius: 0;
       text-decoration: none;
       font-weight: 600;
       font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease;
     }
 
     .social-icons a:hover {
-      background-color: #dddddd;
-      color: #000000;
+      background-color: var(--text-dark);
+      color: var(--text-light);
     }
 
     .footer {
-      background-color: #000000;
+      background-color: var(--text-dark);
       text-align: center;
       padding: 30px;
-      color: #ffffff;
+      color: var(--text-light);
       font-size: 0.9em;
       font-family: 'Poppins', sans-serif;
     }
@@ -230,10 +233,10 @@
 <header>
   <div class="header-left">
     <img
-  src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Burung%20Merpati%20dengan%20Buku%20dan%20Salib.png"
-  alt="Sonata Music Studio Logo"
-  height="85px"
-/>
+      src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Burung%20Merpati%20dengan%20Buku%20dan%20Salib.png"
+      alt="Sonata Music Studio Logo"
+      height="85px"
+    />
     <div class="text-block">
       <h1>Sonata Music Studio</h1>
       <p>Instruction | Composition | Educational Materials</p>
@@ -244,7 +247,6 @@
   </div>
 </header>
 
-<!-- NAVIGATION -->
 <nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
@@ -253,7 +255,6 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="panel">
     <h2>About</h2>
@@ -266,7 +267,6 @@
   </div>
 </section>
 
-<!-- PROGRAMS -->
 <section id="programs">
   <div class="panel">
     <h2>Programs</h2>
@@ -283,7 +283,6 @@
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
 <section id="philosophy">
   <div class="panel">
     <h2>Philosophy</h2>
@@ -296,7 +295,6 @@
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="panel">
     <h2>Portfolio</h2>
