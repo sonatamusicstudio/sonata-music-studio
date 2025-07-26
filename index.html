@@ -65,8 +65,8 @@
   }
 
   .header-right {
-    background-color: var(--accent-color);
-    color: var(--text-light);
+  background-color: var(--background-panel); /* mustard kuning */
+  color: var(--text-dark); /* biru violet indigo */
     flex: 1;
     display: flex;
     justify-content: center;
@@ -118,13 +118,13 @@
   }
 
   .panel {
-    background-color: var(--background-panel);
-    color: var(--text-dark);
-    padding: 40px;
-    box-sizing: border-box;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  }
+  background-color: var(--background-panel);
+  color: var(--text-dark);
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 0; /* <-- no rounded corner */
+  box-shadow: none; /* <-- no shadow/emboss */
+}
 
   .section-with-image {
     display: flex;
