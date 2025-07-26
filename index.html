@@ -7,30 +7,31 @@
   <title>Sonata Music Studio – Felix Satia</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
     :root {
       --primary-color: #ffffff;
-      --secondary-color: #0a2540; /* Navy yang dalam dan agung */
-      --accent-color: #0055A4;    /* UOB Blue */
-      --highlight-color: #8899aa; /* Muted elegance */
-      --text-dark: #1a1a1a;
+      --secondary-color: #0a2540; /* Deep navy */
+      --accent-color: #004080;    /* Sacred blue */
+      --highlight-color: #c9d6e3;
+      --text-dark: #111111;
       --text-muted: #6e7a8a;
-      --background-light: #f8f9fb;
+      --background-light: #f4f6f9;
       --background-panel: #ffffff;
-      --radius: 12px;
-      --shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+      --radius: 0px;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
 
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: 'Source Serif 4', serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-dark);
       line-height: 1.7;
@@ -59,22 +60,21 @@
     .text-block h1 {
       margin: 0;
       font-size: 1.8em;
-      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
     }
 
     .text-block p {
       margin: 4px 0 0;
       font-size: 1em;
-      color: #dfeaf5;
+      color: #d9e3ee;
     }
 
     .header-right {
       text-align: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 1em;
       padding: 10px;
-      color: #cdd9ec;
+      color: #d5e3f2;
     }
 
     nav {
@@ -83,10 +83,9 @@
       display: flex;
       justify-content: center;
       gap: 30px;
-      font-family: 'Poppins', sans-serif;
       font-weight: 500;
       font-size: 1em;
-      border-bottom: 1px solid #e0e6ee;
+      border-bottom: 1px solid #d8dfe7;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -110,11 +109,11 @@
 
     h2 {
       font-size: 2em;
-      font-family: 'Poppins', sans-serif;
       color: var(--secondary-color);
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 8px;
       margin-bottom: 30px;
+      font-weight: 600;
     }
 
     .panel {
@@ -133,35 +132,32 @@
 
     .section-with-image img {
       width: 300px;
-      border-radius: var(--radius);
+      object-fit: cover;
     }
 
     .section-with-image .text {
       flex: 1;
       min-width: 280px;
-      font-family: 'Poppins', sans-serif;
       font-size: 1em;
-      color: var(--text-dark);
     }
 
     ul {
       margin: 0;
       padding-left: 20px;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-dark);
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
       margin-top: 30px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: var(--radius);
       object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
     }
 
     .social-icons {
@@ -176,9 +172,8 @@
       background-color: var(--accent-color);
       color: white;
       padding: 12px 20px;
-      border-radius: 6px;
+      border-radius: 0px;
       text-decoration: none;
-      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
@@ -192,7 +187,6 @@
       color: #c8d4e0;
       text-align: center;
       padding: 40px 20px;
-      font-family: 'Poppins', sans-serif;
       font-size: 0.9em;
     }
 
@@ -217,28 +211,7 @@
 
 <body>
 
-<header>
-  <div class="header-left">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Simbol%20Keagamaan%20dalam%20Cahaya%20Neon.png" alt="Sonata Logo" class="logo" />
-    <div class="text-block">
-      <h1>Sonata Music Studio</h1>
-      <p>Instruction | Composition | Educational Materials</p>
-    </div>
-  </div>
-  <div class="header-right">
-    <p>Sacred Precision, Artistic Refinement</p>
-  </div>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
+  <section id="about">
   <div class="panel">
     <h2>About</h2>
     <div class="section-with-image">
@@ -345,5 +318,3 @@
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-</body>
-</html>
