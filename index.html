@@ -2,162 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sonata Music Studio by Felix Satia – Classical piano, theory, and sacred musical philosophy rooted in excellence." />
-  <title>Sonata Music Studio – Felix Satia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonata Music Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #ffffff;
-      --secondary-color: #0a2540;
-      --accent-color: #0055A4;
-      --highlight-color: #8899aa;
-      --text-dark: #1a1a1a;
-      --text-muted: #6e7a8a;
-      --background-light: #f8f9fb;
-      --background-panel: #ffffff;
-      --radius: 0px;
-      --shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-    }
-    * { box-sizing: border-box; }
     body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      font-family: 'Source Serif 4', serif;
-      background-color: var(--primary-color);
-      color: var(--text-dark);
-      line-height: 1.7;
+      padding: 0;
+      background-color: #f7f8fc;
+      color: #1c1c1c;
     }
     header {
-      display: flex;
-      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+      background-color: #0b1e3f;
       color: white;
-      padding: 40px 20px;
+      padding: 30px 60px;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
     }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .header-left img {
-      height: 90px;
-    }
-    .text-block h1 {
-      margin: 0;
-      font-size: 1.8em;
-      font-family: 'Poppins', sans-serif;
-    }
-    .text-block p {
-      margin: 4px 0 0;
-      font-size: 1em;
-      color: #dfeaf5;
-    }
-    .header-right {
-      text-align: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1em;
-      padding: 10px;
-      color: #cdd9ec;
-    }
-    nav {
-      background-color: var(--background-light);
-      padding: 16px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 1em;
-      border-bottom: 1px solid #e0e6ee;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    header img {
+      height: 60px;
     }
     nav a {
-      color: var(--secondary-color);
+      color: white;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: var(--accent-color);
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
+      margin-left: 24px;
+      font-weight: 500;
     }
     .panel {
-      background-color: var(--background-panel);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 30px;
-      margin-bottom: 40px;
+      padding: 60px;
+      background-color: white;
+      border: 1px solid #d0d4e4;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #0b1e3f;
     }
     .section-with-image {
       display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
     }
     .section-with-image img {
-      width: 250px;
-      border: 2px solid #eee;
+      max-width: 300px;
+      height: auto;
+      border: 1px solid #ccc;
     }
-    h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.6em;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 10px;
+    .text {
+      flex: 1;
+    }
+    ul {
+      padding-left: 20px;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
     }
     .gallery img {
       width: 100%;
-      border: 2px solid #ccc;
-    }
-    .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      font-family: 'Poppins', sans-serif;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid #ccc;
     }
     .social-icons a {
+      display: inline-block;
+      margin-right: 16px;
       text-decoration: none;
-      color: var(--accent-color);
-      font-weight: 600;
+      color: #0b1e3f;
+      font-weight: 500;
     }
     .footer {
       text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      color: var(--text-muted);
-      background-color: var(--background-light);
+      background-color: #0b1e3f;
+      color: white;
+      padding: 24px;
+      margin-top: 60px;
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="header-left">
-      <img src="1728278677799.jpeg" alt="Logo" />
-      <div class="text-block">
-        <h1>Sonata Music Studio</h1>
-        <p>by Felix Satia</p>
-      </div>
-    </div>
-    <div class="header-right">
-      Classical Piano • Theory • Sacred Musical Philosophy
-    </div>
-  </header>
 
+<header>
+  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Burung%20Merpati%20dengan%20Buku%20dan%20Salib.png" alt="Sonata Music Studio Logo" />
   <nav>
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
@@ -166,112 +97,114 @@
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
+</header>
 
-  <section id="about">
-    <div class="panel">
-      <h2>About</h2>
-      <div class="section-with-image">
-        <img src="1728278677799.jpeg" alt="Felix Satia" />
-        <div class="text">
-          <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
-        </div>
+<section id="about">
+  <div class="panel">
+    <h2>About</h2>
+    <div class="section-with-image">
+      <img src="1728278677799.jpeg" alt="Felix Satia" />
+      <div class="text">
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
     </div>
-  </section>
-
-  <section id="programs">
-    <div class="panel">
-      <h2>Programs</h2>
-      <div class="section-with-image">
-        <img src="1728277959315.jpeg" alt="Teaching" />
-        <div class="text">
-          <ul>
-            <li>Piano – Classical Repertoire & Technique</li>
-            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="philosophy">
-    <div class="panel">
-      <h2>Philosophy</h2>
-      <div class="section-with-image">
-        <img src="1728277097784.jpeg" alt="Concert" />
-        <div class="text">
-          <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <div class="panel">
-      <h2>Portfolio</h2>
-      <div class="section-with-image">
-        <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
-        <div class="text">
-          <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <div class="panel">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="1728277097784.jpeg" />
-        <img src="1728277959315.jpeg" />
-        <img src="1728277994217.jpeg" />
-        <img src="1728278062357.jpeg" />
-        <img src="1728278413639.jpeg" />
-        <img src="1728278498612.jpeg" />
-        <img src="1728278535664.jpeg" />
-        <img src="1728278743638.jpeg" />
-        <img src="1728278972071.jpeg" />
-        <img src="1728279819431.jpeg" />
-        <img src="1728294846403.jpeg" />
-        <img src="1728294894368.jpeg" />
-        <img src="1728295139439.jpeg" />
-        <img src="1728295173689.jpeg" />
-        <img src="1728295202953.jpeg" />
-        <img src="1728295402904.jpeg" />
-        <img src="1728295429712.jpeg" />
-        <img src="1728296617350.jpeg" />
-        <img src="1728300782229.jpeg" />
-        <img src="1728301815288.jpeg" />
-        <img src="1728302182364.jpeg" />
-        <img src="1728302212548.jpeg" />
-        <img src="1728303826998.jpeg" />
-        <img src="1728311786057.jpeg" />
-        <img src="1728349078427.jpeg" />
-        <img src="1728368821890.jpeg" />
-        <img src="1728368987536.jpeg" />
-        <img src="1728450148208.jpeg" />
-        <img src="1728450200661.jpeg" />
-        <img src="1728450222173.jpeg" />
-        <img src="1728450251141.jpeg" />
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="panel">
-      <h2>Contact</h2>
-      <div class="social-icons">
-        <a href="https://wa.me/6289656684852">WhatsApp</a>
-        <a href="https://www.youtube.com/@felixsatia">YouTube</a>
-        <a href="https://www.instagram.com/felixsatia">Instagram</a>
-        <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
   </div>
+</section>
+
+<section id="programs">
+  <div class="panel">
+    <h2>Programs</h2>
+    <div class="section-with-image">
+      <img src="1728277959315.jpeg" alt="Teaching" />
+      <div class="text">
+        <ul>
+          <li>Piano – Classical Repertoire & Technique</li>
+          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy">
+  <div class="panel">
+    <h2>Philosophy</h2>
+    <div class="section-with-image">
+      <img src="1728277097784.jpeg" alt="Concert" />
+      <div class="text">
+        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="panel">
+    <h2>Portfolio</h2>
+    <div class="section-with-image">
+      <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
+      <div class="text">
+        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="panel">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="1728277097784.jpeg" />
+      <img src="1728277959315.jpeg" />
+      <img src="1728277994217.jpeg" />
+      <img src="1728278062357.jpeg" />
+      <img src="1728278413639.jpeg" />
+      <img src="1728278498612.jpeg" />
+      <img src="1728278535664.jpeg" />
+      <img src="1728278743638.jpeg" />
+      <img src="1728278972071.jpeg" />
+      <img src="1728279819431.jpeg" />
+      <img src="1728294846403.jpeg" />
+      <img src="1728294894368.jpeg" />
+      <img src="1728295139439.jpeg" />
+      <img src="1728295173689.jpeg" />
+      <img src="1728295202953.jpeg" />
+      <img src="1728295402904.jpeg" />
+      <img src="1728295429712.jpeg" />
+      <img src="1728296617350.jpeg" />
+      <img src="1728300782229.jpeg" />
+      <img src="1728301815288.jpeg" />
+      <img src="1728302182364.jpeg" />
+      <img src="1728302212548.jpeg" />
+      <img src="1728303826998.jpeg" />
+      <img src="1728311786057.jpeg" />
+      <img src="1728349078427.jpeg" />
+      <img src="1728368821890.jpeg" />
+      <img src="1728368987536.jpeg" />
+      <img src="1728450148208.jpeg" />
+      <img src="1728450200661.jpeg" />
+      <img src="1728450222173.jpeg" />
+      <img src="1728450251141.jpeg" />
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="panel">
+    <h2>Contact</h2>
+    <div class="social-icons">
+      <a href="https://wa.me/6289656684852">WhatsApp</a>
+      <a href="https://www.youtube.com/@felixsatia">YouTube</a>
+      <a href="https://www.instagram.com/felixsatia">Instagram</a>
+      <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+</div>
+
 </body>
 </html>
