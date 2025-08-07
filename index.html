@@ -11,22 +11,25 @@
       --secondary-color: #0e1a40;
       --accent-color: #4c2c84;
       --gold-color: #b8983c;
+      --deep-blue: #1c2254;
+      --royal-navy: #2b365c;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #101b3c, #2a1f5e, #55318d);
-      color: var(--primary-color);
       margin: 0;
       padding: 0;
+      color: var(--primary-color);
+      background: linear-gradient(135deg, #0b1430 0%, var(--royal-navy) 35%, var(--deep-blue) 80%);
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
 
     header {
       display: flex;
       height: 100px;
-      background-color: var(--secondary-color);
+      background: linear-gradient(to right, var(--secondary-color), #1a1940);
       box-shadow: 0 0 18px var(--accent-color);
-      z-index: 1000;
       position: relative;
     }
 
@@ -38,9 +41,9 @@
       width: 100%;
       height: 16px;
       pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(185,152,60,0.4) 0%, rgba(185,152,60,0.15) 40%, transparent 80%);
+      background: radial-gradient(ellipse at center, rgba(185,152,60,0.4) 0%, rgba(185,152,60,0.1) 40%, transparent 80%);
       filter: blur(4px);
-      z-index: 999;
+      z-index: 2;
     }
 
     .header-left {
@@ -48,13 +51,12 @@
       align-items: center;
       padding: 0 20px;
       flex: 2;
-      background: linear-gradient(to right, var(--secondary-color), var(--gold-color));
+      background: linear-gradient(to right, var(--secondary-color), #1c1a3f, var(--gold-color));
     }
 
     .header-left img {
       height: 70px;
       margin-right: 15px;
-      border-radius: 0;
     }
 
     .text-block h1 {
@@ -65,7 +67,7 @@
     .text-block p {
       margin: 0;
       font-size: 0.9em;
-      opacity: 0.9;
+      opacity: 0.85;
     }
 
     .header-right {
@@ -73,15 +75,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      font-size: 1em;
-      font-weight: 600;
+      background: linear-gradient(135deg, var(--gold-color), #c9ab5c);
       color: var(--secondary-color);
-      background-color: var(--gold-color);
+      font-weight: 600;
+      font-size: 1em;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.2);
     }
 
     nav {
-      background-color: #0e1a40;
+      background: linear-gradient(to right, #0e1a40, #1b2560);
       display: flex;
       justify-content: center;
       gap: 25px;
@@ -90,6 +92,7 @@
       position: sticky;
       top: 0;
       z-index: 999;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.03);
     }
 
     nav a {
@@ -104,187 +107,54 @@
     }
 
     main {
-      padding: 30px 60px;
+      padding: 50px 60px;
+      position: relative;
     }
 
     .panel {
       position: relative;
-      margin-bottom: 40px;
-      background: linear-gradient(145deg, #1a2450, #4c2c84);
-      padding: 20px 25px;
-      border-radius: 0;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+      margin-bottom: 60px;
+      padding: 30px 40px;
+      background: linear-gradient(145deg, rgba(14,26,64,0.85), rgba(64,43,116,0.85));
+      border-radius: 16px;
+      box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.04), 
+        0 0 24px rgba(185, 152, 60, 0.12);
     }
 
     .panel::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 100%;
-      background-color: var(--gold-color);
-      border-radius: 0;
+      top: -1px; bottom: -1px; left: -1px; right: -1px;
+      background: linear-gradient(60deg, rgba(255,255,255,0.06), rgba(185,152,60,0.08), rgba(255,255,255,0.03));
+      pointer-events: none;
+      border-radius: 16px;
+      z-index: 1;
     }
 
-    h2 {
+    .panel h2 {
       color: var(--gold-color);
-      border-bottom: 1px solid var(--accent-color);
-      padding-bottom: 5px;
-      margin-bottom: 15px;
+      font-size: 1.5em;
+      margin-top: 0;
     }
 
-    .section-with-image {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+    .panel p {
+      line-height: 1.6;
+      font-size: 1em;
+      color: #e6e6f0;
     }
 
-    .section-with-image img {
-      max-width: 300px;
-      border-radius: 0;
+    .shimmer::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent);
+      pointer-events: none;
+      border-radius: inherit;
     }
-
-    .section-with-image .text {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 0;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .social-icons a {
-      color: var(--gold-color);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer, .footer {
-      background-color: var(--secondary-color);
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .header-left, .header-right {
-        flex: none;
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-      }
-
-      .header-left {
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .header-left img {
-        margin-bottom: 10px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px;
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 0.9em;
-        padding: 6px 10px;
-      }
-
-      main {
-        padding: 20px 15px;
-      }
-
-      .panel {
-        padding: 20px 18px;
-      }
-
-      .panel::before {
-        left: 0;
-  }
-/* --- Adjusted background gradient untuk tone lebih ke navy/royal blue --- */
-body {
-  background: linear-gradient(to bottom right, #0b1430, #1c2254, #302867);
-}
-
-/* --- Panel background gradient lebih navy daripada ungu --- */
-.panel {
-  background: linear-gradient(145deg, #0e1a40, #2a1f5e, #402b74);
-  box-shadow: 0 0 22px rgba(185, 152, 60, 0.12), 
-              0 0 30px rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-/* --- Shimmer glow effect --- */
-.panel::after {
-  content: "";
-  position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-  animation: shimmer 6s linear infinite;
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(8px);
-}
-
-/* --- Text dan isi tetap di atas shimmer --- */
-.panel > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* --- Animasi shimmer --- */
-@keyframes shimmer {
-  0% {
-    transform: rotate(0deg) translate(0, 0);
-  }
-  100% {
-    transform: rotate(360deg) translate(0, 0);
-  }
-}
-
-/* --- Optional: Menambah aksen shimmer juga di nav jika ingin mewah --- */
-nav {
-  position: sticky;
-  top: 0;
-  background: linear-gradient(to right, #0e1a40, #1b2560);
-  box-shadow: 0 2px 10px rgba(255,255,255,0.03);
-}
+  </style>
+</head>
+<body>
 
       
   </style>
