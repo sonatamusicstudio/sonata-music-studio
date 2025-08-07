@@ -209,6 +209,31 @@
       .header-left img {
         margin-bottom: 10px;
       }
+
+      @media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 0.9em;
+    padding: 6px 10px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  .panel {
+    padding: 20px 18px;
+  }
+
+  .panel::before {
+    left: 0;
+  }
       
   </style>
 </head>
