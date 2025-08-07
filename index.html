@@ -9,8 +9,8 @@
     :root {
       --primary-color: #ffffff;
       --secondary-color: #0e1a40;
-      --accent-color: #4c2c84; /* royal purple but mixed navy */
-      --gold-color: #b8983c; /* richer gold */
+      --accent-color: #4c2c84;
+      --gold-color: #b8983c;
     }
 
     body {
@@ -30,13 +30,19 @@
       position: relative;
     }
 
-    .header-glow {
-  height: 8px;
-  background: radial-gradient(ellipse at center, rgba(186,160,70,0.5) 0%, rgba(186,160,70,0.2) 40%, transparent 80%);
-  filter: blur(6px);
-  margin-top: -6px;
-  z-index: 900;
-}
+    /* Glow shimmer natural between header and nav */
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 16px;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(185,152,60,0.4) 0%, rgba(185,152,60,0.15) 40%, transparent 80%);
+      filter: blur(4px);
+      z-index: 999;
+    }
 
     .header-left {
       display: flex;
@@ -81,6 +87,9 @@
       gap: 25px;
       padding: 12px 0;
       border-bottom: 2px solid var(--accent-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav a {
@@ -99,28 +108,24 @@
     }
 
     .panel {
+      position: relative;
       margin-bottom: 40px;
       background: linear-gradient(145deg, #1a2450, #4c2c84);
-      padding: 20px;
+      padding: 20px 25px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
     }
 
-    .panel {
-  position: relative;
-  padding-left: 25px; /* ruang buat garis tanpa sentuh isi panel */
-}
-
-.panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background-color: var(--gold-color); /* pakai warna emas studio kamu */
-  border-radius: 3px; /* bikin sedikit halus di ujung */
-}
+    .panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background-color: var(--gold-color);
+      border-radius: 3px;
+    }
 
     h2 {
       color: var(--gold-color);
@@ -204,20 +209,7 @@
       .header-left img {
         margin-bottom: 10px;
       }
-      /* Efek glow elegan di bawah header */
-header::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
-  height: 16px;
-  pointer-events: none;
-  box-shadow: 0 8px 20px 4px rgba(185, 152, 60, 0.4); /* pakai warna emas glow */
-  z-index: 999;
-}
-
-    }
+      
   </style>
 </head>
 <body>
