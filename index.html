@@ -97,6 +97,22 @@
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
     }
 
+    .panel {
+  position: relative;
+  padding-left: 25px; /* ruang buat garis tanpa sentuh isi panel */
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--gold-color); /* pakai warna emas studio kamu */
+  border-radius: 3px; /* bikin sedikit halus di ujung */
+}
+
     h2 {
       color: var(--gold-color);
       border-bottom: 1px solid var(--accent-color);
