@@ -203,6 +203,19 @@
       .header-left img {
         margin-bottom: 10px;
       }
+      /* Efek glow elegan di bawah header */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  pointer-events: none;
+  box-shadow: 0 8px 20px 4px rgba(185, 152, 60, 0.4); /* pakai warna emas glow */
+  z-index: 999;
+}
+
     }
   </style>
 </head>
