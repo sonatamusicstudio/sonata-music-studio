@@ -2,31 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sonata Music Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #1f1b3a;
-      --secondary-color: #2d274d;
-      --accent-color: #b9983c;
-      --light-gold: rgba(255, 215, 0, 0.4);
-      --panel-border: #b9983c;
-      --gradient-start: #1a1f3f;
-      --gradient-end: #3a2c60;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      --primary-color: #ffffff;
+      --secondary-color: #0e1a40;
+      --accent-color: #4c2c84; /* royal purple but mixed navy */
+      --gold-color: #b8983c; /* richer gold */
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--primary-color);
-      color: #f1f1f1;
-      line-height: 1.6;
+      background: linear-gradient(to bottom right, #0e1a40, #4c2c84);
+      color: var(--primary-color);
+      margin: 0;
+      padding: 0;
     }
 
     header {
@@ -38,119 +30,198 @@
       position: relative;
     }
 
-    .header-left, .header-right {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 0 40px;
-    }
+    .header-glow {
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(186,160,70,0.5) 0%, rgba(186,160,70,0.2) 40%, transparent 80%);
+  filter: blur(6px);
+  margin-top: -6px;
+  z-index: 900;
+}
 
     .header-left {
-      justify-content: flex-start;
-    }
-
-    .header-right {
-      justify-content: center;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      flex: 2;
+      background: linear-gradient(to right, var(--secondary-color), var(--gold-color));
     }
 
     .header-left img {
-      height: 60px;
+      height: 70px;
       margin-right: 15px;
     }
 
-    .header-left h1 {
+    .text-block h1 {
+      margin: 0;
       font-size: 1.8em;
-      color: var(--accent-color);
     }
 
-    .header-right h2 {
-      font-size: 1.4em;
-      color: #f1f1f1;
+    .text-block p {
+      margin: 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    .header-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-    }
-
-    .header-glow-bar {
-      height: 6px;
-      background: radial-gradient(ellipse at center, var(--light-gold) 0%, rgba(255, 215, 0, 0.1) 60%, transparent 100%);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      filter: blur(0.8px);
-      margin: 0 auto;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--secondary-color);
+      background-color: var(--gold-color);
     }
 
     nav {
+      background-color: #0e1a40;
       display: flex;
       justify-content: center;
-      background-color: var(--gradient-end);
-      padding: 15px;
-      gap: 20px;
+      gap: 25px;
+      padding: 12px 0;
+      border-bottom: 2px solid var(--accent-color);
     }
 
     nav a {
-      color: #f1f1f1;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold-color);
+    }
+
+    main {
+      padding: 30px 60px;
     }
 
     .panel {
-      background: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-end));
-      margin: 40px auto;
-      padding: 30px;
-      max-width: 900px;
-      border-left: 5px solid var(--panel-border);
-      box-shadow: 0 0 20px rgba(185, 152, 60, 0.2);
+      margin-bottom: 40px;
+      background: linear-gradient(145deg, #1a2450, #4c2c84);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
     }
 
-    .panel h3 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
+    .panel {
+  position: relative;
+  padding-left: 25px; /* ruang buat garis tanpa sentuh isi panel */
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--gold-color); /* pakai warna emas studio kamu */
+  border-radius: 3px; /* bikin sedikit halus di ujung */
+}
+
+    h2 {
+      color: var(--gold-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
     }
 
-    .panel img {
-      width: 100%;
-      margin-top: 15px;
-      border-radius: 8px;
+    .section-with-image {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-with-image img {
+      max-width: 300px;
+      border-radius: 12px;
+    }
+
+    .section-with-image .text {
+      flex: 1;
+      min-width: 240px;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
-      margin-top: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: var(--gold-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer, .footer {
       background-color: var(--secondary-color);
-      color: #aaa;
+      text-align: center;
+      padding: 15px;
       font-size: 0.9em;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
-      .header-left, .header-right {
-        padding: 10px;
-        flex: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
       header {
         flex-direction: column;
         height: auto;
-        padding: 10px 0;
       }
+
+      .header-left, .header-right {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header-left {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header-left img {
+        margin-bottom: 10px;
+      }
+      /* Efek glow elegan di bawah header */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  pointer-events: none;
+  box-shadow: 0 8px 20px 4px rgba(185, 152, 60, 0.4); /* pakai warna emas glow */
+  z-index: 999;
+}
+
     }
   </style>
 </head>
 <body>
 
-  
   <header>
     <div class="header-left">
       <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
