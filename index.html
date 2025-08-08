@@ -465,7 +465,37 @@ footer {
   color: var(--text-color) !important;
 }
 
-      
+ :root {
+  --navy-dark: #081122;
+  --navy-mid: #1e2a44;
+  --royal-purple: #3a2a57;
+  --gold-color: #d4af37;
+}
+
+/* Background utama */
+body {
+  background-color: var(--navy-dark) !important;
+  color: var(--gold-color) !important;
+}
+
+/* Header gradien */
+header {
+  background: linear-gradient(
+    to right,
+    var(--navy-dark) 0%,
+    var(--navy-mid) 35%,
+    var(--royal-purple) 50%,
+    var(--gold-color) 62%,
+    var(--royal-purple) 75%,
+    var(--navy-dark) 100%
+  ) !important;
+}
+
+/* Hover underline pada menu navigasi */
+nav a {
+  color: var(--gold-color) !important;
+}
+     
       
     }
   </style>
