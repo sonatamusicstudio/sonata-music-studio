@@ -53,27 +53,13 @@
   flex: 2;
   background: linear-gradient(
     to right,
-    #101b3c 0%,
-    #18275a 40%,  /* biru navy agak terang */
-    #2a1f5e 70%,  /* ungu navy transisi */
-    var(--gold-color) 100%
+    #0d1838 0%,   /* navy pekat */
+    #101b3c 25%,  /* navy deep */
+    #162a5c 55%,  /* navy sedang */
+    #1e3978 85%,  /* navy terang */
+    var(--gold-color) 100% /* emas */
   );
-  background-size: 200% 200%;
-  animation: headerGradient 12s ease-in-out infinite;
 }
-
-@keyframes headerGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 
     .header-left img {
       height: 70px;
