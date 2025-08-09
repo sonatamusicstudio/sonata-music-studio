@@ -33,23 +33,6 @@
       position: relative;
     }
 
-   header {
-  display: flex;
-  height: 100px;
-  background: linear-gradient(
-    to right,
-    var(--secondary-color) 0%,
-    var(--secondary-color) 10%,
-    var(--gold-color) 90%,
-    var(--gold-color) 100%
-  );
-  box-shadow: 0 0 18px var(--accent-color);
-  z-index: 1000;
-  position: relative;
-
-}
-
-
     header::after {
       content: "";
       position: absolute;
@@ -63,22 +46,13 @@
       z-index: 999;
     }
 
-   .header-left {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  flex: 2;
-  background: linear-gradient(
-  to right,
-  var(--secondary-color) 0%,
-  var(--secondary-color) 5%,
-  #2a2f5f 40%,
-  #7a6a35 60%,
-  var(--gold-color) 95%,
-  var(--gold-color) 100%
-);
-}
-
+    .header-left {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      flex: 2;
+      background: linear-gradient(to right, var(--secondary-color), var(--gold-color));
+    }
 
     .header-left img {
       height: 70px;
@@ -105,7 +79,8 @@
       text-align: center;
       font-size: 1em;
       font-weight: 600;
-      background-color: none; /* <-- ini bikin transparan */
+      color: var(--secondary-color);
+      background-color: var(--gold-color);
     }
 
     nav {
