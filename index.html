@@ -11,14 +11,14 @@
  <style>
     :root {
       --primary-color: #ffffff;
-      --secondary-color: #0b1740;
-      --accent-color: #150A4D;
+      --secondary-color: #0e1a40;
+      --accent-color: #4c2c84;
       --gold-color: #b8983c;
     }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(145deg, #0b1740, #262060, #32246b, #1e1555, #150A4D);
+      background: linear-gradient(145deg, #0b1430, #1c2254, #3a256f);
       color: var(--primary-color);
       margin: 0;
       padding: 0;
@@ -114,7 +114,7 @@
     .panel {
       position: relative;
       margin-bottom: 40px;
-      background: linear-gradient(145deg, #0b1740, #32246b, #150A4D);
+      background: linear-gradient(145deg, #101b3c, #2a1f5e, #3c2670);
       padding: 20px 25px;
       border-radius: 0;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.08),
@@ -123,31 +123,45 @@
     }
     
 
-    /* Efek shimmer panel */
-.panel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(38,32,96,0.05) 0%,   /* biru keunguan lembut */
-    rgba(21,10,77,0.04) 40%, /* ungu midnight transparan */
-    transparent 80%
-  );
-  animation: shimmer 10s infinite linear;
-  pointer-events: none;
-  z-index: 1;
+    .panel::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      animation: shimmer 6s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(8px);
+    }
+
+    .panel > * {
+      position: relative;
+      z-index: 1;
+    }
+   .panel {
+  border-left: 6px solid;
+  border-image: linear-gradient(
+    to bottom,
+    #0a0f2c 0%,
+    #5e4b85 20%,
+    #d4af37 50%,
+    #722f37 80%,
+    #0a0f2c 100%
+  ) 1;
 }
 
-@keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
+    @keyframes shimmer {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
     h2 {
       color: var(--gold-color);
