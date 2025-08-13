@@ -1,129 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonata Music Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia." />
+  <meta name="author" content="Felix Satia" />
+  <title>Sonata Music Studio | Felix Satia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+ <style>
+    :root {
+      --primary-color: #ffffff;
+      --secondary-color: #0e1a40;
+      --accent-color: #4c2c84;
+      --gold-color: #b8983c;
     }
 
-    /* Hero Juilliard Style */
-    .hero {
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(145deg, #0b1430, #1c2254, #3a256f);
+      color: var(--primary-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      height: 100px;
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 18px var(--accent-color);
+      z-index: 1000;
       position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
       width: 100%;
-      height: 80vh;
-      background: url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg') center center/cover no-repeat;
+      height: 16px;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(185,152,60,0.4) 0%, rgba(185,152,60,0.15) 40%, transparent 80%);
+      filter: blur(4px);
+      z-index: 999;
+    }
+
+    .header-left {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      padding: 0 20px;
+      flex: 2;
+      background: linear-gradient(to right, var(--secondary-color), var(--gold-color));
     }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background: rgba(46, 25, 71, 0.85); /* ungu transparan */
+    .header-left img {
+      height: 70px;
+      margin-right: 15px;
+      border-radius: 0;
+    }
+
+    .text-block h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .text-block p {
+      margin: 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    .header-right {
+      flex: 1;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      padding: 50px;
-      color: white;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--secondary-color);
+      background-color: var(--gold-color);
     }
 
-    .overlay h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 20px;
+    nav {
+      background: linear-gradient(to right, #0e1a40, #1c254e);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px 0;
+      border-bottom: 2px solid var(--accent-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.03);
     }
 
-    .overlay p {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      max-width: 400px;
-      margin-bottom: 30px;
+    nav a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
 
-    .overlay a {
-      background: #d4af37;
-      color: #000;
-      padding: 12px 24px;
+    nav a:hover {
+      color: var(--gold-color);
+    }
+
+    main {
+      padding: 30px 60px;
+    }
+
+    .panel {
+      position: relative;
+      margin-bottom: 40px;
+      background: linear-gradient(145deg, #101b3c, #2a1f5e, #3c2670);
+      padding: 20px 25px;
+      border-radius: 0;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.08),
+                  0 0 20px rgba(185,152,60,0.08);
+      overflow: hidden;
+    }
+    
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      animation: shimmer 6s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(8px);
+    }
+
+    .panel > * {
+      position: relative;
+      z-index: 1;
+    }
+   .panel {
+  border-left: 6px solid;
+  border-image: linear-gradient(
+    to bottom,
+    #0a0f2c 0%,
+    #5e4b85 20%,
+    #d4af37 50%,
+    #722f37 80%,
+    #0a0f2c 100%
+  ) 1;
+}
+
+
+    @keyframes shimmer {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    h2 {
+      color: var(--gold-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .section-with-image {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-with-image img {
+      max-width: 300px;
+      border-radius: 0;
+    }
+
+    .section-with-image .text {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 0;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: var(--gold-color);
       text-decoration: none;
       font-weight: 600;
-      border-radius: 4px;
-      display: inline-block;
     }
 
-    .overlay a:hover {
-      background: #e0c04f;
+    footer, .footer {
+      background-color: var(--secondary-color);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
-      .overlay {
-        width: 100%;
+      header {
+        flex-direction: column;
         height: auto;
-        padding: 30px;
+      }
+
+      .header-left, .header-right {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header-left {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header-left img {
+        margin-bottom: 10px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 0.9em;
+        padding: 6px 10px;
+      }
+
+      main {
+        padding: 20px 15px;
+      }
+
+      .panel {
+        padding: 20px 18px;
+      }
+
+      .panel::before {
+        left: 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="overlay">
-      <h1>Invest in Your Artistry.</h1>
-      <p>At Sonata Music Studio, we combine sacred precision with modern artistry — helping you grow as a pianist, musician, and performer with depth and elegance.</p>
-      <a href="#programs">Explore Programs</a>
-    </div>
-  </section>
-
-</body>
-</html>
-
-
-  <section id="programs" class="panel">
-    <h2>Programs</h2>
-    <div class="section-with-image">
-      <img src="1728277959315.jpeg" alt="Teaching" />
-      <div class="text">
-        <ul>
-          <li>Piano – Classical Repertoire & Technique</li>
-          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-        </ul>
+  <header>
+    <div class="header-left">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+      <div class="text-block">
+        <h1>Sonata Music Studio</h1>
+        <p>Instruction | Composition | Educational Materials</p>
       </div>
     </div>
-  </section>
-
-  <section id="philosophy" class="panel">
-    <h2>Philosophy</h2>
-    <div class="section-with-image">
-      <img src="1728277097784.jpeg" alt="Concert" />
-      <div class="text">
-        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
-      </div>
+    <div class="header-right">
+      Sacred Precision, Artistic Refinement
     </div>
-  </section>
+  </header>
 
-  <section id="portfolio" class="panel">
-    <h2>Portfolio</h2>
-    <div class="section-with-image">
-      <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
-      <div class="text">
-        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <div class="section-with-image">
+        <img src="1728278677799.jpeg" alt="Felix Satia" />
+        <div class="text">
+          <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery" class="panel">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <!-- Paste your 30+ images here -->
+    <section id="programs" class="panel">
+      <h2>Programs</h2>
+      <div class="section-with-image">
+        <img src="1728277959315.jpeg" alt="Teaching" />
+        <div class="text">
+          <ul>
+            <li>Piano – Classical Repertoire & Technique</li>
+            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy" class="panel">
+      <h2>Philosophy</h2>
+      <div class="section-with-image">
+        <img src="1728277097784.jpeg" alt="Concert" />
+        <div class="text">
+          <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="panel">
+      <h2>Portfolio</h2>
+      <div class="section-with-image">
+        <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
+        <div class="text">
+          <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="panel">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <!-- Paste your 30+ images here as needed -->
       <img src="1728277097784.jpeg" />
       <img src="1728277959315.jpeg" />
       <img src="1728277994217.jpeg" />
@@ -155,22 +375,22 @@
       <img src="1728450200661.jpeg" />
       <img src="1728450222173.jpeg" />
       <img src="1728450251141.jpeg" />
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section id="contact" class="panel">
-    <h2>Contact</h2>
-    <div class="social-icons">
-      <a href="https://wa.me/6289656684852">WhatsApp</a>
-      <a href="https://www.youtube.com/@felixsatia">YouTube</a>
-      <a href="https://www.instagram.com/felixsatia">Instagram</a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
-    </div>
-  </section>
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <div class="social-icons">
+        <a href="https://wa.me/6289656684852">WhatsApp</a>
+        <a href="https://www.youtube.com/@felixsatia">YouTube</a>
+        <a href="https://www.instagram.com/felixsatia">Instagram</a>
+        <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
   </footer>
-
 </body>
 </html>
