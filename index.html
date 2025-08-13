@@ -44,7 +44,7 @@ nav a:hover {
   color: var(--gold);
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -62,7 +62,7 @@ nav a:hover {
 .hero-text h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   color: var(--gold);
 }
 .hero-text p {
@@ -150,6 +150,7 @@ footer {
   transform: none;
 }
 
+/* Responsive */
 @media(max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -165,6 +166,7 @@ footer {
 </style>
 </head>
 <body>
+
 <header>
   <nav>
     <a href="#about">About</a>
@@ -195,43 +197,47 @@ footer {
     </div>
   </section>
 
-  <section id="programs" class="panel fade-in">
-    <h2>Programs</h2>
-    <div class="section-with-image">
-      <img src="1728277959315.jpeg" alt="Teaching" />
-      <div class="text">
-        <ul>
-          <li>Piano – Classical Repertoire & Technique</li>
-          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <!-- Tambah section Programs, Philosophy, Portfolio, Gallery, Contact sama seperti HTML kamu -->
+  
 
-  <section id="philosophy" class="panel fade-in">
-    <h2>Philosophy</h2>
-    <div class="section-with-image">
-      <img src="1728277097784.jpeg" alt="Concert" />
-      <div class="text">
-        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+    <section id="programs" class="panel">
+      <h2>Programs</h2>
+      <div class="section-with-image">
+        <img src="1728277959315.jpeg" alt="Teaching" />
+        <div class="text">
+          <ul>
+            <li>Piano – Classical Repertoire & Technique</li>
+            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="portfolio" class="panel fade-in">
-    <h2>Portfolio</h2>
-    <div class="section-with-image">
-      <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
-      <div class="text">
-        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+    <section id="philosophy" class="panel">
+      <h2>Philosophy</h2>
+      <div class="section-with-image">
+        <img src="1728277097784.jpeg" alt="Concert" />
+        <div class="text">
+          <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery" class="panel fade-in">
-    <h2>Gallery</h2>
-    <div class="gallery">
+    <section id="portfolio" class="panel">
+      <h2>Portfolio</h2>
+      <div class="section-with-image">
+        <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
+        <div class="text">
+          <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="panel">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <!-- Paste your 30+ images here as needed -->
       <img src="1728277097784.jpeg" />
       <img src="1728277959315.jpeg" />
       <img src="1728277994217.jpeg" />
@@ -263,18 +269,8 @@ footer {
       <img src="1728450200661.jpeg" />
       <img src="1728450222173.jpeg" />
       <img src="1728450251141.jpeg" />
-    </div>
-  </section>
-
-  <section id="contact" class="panel fade-in">
-    <h2>Contact</h2>
-    <div class="social-icons">
-      <a href="https://wa.me/6289656684852">WhatsApp</a>
-      <a href="https://www.youtube.com/@felixsatia">YouTube</a>
-      <a href="https://www.instagram.com/felixsatia">Instagram</a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
-    </div>
-  </section>
+      </div>
+    </section>
 </main>
 
 <footer>
