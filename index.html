@@ -3,126 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonata Music Studio | Felix Satia</title>
+  <title>Sonata Music Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #0e1a40;
-      --accent: #4c2c84;
-      --gold: #b8983c;
-      --light: #ffffff;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: var(--primary);
-      color: var(--light);
+      font-family: 'Inter', sans-serif;
     }
 
-    nav {
-      background-color: var(--primary);
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav a {
-      color: var(--light);
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    /* Hero Section */
+    /* Hero Juilliard Style */
     .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      background: url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg') center center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
-      min-height: 90vh;
+      align-items: center;
+      justify-content: flex-start;
     }
 
-    .hero-text {
-      flex: 1;
-      background-color: var(--accent);
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: rgba(46, 25, 71, 0.85); /* ungu transparan */
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 50px;
-      color: var(--light);
+      color: white;
     }
 
-    .hero-text h1 {
+    .overlay h1 {
       font-size: 3rem;
       font-weight: 800;
-      margin: 0 0 20px;
+      margin-bottom: 20px;
     }
 
-    .hero-text p {
+    .overlay p {
       font-size: 1.2rem;
-      max-width: 500px;
-      margin-bottom: 30px;
       line-height: 1.5;
+      max-width: 400px;
+      margin-bottom: 30px;
     }
 
-    .hero-text a {
-      background: var(--gold);
-      color: var(--primary);
+    .overlay a {
+      background: #d4af37;
+      color: #000;
       padding: 12px 24px;
       text-decoration: none;
       font-weight: 600;
       border-radius: 4px;
-      transition: background 0.3s;
+      display: inline-block;
     }
 
-    .hero-text a:hover {
-      background: #d4b23f;
-    }
-
-    .hero-image {
-      flex: 1;
-      min-height: 400px;
-      display: flex;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top; /* fokus ke bagian atas (wajah) */
+    .overlay a:hover {
+      background: #e0c04f;
     }
 
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-      }
-      .hero-text {
+      .overlay {
+        width: 100%;
+        height: auto;
         padding: 30px;
-      }
-      .hero-image {
-        height: 300px;
       }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <section class="hero">
-    <div class="hero-text">
+    <div class="overlay">
       <h1>Invest in Your Artistry.</h1>
       <p>At Sonata Music Studio, we combine sacred precision with modern artistry — helping you grow as a pianist, musician, and performer with depth and elegance.</p>
       <a href="#programs">Explore Programs</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg" alt="Felix Satia">
     </div>
   </section>
 
