@@ -6,7 +6,6 @@
 <title>Sonata Music Studio — Felix Satia</title>
 <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia." />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --bg-deep: #0b1430;
@@ -17,12 +16,13 @@
   --muted: #9da7c6;
   --white: #ffffff;
   --glass: rgba(255,255,255,0.04);
+  --panel-shadow: 0 20px 50px rgba(6,8,22,0.65);
   --radius-xl: 20px;
   --maxw: 1240px;
   --ease: cubic-bezier(.16,.82,.24,1);
 }
 
-/* Reset & base */
+/* Reset & Base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -116,46 +116,41 @@ nav a:hover{ color:var(--gold); transform:translateY(-3px) }
 .btn-ghost{border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
 .btn:hover{transform:translateY(-3px)}
 
-/* Main Content: natural boxes */
-section.box{
-  margin:40px 0;
-  padding:32px 28px;
-  border-radius:var(--radius-xl);
-  background:rgba(18,25,54,0.7);
-  box-shadow:0 18px 46px rgba(8,10,28,0.5);
-  backdrop-filter:blur(6px);
-  color:var(--white);
-  transition: transform .4s var(--ease), opacity .4s var(--ease);
-  opacity:0; transform:translateY(20px);
+/* Main Sections */
+main{padding:38px 0 80px}
+section.panel{
+  margin:36px 0;
+  padding:24px;border-radius:14px;
+  background:linear-gradient(145deg,#101b3c,#24305a,#3c2670);
+  box-shadow:0 18px 46px rgba(8,10,28,.66);
+  border-left:6px solid; 
+  border-image: linear-gradient(to bottom,#0a0f2c 0%,#5e4b85 20%,#d4af37 50%,#722f37 80%,#0a0f2c 100%) 1;
+  position:relative; overflow:hidden;
+  opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease), transform .6s var(--ease);
 }
-section.box.visible{opacity:1; transform:none;}
-h2.box-title{font-family:"Cinzel",serif;color:var(--gold);margin-bottom:18px;font-size:1.8rem; text-shadow:0 6px 20px rgba(184,152,60,0.08)}
+section.panel.visible{opacity:1;transform:none}
+section.panel::after{
+  content:"";position:absolute;top:-20%;left:-20%;width:140%;height:140%;
+  background:radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  filter:blur(8px);
+  animation: shimmer 9s linear infinite; pointer-events:none;
+}
+@keyframes shimmer{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+h2.section-title{font-family:"Cinzel",serif;color:var(--gold);margin:0 0 14px;font-size:1.6rem;text-shadow:0 6px 20px rgba(184,152,60,0.08)}
 
-/* Gallery natural grid */
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap:16px;
-  margin-top:20px;
-}
-.gallery img{
-  width:100%;
-  display:block;
-  border-radius:12px;
-  object-fit:cover;
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
-}
-.gallery img:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 32px rgba(0,0,0,0.5);
-}
+/* Gallery Natural */
+.gallery{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px;}
+.gallery img{width:100%; height:auto; border-radius:8px; object-fit:cover; box-shadow:0 12px 32px rgba(0,0,0,0.45); transition: transform .3s ease, box-shadow .3s ease;}
+.gallery img:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(0,0,0,0.55);}
 
 /* Footer */
-footer{margin-top:46px;padding:22px 0;text-align:center;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18));color:var(--muted)}
+footer{margin-top:46px;padding:32px 24px;text-align:center;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18));color:var(--muted)}
 
 /* Responsive */
-@media(max-width:720px){
-  header{flex-direction:column;height:auto;padding:18px;gap:12px}
+@media (max-width:720px){
+  header{height:auto;padding:18px;flex-direction:column;gap:12px}
+  .hero{padding:60px 18px}
+  .gallery{grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px;}
 }
 </style>
 </head>
@@ -195,69 +190,63 @@ footer{margin-top:46px;padding:22px 0;text-align:center;background:linear-gradie
   </div>
 </div>
 
-<main class="container">
-  <!-- About Box -->
-  <section class="box" id="about">
-    <h2 class="box-title">About Felix Satia</h2>
-    <p>Felix Satia is a professional piano and music theory instructor with years of experience guiding students toward mastery of their musical potential. His approach combines precision, artistic insight, and a touch of sacred grandeur, creating an environment where musicianship thrives.</p>
+<main>
+  <section class="panel" id="about">
+    <h2 class="section-title">About Felix Satia</h2>
+    <p>Felix Satia is a professional piano and music theory instructor with years of experience in guiding students toward musical mastery. His approach emphasizes individual expression, precision, and integrating classical rigor with modern sensibilities. In each session, students explore harmony, rhythm, and phrasing in a way that nurtures creativity while solidifying technical skill. Beyond lessons, Felix inspires students to understand music as a living, breathing art form — a bridge between intellect, emotion, and spirituality. The studio space mirrors this philosophy: minimalistic elegance, subtle lighting, natural office vibe, and a serene ambiance conducive to deep focus and artistic reflection.</p>
   </section>
 
-  <!-- Programs Box -->
-  <section class="box" id="programs">
-    <h2 class="box-title">Programs</h2>
-    <p>Private piano lessons, music theory workshops, and ensemble coaching designed to elevate your musicianship to a refined, professional level. Each program is tailored to the student’s individual journey and artistic goals.</p>
+  <section class="panel" id="programs">
+    <h2 class="section-title">Programs</h2>
+    <p>Private piano instruction, music theory workshops, ensemble coaching, and composition guidance. Each program is carefully structured, allowing flexible scheduling and personalized goal setting. Students are encouraged to explore diverse repertoire, from classical masterpieces to contemporary compositions, with guidance that balances technical challenge and expressive freedom. Detailed progress tracking and regular performance opportunities ensure continuous growth and tangible achievements.</p>
   </section>
 
-  <!-- Philosophy Box -->
-  <section class="box" id="philosophy">
-    <h2 class="box-title">Philosophy</h2>
-    <p>Emphasis on deep understanding, technical precision, and expressive artistry in every aspect of learning music. Felix believes that true musicality emerges from disciplined practice combined with inspired insight.</p>
+  <section class="panel" id="philosophy">
+    <h2 class="section-title">Philosophy</h2>
+    <p>Felix’s teaching philosophy is grounded in understanding music at its core: the interplay of structure and emotion, precision and soul. Lessons integrate cognitive engagement, physical technique, and artistic intuition. Emphasis is placed on reading, memorization, interpretation, and improvisation — cultivating musicians capable of both disciplined performance and inspired creativity. Students are inspired to see music as a reflection of life itself: layered, dynamic, and profound.</p>
   </section>
 
-  <!-- Portfolio Box -->
-  <section class="box" id="portfolio">
-    <h2 class="box-title">Portfolio</h2>
-    <p>Showcasing past performances, student highlights, and compositions. Each project represents a blend of skill, vision, and meticulous craftsmanship in the realm of piano and music theory.</p>
+  <section class="panel" id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <p>Featuring past student recitals, original compositions, collaborative projects, and curated performances. Each portfolio entry showcases artistic development, interpretative skill, and technical accomplishment. Stories behind the music are shared to highlight creative decisions, challenges overcome, and insights gained. The portfolio demonstrates a journey from novice to accomplished musician under structured guidance and mentorship.</p>
   </section>
 
-  <!-- Gallery Box -->
-  <section class="box" id="gallery">
-    <h2 class="box-title">Gallery</h2>
+  <section class="panel" id="gallery">
+    <h2 class="section-title">Gallery</h2>
     <div class="gallery">
-      <img src="1728277097784.jpeg" />
-      <img src="1728277959315.jpeg" />
-      <img src="1728277994217.jpeg" />
-      <img src="1728278062357.jpeg" />
-      <img src="1728278413639.jpeg" />
-      <img src="1728278498612.jpeg" />
-      <img src="1728278535664.jpeg" />
-      <img src="1728278743638.jpeg" />
-      <img src="1728278972071.jpeg" />
-      <img src="1728279819431.jpeg" />
-      <img src="1728294846403.jpeg" />
-      <img src="1728294894368.jpeg" />
-      <img src="1728295139439.jpeg" />
-      <img src="1728295173689.jpeg" />
-      <img src="1728295202953.jpeg" />
-      <img src="1728295402904.jpeg" />
-      <img src="1728295429712.jpeg" />
-      <img src="1728296617350.jpeg" />
-      <img src="1728300782229.jpeg" />
-      <img src="1728301815288.jpeg" />
-      <img src="1728302182364.jpeg" />
-      <img src="1728302212548.jpeg" />
-      <img src="1728303826998.jpeg" />
-      <img src="1728311786057.jpeg" />
-      <img src="1728349078427.jpeg" />
-      <img src="1728368821890.jpeg" />
-      <img src="1728368987536.jpeg" />
-      <img src="1728450148208.jpeg" />
-      <img src="1728450200661.jpeg" />
-      <img src="1728450222173.jpeg" />
-      <img src="1728450251141.jpeg" />
+      <img src="1728277097784.jpeg" alt="Gallery 1">
+      <img src="1728277959315.jpeg" alt="Gallery 2">
+      <img src="1728277994217.jpeg" alt="Gallery 3">
+      <img src="1728278062357.jpeg" alt="Gallery 4">
+      <img src="1728278413639.jpeg" alt="Gallery 5">
+      <img src="1728278498612.jpeg" alt="Gallery 6">
+      <img src="1728278535664.jpeg" alt="Gallery 7">
+      <img src="1728278743638.jpeg" alt="Gallery 8">
+      <img src="1728278972071.jpeg" alt="Gallery 9">
+      <img src="1728279819431.jpeg" alt="Gallery 10">
+      <img src="1728294846403.jpeg" alt="Gallery 11">
+      <img src="1728294894368.jpeg" alt="Gallery 12">
+      <img src="1728295139439.jpeg" alt="Gallery 13">
+      <img src="1728295173689.jpeg" alt="Gallery 14">
+      <img src="1728295202953.jpeg" alt="Gallery 15">
+      <img src="1728295402904.jpeg" alt="Gallery 16">
+      <img src="1728295429712.jpeg" alt="Gallery 17">
+      <img src="1728296617350.jpeg" alt="Gallery 18">
+      <img src="1728300782229.jpeg" alt="Gallery 19">
+      <img src="1728301815288.jpeg" alt="Gallery 20">
+      <img src="1728302182364.jpeg" alt="Gallery 21">
+      <img src="1728302212548.jpeg" alt="Gallery 22">
+      <img src="1728303826998.jpeg" alt="Gallery 23">
+      <img src="1728311786057.jpeg" alt="Gallery 24">
+      <img src="1728349078427.jpeg" alt="Gallery 25">
+      <img src="1728368821890.jpeg" alt="Gallery 26">
+      <img src="1728368987536.jpeg" alt="Gallery 27">
+      <img src="1728450148208.jpeg" alt="Gallery 28">
+      <img src="1728450200661.jpeg" alt="Gallery 29">
+      <img src="1728450222173.jpeg" alt="Gallery 30">
+      <img src="1728450251141.jpeg" alt="Gallery 31">
     </div>
   </section>
-
 </main>
 
 <footer>
@@ -265,7 +254,7 @@ footer{margin-top:46px;padding:22px 0;text-align:center;background:linear-gradie
 </footer>
 
 <script>
-const boxes = document.querySelectorAll('section.box');
+const panels = document.querySelectorAll('section.panel');
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -273,8 +262,7 @@ const observer = new IntersectionObserver(entries=>{
     }
   });
 },{threshold:0.2});
-boxes.forEach(box=>observer.observe(box));
+panels.forEach(panel=>observer.observe(panel));
 </script>
-
 </body>
 </html>
