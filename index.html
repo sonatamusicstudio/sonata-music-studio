@@ -601,7 +601,12 @@ footer p {
 }
 </style>
 
-
+    <style>
+:root {
+    --gold-color: #B9983C;
+    --accent-color: #484B78;
+    --secondary-color: #1b1b1b;
+}
 /* Hero Section: floating particles */
 .hero-panel::before, .hero-panel::after {
     content: "";
@@ -636,28 +641,22 @@ footer p {
     100% { transform: translateY(0) translateX(0); opacity:0.2; }
 }
 
- <div class="hero-particles">
-  <span style="top:80%; left:10%; animation-duration: 25s;"></span>
-  <span style="top:60%; left:40%; animation-duration: 18s;"></span>
-  <span style="top:20%; left:70%; animation-duration: 22s;"></span>
-  <span style="top:50%; left:85%; animation-duration: 20s;"></span>
-  <span style="top:10%; left:30%; animation-duration: 24s;"></span>
-</div>
-
- .gallery img {
+/* Gallery & portfolio */
+.gallery img, .portfolio-photo {
     width: 100%;
-    border-radius: 0;
     object-fit: contain;
-    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(185,152,60,0.2);
 }
 
-.gallery img:hover {
-    transform: scale(1.03);
+.gallery img:hover, .portfolio-photo:hover {
+    transform: scale(1.04) translateY(-2px);
     filter: brightness(1.08);
-    box-shadow: 0 10px 25px rgba(185,152,60,0.3);
+    box-shadow: 0 12px 28px rgba(185,152,60,0.35);
 }
 
-  .panel {
+.panel {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -668,36 +667,7 @@ footer p {
     transform: translateY(0);
 }
 
- <script>
-const panels = document.querySelectorAll('.panel');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.2 });
-
-panels.forEach(panel => observer.observe(panel));
-</script>
-
- .portfolio-photo {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 0;
-    transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 5px 15px rgba(185,152,60,0.2);
-}
-
-.portfolio-photo:hover {
-    transform: scale(1.04) translateY(-4px);
-    filter: brightness(1.07);
-    box-shadow: 0 12px 28px rgba(185,152,60,0.35);
-}
-
- <div class="portfolio-overlay"></div>
-
- .portfolio-overlay {
+.portfolio-overlay {
     position: absolute;
     width: 300px;
     height: 300px;
@@ -715,66 +685,8 @@ panels.forEach(panel => observer.observe(panel));
     100% { transform: translateY(0) translateX(0);}
 }
 
-    .gallery img {
-    width: 100%;
-    object-fit: contain;
-    transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
-    cursor: pointer;
-}
-
-.gallery img:hover {
-    transform: scale(1.04) translateY(-2px);
-    filter: brightness(1.08);
-    box-shadow: 0 15px 35px rgba(185,152,60,0.25);
-}
-
- document.addEventListener("scroll", function(){
-    const galleryImgs = document.querySelectorAll(".gallery img");
-    galleryImgs.forEach(img => {
-        const offset = window.pageYOffset;
-        img.style.transform = `translateY(${offset * 0.02}px)`;
-    });
-});
-
- .gallery::before, .gallery::after {
-    content:"";
-    position: absolute;
-    border-radius: 50%;
-    z-index: 0;
-    background: radial-gradient(circle, rgba(185,152,60,0.1) 0%, transparent 70%);
-    animation: floatGallery 20s ease-in-out infinite;
-}
-
-@keyframes floatGallery {
-    0% { transform: translateY(0) translateX(0);}
-    50% { transform: translateY(-20px) translateX(10px);}
-    100% { transform: translateY(0) translateX(0);}
-}
-
-   <section id="contact" class="panel">
-  <h2>Contact</h2>
-  <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
-  <div class="contact-cards">
-    <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      <span>YouTube</span>
-    </a>
-    <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      <span>LinkedIn</span>
-    </a>
-  </div>
-</section>
-
- #contact {
+/* Contact section */
+#contact {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -831,7 +743,7 @@ panels.forEach(panel => observer.observe(panel));
     color: #fff;
 }
 
- #contact::before, #contact::after {
+#contact::before, #contact::after {
     content:"";
     position: absolute;
     width: 300px;
@@ -851,11 +763,8 @@ panels.forEach(panel => observer.observe(panel));
     100% { transform: translateY(0) translateX(0);}
 }
 
-  <footer>
-  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
-</footer>
-
- footer {
+/* Footer */
+footer {
     background-color: var(--secondary-color);
     text-align: center;
     padding: 25px 15px;
@@ -865,4 +774,77 @@ panels.forEach(panel => observer.observe(panel));
     border-top: 2px solid var(--gold-color);
     box-shadow: inset 0 5px 12px rgba(255,255,255,0.02);
 }
+
+</style>
+</head>
+<body>
+
+<!-- Hero particles -->
+<div class="hero-panel">
+    <div class="hero-particles">
+      <span style="top:80%; left:10%; animation-duration: 25s;"></span>
+      <span style="top:60%; left:40%; animation-duration: 18s;"></span>
+      <span style="top:20%; left:70%; animation-duration: 22s;"></span>
+      <span style="top:50%; left:85%; animation-duration: 20s;"></span>
+      <span style="top:10%; left:30%; animation-duration: 24s;"></span>
+    </div>
+</div>
+
+<!-- Contact -->
+<section id="contact" class="panel">
+  <h2>Contact</h2>
+  <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
+  <div class="contact-cards">
+    <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+</footer>
+
+<script>
+// Panel reveal
+const panels = document.querySelectorAll('.panel');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+panels.forEach(panel => observer.observe(panel));
+
+// Gallery parallax
+document.addEventListener("scroll", function(){
+    const galleryImgs = document.querySelectorAll(".gallery img");
+    galleryImgs.forEach(img => {
+        const offset = window.pageYOffset;
+        img.style.transform = `translateY(${offset * 0.02}px)`;
+    });
+});
+</script>
+</body>
+</html>
+
+
+
    
+
+ 
