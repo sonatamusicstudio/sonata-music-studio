@@ -1,264 +1,243 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sonata Music Studio — Felix Satia</title>
-<meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invest in Your Artistry</title>
 <style>
-/* ======================================================================
-   Sonata Music Studio — PREMIUM Office + Museum + Conservatory
-   - Portraits & gallery contain (no cropping)
-   - Gradient green dynamic overlay
-   - Hover subtle gold highlight on programs
-   - Lazy-loading images
-====================================================================== */
+/* ================= GLOBAL RESET ================= */
+* {margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif;}
+body {background:#f5f5f5; color:#111; line-height:1.6; overflow-x:hidden;}
+a {text-decoration:none; color:inherit;}
+img {max-width:100%; display:block;}
 
-:root{
-  --bg-deep:#0b1430;
-  --mid-1:#121936;
-  --mid-2:#1c2254;
-  --gold:#b8983c;
-  --green-accent:#3cb371;
-  --muted:#9da7c6;
-  --white:#ffffff;
-  --glass:rgba(255,255,255,0.04);
-  --panel-shadow:0 20px 50px rgba(6,8,22,0.65);
-  --radius-xl:20px;
-  --maxw:1240px;
-  --ease:cubic-bezier(.16,.82,.24,1);
-  --hero-portrait-url:"https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg";
-}
+/* ================= HEADER ================= */
+header {position:fixed; width:100%; top:0; left:0; background:rgba(0,0,0,0.7); color:#fff; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+header nav {display:flex; justify-content:space-between; align-items:center; padding:1rem 3rem;}
+header nav .logo {font-size:2rem; font-weight:800; letter-spacing:2px; cursor:pointer;}
+header nav ul {display:flex; list-style:none; gap:2rem;}
+header nav ul li {cursor:pointer; transition:0.3s;}
+header nav ul li:hover {color:#f0c040;}
 
-/* Reset & Base */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--white);}
-body{
-  background:
-    radial-gradient(800px 500px at 85% -10%, rgba(60,179,113,0.12), transparent 30%),
-    radial-gradient(760px 480px at -10% 20%, rgba(184,152,60,0.06), transparent 40%),
-    linear-gradient(145deg,var(--bg-deep), var(--mid-2) 46%, #3a256f 100%);
-}
-img{display:block;max-width:100%;height:auto;object-fit:contain;}
-a{color:inherit;text-decoration:none;}
+/* ================= HERO ================= */
+.hero {height:100vh; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1728277097784.jpeg') center/cover no-repeat; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:#fff; padding:0 2rem; position:relative; overflow:hidden;}
+.hero::before {content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.2);}
+.hero h1 {font-size:4rem; font-weight:900; margin-bottom:1rem; z-index:1; animation:fadeInDown 1s ease forwards;}
+.hero p {font-size:1.3rem; max-width:700px; margin-bottom:2rem; z-index:1; animation:fadeInUp 1s ease forwards;}
+.hero button {padding:1rem 2.5rem; font-size:1.1rem; font-weight:600; border:none; background:#f0c040; color:#111; cursor:pointer; border-radius:5px; transition:0.3s; z-index:1;}
+.hero button:hover {background:#e0b030; transform:scale(1.05);}
 
-/* Containers */
-.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInDown {0%{opacity:0; transform:translateY(-50px);}100%{opacity:1; transform:translateY(0);}}
+@keyframes fadeInUp {0%{opacity:0; transform:translateY(50px);}100%{opacity:1; transform:translateY(0);}}
 
-/* Header */
-header{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
-  height:110px;padding:0 28px;
-  background:linear-gradient(90deg,var(--mid-1), rgba(185,152,60,0.03));
-  box-shadow:0 6px 30px rgba(0,0,0,0.45);position:sticky;top:0;z-index:2200;
-}
-.brand{display:flex;align-items:center;gap:16px;}
-.brand img{height:72px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.5));}
-.brand .titles{display:flex;flex-direction:column;line-height:1;}
-.brand h1{font-family:"Cinzel",serif;font-size:1.35rem;margin:0;color:var(--white);letter-spacing:.02em;}
-.brand p{margin:2px 0 0;font-size:.86rem;color:var(--muted);}
-.header-right{
-  background:linear-gradient(180deg,#f4e4ae,var(--gold));
-  padding:10px 14px;border-radius:8px;color:var(--mid-1);font-weight:700;
-  box-shadow:0 6px 22px rgba(184,152,60,0.12);
-}
+/* ================= SECTIONS ================= */
+section {padding:6rem 3rem;}
+.section-title {font-size:2.8rem; font-weight:700; text-align:center; margin-bottom:3rem; position:relative;}
+.section-title::after {content:''; width:80px; height:4px; background:#f0c040; display:block; margin:0.5rem auto; border-radius:2px;}
 
-/* Navigation */
-nav{
-  display:flex;gap:22px;justify-content:center;padding:12px 0;
-  background:linear-gradient(90deg, rgba(14,26,64,0.86), rgba(28,37,78,0.86));
-  border-bottom:2px solid rgba(76,44,132,0.12);position:sticky;top:110px;z-index:2100;
-}
-nav a{font-weight:600;padding:6px 8px;border-radius:6px;transition: transform .18s var(--ease), color .18s;}
-nav a:hover{color:var(--gold);transform:translateY(-3px);}
+/* ================= ABOUT ================= */
+.about {max-width:1000px; margin:0 auto; text-align:center;}
+.about p {font-size:1.1rem; margin-bottom:1rem; color:#333;}
 
-/* Hero */
-.hero-wrap{margin-top:28px;padding:28px 0 6px;}
-.hero{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch;
-  background: linear-gradient(180deg, rgba(60,179,113,0.04), rgba(255,255,255,0.02));
-  border-radius:20px;padding:26px;box-shadow:var(--panel-shadow);overflow:visible;position:relative;
-}
-.hero-copy{padding:28px 12px;display:flex;flex-direction:column;justify-content:center;gap:12px;}
-.eyebrow{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:#e6d9ae;font-weight:700;}
-.hero-title{
-  font-family:"Cinzel",serif;font-weight:700;font-size:clamp(30px,4.6vw,48px);
-  line-height:1.04;margin:4px 0 6px;
-  background:linear-gradient(180deg,#fff,#d4ffc1 60%,#d4b977);
-  -webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 10px 34px rgba(76,44,132,0.12);
-}
-.hero-sub{font-size:1.02rem;color:var(--muted);max-width:56ch;}
-.hero-cta{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;}
-.btn{padding:12px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .14s var(--ease),box-shadow .12s var(--ease);}
-.btn-primary{background:linear-gradient(180deg,#f3ffc1,#b8983c);color:var(--mid-1);box-shadow:0 12px 30px rgba(184,152,60,0.12);}
-.btn-ghost{border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);}
-.btn:hover{transform:translateY(-3px);}
+/* ================= PROGRAMS ================= */
+.programs {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;}
+.program-card {background:#fff; padding:2rem; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:0.4s; text-align:center;}
+.program-card:hover {transform:translateY(-10px) scale(1.03);}
+.program-card h3 {margin-bottom:1rem; color:#111; font-size:1.4rem;}
+.program-card p {color:#555; font-size:1rem; line-height:1.5;}
 
-/* Portrait */
-.portrait-wrap{display:flex;align-items:center;justify-content:center;padding:18px;}
-.portrait-frame{
-  width:100%;max-width:760px;aspect-ratio:16/10;background:linear-gradient(180deg,#0b1230,#161932);
-  border-radius:16px;overflow:hidden;position:relative;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 30px 80px rgba(6,8,22,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-  border:1px solid rgba(255,255,255,0.04);
-}
-.portrait-frame img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .6s var(--ease);}
-.portrait-frame:hover img{transform:scale(1.02);}
-.portrait-watermark{position:absolute;right:18px;bottom:12px;font-size:240px;opacity:.04;pointer-events:none;color:var(--white);transform:rotate(-6deg);}
+/* ================= GALLERY ================= */
+.gallery {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
+.gallery .tile {overflow:hidden; position:relative; border-radius:12px; cursor:pointer; transition:0.3s;}
+.gallery .tile img {width:100%; height:100%; object-fit:cover; filter:brightness(0.9); transition:0.3s;}
+.gallery .tile:hover img {filter:brightness(1); transform:scale(1.05);}
+.gallery .tile span {position:absolute; bottom:0; left:0; width:100%; text-align:center; padding:0.5rem 0; background:rgba(0,0,0,0.5); color:#fff; font-weight:600; font-size:1rem; transition:0.3s; opacity:0;}
+.gallery .tile:hover span {opacity:1;}
 
-/* Panels & Sections */
-main{padding:38px 0 80px;}
-section.panel{
-  margin:36px 0;padding:24px;border-radius:14px;
-  background:linear-gradient(145deg,#101b3c,#1e3550,#3c2670);
-  box-shadow:0 18px 46px rgba(8,10,28,.66);
-  border-left:6px solid; border-image:linear-gradient(to bottom,#0a0f2c 0%,var(--green-accent) 20%,#d4af37 50%,#722f37 80%,#0a0f2c 100%) 1;
-  position:relative; overflow:hidden;
-  opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease), transform .6s var(--ease);
-}
-section.panel.visible{opacity:1;transform:none;}
-section.panel::after{
-  content:"";position:absolute;top:-20%;left:-20%;width:140%;height:140%;
-  background:radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);filter:blur(8px);
-  animation: shimmer 9s linear infinite; pointer-events:none;
-}
-@keyframes shimmer{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+/* ================= LIGHTBOX ================= */
+.lightbox {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); display:flex; justify-content:center; align-items:center; opacity:0; pointer-events:none; transition:0.5s; z-index:2000;}
+.lightbox img {max-width:90%; max-height:80%; border-radius:10px; box-shadow:0 10px 50px rgba(0,0,0,0.5);}
+.lightbox:target {opacity:1; pointer-events:auto;}
+.lightbox a.close {position:absolute; top:2rem; right:2rem; font-size:2.5rem; color:#fff; transition:0.3s;}
+.lightbox a.close:hover {color:#f0c040;}
+.lightbox .nav {position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 2rem;}
+.lightbox .nav a {font-size:3rem; color:#fff; transition:0.3s;}
+.lightbox .nav a:hover {color:#f0c040;}
 
-h2.section-title{font-family:"Cinzel",serif;color:var(--gold);margin:0 0 14px;font-size:1.6rem;text-shadow:0 6px 20px rgba(184,152,60,0.08);}
+/* ================= TESTIMONIALS ================= */
+.testimonials {background:#111; color:#fff; padding:5rem 3rem;}
+.testimonial {margin-bottom:3rem; text-align:center;}
+.testimonial p {font-size:1.2rem; font-style:italic; margin-bottom:1rem;}
+.testimonial h4 {font-weight:700; color:#f0c040;}
 
-.section-with-image{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start;}
-.section-with-image img{width:100%;height:320px;object-fit:contain;background:#000;border-radius:8px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 12px 30px rgba(0,0,0,0.6);}
-.section-with-image .text{color:var(--muted);}
+/* ================= FOOTER ================= */
+footer {background:#222; color:#fff; text-align:center; padding:4rem 2rem;}
+footer p {margin-bottom:1rem;}
+footer a {color:#f0c040; margin:0 0.5rem; transition:0.3s;}
+footer a:hover {color:#fff;}
 
-/* Programs grid & hover highlight */
-.program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
-.prog{
-  padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.04);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+/* ================= MEDIA QUERIES ================= */
+@media(max-width:768px){
+  .hero h1 {font-size:3rem;}
+  .hero p {font-size:1.1rem;}
+  header nav {flex-direction:column; gap:1rem;}
 }
-.prog:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(184,152,60,0.22);
-  border-color:var(--gold);
-}
-.prog h3{margin:0 0 8px;font-family:"Cinzel",serif;color:#efe7c9;}
-.prog p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.28;}
-
-/* Footer */
-footer{
-  padding:36px 24px;background:linear-gradient(145deg,#0b1230,#161932);text-align:center;
-  font-size:.85rem;color:var(--muted);letter-spacing:.02em;box-shadow:0 -8px 28px rgba(0,0,0,0.44);
-}
-footer strong{color:var(--gold);}
-
-/* Responsive */
-@media(max-width:1024px){.hero{grid-template-columns:1fr;}.section-with-image{grid-template-columns:1fr;}.program-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.program-grid{grid-template-columns:1fr;}}
 </style>
 </head>
-
 <body>
-<header class="container">
-  <div class="brand">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/logo.png" alt="Sonata Logo" loading="lazy"/>
-    <div class="titles">
-      <h1>Sonata Music Studio</h1>
-      <p>Felix Satia — Piano & Sacred Music</p>
-    </div>
-  </div>
-  <div class="header-right">Invest Your Artistry</div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav>
+    <div class="logo">Artistry</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<nav class="container">
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero container hero-wrap">
-  <div class="hero-copy">
-    <p class="eyebrow">Grand Conservatory</p>
-    <h1 class="hero-title">Invest Your Artistry</h1>
-    <p class="hero-sub">Sonata Music Studio — Fusing sacred artistry, office discipline, and museum-inspired grandeur into each note and lesson by Felix Satia.</p>
-    <div class="hero-cta">
-      <button class="btn btn-primary">Enroll Now</button>
-      <button class="btn btn-ghost">Learn More</button>
-    </div>
-  </div>
-  <div class="portrait-wrap">
-    <div class="portrait-frame">
-      <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg" alt="Felix Satia Portrait" loading="lazy"/>
-      <div class="portrait-watermark">F</div>
-    </div>
-  </div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <h1>Invest in Your Artistry</h1>
+  <p>Unlock your full potential and bring your artistic vision to life. Elevate your skills, express yourself, and immerse in creativity.</p>
+  <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Explore Gallery</button>
 </section>
 
-<main class="container">
-<section id="about" class="panel visible">
-  <h2 class="section-title">About Sonata</h2>
-  <div class="section-with-image">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/about1.jpg" alt="Studio Interior" loading="lazy"/>
-    <div class="text">
-      <p>Founded by Felix Satia, Sonata Music Studio combines a deep classical foundation with modern techniques and sacred music expression. Our lessons cater to aspiring musicians who desire both discipline and artistic freedom.</p>
-    </div>
-  </div>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about">
+  <h2 class="section-title">About</h2>
+  <p>We believe artistry is more than skill; it’s a journey of self-discovery and mastery. Our programs are designed to guide every individual through this transformative experience.</p>
+  <p>Whether beginner or advanced, every participant finds inspiration and guidance to reach their highest potential.</p>
 </section>
 
-<section id="programs" class="panel visible">
+<!-- ================= PROGRAMS ================= -->
+<section id="programs">
   <h2 class="section-title">Programs</h2>
-  <div class="program-grid">
-    <div class="prog">
+  <div class="programs">
+    <div class="program-card">
       <h3>Piano Mastery</h3>
-      <p>Private 30-min sessions focusing on classical and contemporary piano technique.</p>
+      <p>Step-by-step guidance from beginner to advanced techniques, enhancing musical expression and technical precision.</p>
     </div>
-    <div class="prog">
+    <div class="program-card">
       <h3>Music Theory</h3>
-      <p>Comprehensive 15-min theory lessons aligned with practical piano learning.</p>
+      <p>Understand the language of music, improve composition skills, and deepen your analytical approach to performance.</p>
     </div>
-    <div class="prog">
-      <h3>Choir & Ensemble</h3>
-      <p>Small group sessions emphasizing harmony, sacred repertoire, and stage presence.</p>
+    <div class="program-card">
+      <h3>Vocal Training</h3>
+      <p>Enhance your voice, develop stage presence, and interpret music with confidence and artistry.</p>
     </div>
   </div>
 </section>
 
-<section id="gallery" class="panel visible">
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
   <h2 class="section-title">Gallery</h2>
-  <div class="section-with-image">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/gallery1.jpg" alt="Class in Action" loading="lazy"/>
-    <div class="text">
-      <p>Snapshots of studio life and performances — capturing the grandeur and dedication embedded in every lesson.</p>
-    </div>
+  <div class="gallery">
+    <!-- 31 Image Tiles with spans -->
+    <div class="tile"><a href="#img1"><img src="1728277097784.jpeg" alt="Gallery 1"><span>Image 1</span></a></div>
+    <div class="tile"><a href="#img2"><img src="1728277959315.jpeg" alt="Gallery 2"><span>Image 2</span></a></div>
+    <div class="tile"><a href="#img3"><img src="1728277994217.jpeg" alt="Gallery 3"><span>Image 3</span></a></div>
+    <div class="tile"><a href="#img4"><img src="1728278062357.jpeg" alt="Gallery 4"><span>Image 4</span></a></div>
+    <div class="tile"><a href="#img5"><img src="1728278413639.jpeg" alt="Gallery 5"><span>Image 5</span></a></div>
+    <div class="tile"><a href="#img6"><img src="1728278498612.jpeg" alt="Gallery 6"><span>Image 6</span></a></div>
+    <div class="tile"><a href="#img7"><img src="1728278535664.jpeg" alt="Gallery 7"><span>Image 7</span></a></div>
+    <div class="tile"><a href="#img8"><img src="1728278743638.jpeg" alt="Gallery 8"><span>Image 8</span></a></div>
+    <div class="tile"><a href="#img9"><img src="1728278972071.jpeg" alt="Gallery 9"><span>Image 9</span></a></div>
+    <div class="tile"><a href="#img10"><img src="1728279819431.jpeg" alt="Gallery 10"><span>Image 10</span></a></div>
+    <div class="tile"><a href="#img11"><img src="1728294846403.jpeg" alt="Gallery 11"><span>Image 11</span></a></div>
+    <div class="tile"><a href="#img12"><img src="1728294894368.jpeg" alt="Gallery 12"><span>Image 12</span></a></div>
+    <div class="tile"><a href="#img13"><img src="1728295139439.jpeg" alt="Gallery 13"><span>Image 13</span></a></div>
+    <div class="tile"><a href="#img14"><img src="1728295173689.jpeg" alt="Gallery 14"><span>Image 14</span></a></div>
+    <div class="tile"><a href="#img15"><img src="1728295202953.jpeg" alt="Gallery 15"><span>Image 15</span></a></div>
+    <div class="tile"><a href="#img16"><img src="1728295402904.jpeg" alt="Gallery 16"><span>Image 16</span></a></div>
+    <div class="tile"><a href="#img17"><img src="1728295429712.jpeg" alt="Gallery 17"><span>Image 17</span></a></div>
+    <div class="tile"><a href="#img18"><img src="1728296617350.jpeg" alt="Gallery 18"><span>Image 18</span></a></div>
+    <div class="tile"><a href="#img19"><img src="1728300782229.jpeg" alt="Gallery 19"><span>Image 19</span></a></div>
+    <div class="tile"><a href="#img20"><img src="1728301815288.jpeg" alt="Gallery 20"><span>Image 20</span></a></div>
+    <div class="tile"><a href="#img21"><img src="1728302182364.jpeg" alt="Gallery 21"><span>Image 21</span></a></div>
+    <div class="tile"><a href="#img22"><img src="1728302212548.jpeg" alt="Gallery 22"><span>Image 22</span></a></div>
+    <div class="tile"><a href="#img23"><img src="1728303826998.jpeg" alt="Gallery 23"><span>Image 23</span></a></div>
+    <div class="tile"><a href="#img24"><img src="1728311786057.jpeg" alt="Gallery 24"><span>Image 24</span></a></div>
+    <div class="tile"><a href="#img25"><img src="1728349078427.jpeg" alt="Gallery 25"><span>Image 25</span></a></div>
+    <div class="tile"><a href="#img26"><img src="1728368821890.jpeg" alt="Gallery 26"><span>Image 26</span></a></div>
+    <div class="tile"><a href="#img27"><img src="1728368987536.jpeg" alt="Gallery 27"><span>Image 27</span></a></div>
+    <div class="tile"><a href="#img28"><img src="1728450148208.jpeg" alt="Gallery 28"><span>Image 28</span></a></div>
+    <div class="tile"><a href="#img29"><img src="1728450200661.jpeg" alt="Gallery 29"><span>Image 29</span></a></div>
+    <div class="tile"><a href="#img30"><img src="1728450222173.jpeg" alt="Gallery 30"><span>Image 30</span></a></div>
+    <div class="tile"><a href="#img31"><img src="1728450251141.jpeg" alt="Gallery 31"><span>Image 31</span></a></div>
   </div>
 </section>
 
-<section id="contact" class="panel visible">
-  <h2 class="section-title">Contact</h2>
-  <p>Email: <strong>felix.satia@sonatamusicstudio.id</strong></p>
-  <p>Phone: <strong>+62 812-3456-7890</strong></p>
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials" class="testimonials">
+  <h2 class="section-title">Testimonials</h2>
+  <div class="testimonial">
+    <p>"A transformative experience! My artistry reached levels I never imagined."</p>
+    <h4>- Student A</h4>
+  </div>
+  <div class="testimonial">
+    <p>"The guidance is unparalleled. Truly investing in oneself through this program is life-changing."</p>
+    <h4>- Student B</h4>
+  </div>
+  <div class="testimonial">
+    <p>"I discovered a new side of my creative potential. Every session inspired me to push my limits."</p>
+    <h4>- Student C</h4>
+  </div>
 </section>
-</main>
 
-<footer>
-  &copy; 2025 <strong>Sonata Music Studio</strong>. All Rights Reserved.
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <p>Contact us: info@artistry.com | +62 812 3456 7890</p>
+  <p>Follow us on 
+    <a href="#">Instagram</a> | 
+    <a href="#">Facebook</a> | 
+    <a href="#">YouTube</a>
+  </p>
+  <p>&copy; 2025 Artistry. All Rights Reserved.</p>
 </footer>
 
+<!-- ================= LIGHTBOX FULL ================= -->
+<!-- Repeated 31 images with close & nav -->
+<div id="img1" class="lightbox">
+  <a href="#gallery" class="close">&times;</a>
+  <img src="1728277097784.jpeg" alt="">
+  <div class="nav">
+    <a href="#img31">&#10094;</a>
+    <a href="#img2">&#10095;</a>
+  </div>
+</div>
+<div id="img2" class="lightbox">
+  <a href="#gallery" class="close">&times;</a>
+  <img src="1728277959315.jpeg" alt="">
+  <div class="nav">
+    <a href="#img1">&#10094;</a>
+    <a href="#img3">&#10095;</a>
+  </div>
+</div>
+<!-- ... ulangi semua sampai img31 ... -->
+<div id="img31" class="lightbox">
+  <a href="#gallery" class="close">&times;</a>
+  <img src="1728450251141.jpeg" alt="">
+  <div class="nav">
+    <a href="#img30">&#10094;</a>
+    <a href="#img1">&#10095;</a>
+  </div>
+</div>
+
 <script>
-// Simple scroll reveal for panels
-const panels = document.querySelectorAll('section.panel');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+/* ================= SMOOTH SCROLL ================= */
+document.querySelectorAll('header nav ul li a').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
   });
-},{threshold:0.2});
-panels.forEach(p=>observer.observe(p));
+});
 </script>
 
 </body>
