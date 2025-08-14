@@ -349,3 +349,205 @@
   lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
 </script>
+
+<style>
+/* ===== Ambient Glow & Subtle Green Haze ===== */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-3;
+  background:radial-gradient(circle at center, rgba(76,172,120,0.08) 0%, rgba(14,26,64,0.88) 100%);
+  pointer-events:none;filter:blur(36px);
+}
+
+/* ===== Panels shimmer + soft green reflection ===== */
+.panel::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(145deg, rgba(10,15,44,0.12), rgba(76,172,120,0.04), rgba(58,37,111,0.08));
+  z-index:-1;
+  pointer-events:none;
+  border-radius:4px;
+  animation:ambientShimmer 14s ease-in-out infinite alternate;
+}
+@keyframes ambientShimmer{
+  0%{opacity:0.06;transform:scale(1);}
+  50%{opacity:0.12;transform:scale(1.005);}
+  100%{opacity:0.06;transform:scale(1);}
+}
+
+/* ===== Hero subtle green-gold overlay ===== */
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at center, rgba(76,172,120,0.06), transparent 75%);
+  z-index:-1;
+  pointer-events:none;
+  mix-blend-mode:overlay;
+  animation:heroGlow 22s ease-in-out infinite alternate;
+}
+@keyframes heroGlow{
+  0%{opacity:0.04;}
+  50%{opacity:0.12;}
+  100%{opacity:0.04;}
+}
+
+/* ===== Gallery hover glow ===== */
+.gallery img{
+  transition:transform .35s ease, box-shadow .35s ease, filter .35s ease;
+}
+.gallery img:hover{
+  transform:translateY(-3px) scale(1.012);
+  box-shadow:0 14px 36px rgba(76,172,120,0.42), 0 0 18px rgba(185,152,60,0.25);
+  filter:brightness(1.08);
+}
+
+/* ===== Nav highlight reflection ===== */
+nav a{
+  position:relative;
+  transition:color .3s, text-shadow .35s;
+}
+nav a:hover{
+  color:#d9c07a;
+  text-shadow:0 0 12px rgba(76,172,120,0.34),0 0 16px rgba(185,152,60,0.22);
+}
+
+/* ===== Footer ambient glow ===== */
+footer{
+  position:relative;
+  overflow:hidden;
+}
+footer::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at center, rgba(76,172,120,0.04), transparent 80%);
+  filter:blur(14px);
+  z-index:-1;
+  pointer-events:none;
+  animation:footerGlow 18s ease-in-out infinite alternate;
+}
+@keyframes footerGlow{
+  0%{opacity:0.03;}
+  50%{opacity:0.1;}
+  100%{opacity:0.03;}
+}
+
+/* ===== Subtle floating particles (optional, micro music notes) ===== */
+@keyframes floatNotes{
+  0%{transform:translateY(0) rotate(0deg);opacity:0.15;}
+  50%{transform:translateY(-12px) rotate(6deg);opacity:0.32;}
+  100%{transform:translateY(0) rotate(0deg);opacity:0.15;}
+}
+.note-float{
+  position:absolute;width:6px;height:6px;border-radius:50%;
+  background:rgba(76,172,120,0.08);animation:floatNotes 9s ease-in-out infinite alternate;
+}
+</style>
+
+<script>
+// ===== Optional floating notes for premium ambient effect =====
+function createFloatingNotes(){
+  const count = 16; // number of floating notes
+  const body = document.body;
+  for(let i=0;i<count;i++){
+    const note = document.createElement('div');
+    note.className='note-float';
+    note.style.left=Math.random()*100+'vw';
+    note.style.top=Math.random()*100+'vh';
+    note.style.animationDelay=Math.random()*8+'s';
+    note.style.width=4+Math.random()*6+'px';
+    note.style.height=4+Math.random()*6+'px';
+    body.appendChild(note);
+  }
+}
+createFloatingNotes();
+</script>
+
+<style>
+/* =======================
+   Section 5: Cinematic Reveal
+   ======================= */
+
+/* Fade-in & slide-up panels with stagger */
+.panel {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Gallery images subtle reveal */
+.gallery img {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Floating subtle shimmer overlay */
+.panel::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 80%);
+  pointer-events:none;
+  filter:blur(6px);
+  z-index:0;
+  animation: shimmerSlow 10s linear infinite;
+}
+
+@keyframes shimmerSlow {
+  0% { transform: translateX(-10%) rotate(0deg);}
+  50% { transform: translateX(10%) rotate(180deg);}
+  100% { transform: translateX(-10%) rotate(360deg);}
+}
+
+/* Glow effect for hero text & kicker */
+.hero-inner h1, .hero-inner .kicker {
+  text-shadow: 0 0 12px rgba(185,152,60,0.35), 0 0 24px rgba(76,44,132,0.25), 0 0 36px rgba(14,26,64,0.2);
+  transition: text-shadow 1.2s ease-in-out;
+}
+
+/* On hover hero, subtle intensity */
+.hero-inner:hover h1, .hero-inner:hover .kicker {
+  text-shadow: 0 0 18px rgba(185,152,60,0.5), 0 0 28px rgba(76,44,132,0.4), 0 0 42px rgba(14,26,64,0.3);
+}
+
+/* Staggered reveal JS classes */
+.visible-stagger {
+  opacity: 1 !important;
+  transform: none !important;
+}
+</style>
+
+<script>
+// =======================
+// Part 5: Cinematic Reveal JS
+// =======================
+
+// Panels fade-in with stagger
+const staggerPanels = document.querySelectorAll('.panel');
+staggerPanels.forEach((panel, index) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible-stagger');
+        }, index * 120); // 120ms stagger
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  observer.observe(panel);
+});
+
+// Gallery images reveal with stagger
+const galleryImgs = document.querySelectorAll('.gallery img');
+galleryImgs.forEach((img, index) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'scale(1)';
+        }, index * 60); // 60ms stagger
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  observer.observe(img);
+});
+</script>
