@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia.">
 <meta name="author" content="Felix Satia">
@@ -18,204 +18,73 @@
     --subtle-green: rgba(72, 187, 120, 0.2);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    overflow-x: hidden;
-}
+/* Reset & Base */
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: 'Inter', sans-serif; background-color: var(--secondary-color); color: var(--primary-color); overflow-x:hidden; }
 
 /* Header */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    padding: 0 30px;
-    background: linear-gradient(90deg, #101b3c, #2a1f5e, #3a256f);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.header-left img {
-    height: 70px;
-}
-
-.header-left .text-block h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    color: var(--gold-color);
-}
-
-.header-left .text-block p {
-    font-size: 0.9em;
-    opacity: 0.85;
-}
-
-.header-right {
-    font-size: 1em;
-    font-weight: 500;
-    color: var(--gold-color);
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
-    z-index: 1;
-}
-
-.hero img {
-    position: absolute;
-    top: 0; left:0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.65);
-    opacity: 0;
-    animation: fadeInHero 2s forwards;
-}
-
-@keyframes fadeInHero {
-    to { opacity: 1; }
-}
-
-.hero-text {
-    position: relative;
-    z-index: 2;
-    color: var(--primary-color);
-    max-width: 90%;
-}
-
-.hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    line-height: 1.2;
-    text-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.hero-text p {
-    font-size: 1.2em;
-    margin-top: 10px;
-    opacity: 0.9;
-    text-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-/* Subtle glowing radial accent behind text */
-.hero-text::after {
-    content:"";
-    position:absolute;
-    top:50%; left:50%;
-    width:500px;
-    height:500px;
-    transform:translate(-50%, -50%);
-    background: radial-gradient(circle, var(--subtle-green) 0%, transparent 70%);
-    z-index:-1;
-    border-radius:50%;
-}
+header { display:flex; align-items:center; justify-content:space-between; height:100px; padding:0 30px; background:linear-gradient(90deg,#101b3c,#2a1f5e,#3a256f); box-shadow:0 4px 15px rgba(0,0,0,0.5); position:sticky; top:0; z-index:1000; }
+.header-left { display:flex; align-items:center; gap:15px; }
+.header-left img { height:70px; }
+.header-left .text-block h1 { font-family: 'Playfair Display', serif; font-size:1.8em; color: var(--gold-color); }
+.header-left .text-block p { font-size:0.9em; opacity:0.85; }
+.header-right { font-size:1em; font-weight:500; color: var(--gold-color); }
 
 /* Nav */
-nav {
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:12px 0;
-    background: linear-gradient(90deg, #0e1a40, #1c254e);
-    border-bottom:2px solid var(--accent-color);
-    position: sticky;
-    top:100px;
-    z-index: 999;
-}
+nav { display:flex; justify-content:center; gap:25px; padding:12px 0; background: linear-gradient(90deg, #0e1a40, #1c254e); border-bottom:2px solid var(--accent-color); position: sticky; top:100px; z-index: 999; }
+nav a { color: var(--primary-color); text-decoration:none; font-weight:500; transition: color 0.3s ease; }
+nav a:hover { color: var(--gold-color); }
 
-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+/* Hero */
+.hero { position:relative; height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+.hero img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter: brightness(0.65); opacity:0; animation: fadeInHero 2s forwards; }
+@keyframes fadeInHero { to{ opacity:1; } }
+.hero-text { position:relative; z-index:2; color:var(--primary-color); max-width:90%; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size:3em; line-height:1.2; text-shadow:0 0 20px rgba(0,0,0,0.5); }
+.hero-text p { font-size:1.2em; margin-top:10px; opacity:0.9; text-shadow:0 0 15px rgba(0,0,0,0.3); }
+/* Glowing radial behind text */
+.hero-text::after { content:""; position:absolute; top:50%; left:50%; width:500px; height:500px; transform:translate(-50%,-50%); background:radial-gradient(circle, var(--subtle-green) 0%, transparent 70%); z-index:-1; border-radius:50%; }
 
-nav a:hover {
-    color: var(--gold-color);
-}
-
-@media (max-width: 768px){
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-    .header-left {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-text h1 { font-size:2.2em; }
-    .hero-text p { font-size:1em; }
+/* Responsive */
+@media (max-width:768px){
+  header { flex-direction:column; height:auto; padding:10px; }
+  .header-left { flex-direction:column; text-align:center; }
+  .hero-text h1 { font-size:2.2em; }
+  .hero-text p { font-size:1em; }
 }
 </style>
 </head>
 <body>
 
 <header>
-    <div class="header-left">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-        <div class="text-block">
-            <h1>Sonata Music Studio</h1>
-            <p>Instruction | Composition | Educational Materials</p>
-        </div>
+  <div class="header-left">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+    <div class="text-block">
+      <h1>Sonata Music Studio</h1>
+      <p>Instruction | Composition | Educational Materials</p>
     </div>
-    <div class="header-right">
-        Sacred Precision, Artistic Refinement
-    </div>
+  </div>
+  <div class="header-right">Sacred Precision, Artistic Refinement</div>
 </header>
 
 <div class="hero">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
-    <div class="hero-text">
-        <h1>Invest in Your Artistry</h1>
-        <p>Instruction | Composition | Sacred Artistic Refinement</p>
-    </div>
+  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
+  <div class="hero-text">
+    <h1>Invest in Your Artistry</h1>
+    <p>Instruction | Composition | Sacred Artistic Refinement</p>
+  </div>
 </div>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-</body>
-</html>
-
-<main>
+    <main>
   <!-- About Section -->
   <section id="about" class="panel">
     <h2>About</h2>
@@ -243,95 +112,92 @@ nav a:hover {
       </div>
     </div>
   </section>
+
+  <!-- Philosophy Section -->
+  <section id="philosophy" class="panel">
+    <h2>Philosophy</h2>
+    <div class="section-with-image">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert" class="philosophy-photo"/>
+      <div class="text">
+        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+        <p>Each student is guided to discover their own voice, balancing precision with expressiveness. The studio fosters integrity, focus, and reverence for music as an art form.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="panel">
+    <h2>Portfolio</h2>
+    <div class="section-with-image">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Teaching Portfolio" class="portfolio-photo"/>
+      <div class="text">
+        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <style>
-/* Panel base style already in Step 1, adding section-specific styles */
-
-.section-with-image {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    align-items: center;
-}
-
-.section-with-image img {
-    max-width: 350px;
-    border-radius: 0;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    box-shadow: 0 0 20px rgba(255,255,255,0.05);
-}
-
-.section-with-image img:hover {
-    transform: scale(1.03) translateY(-3px);
-    filter: brightness(1.05);
-}
-
-.section-with-image .text {
-    flex: 1;
-    min-width: 260px;
-    font-size: 1em;
-    line-height: 1.6;
-    color: var(--primary-color);
+.panel {
+  padding: 60px 20px;
 }
 
 .panel h2 {
-    color: var(--gold-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
+  color: var(--gold-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+  font-family: 'Playfair Display', serif;
+}
+
+.section-with-image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+}
+
+.section-with-image img {
+  max-width: 360px;
+  border-radius: 0;
+  transition: transform 0.4s ease, opacity 0.6s ease;
+  opacity: 0.95;
+}
+
+.section-with-image img:hover {
+  transform: scale(1.03) translateY(-3px);
+  opacity: 1;
+}
+
+.section-with-image .text {
+  flex:1;
+  min-width:260px;
+  font-size:1em;
+  line-height:1.6;
+  color: var(--primary-color);
 }
 
 ul {
-    margin-left: 20px;
-    list-style: disc;
+  margin-left: 20px;
+  list-style: disc;
 }
 
 ul li {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 /* Responsive */
-@media (max-width: 768px){
-    .section-with-image {
-        flex-direction: column;
-        align-items: center;
-    }
-    .section-with-image img {
-        max-width: 90%;
-    }
+@media (max-width:768px){
+  .section-with-image { flex-direction:column; align-items:center; }
+  .section-with-image img { max-width:90%; }
 }
 </style>
 
-<!-- Philosophy Section -->
-<section id="philosophy" class="panel">
-  <h2>Philosophy</h2>
-  <div class="section-with-image">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert" class="philosophy-photo"/>
-    <div class="text">
-      <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
-      <p>Each student is guided to discover their own voice, balancing precision with expressiveness. The studio fosters integrity, focus, and reverence for music as an art form.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="panel">
-  <h2>Portfolio</h2>
-  <div class="section-with-image">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Teaching Portfolio" class="portfolio-photo"/>
-    <div class="text">
-      <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery Section -->
+    <!-- Gallery Section -->
 <section id="gallery" class="panel">
   <h2>Gallery</h2>
   <div class="gallery">
-    <!-- Semua foto 30+ di sini, tanpa crop, rapi -->
+    <!-- Semua foto 30+ -->
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" />
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" />
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277994217.jpeg" />
@@ -367,35 +233,22 @@ ul li {
 </section>
 
 <style>
-/* Section styling */
-.section-with-image img {
-    max-width: 360px;
-    border-radius: 0;
-    transition: transform 0.4s ease, opacity 0.6s ease;
-    opacity: 0.95;
-}
-
-.section-with-image img:hover {
-    transform: scale(1.03) translateY(-3px);
-    opacity: 1;
-}
-
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 15px;
 }
 
 .gallery img {
-    width: 100%;
-    border-radius: 0;
-    object-fit: contain; /* semua foto tampil full, natural */
-    transition: transform 0.3s ease, filter 0.3s ease;
+  width: 100%;
+  border-radius: 0;
+  object-fit: contain; /* full photo, natural display */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .gallery img:hover {
-    transform: scale(1.02);
-    filter: brightness(1.05);
+  transform: scale(1.02);
+  filter: brightness(1.05);
 }
 </style>
 
@@ -411,67 +264,65 @@ ul li {
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
-</footer>
-
 <style>
-/* Contact Section Styling */
 #contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:15px;
 }
 
 #contact p {
-    font-size: 1em;
-    color: #d4c88f;
-    max-width: 600px;
-    line-height: 1.6;
+  font-size:1em;
+  color:#d4c88f;
+  max-width:600px;
+  line-height:1.6;
 }
 
 .social-icons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
 .social-icons a {
-    text-decoration: none;
-    color: #b8983c;
-    font-weight: 600;
-    font-size: 1.05em;
-    padding: 10px 18px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    background: linear-gradient(145deg, rgba(185,152,60,0.15), rgba(185,152,60,0.05));
-    box-shadow: 0 4px 12px rgba(185,152,60,0.2);
+  text-decoration:none;
+  color:#b8983c;
+  font-weight:600;
+  font-size:1.05em;
+  padding:10px 18px;
+  border-radius:6px;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, rgba(185,152,60,0.15), rgba(185,152,60,0.05));
+  box-shadow: 0 4px 12px rgba(185,152,60,0.2);
 }
 
 .social-icons a:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 16px rgba(185,152,60,0.35);
-    color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(185,152,60,0.35);
+  color:#fff;
 }
 
 /* Footer Styling */
 footer {
-    background-color: #0e1a40;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.5px;
-    border-top: 2px solid #b8983c;
-    box-shadow: inset 0 5px 10px rgba(255,255,255,0.02);
+  background-color: #0e1a40;
+  text-align:center;
+  padding:20px;
+  font-size:0.9em;
+  color: rgba(255,255,255,0.7);
+  letter-spacing:0.5px;
+  border-top:2px solid #b8983c;
+  box-shadow: inset 0 5px 10px rgba(255,255,255,0.02);
 }
 </style>
 
-<!-- Hero Section -->
+<footer>
+  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+</footer>
+
+    <!-- Hero Section -->
 <section id="hero" class="hero-panel">
   <div class="hero-background">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg" alt="Felix Satia" />
@@ -485,382 +336,93 @@ footer {
 <style>
 /* Hero Section Styling */
 .hero-panel {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: linear-gradient(135deg, #0b1430, #1c2254, #3a256f);
-    color: #fff;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0b1430, #1c2254, #3a256f);
+  color: #fff;
 }
 
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .hero-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.2;
-    animation: fadeInHero 3s ease forwards;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  animation: fadeInHero 3s ease forwards;
 }
 
 @keyframes fadeInHero {
-    0% { opacity: 0; transform: scale(1.05); }
-    100% { opacity: 0.2; transform: scale(1); }
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 0.2; transform: scale(1); }
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 900px;
-    padding: 20px;
-    backdrop-filter: blur(1px);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+  backdrop-filter: blur(1px);
 }
 
 .hero-content h1 {
-    font-size: 3.2em;
-    color: #b8983c;
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(185,152,60,0.7);
+  font-size: 3.2em;
+  color: #b8983c;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(185,152,60,0.7);
 }
 
 .hero-content p {
-    font-size: 1.4em;
-    color: #ffffffcc;
-    line-height: 1.5;
-    text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  font-size: 1.4em;
+  color: #ffffffcc;
+  line-height: 1.5;
+  text-shadow: 0 0 12px rgba(0,0,0,0.5);
 }
 
-/* Optional subtle floating highlights */
+/* Subtle floating highlights */
 .hero-panel::before {
-    content: "";
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(185,152,60,0.2) 0%, transparent 70%);
-    top: 20%;
-    left: 10%;
-    border-radius: 50%;
-    z-index: 0;
-    animation: floatHero 12s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(185,152,60,0.2) 0%, transparent 70%);
+  top: 20%;
+  left: 10%;
+  border-radius: 50%;
+  z-index: 0;
+  animation: floatHero 12s ease-in-out infinite;
 }
 
 .hero-panel::after {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(185,152,60,0.15) 0%, transparent 70%);
-    bottom: 15%;
-    right: 5%;
-    border-radius: 50%;
-    z-index: 0;
-    animation: floatHero 15s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(185,152,60,0.15) 0%, transparent 70%);
+  bottom: 15%;
+  right: 5%;
+  border-radius: 50%;
+  z-index: 0;
+  animation: floatHero 15s ease-in-out infinite;
 }
 
 @keyframes floatHero {
-    0% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-20px) translateX(10px); }
-    100% { transform: translateY(0) translateX(0); }
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
 }
 </style>
-<style>
-/* Step 9: Animations & Decorative Elements */
-
-/* Scroll fade-in & slide-in for panels */
-.panel {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease-out;
-}
-
-.panel.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Subtle geometric decorative lines */
-.decorative-line {
-    position: absolute;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(185,152,60,0.4), transparent);
-    width: 120px;
-    top: 10%;
-    left: 5%;
-    z-index: 0;
-    animation: lineFloat 8s infinite alternate ease-in-out;
-}
-
-@keyframes lineFloat {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(20px); }
-    100% { transform: translateX(0); }
-}
-
-/* Gallery hover – glow & slight rotation for artistic vibe */
-.gallery img:hover {
-    transform: scale(1.04) rotate(1.2deg);
-    filter: brightness(1.08) saturate(1.05);
-    box-shadow: 0 0 25px rgba(185,152,60,0.35);
-}
-
-/* Program images – subtle shadow & lift on hover */
-.program-photo:hover {
-    transform: translateY(-5px) scale(1.03);
-    filter: brightness(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-/* Section quotes / value badges */
-.quote-badge {
-    display: inline-block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05em;
-    color: #b8983c;
-    border: 1px solid rgba(185,152,60,0.4);
-    padding: 8px 14px;
-    border-radius: 6px;
-    margin: 10px 0;
-    text-align: center;
-    transition: all 0.4s ease;
-}
-
-.quote-badge:hover {
-    background: rgba(185,152,60,0.08);
-    transform: scale(1.05);
-}
-
-/* Decorative subtle floating circles behind text */
-.floating-circle {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%);
-    width: 250px;
-    height: 250px;
-    z-index: 0;
-    animation: floatCircle 10s ease-in-out infinite;
-}
-
-@keyframes floatCircle {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(15px,-15px); }
-    100% { transform: translate(0,0); }
-}
-
-/* Decorative floating triangles */
-.floating-triangle {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 50px solid rgba(72,187,120,0.12);
-    z-index: 0;
-    animation: floatTriangle 12s ease-in-out infinite;
-}
-
-@keyframes floatTriangle {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(15deg); }
-    100% { transform: translateY(0) rotate(0deg); }
-}
-
-/* Animate hero text letters individually */
-.hero-text h1 span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: letterFadeIn 0.8s forwards;
-}
-
-@keyframes letterFadeIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Optional staggered effect for letters */
-.hero-text h1 span:nth-child(1) { animation-delay: 0.05s; }
-.hero-text h1 span:nth-child(2) { animation-delay: 0.1s; }
-/* … continue nth-child for all letters */
-
-</style>
-
-<script>
-// Step 9: JS to trigger scroll animations
-document.addEventListener("DOMContentLoaded", function(){
-    const panels = document.querySelectorAll(".panel");
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-            }
-        });
-    }, {threshold: 0.2});
-
-    panels.forEach(panel => observer.observe(panel));
-});
-</script>
-
-<!-- Example badge / quote inside Philosophy section -->
-<div class="quote-badge">"Precision without soul is empty; soul without precision is chaotic." — Felix Satia</div>
-
-<!-- Decorative circles & triangles -->
-<div class="floating-circle" style="top:15%; left:80%;"></div>
-<div class="floating-circle" style="bottom:10%; left:10%; width:180px; height:180px;"></div>
-<div class="floating-triangle" style="top:25%; right:20%;"></div>
-<div class="floating-triangle" style="bottom:20%; left:70%;"></div>
-
-<style>
-/* Step 10: Final Polish */
-
-/* Subtle background texture for panels */
-.panel {
-    background: linear-gradient(145deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));
-    padding: 60px 30px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Fine typography */
-.panel h2 {
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: #b8983c;
-    margin-bottom: 30px;
-}
-
-.panel p, .panel ul li {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05em;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.92);
-}
-
-/* Glowing subtle highlights behind panel headings */
-.panel h2::after {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(185,152,60,0.5), transparent);
-    bottom: -10px;
-    left: 0;
-    border-radius: 2px;
-}
-
-/* Small decorative icons / separators */
-.separator {
-    width: 60px;
-    height: 3px;
-    margin: 25px 0;
-    background: linear-gradient(90deg, rgba(185,152,60,0.7), transparent);
-    border-radius: 2px;
-}
-
-/* Subtle vignette & glowing radial for whole page */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.02), rgba(0,0,0,0.15));
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Office + Museum + Church vibe: geometric highlights */
-.decorative-square {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border: 1px solid rgba(185,152,60,0.2);
-    top: 20%;
-    left: 5%;
-    transform: rotate(15deg);
-    animation: floatSquare 14s ease-in-out infinite;
-}
-
-@keyframes floatSquare {
-    0% { transform: rotate(15deg) translateY(0); }
-    50% { transform: rotate(15deg) translateY(-15px); }
-    100% { transform: rotate(15deg) translateY(0); }
-}
-
-/* Decorative dot grids */
-.dot-grid {
-    background-image: radial-gradient(rgba(185,152,60,0.08) 1px, transparent 1px);
-    background-size: 20px 20px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:0;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Hover accent for badges / quotes */
-.quote-badge:hover {
-    background: rgba(185,152,60,0.12);
-    transform: scale(1.07) rotate(-0.5deg);
-    box-shadow: 0 6px 18px rgba(185,152,60,0.25);
-}
-
-/* Hero subtle shine over letters */
-.hero-text h1 {
-    position: relative;
-    display: inline-block;
-}
-
-.hero-text h1::before {
-    content:"";
-    position:absolute;
-    top:0; left:-50%;
-    width:200%;
-    height:100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0.0), rgba(255,255,255,0.1));
-    transform: skewX(-25deg);
-    pointer-events:none;
-    animation: shine 3s infinite linear;
-}
-
-@keyframes shine {
-    0% { left:-50%; }
-    100% { left:100%; }
-}
-
-/* Refine gallery hover with glowing border */
-.gallery img:hover {
-    box-shadow: 0 0 35px rgba(185,152,60,0.45);
-    transform: scale(1.05) rotate(0.5deg);
-}
-
-/* Footer final polish */
-footer {
-    background: linear-gradient(145deg, #0b1430, #1c2254);
-    color: rgba(255,255,255,0.75);
-    font-size: 0.92em;
-    padding: 30px 15px;
-    letter-spacing: 0.6px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
-    border-top: 2px solid #b8983c;
-}
-</style>
-
-<!-- Decorative squares & dot grid example -->
-<div class="decorative-square"></div>
-<div class="dot-grid"></div>
