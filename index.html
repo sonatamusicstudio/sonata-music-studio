@@ -575,3 +575,292 @@ footer {
     100% { transform: translateY(0) translateX(0); }
 }
 </style>
+<style>
+/* Step 9: Animations & Decorative Elements */
+
+/* Scroll fade-in & slide-in for panels */
+.panel {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subtle geometric decorative lines */
+.decorative-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(185,152,60,0.4), transparent);
+    width: 120px;
+    top: 10%;
+    left: 5%;
+    z-index: 0;
+    animation: lineFloat 8s infinite alternate ease-in-out;
+}
+
+@keyframes lineFloat {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+/* Gallery hover – glow & slight rotation for artistic vibe */
+.gallery img:hover {
+    transform: scale(1.04) rotate(1.2deg);
+    filter: brightness(1.08) saturate(1.05);
+    box-shadow: 0 0 25px rgba(185,152,60,0.35);
+}
+
+/* Program images – subtle shadow & lift on hover */
+.program-photo:hover {
+    transform: translateY(-5px) scale(1.03);
+    filter: brightness(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Section quotes / value badges */
+.quote-badge {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05em;
+    color: #b8983c;
+    border: 1px solid rgba(185,152,60,0.4);
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.quote-badge:hover {
+    background: rgba(185,152,60,0.08);
+    transform: scale(1.05);
+}
+
+/* Decorative subtle floating circles behind text */
+.floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%);
+    width: 250px;
+    height: 250px;
+    z-index: 0;
+    animation: floatCircle 10s ease-in-out infinite;
+}
+
+@keyframes floatCircle {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(15px,-15px); }
+    100% { transform: translate(0,0); }
+}
+
+/* Decorative floating triangles */
+.floating-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid rgba(72,187,120,0.12);
+    z-index: 0;
+    animation: floatTriangle 12s ease-in-out infinite;
+}
+
+@keyframes floatTriangle {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(15deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Animate hero text letters individually */
+.hero-text h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterFadeIn 0.8s forwards;
+}
+
+@keyframes letterFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Optional staggered effect for letters */
+.hero-text h1 span:nth-child(1) { animation-delay: 0.05s; }
+.hero-text h1 span:nth-child(2) { animation-delay: 0.1s; }
+/* … continue nth-child for all letters */
+
+</style>
+
+<script>
+// Step 9: JS to trigger scroll animations
+document.addEventListener("DOMContentLoaded", function(){
+    const panels = document.querySelectorAll(".panel");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    }, {threshold: 0.2});
+
+    panels.forEach(panel => observer.observe(panel));
+});
+</script>
+
+<!-- Example badge / quote inside Philosophy section -->
+<div class="quote-badge">"Precision without soul is empty; soul without precision is chaotic." — Felix Satia</div>
+
+<!-- Decorative circles & triangles -->
+<div class="floating-circle" style="top:15%; left:80%;"></div>
+<div class="floating-circle" style="bottom:10%; left:10%; width:180px; height:180px;"></div>
+<div class="floating-triangle" style="top:25%; right:20%;"></div>
+<div class="floating-triangle" style="bottom:20%; left:70%;"></div>
+
+<style>
+/* Step 10: Final Polish */
+
+/* Subtle background texture for panels */
+.panel {
+    background: linear-gradient(145deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));
+    padding: 60px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fine typography */
+.panel h2 {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #b8983c;
+    margin-bottom: 30px;
+}
+
+.panel p, .panel ul li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.92);
+}
+
+/* Glowing subtle highlights behind panel headings */
+.panel h2::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(185,152,60,0.5), transparent);
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+/* Small decorative icons / separators */
+.separator {
+    width: 60px;
+    height: 3px;
+    margin: 25px 0;
+    background: linear-gradient(90deg, rgba(185,152,60,0.7), transparent);
+    border-radius: 2px;
+}
+
+/* Subtle vignette & glowing radial for whole page */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.02), rgba(0,0,0,0.15));
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Office + Museum + Church vibe: geometric highlights */
+.decorative-square {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(185,152,60,0.2);
+    top: 20%;
+    left: 5%;
+    transform: rotate(15deg);
+    animation: floatSquare 14s ease-in-out infinite;
+}
+
+@keyframes floatSquare {
+    0% { transform: rotate(15deg) translateY(0); }
+    50% { transform: rotate(15deg) translateY(-15px); }
+    100% { transform: rotate(15deg) translateY(0); }
+}
+
+/* Decorative dot grids */
+.dot-grid {
+    background-image: radial-gradient(rgba(185,152,60,0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hover accent for badges / quotes */
+.quote-badge:hover {
+    background: rgba(185,152,60,0.12);
+    transform: scale(1.07) rotate(-0.5deg);
+    box-shadow: 0 6px 18px rgba(185,152,60,0.25);
+}
+
+/* Hero subtle shine over letters */
+.hero-text h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-text h1::before {
+    content:"";
+    position:absolute;
+    top:0; left:-50%;
+    width:200%;
+    height:100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0.0), rgba(255,255,255,0.1));
+    transform: skewX(-25deg);
+    pointer-events:none;
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% { left:-50%; }
+    100% { left:100%; }
+}
+
+/* Refine gallery hover with glowing border */
+.gallery img:hover {
+    box-shadow: 0 0 35px rgba(185,152,60,0.45);
+    transform: scale(1.05) rotate(0.5deg);
+}
+
+/* Footer final polish */
+footer {
+    background: linear-gradient(145deg, #0b1430, #1c2254);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92em;
+    padding: 30px 15px;
+    letter-spacing: 0.6px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    border-top: 2px solid #b8983c;
+}
+</style>
+
+<!-- Decorative squares & dot grid example -->
+<div class="decorative-square"></div>
+<div class="dot-grid"></div>
