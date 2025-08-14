@@ -1,244 +1,406 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonata Music Studio — Felix Satia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia." />
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="author" content="Felix Satia" />
+  <title>Sonata Music Studio | Felix Satia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-  :root{
-    --bg-deep: #0b1430;
-    --mid-1: #121936;
-    --mid-2: #1c2254;
-    --accent-violet: #4c2c84;
-    --gold: #b8983c;
-    --muted: #9da7c6;
-    --white: #ffffff;
-    --glass: rgba(255,255,255,0.04);
-    --panel-shadow: 0 20px 50px rgba(6,8,22,0.65);
-    --radius-xl: 20px;
-    --maxw: 1240px;
-    --ease: cubic-bezier(.16,.82,.24,1);
-  }
+    :root{
+      --bg-deep: #0b1430;
+      --mid-1: #121936;
+      --mid-2: #1c2254;
+      --accent-violet: #4c2c84;
+      --gold: #b8983c;
+      --muted: #9da7c6;
+      --white: #ffffff;
+      --glass: rgba(255,255,255,0.04);
+      --panel-shadow: 0 20px 50px rgba(6,8,22,0.65);
+      --radius-xl: 20px;
+      --maxw: 1240px;
+      --ease: cubic-bezier(.16,.82,.24,1);
+    }
 
-  /* Reset & base */
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    color:var(--white);
-    background: linear-gradient(145deg, var(--bg-deep), var(--mid-2) 46%, #3a256f 100%);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.6;
-  }
-  a{color:inherit;text-decoration:none}
-  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(145deg, var(--bg-deep), var(--mid-2), var(--accent-violet));
+      color: var(--white);
+    }
 
-  /* Header */
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    height:110px;
-    padding:0 28px;
-    background:linear-gradient(90deg,var(--mid-1), rgba(185,152,60,0.03));
-    box-shadow:0 6px 30px rgba(0,0,0,0.45);
-    position:sticky;
-    top:0;
-    z-index:2200;
-  }
-  .brand{display:flex;align-items:center;gap:16px}
-  .brand img{height:72px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.5))}
-  .brand .titles{display:flex;flex-direction:column;line-height:1}
-  .brand h1{font-family:"Cinzel",serif;font-size:1.35rem;margin:0;color:var(--white);letter-spacing:.02em}
-  .brand p{margin:2px 0 0;font-size:.86rem;color:var(--muted)}
-  .header-right{
-    background:linear-gradient(180deg,#f4e4ae,#b8983c);
-    padding:10px 14px;border-radius:8px;
-    color:var(--mid-1);font-weight:700;
-    box-shadow:0 6px 22px rgba(184,152,60,0.12);
-  }
+    header {
+      display: flex;
+      height: 100px;
+      background-color: var(--mid-2);
+      box-shadow: 0 0 18px var(--accent-violet);
+      z-index: 1000;
+      position: relative;
+    }
 
-  /* Navigation */
-  nav{
-    display:flex;gap:22px;justify-content:center;padding:12px 0;
-    background:linear-gradient(90deg, rgba(14,26,64,0.86), rgba(28,37,78,0.86));
-    border-bottom:2px solid rgba(76,44,132,0.12);
-    position:sticky;top:110px;z-index:2100;
-  }
-  nav a{
-    color:var(--white);font-weight:600;padding:6px 8px;border-radius:6px;
-    transition: transform .18s var(--ease), color .18s;
-  }
-  nav a:hover{ color:var(--gold); transform:translateY(-3px) }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 16px;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(185,152,60,0.4) 0%, rgba(185,152,60,0.15) 40%, transparent 80%);
+      filter: blur(4px);
+      z-index: 999;
+    }
 
-  /* Hero (image background + overlay) */
-  .hero-wrap{margin-top:28px;padding:28px 0 6px;}
-  .hero{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px 28px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(11,20,48,0.6), rgba(28,33,84,0.6)),
-                url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250813_191044.jpg") center/cover no-repeat;
-    color: var(--white);
-    overflow: hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: rgba(11,20,48,0.35);
-    border-radius: 20px;
-    z-index:1;
-  }
-  .hero-copy{position:relative; z-index:2; max-width:720px;}
-  .eyebrow{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:#e6d9ae;font-weight:700;margin-bottom:6px}
-  .hero-title{
-    font-family:"Cinzel",serif;font-weight:700;font-size:clamp(30px,4.6vw,48px);
-    line-height:1.04;margin:4px 0 12px;
-    background:linear-gradient(180deg,#fff,#eae0c0 60%,#d4b977);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    text-shadow:0 10px 34px rgba(76,44,132,0.12);
-  }
-  .hero-sub{font-size:1.02rem;color:var(--muted);max-width:56ch;margin-bottom:18px;}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-  .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .14s var(--ease),box-shadow .12s var(--ease)}
-  .btn-primary{background:linear-gradient(180deg,#f3df9a,#b8983c);color:var(--mid-1);box-shadow:0 12px 30px rgba(184,152,60,0.12)}
-  .btn-ghost{border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
-  .btn:hover{transform:translateY(-3px)}
+    .header-left {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      flex: 2;
+      background: linear-gradient(
+        to right,
+        #101b3c 0%,
+        #18275a 40%,
+        #2a1f5e 70%,
+        var(--gold) 100%
+      );
+      background-size: 200% 200%;
+      animation: headerGradient 12s ease-in-out infinite;
+    }
 
-  /* Sections */
-  main{padding:38px 0 80px}
-  section.panel{
-    margin:36px 0;
-    padding:24px;border-radius:14px;background:linear-gradient(145deg,#101b3c,#24305a,#3c2670);
-    box-shadow:0 18px 46px rgba(8,10,28,.66);
-    border-left:6px solid; border-image: linear-gradient(to bottom,#0a0f2c 0%,#5e4b85 20%,#d4af37 50%,#722f37 80%,#0a0f2c 100%) 1;
-    position:relative; overflow:hidden;
-    opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease), transform .6s var(--ease);
-  }
-  section.panel.visible{opacity:1;transform:none}
-  section.panel::after{
-    content:"";position:absolute;top:-20%;left:-20%;width:140%;height:140%;
-    background:radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);filter:blur(8px);
-    animation: shimmer 9s linear infinite; pointer-events:none;
-  }
-  @keyframes shimmer{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
-  h2.section-title{font-family:"Cinzel",serif;color:var(--gold);margin:0 0 14px;font-size:1.6rem;text-shadow:0 6px 20px rgba(184,152,60,0.08)}
+    @keyframes headerGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  /* Gallery */
-  .gallery{display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:14px;}
-  .gallery .tile{background:transparent; padding:8px; border-radius:8px; display:flex;align-items:center;justify-content:center;aspect-ratio:4/3; overflow:hidden;}
-  .gallery img{width:100%; height:100%; object-fit:contain; display:block; border-radius:6px; background:#000; transition: transform .18s var(--ease), box-shadow .18s var(--ease);}
-  .gallery img:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .header-left img {
+      height: 70px;
+      margin-right: 15px;
+      border-radius: 0;
+    }
 
-  /* Footer */
-  footer{margin-top:46px;padding:22px 0;text-align:center;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18));color:var(--muted)}
+    .text-block h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
 
-  /* Responsive */
-  @media (max-width:720px){
-    header{height:auto;padding:18px;flex-direction:column;gap:12px}
-  }
+    .text-block p {
+      margin: 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    .header-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--mid-2);
+      background-color: var(--gold);
+    }
+
+    nav {
+      background: linear-gradient(to right, var(--mid-2), #1c254e);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px 0;
+      border-bottom: 2px solid var(--accent-violet);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.03);
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      position: relative;
+      height: 500px;
+      background: url('1728278677799.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11,20,48,0.6);
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--gold);
+    }
+
+    .hero-overlay h1 {
+      font-size: 3em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    main {
+      padding: 30px 60px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .panel {
+      position: relative;
+      margin-bottom: 40px;
+      background: linear-gradient(145deg, var(--mid-1), var(--mid-2), var(--accent-violet));
+      padding: 20px 25px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--panel-shadow);
+      overflow: hidden;
+      border-left: 6px solid;
+      border-image: linear-gradient(
+        to bottom,
+        #0a0f2c 0%,
+        #5e4b85 20%,
+        #d4af37 50%,
+        #722f37 80%,
+        #0a0f2c 100%
+      ) 1;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      animation: shimmer 6s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(8px);
+    }
+
+    @keyframes shimmer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h2 {
+      color: var(--gold);
+      border-bottom: 1px solid var(--accent-violet);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .section-with-image {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-with-image img {
+      max-width: 300px;
+      border-radius: 0;
+    }
+
+    .section-with-image .text {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 0;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: var(--mid-2);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; height: auto; }
+      .header-left, .header-right { flex: none; width: 100%; text-align: center; padding: 10px; }
+      .header-left { flex-direction: column; justify-content: center; }
+      .header-left img { margin-bottom: 10px; }
+      nav { flex-wrap: wrap; justify-content: center; padding: 10px; gap: 15px; }
+      nav a { font-size: 0.9em; padding: 6px 10px; }
+      main { padding: 20px 15px; }
+      .panel { padding: 20px 18px; }
+    }
   </style>
 </head>
-
 <body>
-  <!-- Header -->
+
   <header>
-    <div class="brand">
-      <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-      <div class="titles">
+    <div class="header-left">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+      <div class="text-block">
         <h1>Sonata Music Studio</h1>
         <p>Instruction | Composition | Educational Materials</p>
       </div>
     </div>
-    <div class="header-right">Sacred Precision, Artistic Refinement</div>
+    <div class="header-right">
+      Sacred Precision, Artistic Refinement
+    </div>
   </header>
 
-  <!-- Navigation -->
-  <nav aria-label="Primary">
+  <nav>
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
     <a href="#philosophy">Philosophy</a>
     <a href="#portfolio">Portfolio</a>
-    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- HERO -->
-  <div class="hero-wrap">
-    <div class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Invest in Your Artistry</p>
-        <h1 class="hero-title">Felix Satia — Piano & Music Theory</h1>
-        <p class="hero-sub">Develop your musical identity with focused instruction, artistic insight, and a touch of sacred grandeur.</p>
-        <div class="hero-cta">
-          <a href="#programs" class="btn btn-primary">Explore Programs</a>
-          <a href="#contact" class="btn btn-ghost">Book a Session</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Invest in Your Artistry</h1>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <div class="section-with-image">
+        <img src="1728278677799.jpeg" alt="Felix Satia" />
+        <div class="text">
+          <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Main content sections -->
-  <main>
-    <section class="panel" id="about">
-      <h2 class="section-title">About Felix Satia</h2>
-      <p>Felix Satia is a professional piano and music theory instructor with years of experience in guiding students toward musical mastery...</p>
     </section>
 
-    <section class="panel" id="programs">
-      <h2 class="section-title">Programs</h2>
-      <p>Private piano lessons, theory workshops, and ensemble coaching designed to elevate musicianship.</p>
+    <section id="programs" class="panel">
+      <h2>Programs</h2>
+      <div class="section-with-image">
+        <img src="1728277959315.jpeg" alt="Teaching" />
+        <div class="text">
+          <ul>
+            <li>Piano – Classical Repertoire & Technique</li>
+            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="panel" id="philosophy">
-      <h2 class="section-title">Philosophy</h2>
-      <p>Emphasis on deep understanding, precision, and artistic expression in all aspects of music learning.</p>
+    <section id="philosophy" class="panel">
+      <h2>Philosophy</h2>
+      <div class="section-with-image">
+        <img src="1728277097784.jpeg" alt="Concert" />
+        <div class="text">
+          <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="panel" id="portfolio">
-      <h2 class="section-title">Portfolio</h2>
-      <p>Showcasing past performances, student highlights, and compositions.</p>
+    <section id="portfolio" class="panel">
+      <h2>Portfolio</h2>
+      <div class="section-with-image">
+        <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
+        <div class="text">
+          <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="panel" id="gallery">
-      <h2 class="section-title">Gallery</h2>
+    <section id="gallery" class="panel">
+      <h2>Gallery</h2>
       <div class="gallery">
-        <div class="tile"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/photo1.jpg" alt="Gallery 1"></div>
-        <div class="tile"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/photo2.jpg" alt="Gallery 2"></div>
-        <div class="tile"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/photo3.jpg" alt="Gallery 3"></div>
+        <img src="1728277097784.jpeg" />
+        <img src="1728277959315.jpeg" />
+        <img src="1728277994217.jpeg" />
+        <img src="1728278062357.jpeg" />
+        <img src="1728278413639.jpeg" />
+        <img src="1728278498612.jpeg" />
+        <img src="1728278535664.jpeg" />
+        <img src="1728278743638.jpeg" />
+        <img src="1728278972071.jpeg" />
+        <img src="1728279819431.jpeg" />
+        <img src="1728294846403.jpeg" />
+        <img src="1728294894368.jpeg" />
+        <img src="1728295139439.jpeg" />
+        <img src="1728295173689.jpeg" />
+        <img src="1728295202953.jpeg" />
+        <img src="1728295402904.jpeg" />
+        <img src="1728295429712.jpeg" />
+        <img src="1728296617350.jpeg" />
+        <img src="1728300782229.jpeg" />
+        <img src="1728301815288.jpeg" />
+        <img src="1728302182364.jpeg" />
+        <img src="1728302212548.jpeg" />
+        <img src="1728303826998.jpeg" />
+        <img src="1728311786057.jpeg" />
+        <img src="1728349078427.jpeg" />
+        <img src="1728368821890.jpeg" />
+        <img src="1728368987536.jpeg" />
+        <img src="1728450148208.jpeg" />
+        <img src="1728450200661.jpeg" />
+        <img src="1728450222173.jpeg" />
+        <img src="1728450251141.jpeg" />
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <div class="social-icons">
+        <a href="https://wa.me/6289656684852">WhatsApp</a>
+        <a href="https://www.youtube.com/@felixsatia">YouTube</a>
+        <a href="https://www.instagram.com/felixsatia">Instagram</a>
+        <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Sonata Music Studio — Crafted with Precision & Grandeur
+    <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
   </footer>
 
-  <script>
-  // Animate panels on scroll
-  const panels = document.querySelectorAll('section.panel');
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-    });
-  },{threshold:0.2});
-  panels.forEach(panel=>observer.observe(panel));
-  </script>
 </body>
 </html>
