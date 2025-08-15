@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia.">
 <meta name="author" content="Felix Satia">
 <title>Sonata Music Studio | Felix Satia</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root {
   --text-color: #fdf6e3;
   --bg-color: #0a0f26;
@@ -39,7 +38,7 @@ body {
 .magic-particles span{
   position:absolute; display:block; width:8px; height:8px;
   border-radius:50%; background:var(--shimmer-color);
-  animation:floatMagic calc(15s + random()*10s) ease-in-out infinite;
+  animation:floatMagic 20s ease-in-out infinite;
   pointer-events:none;
 }
 
@@ -52,6 +51,7 @@ header {
   position:sticky; top:0; z-index:1000;
   border-bottom:2px solid var(--gold-color);
 }
+.header-left { display:flex; align-items:center; gap:15px; }
 .header-left .text-block h1 {
   font-family:'Playfair Display', serif; font-size:2em; color:var(--gold-color);
   text-shadow: 0 0 15px var(--gold-color);
@@ -60,8 +60,10 @@ header {
   font-size:0.9em; opacity:0.9;
   text-shadow:0 0 5px rgba(72,187,120,0.6);
 }
-.header-right {font-size:1em; font-weight:500; color:var(--gold-color);
-  text-shadow:0 0 12px var(--emerald-color);}
+.header-right {
+  font-size:1em; font-weight:500; color:var(--gold-color);
+  text-shadow:0 0 12px var(--emerald-color);
+}
 
 /* Nav */
 nav {
@@ -99,6 +101,12 @@ nav a:hover { color:var(--emerald-color); text-shadow:0 0 10px var(--emerald-col
 .hero-text h1 {
   font-family:'Playfair Display', serif; font-size:3.5em; line-height:1.2;
   color:var(--gold-color); text-shadow:0 0 30px rgba(212,175,55,0.8), 0 0 60px var(--glow-purple);
+  animation:shimmerText 3s ease-in-out infinite alternate;
+}
+@keyframes shimmerText{
+  0%{ text-shadow:0 0 30px rgba(212,175,55,0.8), 0 0 60px rgba(107,44,145,0.25); }
+  50%{ text-shadow:0 0 40px rgba(212,175,55,0.9), 0 0 80px rgba(107,44,145,0.35); }
+  100%{ text-shadow:0 0 30px rgba(212,175,55,0.8), 0 0 60px rgba(107,44,145,0.25); }
 }
 .hero-text p {
   margin-top:10px; font-size:1.3em; color:var(--gold-color);
@@ -121,9 +129,14 @@ nav a:hover { color:var(--emerald-color); text-shadow:0 0 10px var(--emerald-col
   box-shadow: inset 0 0 40px rgba(72,187,120,0.1);
   transition: all 0.5s ease;
 }
-.panel:hover { box-shadow: 0 0 50px rgba(72,187,120,0.3), inset 0 0 60px rgba(212,175,55,0.2); }
+.panel:hover {
+  box-shadow: 0 0 50px rgba(72,187,120,0.3), inset 0 0 60px rgba(212,175,55,0.2);
+}
 
 /* Section with image */
+.section-with-image {
+  display:flex; flex-wrap:wrap; gap:20px; align-items:center;
+}
 .section-with-image img {
   flex:1 1 300px; border-radius:15px; object-fit:cover;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -179,8 +192,9 @@ footer::after {
   transform:translateX(-50%); background:radial-gradient(circle, var(--shimmer-color) 0%, transparent 80%);
   border-radius:50%; pointer-events:none;
 }
+</style>
+</head>
 
-<!-- Header -->
 <header>
   <div class="header-left">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
