@@ -6,36 +6,33 @@
 <meta name="description" content="Sonata Music Studio — Instruction, Composition, and Sacred Artistic Refinement by Felix Satia.">
 <meta name="author" content="Felix Satia">
 <title>Sonata Music Studio | Felix Satia</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
 :root {
-  /* jangan ditimpa lagi di bawah */
   --text-color: #ffffff;
-  --bg-color: #0e1a40;          /* Navy gelap */
-  --accent-color: #4c2c84;      /* Ungu */
-  --gold-color: #b8983c;        /* Emas */
+  --bg-color: #0e1a40;
+  --accent-color: #4c2c84;
+  --gold-color: #b8983c;
   --subtle-green: rgba(72,187,120,0.2);
 }
 
 /* Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin:0; padding:0; }
 
 /* Base */
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family:'Inter', system-ui, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
+  overflow-x:hidden;
 }
 
 /* Header */
 header {
   display:flex; align-items:center; justify-content:space-between;
   height:100px; padding:0 30px;
-  background: linear-gradient(90deg, #101b3c, #2a1f5e, #3a256f);
-  box-shadow:0 4px 15px rgba(0,0,0,0.5);
+  background: linear-gradient(90deg, #0b1a3d, #1c1f5f, #3a2072);
+  box-shadow:0 4px 20px rgba(0,0,0,0.6);
   position:sticky; top:0; z-index:1000;
 }
 .header-left{display:flex; align-items:center; gap:15px;}
@@ -59,8 +56,10 @@ header {
   content:""; position:absolute; inset:0;
   background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)); z-index:1;
 }
-@keyframes fadeInHero{to{opacity:1;}}
-.hero-text{position:relative; z-index:3; max-width:90%;}
+@keyframes fadeInHero{ to{opacity:1;} }
+.hero-text{
+  position:relative; z-index:3; max-width:90%;
+}
 .hero-text h1{
   font-family:'Playfair Display', serif; font-size:3em; line-height:1.2;
   color:var(--gold-color); text-shadow:0 0 20px rgba(0,0,0,0.5);
@@ -72,7 +71,8 @@ header {
 /* Radial glow belakang teks */
 .hero-text::after{
   content:""; position:absolute; top:50%; left:50%; width:500px; height:500px;
-  transform:translate(-50%,-50%); background:radial-gradient(circle, var(--subtle-green) 0%, transparent 70%);
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, var(--subtle-green) 0%, transparent 70%);
   z-index:-1; border-radius:50%;
 }
 /* Partikel hero */
@@ -81,291 +81,195 @@ header {
 }
 .hero-particles span{
   position:absolute; display:block; width:6px; height:6px;
-  background:rgba(185,152,60,0.4); border-radius:50%; animation:drift 20s linear infinite;
+  background:rgba(185,152,60,0.4); border-radius:50%;
+  animation:drift 20s linear infinite;
 }
 @keyframes drift{
   0%{ transform:translate(0,0); opacity:0.2; }
   50%{ transform:translate(50px,-200px); opacity:0.8; }
   100%{ transform:translate(0,0); opacity:0.2; }
 }
-
-/* Nav */
-nav{
-  display:flex; justify-content:center; gap:25px; padding:12px 0;
-  background: linear-gradient(90deg,#0e1a40,#1c254e);
-  border-bottom:2px solid var(--accent-color);
-  position:sticky; top:100px; z-index:999;
-}
-nav a{color:#fff; text-decoration:none; font-weight:500; transition:color .3s;}
-nav a:hover{color:var(--gold-color);}
-
-/* Panel */
-.panel{padding:60px 30px; max-width:1200px; margin:0 auto;}
-.panel h2{
-  color:var(--gold-color); border-bottom:2px solid var(--accent-color);
-  padding-bottom:5px; margin-bottom:25px; font-family:'Playfair Display', serif;
-}
-
-/* Section with Image */
-.section-with-image{display:flex; flex-wrap:wrap; gap:25px; align-items:center;}
-.section-with-image img{
-  max-width:360px; border-radius:0; transition:transform .4s, opacity .6s;
-  opacity:.95; object-fit:cover;
-}
-.section-with-image img:hover{transform:scale(1.03) translateY(-3px); opacity:1;}
-.section-with-image .text{
-  flex:1; min-width:260px; font-size:1em; line-height:1.6; color:#fff; /* paksa putih */
-}
-
-/* Portfolio */
-.portfolio-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
-.portfolio-item{
-  background:rgba(255,255,255,0.05); padding:15px; border-radius:0;
-  transition:transform .4s, box-shadow .4s;
-}
-.portfolio-item:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 10px 25px rgba(185,152,60,0.35);}
-.portfolio-item img{width:100%; object-fit:cover; opacity:.95; transition:transform .4s, opacity .4s;}
-.portfolio-item img:hover{transform:scale(1.03); opacity:1;}
-.portfolio-text{margin-top:10px; color:#ffffff;}           /* teks portfolio putih */
-.portfolio-text h3{
-  font-family:'Playfair Display', serif; font-size:1.3em; color:var(--gold-color); margin-bottom:6px;
-}
-.portfolio-text p{font-size:.95em; line-height:1.5; opacity:.95;}
-
-/* Gallery */
-.gallery-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px; justify-items:center;
-}
-.gallery-grid img{
-  width:100%; object-fit:contain; transition:transform .3s, filter .3s, box-shadow .3s; cursor:pointer;
-}
-.gallery-grid img:hover{transform:scale(1.03); filter:brightness(1.05); box-shadow:0 6px 20px rgba(185,152,60,0.35);}
-
-/* Contact (single, tidak dobel) */
-#contact{
-  text-align:center; padding:60px 20px; color:#fff;
-  background:linear-gradient(135deg,#101b3c,#2a1f5e); position:relative;
-}
-#contact h2{
-  font-family:'Playfair Display', serif; color:var(--gold-color); font-size:2.5em;
-  margin-bottom:20px; border-bottom:2px solid var(--accent-color); display:inline-block; padding-bottom:5px;
-}
-#contact p{font-size:1.1em; max-width:700px; margin:0 auto 40px; line-height:1.6; color:rgba(228,214,174,0.9);}
-.contact-cards{display:flex; justify-content:center; flex-wrap:wrap; gap:25px; z-index:1;}
-.contact-card{
-  display:flex; flex-direction:column; align-items:center; gap:10px; text-decoration:none;
-  color:var(--gold-color); background:linear-gradient(145deg,rgba(185,152,60,0.1),rgba(185,152,60,0.05));
-  padding:20px; border-radius:12px; box-shadow:0 8px 20px rgba(185,152,60,0.2); transition:all .35s;
-}
-.contact-card img{width:45px; height:45px;}
-.contact-card span{font-weight:600; font-size:1em;}
-.contact-card:hover{transform:translateY(-5px) scale(1.05); box-shadow:0 12px 30px rgba(185,152,60,0.35); color:#fff;}
-#contact::before,#contact::after{
-  content:""; position:absolute; width:300px; height:300px; border-radius:50%;
-  background:radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%); z-index:0; animation:floatContact 18s ease-in-out infinite;
-}
-#contact::before{top:10%; left:5%;}
-#contact::after{bottom:15%; right:10%;}
-@keyframes floatContact{0%{transform:translate(0,0);}50%{transform:translate(15px,-20px);}100%{transform:translate(0,0);}}
-
-/* Footer (single) */
-footer{
-  background-color:#0e1a40; text-align:center; padding:25px 20px; font-size:.9em;
-  color:rgba(255,255,255,0.7); letter-spacing:.5px; border-top:2px solid var(--gold-color);
-  box-shadow:inset 0 5px 10px rgba(255,255,255,0.02);
-}
-
-/* Responsive */
-@media (max-width:768px){
-  header{flex-direction:column; height:auto; padding:10px;}
-  .header-left{flex-direction:column; text-align:center;}
-  .hero-text h1{font-size:2.2em;}
-  .hero-text p{font-size:1em;}
-  .section-with-image{flex-direction:column; align-items:center;}
-  .section-with-image img{max-width:90%;}
-}
 </style>
 </head>
-
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-left">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-      <div class="text-block">
-        <h1>Sonata Music Studio</h1>
-        <p>Instruction | Composition | Educational Materials</p>
-      </div>
-    </div>
-    <div class="header-right">Sacred Precision, Artistic Refinement</div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
-    <div class="hero-particles">
-      <span style="top:80%; left:10%; animation-duration:25s;"></span>
-      <span style="top:60%; left:40%; animation-duration:18s;"></span>
-      <span style="top:20%; left:70%; animation-duration:22s;"></span>
-      <span style="top:50%; left:85%; animation-duration:20s;"></span>
-      <span style="top:10%; left:30%; animation-duration:24s;"></span>
+<!-- Header -->
+<header>
+  <div class="header-left">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+    <div class="text-block">
+      <h1>Sonata Music Studio</h1>
+      <p>Instruction | Composition | Educational Materials</p>
     </div>
-    <div class="hero-text">
-      <h1>Invest in Your Artistry</h1>
-      <p>Instruction | Composition | Sacred Artistic Refinement</p>
-    </div>
-  </section>
+  </div>
+  <div class="header-right">Sacred Precision, Artistic Refinement</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
+  <div class="hero-particles">
+    <span style="top:80%; left:10%; animation-duration:25s;"></span>
+    <span style="top:60%; left:40%; animation-duration:18s;"></span>
+    <span style="top:20%; left:70%; animation-duration:22s;"></span>
+    <span style="top:50%; left:85%; animation-duration:20s;"></span>
+    <span style="top:10%; left:30%; animation-duration:24s;"></span>
+  </div>
+  <div class="hero-text">
+    <h1>Invest in Your Artistry</h1>
+    <p>Instruction | Composition | Sacred Artistic Refinement</p>
+  </div>
+</section>
 
   <!-- Nav -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <!-- About -->
-  <section id="about" class="panel">
-    <h2>About</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia" />
-      <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
-        <p>Our mission is to cultivate artistic expression with precision, nurturing both technical skill and soulful interpretation. Students experience a holistic journey: disciplined training, deep understanding, and creative exploration.</p>
+<!-- About -->
+<section id="about" class="panel" style="background: linear-gradient(135deg, #1a1f5f, #3a2072, #0b1a3d); border-left:4px solid var(--gold-color);">
+  <h2>About</h2>
+  <div class="section-with-image">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia" />
+    <div class="text">
+      <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+      <p>Our mission is to cultivate artistic expression with precision, nurturing both technical skill and soulful interpretation. Students experience a holistic journey: disciplined training, deep understanding, and creative exploration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Programs -->
+<section id="programs" class="panel" style="background: linear-gradient(135deg, #162050, #422a72, #0f1b3a); border-left:4px solid var(--gold-color);">
+  <h2>Programs</h2>
+  <div class="section-with-image">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching" />
+    <div class="text">
+      <ul>
+        <li>Piano – Classical Repertoire & Technique</li>
+        <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+        <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+      </ul>
+      <p>Each program is meticulously designed to combine rigorous technique with artistic refinement. Lessons emphasize clarity, musicality, and personal growth, with attention to each student's unique abilities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section id="philosophy" class="panel" style="background: linear-gradient(135deg, #3a256f, #1a3c44, #b8983c20); border-left:4px solid var(--gold-color);">
+  <h2>Philosophy</h2>
+  <div class="section-with-image">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Felix Satia Performing" />
+    <div class="text">
+      <p>At Sonata Music Studio, our philosophy merges <strong>sacred discipline</strong>, <strong>artistic integrity</strong>, and <strong>educational structure</strong>. Music is not merely a skill—it is a journey of <strong>reflection, precision, and cultural resonance</strong>. We embrace Western classical rigor while honoring Asian contemplative values, fostering holistic growth that goes beyond notes.</p>
+      <p>Each student is guided to discover their <strong>unique voice</strong>, balancing technical mastery with <strong>expressive depth</strong>. The studio cultivates focus, reverence, and clarity, transforming practice into a ritual of self-discovery and artistic refinement.</p>
+      <p>We believe that music, like a cathedral, is <strong>both architecture and soul</strong>—structured yet alive, disciplined yet free, where each note reflects <strong>intentionality and beauty</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="panel" style="background: linear-gradient(135deg, #0e1a40, #3a256f, rgba(72,187,120,0.1)); border-left:4px solid var(--gold-color);">
+  <h2>Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Piano Performance">
+      <div class="portfolio-text">
+        <h3>Piano Performance</h3>
+        <p>Bachelor of Music in Piano Performance. Repertoire includes Bach WTC, Beethoven Sonatas, Debussy Etudes, Brahms Rhapsodies.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Programs -->
-  <section id="programs" class="panel">
-    <h2>Programs</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching" />
-      <div class="text">
-        <ul>
-          <li>Piano – Classical Repertoire & Technique</li>
-          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-        </ul>
-        <p>Each program is meticulously designed to combine rigorous technique with artistic refinement. Lessons emphasize clarity, musicality, and personal growth, with attention to each student's unique abilities.</p>
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching Portfolio">
+      <div class="portfolio-text">
+        <h3>Instruction & Pedagogy</h3>
+        <p>Experience in private piano, music theory, and choral instruction for children and adults. Holistic educational methodology emphasizing precision and artistic expression.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section id="philosophy" class="panel">
-    <h2>Philosophy</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Felix Satia Performing" />
-      <div class="text">
-        <p>At Sonata Music Studio, our philosophy merges <strong>sacred discipline</strong>, <strong>artistic integrity</strong>, and <strong>educational structure</strong>. Music is not merely a skill—it is a journey of <strong>reflection, precision, and cultural resonance</strong>. We embrace Western classical rigor while honoring Asian contemplative values, fostering holistic growth that goes beyond notes.</p>
-        <p>Each student is guided to discover their <strong>unique voice</strong>, balancing technical mastery with <strong>expressive depth</strong>. The studio cultivates focus, reverence, and clarity, transforming practice into a ritual of self-discovery and artistic refinement.</p>
-        <p>We believe that music, like a cathedral, is <strong>both architecture and soul</strong>—structured yet alive, disciplined yet free, where each note reflects <strong>intentionality and beauty</strong>.</p>
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert">
+      <div class="portfolio-text">
+        <h3>Concert & Ensemble</h3>
+        <p>Conducted and performed in liturgical, classical, and contemporary ensemble concerts. Focus on musicality, stage presence, and interpretative depth.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="portfolio" class="panel">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Piano Performance">
-        <div class="portfolio-text">
-          <h3>Piano Performance</h3>
-          <p>Bachelor of Music in Piano Performance. Repertoire includes Bach WTC, Beethoven Sonatas, Debussy Etudes, Brahms Rhapsodies.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching Portfolio">
-        <div class="portfolio-text">
-          <h3>Instruction & Pedagogy</h3>
-          <p>Experience in private piano, music theory, and choral instruction for children and adults. Holistic educational methodology emphasizing precision and artistic expression.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert">
-        <div class="portfolio-text">
-          <h3>Concert & Ensemble</h3>
-          <p>Conducted and performed in liturgical, classical, and contemporary ensemble concerts. Focus on musicality, stage presence, and interpretative depth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <!-- Gallery -->
-  <section id="gallery" class="panel">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Gallery Image 1">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Gallery Image 2">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277994217.jpeg" alt="Gallery Image 3">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278062357.jpeg" alt="Gallery Image 4">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278413639.jpeg" alt="Gallery Image 5">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278498612.jpeg" alt="Gallery Image 6">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278535664.jpeg" alt="Gallery Image 7">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278743638.jpeg" alt="Gallery Image 8">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278972071.jpeg" alt="Gallery Image 9">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728279819431.jpeg" alt="Gallery Image 10">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294846403.jpeg" alt="Gallery Image 11">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294894368.jpeg" alt="Gallery Image 12">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295139439.jpeg" alt="Gallery Image 13">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295173689.jpeg" alt="Gallery Image 14">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295202953.jpeg" alt="Gallery Image 15">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295402904.jpeg" alt="Gallery Image 16">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295429712.jpeg" alt="Gallery Image 17">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728296617350.jpeg" alt="Gallery Image 18">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728300782229.jpeg" alt="Gallery Image 19">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728301815288.jpeg" alt="Gallery Image 20">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302182364.jpeg" alt="Gallery Image 21">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302212548.jpeg" alt="Gallery Image 22">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728303826998.jpeg" alt="Gallery Image 23">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728311786057.jpeg" alt="Gallery Image 24">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728349078427.jpeg" alt="Gallery Image 25">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368821890.jpeg" alt="Gallery Image 26">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368987536.jpeg" alt="Gallery Image 27">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450148208.jpeg" alt="Gallery Image 28">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450200661.jpeg" alt="Gallery Image 29">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450222173.jpeg" alt="Gallery Image 30">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450251141.jpeg" alt="Gallery Image 31">
-    </div>
-  </section>
+<section id="gallery" class="panel" style="background: linear-gradient(135deg, #0e1a40, #3a256f, rgba(72,187,120,0.1)); border-left:4px solid var(--gold-color);">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Gallery Image 1">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Gallery Image 2">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277994217.jpeg" alt="Gallery Image 3">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278062357.jpeg" alt="Gallery Image 4">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278413639.jpeg" alt="Gallery Image 5">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278498612.jpeg" alt="Gallery Image 6">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278535664.jpeg" alt="Gallery Image 7">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278743638.jpeg" alt="Gallery Image 8">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278972071.jpeg" alt="Gallery Image 9">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728279819431.jpeg" alt="Gallery Image 10">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294846403.jpeg" alt="Gallery Image 11">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294894368.jpeg" alt="Gallery Image 12">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295139439.jpeg" alt="Gallery Image 13">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295173689.jpeg" alt="Gallery Image 14">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295202953.jpeg" alt="Gallery Image 15">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295402904.jpeg" alt="Gallery Image 16">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295429712.jpeg" alt="Gallery Image 17">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728296617350.jpeg" alt="Gallery Image 18">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728300782229.jpeg" alt="Gallery Image 19">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728301815288.jpeg" alt="Gallery Image 20">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302182364.jpeg" alt="Gallery Image 21">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302212548.jpeg" alt="Gallery Image 22">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728303826998.jpeg" alt="Gallery Image 23">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728311786057.jpeg" alt="Gallery Image 24">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728349078427.jpeg" alt="Gallery Image 25">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368821890.jpeg" alt="Gallery Image 26">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368987536.jpeg" alt="Gallery Image 27">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450148208.jpeg" alt="Gallery Image 28">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450200661.jpeg" alt="Gallery Image 29">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450222173.jpeg" alt="Gallery Image 30">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450251141.jpeg" alt="Gallery Image 31">
+  </div>
+</section>
 
-  <!-- Contact (single) -->
-  <section id="contact" class="panel">
-    <h2>Contact</h2>
-    <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
-    <div class="contact-cards">
-      <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"><span>WhatsApp</span>
-      </a>
-      <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"><span>YouTube</span>
-      </a>
-      <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"><span>Instagram</span>
-      </a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"><span>LinkedIn</span>
-      </a>
-    </div>
-  </section>
+  <!-- Contact -->
+<section id="contact" class="panel" style="background: linear-gradient(135deg, #0e1a40, #3a256f, rgba(72,187,120,0.1)); border-left:4px solid var(--gold-color);">
+  <h2>Contact</h2>
+  <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
+  <div class="contact-cards">
+    <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
+  </div>
+  <!-- Radial glow circles -->
+  <div style="position:absolute; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%); top:10%; left:5%; animation:floatContact 18s ease-in-out infinite;"></div>
+  <div style="position:absolute; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%); bottom:15%; right:10%; animation:floatContact 18s ease-in-out infinite;"></div>
+</section>
 
-  <!-- Footer (single) -->
-  <footer>
-    <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity by Felix Satia</p>
-  </footer>
+<!-- Footer -->
+<footer style="background: linear-gradient(90deg, #0e1a40, #3a256f); border-top:2px solid var(--gold-color); text-align:center; padding:25px 20px; font-size:.9em; color:rgba(255,255,255,0.85); letter-spacing:.5px; box-shadow: inset 0 5px 15px rgba(255,255,255,0.05); position:relative;">
+  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity by Felix Satia</p>
+  <!-- subtle glow overlay -->
+  <div style="position:absolute; top:0; left:50%; width:150px; height:150px; transform:translateX(-50%); background:radial-gradient(circle, rgba(185,152,60,0.15) 0%, transparent 80%); border-radius:50%; pointer-events:none;"></div>
+</footer>
 
-  <script>
-  // animasi masuk panel
-  const panels = document.querySelectorAll('.panel');
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
-  },{threshold:0.2});
-  panels.forEach(p=>observer.observe(p));
-  </script>
-</body>
-</html>
+  
