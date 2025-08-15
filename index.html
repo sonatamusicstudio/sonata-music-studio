@@ -11,12 +11,11 @@
 
 <style>
 :root {
-  /* jangan ditimpa lagi di bawah */
-  --text-color: #ffffff;
-  --bg-color: #0e1a40;          /* Navy gelap */
-  --accent-color: #4c2c84;      /* Ungu */
-  --gold-color: #b8983c;        /* Emas */
-  --subtle-green: rgba(72,187,120,0.2);
+  --text-color: #ffffff;
+  --bg-color: #0e1a40;
+  --accent-color: #4c2c84;
+  --gold-color: #b8983c;
+  --subtle-green: rgba(72,187,120,0.2);
 }
 
 /* Reset */
@@ -24,348 +23,1271 @@
 
 /* Base */
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
 }
 
 /* Header */
 header {
-  display:flex; align-items:center; justify-content:space-between;
-  height:100px; padding:0 30px;
-  background: linear-gradient(90deg, #101b3c, #2a1f5e, #3a256f);
-  box-shadow:0 4px 15px rgba(0,0,0,0.5);
-  position:sticky; top:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  height:100px; padding:0 30px;
+  background: linear-gradient(90deg, #101b3c, #2a1f5e, #3a256f);
+  box-shadow:0 4px 15px rgba(0,0,0,0.5);
+  position:sticky; top:0; z-index:1000;
 }
 .header-left{display:flex; align-items:center; gap:15px;}
 .header-left img{height:70px;}
 .header-left .text-block h1{
-  font-family:'Playfair Display', serif; font-size:1.8em; color:var(--gold-color);
+  font-family:'Playfair Display', serif; font-size:1.8em; color:var(--gold-color);
 }
 .header-left .text-block p{font-size:0.9em; opacity:0.85;}
 .header-right{font-size:1em; font-weight:500; color:var(--gold-color);}
 
 /* Hero */
 .hero{
-  position:relative; height:90vh; display:flex; align-items:center; justify-content:center;
-  text-align:center; overflow:hidden;
+  position:relative; height:90vh; display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
 }
 .hero img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  filter:brightness(0.65); opacity:0; animation:fadeInHero 2s forwards; z-index:0;
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:brightness(0.65); opacity:0; animation:fadeInHero 2s forwards; z-index:0;
 }
 .hero::before{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)); z-index:1;
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)); z-index:1;
 }
 @keyframes fadeInHero{to{opacity:1;}}
 .hero-text{position:relative; z-index:3; max-width:90%;}
 .hero-text h1{
-  font-family:'Playfair Display', serif; font-size:3em; line-height:1.2;
-  color:var(--gold-color); text-shadow:0 0 20px rgba(0,0,0,0.5);
+  font-family:'Playfair Display', serif; font-size:3em; line-height:1.2;
+  color:var(--gold-color); text-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 .hero-text p{
-  margin-top:10px; font-size:1.2em; color:var(--gold-color);
-  text-shadow:0 0 15px rgba(0,0,0,0.3);
+  margin-top:10px; font-size:1.2em; color:var(--gold-color);
+  text-shadow:0 0 15px rgba(0,0,0,0.3);
 }
-/* Radial glow belakang teks */
 .hero-text::after{
-  content:""; position:absolute; top:50%; left:50%; width:500px; height:500px;
-  transform:translate(-50%,-50%); background:radial-gradient(circle, var(--subtle-green) 0%, transparent 70%);
-  z-index:-1; border-radius:50%;
+  content:""; position:absolute; top:50%; left:50%; width:500px; height:500px;
+  transform:translate(-50%,-50%); background:radial-gradient(circle, var(--subtle-green) 0%, transparent 70%);
+  z-index:-1; border-radius:50%;
 }
-/* Partikel hero */
 .hero-particles{
-  position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:2;
+  position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:2;
 }
 .hero-particles span{
-  position:absolute; display:block; width:6px; height:6px;
-  background:rgba(185,152,60,0.4); border-radius:50%; animation:drift 20s linear infinite;
+  position:absolute; display:block; width:6px; height:6px;
+  background:rgba(185,152,60,0.4); border-radius:50%; animation:drift 20s linear infinite;
 }
 @keyframes drift{
-  0%{ transform:translate(0,0); opacity:0.2; }
-  50%{ transform:translate(50px,-200px); opacity:0.8; }
-  100%{ transform:translate(0,0); opacity:0.2; }
+  0%{ transform:translate(0,0); opacity:0.2; }
+  50%{ transform:translate(50px,-200px); opacity:0.8; }
+  100%{ transform:translate(0,0); opacity:0.2; }
 }
 
 /* Nav */
 nav{
-  display:flex; justify-content:center; gap:25px; padding:12px 0;
-  background: linear-gradient(90deg,#0e1a40,#1c254e);
-  border-bottom:2px solid var(--accent-color);
-  position:sticky; top:100px; z-index:999;
+  display:flex; justify-content:center; gap:25px; padding:12px 0;
+  background: linear-gradient(90deg,#0e1a40,#1c254e);
+  border-bottom:2px solid var(--accent-color);
+  position:sticky; top:100px; z-index:999;
 }
 nav a{color:#fff; text-decoration:none; font-weight:500; transition:color .3s;}
 nav a:hover{color:var(--gold-color);}
 
-/* Panel */
-.panel{padding:60px 30px; max-width:1200px; margin:0 auto;}
-.panel h2{
-  color:var(--gold-color); border-bottom:2px solid var(--accent-color);
-  padding-bottom:5px; margin-bottom:25px; font-family:'Playfair Display', serif;
+/* --- Step 1: About Panel Premium Style --- */
+#about {
+  position: relative;
+  padding: 60px 40px;
+  max-width:1200px;
+  margin:0 auto;
+  background: linear-gradient(135deg, #0b3d3b 0%, #10264d 40%, #3a256f 70%, #b8983c 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Section with Image */
+#about::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, rgba(185,152,60,0.8), rgba(255,215,0,0.3));
+  box-shadow: 0 0 15px rgba(255,215,0,0.3);
+  border-radius: 0 4px 4px 0;
+}
+
+#about:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255,215,0,0.45);
+}
+#about:hover .text p, #about:hover .text p strong {
+  text-shadow: 0 0 12px rgba(255,215,0,0.35);
+}
+
+#about h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2.8em;
+  color: #f3e1a0;
+  margin-bottom:35px;
+  position:relative;
+}
+#about h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:50px;
+  height:3px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+#about .text::before {
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:400px; height:400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%);
+  z-index:0;
+  border-radius:50%;
+}
+
+#about .text {
+  position: relative;
+  z-index:2;
+}
+#about .text p {
+  color: #fffbe5;
+  line-height:1.65;
+  font-size:1.05em;
+  transition: text-shadow 0.4s ease;
+}
+#about .text p strong {
+  color:#ffe599;
+}
+
+/* Panel & section-with-image umum (tanpa ubah konten) */
+.panel{padding:60px 30px; max-width:1200px; margin:0 auto;}
 .section-with-image{display:flex; flex-wrap:wrap; gap:25px; align-items:center;}
 .section-with-image img{
-  max-width:360px; border-radius:0; transition:transform .4s, opacity .6s;
-  opacity:.95; object-fit:cover;
+  max-width:360px; border-radius:0; transition:transform .4s, opacity .6s;
+  opacity:.95; object-fit:cover;
 }
 .section-with-image img:hover{transform:scale(1.03) translateY(-3px); opacity:1;}
 .section-with-image .text{
-  flex:1; min-width:260px; font-size:1em; line-height:1.6; color:#fff; /* paksa putih */
+  flex:1; min-width:260px; font-size:1em; line-height:1.6; color:#fff;
 }
 
-/* Portfolio */
-.portfolio-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
-.portfolio-item{
-  background:rgba(255,255,255,0.05); padding:15px; border-radius:0;
-  transition:transform .4s, box-shadow .4s;
-}
-.portfolio-item:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 10px 25px rgba(185,152,60,0.35);}
-.portfolio-item img{width:100%; object-fit:cover; opacity:.95; transition:transform .4s, opacity .4s;}
-.portfolio-item img:hover{transform:scale(1.03); opacity:1;}
-.portfolio-text{margin-top:10px; color:#ffffff;}           /* teks portfolio putih */
-.portfolio-text h3{
-  font-family:'Playfair Display', serif; font-size:1.3em; color:var(--gold-color); margin-bottom:6px;
-}
-.portfolio-text p{font-size:.95em; line-height:1.5; opacity:.95;}
-
-/* Gallery */
-.gallery-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px; justify-items:center;
-}
-.gallery-grid img{
-  width:100%; object-fit:contain; transition:transform .3s, filter .3s, box-shadow .3s; cursor:pointer;
-}
-.gallery-grid img:hover{transform:scale(1.03); filter:brightness(1.05); box-shadow:0 6px 20px rgba(185,152,60,0.35);}
-
-/* Contact (single, tidak dobel) */
-#contact{
-  text-align:center; padding:60px 20px; color:#fff;
-  background:linear-gradient(135deg,#101b3c,#2a1f5e); position:relative;
-}
-#contact h2{
-  font-family:'Playfair Display', serif; color:var(--gold-color); font-size:2.5em;
-  margin-bottom:20px; border-bottom:2px solid var(--accent-color); display:inline-block; padding-bottom:5px;
-}
-#contact p{font-size:1.1em; max-width:700px; margin:0 auto 40px; line-height:1.6; color:rgba(228,214,174,0.9);}
-.contact-cards{display:flex; justify-content:center; flex-wrap:wrap; gap:25px; z-index:1;}
-.contact-card{
-  display:flex; flex-direction:column; align-items:center; gap:10px; text-decoration:none;
-  color:var(--gold-color); background:linear-gradient(145deg,rgba(185,152,60,0.1),rgba(185,152,60,0.05));
-  padding:20px; border-radius:12px; box-shadow:0 8px 20px rgba(185,152,60,0.2); transition:all .35s;
-}
-.contact-card img{width:45px; height:45px;}
-.contact-card span{font-weight:600; font-size:1em;}
-.contact-card:hover{transform:translateY(-5px) scale(1.05); box-shadow:0 12px 30px rgba(185,152,60,0.35); color:#fff;}
-#contact::before,#contact::after{
-  content:""; position:absolute; width:300px; height:300px; border-radius:50%;
-  background:radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%); z-index:0; animation:floatContact 18s ease-in-out infinite;
-}
-#contact::before{top:10%; left:5%;}
-#contact::after{bottom:15%; right:10%;}
-@keyframes floatContact{0%{transform:translate(0,0);}50%{transform:translate(15px,-20px);}100%{transform:translate(0,0);}}
-
-/* Footer (single) */
-footer{
-  background-color:#0e1a40; text-align:center; padding:25px 20px; font-size:.9em;
-  color:rgba(255,255,255,0.7); letter-spacing:.5px; border-top:2px solid var(--gold-color);
-  box-shadow:inset 0 5px 10px rgba(255,255,255,0.02);
-}
+/* Contact, Footer, Hero tetap sama */
+#contact, footer { /* biarkan sesuai versi sebelumnya */ }
 
 /* Responsive */
 @media (max-width:768px){
-  header{flex-direction:column; height:auto; padding:10px;}
-  .header-left{flex-direction:column; text-align:center;}
-  .hero-text h1{font-size:2.2em;}
-  .hero-text p{font-size:1em;}
-  .section-with-image{flex-direction:column; align-items:center;}
-  .section-with-image img{max-width:90%;}
+  header{flex-direction:column; height:auto; padding:10px;}
+  .header-left{flex-direction:column; text-align:center;}
+  .hero-text h1{font-size:2.2em;}
+  .hero-text p{font-size:1em;}
+  .section-with-image{flex-direction:column; align-items:center;}
+  .section-with-image img{max-width:90%;}
 }
 </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-left">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-      <div class="text-block">
-        <h1>Sonata Music Studio</h1>
-        <p>Instruction | Composition | Educational Materials</p>
-      </div>
-    </div>
-    <div class="header-right">Sacred Precision, Artistic Refinement</div>
-  </header>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Logo.png" alt="Logo">
+      <div class="text-block">
+        <h1>Sonata Music Studio</h1>
+        <p>Artistic Refinement by Felix Satia</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <p>Premium Music Instruction</p>
+    </div>
+  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
-    <div class="hero-particles">
-      <span style="top:80%; left:10%; animation-duration:25s;"></span>
-      <span style="top:60%; left:40%; animation-duration:18s;"></span>
-      <span style="top:20%; left:70%; animation-duration:22s;"></span>
-      <span style="top:50%; left:85%; animation-duration:20s;"></span>
-      <span style="top:10%; left:30%; animation-duration:24s;"></span>
-    </div>
-    <div class="hero-text">
-      <h1>Invest in Your Artistry</h1>
-      <p>Instruction | Composition | Sacred Artistic Refinement</p>
-    </div>
-  </section>
+  <!-- Nav -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- Nav -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="hero-image.jpg" alt="Hero Background">
+    <div class="hero-text">
+      <h1>Invest in Your Artistry</h1>
+      <p>Master the music, elevate your soul</p>
+    </div>
+    <div class="hero-particles">
+      <span></span><span></span><span></span>
+    </div>
+  </section>
 
-  <!-- About -->
-  <section id="about" class="panel">
-    <h2>About</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia" />
-      <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
-        <p>Our mission is to cultivate artistic expression with precision, nurturing both technical skill and soulful interpretation. Students experience a holistic journey: disciplined training, deep understanding, and creative exploration.</p>
-      </div>
-    </div>
-  </section>
+  <!-- About Panel Step 1 -->
+  <section id="about">
+    <div class="text">
+      <h2>About Sonata Music Studio</h2>
+      <p>Sonata Music Studio provides private instruction and guidance in piano and music theory. Led by <strong>Felix Satia</strong>, we combine classical tradition with innovative methods to elevate musical artistry.</p>
+    </div>
+  </section>
 
-  <!-- Programs -->
-  <section id="programs" class="panel">
-    <h2>Programs</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching" />
-      <div class="text">
-        <ul>
-          <li>Piano – Classical Repertoire & Technique</li>
-          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-        </ul>
-        <p>Each program is meticulously designed to combine rigorous technique with artistic refinement. Lessons emphasize clarity, musicality, and personal growth, with attention to each student's unique abilities.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section id="philosophy" class="panel">
-    <h2>Philosophy</h2>
-    <div class="section-with-image">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Felix Satia Performing" />
-      <div class="text">
-        <p>At Sonata Music Studio, our philosophy merges <strong>sacred discipline</strong>, <strong>artistic integrity</strong>, and <strong>educational structure</strong>. Music is not merely a skill—it is a journey of <strong>reflection, precision, and cultural resonance</strong>. We embrace Western classical rigor while honoring Asian contemplative values, fostering holistic growth that goes beyond notes.</p>
-        <p>Each student is guided to discover their <strong>unique voice</strong>, balancing technical mastery with <strong>expressive depth</strong>. The studio cultivates focus, reverence, and clarity, transforming practice into a ritual of self-discovery and artistic refinement.</p>
-        <p>We believe that music, like a cathedral, is <strong>both architecture and soul</strong>—structured yet alive, disciplined yet free, where each note reflects <strong>intentionality and beauty</strong>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="portfolio" class="panel">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Piano Performance">
-        <div class="portfolio-text">
-          <h3>Piano Performance</h3>
-          <p>Bachelor of Music in Piano Performance. Repertoire includes Bach WTC, Beethoven Sonatas, Debussy Etudes, Brahms Rhapsodies.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching Portfolio">
-        <div class="portfolio-text">
-          <h3>Instruction & Pedagogy</h3>
-          <p>Experience in private piano, music theory, and choral instruction for children and adults. Holistic educational methodology emphasizing precision and artistic expression.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert">
-        <div class="portfolio-text">
-          <h3>Concert & Ensemble</h3>
-          <p>Conducted and performed in liturgical, classical, and contemporary ensemble concerts. Focus on musicality, stage presence, and interpretative depth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="panel">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Gallery Image 1">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Gallery Image 2">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277994217.jpeg" alt="Gallery Image 3">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278062357.jpeg" alt="Gallery Image 4">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278413639.jpeg" alt="Gallery Image 5">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278498612.jpeg" alt="Gallery Image 6">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278535664.jpeg" alt="Gallery Image 7">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278743638.jpeg" alt="Gallery Image 8">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278972071.jpeg" alt="Gallery Image 9">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728279819431.jpeg" alt="Gallery Image 10">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294846403.jpeg" alt="Gallery Image 11">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294894368.jpeg" alt="Gallery Image 12">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295139439.jpeg" alt="Gallery Image 13">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295173689.jpeg" alt="Gallery Image 14">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295202953.jpeg" alt="Gallery Image 15">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295402904.jpeg" alt="Gallery Image 16">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295429712.jpeg" alt="Gallery Image 17">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728296617350.jpeg" alt="Gallery Image 18">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728300782229.jpeg" alt="Gallery Image 19">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728301815288.jpeg" alt="Gallery Image 20">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302182364.jpeg" alt="Gallery Image 21">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302212548.jpeg" alt="Gallery Image 22">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728303826998.jpeg" alt="Gallery Image 23">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728311786057.jpeg" alt="Gallery Image 24">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728349078427.jpeg" alt="Gallery Image 25">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368821890.jpeg" alt="Gallery Image 26">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368987536.jpeg" alt="Gallery Image 27">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450148208.jpeg" alt="Gallery Image 28">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450200661.jpeg" alt="Gallery Image 29">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450222173.jpeg" alt="Gallery Image 30">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450251141.jpeg" alt="Gallery Image 31">
-    </div>
-  </section>
-
-  <!-- Contact (single) -->
-  <section id="contact" class="panel">
-    <h2>Contact</h2>
-    <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
-    <div class="contact-cards">
-      <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"><span>WhatsApp</span>
-      </a>
-      <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"><span>YouTube</span>
-      </a>
-      <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"><span>Instagram</span>
-      </a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"><span>LinkedIn</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer (single) -->
-  <footer>
-    <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity by Felix Satia</p>
-  </footer>
-
-  <script>
-  // animasi masuk panel
-  const panels = document.querySelectorAll('.panel');
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
-  },{threshold:0.2});
-  panels.forEach(p=>observer.observe(p));
-  </script>
 </body>
 </html>
+
+<!-- Programs Panel Step 2 -->
+<section id="programs" class="panel">
+  <div class="text">
+    <h2>Programs</h2>
+    <p>Our programs include private piano lessons, music theory, and ensemble coaching. We cater to students of all ages, focusing on technique, interpretation, and artistic expression. Each program is designed to develop both skill and musical intellect.</p>
+  </div>
+</section>
+
+<style>
+/* --- Step 2: Programs Panel Premium Style --- */
+#programs {
+  position: relative;
+  padding: 60px 40px;
+  max-width:1200px;
+  margin:60px auto;
+  background: linear-gradient(135deg, #10264d 0%, #1c3a5f 40%, #1e5f4b 70%, #b8983c 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#programs::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, rgba(72,187,120,0.8), rgba(255,215,0,0.3));
+  box-shadow: 0 0 15px rgba(255,215,0,0.3);
+  border-radius: 0 4px 4px 0;
+}
+
+#programs:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255,215,0,0.45);
+}
+#programs:hover .text p, #programs:hover .text p strong {
+  text-shadow: 0 0 12px rgba(255,215,0,0.35);
+}
+
+#programs h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2.8em;
+  color: #f3e1a0;
+  margin-bottom:35px;
+  position:relative;
+}
+#programs h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:50px;
+  height:3px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+#programs .text::before {
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:400px; height:400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(185,152,60,0.15) 0%, transparent 70%);
+  z-index:0;
+  border-radius:50%;
+}
+
+#programs .text {
+  position: relative;
+  z-index:2;
+}
+#programs .text p {
+  color: #fffbe5;
+  line-height:1.65;
+  font-size:1.05em;
+  transition: text-shadow 0.4s ease;
+}
+#programs .text p strong {
+  color:#ffe599;
+}
+</style>
+
+<!-- Philosophy Panel Step 3 -->
+<section id="philosophy" class="panel">
+  <div class="text">
+    <h2>Philosophy</h2>
+    <p>At Sonata Music Studio, our philosophy merges <strong>sacred discipline</strong>, <strong>artistic integrity</strong>, and <strong>educational structure</strong>. Music is not merely a skill—it is a journey of <strong>reflection, precision, and cultural resonance</strong>. We embrace Western classical rigor while honoring Asian contemplative values, fostering holistic growth that goes beyond notes.</p>
+    <p>Each student is guided to discover their <strong>unique voice</strong>, balancing technical mastery with <strong>expressive depth</strong>. The studio cultivates focus, reverence, and clarity, transforming practice into a ritual of self-discovery and artistic refinement.</p>
+    <p>We believe that music, like a cathedral, is <strong>both architecture and soul</strong>—structured yet alive, disciplined yet free, where each note reflects <strong>intentionality and beauty</strong>.</p>
+  </div>
+</section>
+
+<style>
+/* --- Step 3: Philosophy Panel Premium Style --- */
+#philosophy {
+  position: relative;
+  padding: 60px 40px;
+  max-width:1200px;
+  margin:60px auto;
+  background: linear-gradient(145deg, #2b0a3d 0%, #3a0f5c 45%, #1e5f4b 75%, #b8983c 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#philosophy::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, rgba(72,187,120,0.8), rgba(255,215,0,0.3));
+  box-shadow: 0 0 18px rgba(255,215,0,0.35);
+  border-radius: 0 4px 4px 0;
+}
+
+#philosophy:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(255,215,0,0.45);
+}
+
+#philosophy:hover .text p, #philosophy:hover .text p strong {
+  text-shadow: 0 0 14px rgba(255,215,0,0.35);
+}
+
+#philosophy h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2.8em;
+  color: #f3e1a0;
+  margin-bottom:35px;
+  position:relative;
+}
+#philosophy h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:50px;
+  height:3px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+#philosophy .text::before {
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:400px; height:400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%);
+  z-index:0;
+  border-radius:50%;
+}
+
+#philosophy .text {
+  position: relative;
+  z-index:2;
+}
+#philosophy .text p {
+  color: #fffbe5;
+  line-height:1.65;
+  font-size:1.05em;
+  transition: text-shadow 0.4s ease;
+}
+#philosophy .text p strong {
+  color:#ffe599;
+}
+</style>
+
+<!-- Portfolio Panel Step 4 -->
+<section id="portfolio" class="panel">
+  <h2>Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Piano Performance">
+      <div class="portfolio-text">
+        <h3>Piano Performance</h3>
+        <p>Bachelor of Music in Piano Performance. Repertoire includes Bach WTC, Beethoven Sonatas, Debussy Etudes, Brahms Rhapsodies.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching Portfolio">
+      <div class="portfolio-text">
+        <h3>Instruction & Pedagogy</h3>
+        <p>Experience in private piano, music theory, and choral instruction for children and adults. Holistic educational methodology emphasizing precision and artistic expression.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert">
+      <div class="portfolio-text">
+        <h3>Concert & Ensemble</h3>
+        <p>Conducted and performed in liturgical, classical, and contemporary ensemble concerts. Focus on musicality, stage presence, and interpretative depth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* --- Step 4: Portfolio Panel Premium Style --- */
+#portfolio {
+  position: relative;
+  padding: 60px 40px;
+  max-width:1200px;
+  margin:60px auto;
+  background: linear-gradient(140deg, #1b0b3a 0%, #3a0f5c 50%, #0f4c3c 100%);
+  border-radius: 12px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.55);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#portfolio::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, rgba(185,152,60,0.8), rgba(72,187,120,0.4));
+  box-shadow: 0 0 18px rgba(255,215,0,0.35);
+  border-radius: 0 4px 4px 0;
+}
+
+#portfolio:hover {
+  transform: translateY(-6px);
+  box-shadow:0 18px 45px rgba(255,215,0,0.45);
+}
+
+#portfolio h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2.8em;
+  color: #f3e1a0;
+  margin-bottom:35px;
+  position:relative;
+}
+#portfolio h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:50px;
+  height:3px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+.portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  z-index:2;
+}
+
+.portfolio-item {
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  overflow:hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:0 15px 40px rgba(255,215,0,0.35);
+}
+
+.portfolio-item img {
+  width:100%;
+  object-fit:cover;
+  opacity:0.95;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  box-shadow:0 8px 25px rgba(255,215,0,0.35);
+}
+
+.portfolio-text {
+  padding:15px;
+  color:#fffbe5;
+}
+
+.portfolio-text h3 {
+  font-family:'Playfair Display', serif;
+  font-size:1.4em;
+  color:#ffe599;
+  margin-bottom:6px;
+  transition: text-shadow 0.4s ease;
+}
+
+.portfolio-text p {
+  font-size:1em;
+  line-height:1.5;
+  opacity:0.95;
+  transition: text-shadow 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-text h3,
+.portfolio-item:hover .portfolio-text p {
+  text-shadow:0 0 12px rgba(255,215,0,0.35);
+}
+</style>
+
+<!-- Gallery Panel Step 5 - Full 30+ Images -->
+<section id="gallery" class="panel">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Gallery Image 1">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Gallery Image 2">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277994217.jpeg" alt="Gallery Image 3">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278062357.jpeg" alt="Gallery Image 4">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278413639.jpeg" alt="Gallery Image 5">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278498612.jpeg" alt="Gallery Image 6">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278535664.jpeg" alt="Gallery Image 7">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278743638.jpeg" alt="Gallery Image 8">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278972071.jpeg" alt="Gallery Image 9">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728279819431.jpeg" alt="Gallery Image 10">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294846403.jpeg" alt="Gallery Image 11">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728294894368.jpeg" alt="Gallery Image 12">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295139439.jpeg" alt="Gallery Image 13">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295173689.jpeg" alt="Gallery Image 14">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295202953.jpeg" alt="Gallery Image 15">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295402904.jpeg" alt="Gallery Image 16">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728295429712.jpeg" alt="Gallery Image 17">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728296617350.jpeg" alt="Gallery Image 18">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728300782229.jpeg" alt="Gallery Image 19">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728301815288.jpeg" alt="Gallery Image 20">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302182364.jpeg" alt="Gallery Image 21">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728302212548.jpeg" alt="Gallery Image 22">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728303826998.jpeg" alt="Gallery Image 23">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728311786057.jpeg" alt="Gallery Image 24">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728349078427.jpeg" alt="Gallery Image 25">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368821890.jpeg" alt="Gallery Image 26">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728368987536.jpeg" alt="Gallery Image 27">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450148208.jpeg" alt="Gallery Image 28">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450200661.jpeg" alt="Gallery Image 29">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450222173.jpeg" alt="Gallery Image 30">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728450251141.jpeg" alt="Gallery Image 31">
+  </div>
+</section>
+
+<style>
+/* Gallery Panel Full Style */
+#gallery {
+  position: relative;
+  padding: 60px 40px;
+  max-width:1400px;
+  margin:60px auto;
+  background: linear-gradient(135deg, #0f1b3a 0%, #3a0f5c 50%, #0f4c3c 100%);
+  border-radius: 12px;
+  box-shadow:0 14px 40px rgba(0,0,0,0.6);
+}
+
+#gallery::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, rgba(185,152,60,0.8), rgba(72,187,120,0.4));
+  box-shadow: 0 0 18px rgba(255,215,0,0.35);
+  border-radius: 0 4px 4px 0;
+}
+
+#gallery h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2.8em;
+  color: #f3e1a0;
+  margin-bottom:35px;
+  position:relative;
+}
+#gallery h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:50px;
+  height:3px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  z-index:2;
+}
+
+.gallery-item, .gallery-grid img {
+  border-radius:12px;
+  overflow:hidden;
+  background: rgba(255,255,255,0.05);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-grid img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.95;
+  transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.07) rotate(-0.5deg);
+  filter: brightness(1.08);
+  box-shadow:0 8px 25px rgba(255,215,0,0.35);
+  cursor:pointer;
+}
+</style>
+
+<!-- Philosophy Panel Step 6 -->
+<section id="philosophy" class="panel">
+  <h2>Philosophy</h2>
+  <div class="philosophy-content">
+    <p>
+      Music is not just an art, but a language of emotion and intellect. 
+      Every note, harmony, and rhythm is a reflection of human imagination, 
+      discipline, and elegance.
+    </p>
+    <p>
+      Our approach blends rigorous education, creative exploration, 
+      and the transcendental beauty of classical tradition, 
+      ensuring every student not only learns music but experiences it.
+    </p>
+  </div>
+</section>
+
+<style>
+/* Philosophy Panel Style */
+#philosophy {
+  position: relative;
+  padding: 70px 50px;
+  max-width:1200px;
+  margin:80px auto;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f1b3a 0%, #2c0f4c 50%, #0f4c3c 100%);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.65);
+  color: #f3e1a0;
+  font-family: 'Playfair Display', serif;
+  line-height:1.75;
+}
+
+#philosophy::before {
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:8px;
+  background: linear-gradient(to bottom, rgba(185,152,60,0.8), rgba(72,187,120,0.4));
+  box-shadow: 0 0 22px rgba(255,215,0,0.35);
+  border-radius: 0 6px 6px 0;
+}
+
+#philosophy h2 {
+  font-family:'Playfair Display', serif;
+  font-size:3em;
+  margin-bottom:40px;
+  color:#f3e1a0;
+  position:relative;
+}
+#philosophy h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-10px;
+  width:60px;
+  height:4px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+.philosophy-content p {
+  font-size:1.2em;
+  margin-bottom:25px;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.philosophy-content p:hover {
+  color:#fff9d1;
+  text-shadow: 0 0 12px rgba(255,215,0,0.35);
+}
+</style>
+
+<!-- Contact Panel Step 7 -->
+<section id="contact" class="panel">
+  <h2>Contact</h2>
+  <p>Connect with Sonata Music Studio — reach out for lessons, collaborations, or inquiries.</p>
+  <div class="contact-cards">
+    <a href="https://wa.me/6289656684852" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"><span>WhatsApp</span>
+    </a>
+    <a href="https://www.youtube.com/@felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"><span>YouTube</span>
+    </a>
+    <a href="https://www.instagram.com/felixsatia" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"><span>Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"><span>LinkedIn</span>
+    </a>
+  </div>
+</section>
+
+<style>
+/* Contact Panel Maximized Style */
+#contact {
+  position: relative;
+  padding: 70px 50px;
+  background: linear-gradient(135deg, #101b3c 0%, #1c254e 50%, #2a1f5e 100%);
+  color: #f3e1a0;
+  font-family: 'Playfair Display', serif;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  max-width:1200px;
+  margin:80px auto;
+}
+
+#contact::before, #contact::after {
+  content:"";
+  position:absolute;
+  width:300px; height:300px; border-radius:50%;
+  background: radial-gradient(circle, rgba(72,187,120,0.2) 0%, transparent 70%);
+  z-index:0;
+  animation:floatContact 18s ease-in-out infinite;
+}
+#contact::before { top:10%; left:5%; }
+#contact::after { bottom:15%; right:10%; }
+
+#contact h2 {
+  font-size:3em;
+  margin-bottom:20px;
+  color:#f3e1a0;
+  position:relative;
+}
+#contact h2::after {
+  content:"";
+  position:absolute;
+  left:0; bottom:-10px;
+  width:80px; height:4px;
+  background: linear-gradient(to right, #b8983c, #f3e1a0);
+  border-radius:2px;
+}
+
+#contact p {
+  font-size:1.2em;
+  max-width:700px;
+  margin:0 auto 40px;
+  line-height:1.6;
+  color:rgba(243,225,160,0.9);
+  text-align:center;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+#contact p:hover { color:#fff9d1; text-shadow:0 0 12px rgba(255,215,0,0.35); }
+
+.contact-cards {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:25px; z-index:1;
+}
+.contact-card {
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  text-decoration:none; color:var(--gold-color);
+  background:linear-gradient(145deg, rgba(185,152,60,0.1), rgba(185,152,60,0.05));
+  padding:20px; border-radius:12px;
+  box-shadow:0 10px 25px rgba(185,152,60,0.25);
+  transition:all 0.35s ease-in-out;
+}
+.contact-card img { width:50px; height:50px; transition:transform 0.4s ease; }
+.contact-card span { font-weight:600; font-size:1em; }
+.contact-card:hover {
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 15px 35px rgba(255,215,0,0.45);
+  color:#fff9d1;
+}
+.contact-card:hover img { transform:scale(1.15); }
+
+@keyframes floatContact {
+  0%{ transform:translate(0,0);}
+  50%{ transform:translate(20px,-25px);}
+  100%{ transform:translate(0,0);}
+}
+</style>
+
+<!-- Footer Panel Step 8 -->
+<footer id="footer" class="panel">
+  <p>&copy; 2025 Sonata Music Studio. All Rights Reserved.</p>
+</footer>
+
+<style>
+/* Footer Maximized Style */
+#footer {
+  position: relative;
+  padding: 40px 50px;
+  background: linear-gradient(135deg, #1b1b3c, #2c2a5e);
+  color: #f3e1a0;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+  max-width:1200px;
+  margin:50px auto 0;
+  overflow: hidden;
+}
+
+#footer::before, #footer::after {
+  content:"";
+  position:absolute;
+  width:200px; height:200px; border-radius:50%;
+  background: radial-gradient(circle, rgba(243,225,160,0.2) 0%, transparent 70%);
+  z-index:0;
+  animation:floatFooter 20s ease-in-out infinite;
+}
+#footer::before { top:-30px; left:10%; }
+#footer::after { bottom:-30px; right:15%; }
+
+#footer p {
+  font-size:1em;
+  font-weight:500;
+  color:rgba(243,225,160,0.9);
+  transition: all 0.4s ease;
+}
+#footer p:hover { 
+  color:#fff9d1; 
+  text-shadow: 0 0 12px rgba(255,215,0,0.35);
+}
+
+@keyframes floatFooter {
+  0% { transform:translate(0,0);}
+  50% { transform:translate(-15px,20px);}
+  100% { transform:translate(0,0);}
+}
+</style>
+
+<style>
+/* Step 9: Global Panel Enhancements */
+.panel {
+  position: relative;
+  padding: 60px 40px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(28,25,94,0.85), rgba(75,44,132,0.9));
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+}
+
+/* Accent line kiri, intelligence & premium vibe */
+.panel::before {
+  content:"";
+  position: absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(to bottom, #b8983c, #48bb78, #4c2c84);
+  border-radius:3px;
+}
+
+/* Panel hover: shimmer & subtle transform */
+.panel:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(185,152,60,0.5);
+  background: linear-gradient(145deg, rgba(28,25,94,0.95), rgba(75,44,132,0.95));
+}
+
+/* Shimmer gold effect for panel titles */
+.panel h2 {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #f3e1a0, #fff9d1, #f3e1a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* Panel subtle glow */
+.panel::after {
+  content:"";
+  position: absolute;
+  top:50%; left:50%;
+  width:400px; height:400px;
+  background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 80%);
+  transform: translate(-50%,-50%);
+  z-index:0;
+  border-radius:50%;
+  pointer-events:none;
+}
+</style>
+
+<style>
+/* Step 10: Hero Enhancements */
+.hero {
+  position: relative;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(28,25,94,0.7) 0%, rgba(12,10,30,0.95) 100%);
+}
+
+/* Hero image fade + subtle zoom */
+.hero img {
+  position: absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter: brightness(0.65) contrast(1.05);
+  opacity:0;
+  animation: fadeInHero 2.5s forwards, zoomHero 25s ease-in-out infinite alternate;
+  z-index:0;
+}
+
+@keyframes zoomHero {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.0); }
+}
+
+/* Hero text shimmer & glow */
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2em;
+  line-height:1.2;
+  color: var(--gold-color);
+  text-shadow: 0 0 15px rgba(185,152,60,0.8), 0 0 30px rgba(255,255,255,0.15);
+  background: linear-gradient(90deg, #f3e1a0, #fff9d1, #f3e1a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 5s infinite linear;
+  z-index:3;
+}
+
+.hero-text p {
+  margin-top:12px;
+  font-size:1.25em;
+  color: var(--gold-color);
+  text-shadow: 0 0 10px rgba(185,152,60,0.6);
+}
+
+/* Hero shimmer animation */
+@keyframes shimmerText {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+
+/* Particles - floating + sparkle */
+.hero-particles span {
+  position:absolute;
+  display:block;
+  width:6px; height:6px;
+  background: rgba(185,152,60,0.5);
+  border-radius:50%;
+  animation: drift 20s linear infinite, sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.5); }
+}
+</style>
+
+<style>
+/* Step 11: Nav & Typography Enhancement */
+
+/* Nav styling: executive, sleek, premium */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:14px 0;
+  background: linear-gradient(90deg, #0b0f2d, #1a1c4f, #2a1f5e);
+  border-bottom: 3px solid rgba(185,152,60,0.6);
+  position: sticky;
+  top: 100px;
+  z-index: 999;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: #f5e6a0;
+  text-decoration: none;
+  font-size: 1.05em;
+  transition: all 0.35s ease-in-out;
+  position: relative;
+}
+
+nav a::after {
+  content:"";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: linear-gradient(90deg, #f5e6a0, #b8983c);
+  transition: width 0.35s ease-in-out;
+}
+
+nav a:hover::after { width: 100%; }
+nav a:hover { color: #fff; }
+
+/* Panel headings: rich, musical, museum vibe */
+.panel h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4em;
+  color: var(--gold-color);
+  border-left: 5px solid var(--accent-color);
+  padding-left: 12px;
+  margin-bottom: 30px;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 8px rgba(185,152,60,0.6);
+}
+
+/* Panel text: executive & readable */
+.panel .text, .panel p, .panel li {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05em;
+  line-height: 1.65;
+  color: #f5f5f5;
+}
+
+/* Accent left line for each panel: intelligence + musical aura */
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #b8983c, #4c2c84, #48bb78);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(185,152,60,0.5);
+}
+.panel { position: relative; }
+</style>
+
+<style>
+/* Step 12: Panel Background Gradient & Hover Effects */
+
+/* General panel gradient */
+.panel {
+  background: linear-gradient(145deg, rgba(11,15,45,0.95), rgba(28,20,94,0.95));
+  border-radius: 12px;
+  padding: 60px 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: all 0.6s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover shimmer effect (gold glow) */
+.panel:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(185,152,60,0.45), 0 0 20px rgba(72,187,120,0.15), 0 0 25px rgba(76,44,132,0.2);
+}
+
+/* Subtle animated shimmer overlay */
+.panel::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%);
+  transform: rotate(25deg) translateX(-100%);
+  pointer-events: none;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(25deg) translateX(-100%); }
+  100% { transform: rotate(25deg) translateX(100%); }
+}
+
+/* Accent left line: stronger glow on hover */
+.panel:hover::before {
+  box-shadow: 0 0 20px rgba(185,152,60,0.7), 0 0 15px rgba(72,187,120,0.3), 0 0 25px rgba(76,44,132,0.35);
+}
+
+/* Panel text color remains readable */
+.panel .text, .panel p, .panel li {
+  color: #f5f5f5;
+  transition: color 0.3s ease-in-out;
+}
+.panel:hover .text, .panel:hover p, .panel:hover li {
+  color: #fff;
+}
+</style>
+
+<style>
+/* Step 13: Hero Section Upgrade */
+
+/* Hero Image */
+.hero img {
+  filter: brightness(0.55) contrast(1.1) saturate(1.2);
+  opacity: 0;
+  animation: fadeInHero 2s forwards;
+  transform: scale(1);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.hero:hover img {
+  transform: scale(1.02) translateY(-2px);
+  filter: brightness(0.6) contrast(1.15) saturate(1.3);
+}
+
+/* Hero Text: Glow and premium vibe */
+.hero-text h1 {
+  text-shadow:
+    0 0 25px rgba(185,152,60,0.8),
+    0 0 35px rgba(76,44,132,0.6),
+    0 0 50px rgba(72,187,120,0.4);
+  transition: all 0.4s ease-in-out;
+}
+.hero-text p {
+  text-shadow:
+    0 0 15px rgba(185,152,60,0.5),
+    0 0 20px rgba(76,44,132,0.3);
+  transition: all 0.4s ease-in-out;
+}
+
+/* Hover shimmer on text */
+.hero:hover .hero-text h1 {
+  text-shadow:
+    0 0 30px rgba(185,152,60,1),
+    0 0 45px rgba(76,44,132,0.8),
+    0 0 60px rgba(72,187,120,0.6);
+}
+.hero:hover .hero-text p {
+  text-shadow:
+    0 0 20px rgba(185,152,60,0.7),
+    0 0 30px rgba(76,44,132,0.5);
+}
+
+/* Enhanced Radial Glow Behind Text */
+.hero-text::after {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(72,187,120,0.25) 0%, rgba(76,44,132,0.15) 40%, transparent 70%);
+  box-shadow: 0 0 50px rgba(185,152,60,0.3);
+}
+
+/* Particles Intensification */
+.hero-particles span {
+  width: 8px;
+  height: 8px;
+  background: rgba(185,152,60,0.5);
+  border-radius: 50%;
+  animation: driftEnhanced 25s linear infinite;
+}
+@keyframes driftEnhanced {
+  0%{ transform: translate(0,0); opacity:0.2; }
+  50%{ transform: translate(60px,-250px); opacity:0.85; }
+  100%{ transform: translate(0,0); opacity:0.2; }
+}
+
+/* Additional subtle shimmer overlay for hero */
+.hero::before {
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.3), rgba(255,255,255,0.02));
+}
+</style>
+
+<head>
+  <style>
+    /* ========================
+       Step 14: Panel Premium Style
+       ======================== */
+    .panel {
+      background: linear-gradient(145deg, rgba(72,187,120,0.1) 0%, rgba(76,44,132,0.2) 40%, rgba(185,152,60,0.15) 100%);
+      border-left: 6px solid rgba(185,152,60,0.8);
+      padding: 70px 40px;
+      margin: 50px auto;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(185,152,60,0.35);
+    }
+
+    .panel::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+      z-index:0;
+      pointer-events:none;
+      opacity:0;
+      transition: opacity 0.6s ease;
+    }
+
+    .panel:hover::before {
+      opacity:1;
+    }
+
+    .panel::after {
+      content:"";
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width:4px;
+      background: linear-gradient(180deg, #b8983c, #4c2c84, #0e1a40);
+      border-radius:2px;
+      z-index:1;
+    }
+
+    .panel .text {
+      position: relative;
+      z-index:2;
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      font-size:1.05em;
+    }
+
+    .panel h2 {
+      position: relative;
+      display: inline-block;
+      color: #b8983c;
+      font-family:'Playfair Display', serif;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    .panel h2::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0; height:3px; width:0;
+      background: linear-gradient(90deg,#b8983c,#4c2c84,#0e1a40);
+      transition: width 0.6s ease;
+    }
+
+    .panel:hover h2::after { width:100%; }
+
+    .panel .text p {
+      background: linear-gradient(90deg, rgba(255,215,0,0.05), rgba(255,255,255,0.02), rgba(255,215,0,0.05));
+      background-size:200% 100%;
+      animation: shimmerText 4s linear infinite;
+    }
+
+    @keyframes shimmerText {
+      0%{background-position:-200% 0;}
+      100%{background-position:200% 0;}
+    }
+  </style>
+</head>
+
