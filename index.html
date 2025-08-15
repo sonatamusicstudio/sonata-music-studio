@@ -52,6 +52,9 @@ header {
   border-bottom:2px solid var(--gold-color);
 }
 .header-left { display:flex; align-items:center; gap:15px; }
+.header-left img {
+  width:80px; height:auto; object-fit:contain; display:block;
+}
 .header-left .text-block h1 {
   font-family:'Playfair Display', serif; font-size:2em; color:var(--gold-color);
   text-shadow: 0 0 15px var(--gold-color);
@@ -179,6 +182,15 @@ nav a:hover { color:var(--emerald-color); text-shadow:0 0 10px var(--emerald-col
 .contact-card:hover::before { transform:translateX(100%); }
 .contact-card:hover { transform:translateY(-4px); background:rgba(72,187,120,0.2); }
 
+/* Contact card images */
+.contact-card img {
+  width:30px; height:30px; object-fit:contain;
+}
+.contact-card span {
+  font-size:0.95em;
+  margin-left:10px;
+}
+
 /* Footer */
 footer {
   background: linear-gradient(90deg, #0a0f26, #3a256f);
@@ -192,8 +204,21 @@ footer::after {
   transform:translateX(-50%); background:radial-gradient(circle, var(--shimmer-color) 0%, transparent 80%);
   border-radius:50%; pointer-events:none;
 }
+
+/* Responsive */
+@media(max-width:768px){
+  header { flex-direction:column; height:auto; padding:10px 20px; }
+  .header-left { flex-direction:column; gap:5px; align-items:center; }
+  .header-left .text-block h1 { font-size:1.6em; text-align:center; }
+  .header-left .text-block p { text-align:center; font-size:0.8em; }
+  .hero-text h1 { font-size:2em; }
+  .hero-text p { font-size:1em; }
+  .section-with-image { flex-direction:column; }
+}
 </style>
 </head>
+
+<body>
 
 <header>
   <div class="header-left">
@@ -206,7 +231,6 @@ footer::after {
   <div class="header-right">Sacred Precision, Artistic Refinement</div>
 </header>
 
-
 <nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
@@ -215,7 +239,6 @@ footer::after {
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
-
 
 <section class="hero">
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
