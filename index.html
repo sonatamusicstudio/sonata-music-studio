@@ -428,6 +428,31 @@ nav ul li a {
   }
 }
 
+  /* === Center Panel di Mobile (About → Contact) === */
+@media (max-width: 768px) {
+  .panel {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;      /* memastikan isi panel center */
+    max-width: 95%;          /* beri sedikit padding kiri-kanan */
+  }
+
+  /* Gambar tetap responsif */
+  .panel img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Social icon di Contact normal size */
+  .contact .social-icons img,
+  .contact .social-icons svg {
+    width: 32px;             /* ukuran standar, bisa ubah */
+    height: 32px;
+    margin: 0 5px;           /* beri jarak antar icon */
+  }
+}
+
 
   
 </style>
