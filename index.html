@@ -401,6 +401,33 @@ nav ul li a {
 .contact-card {
   border-radius: 0 !important;
 }
+  /* === Responsive Images & Panels (About → Philosophy) === */
+.panel img {
+  width: 100%;
+  height: auto;           /* Menjaga rasio tinggi */
+  object-fit: contain;    /* Tidak terpotong */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Untuk panel dengan background-image */
+.panel {
+  background-size: contain;   /* Gambar full terlihat, tidak crop */
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;               /* tinggi otomatis menyesuaikan isi */
+}
+
+/* Khusus mobile */
+@media (max-width: 768px) {
+  .panel img, .panel {
+    width: 100%;
+    height: auto;
+    background-size: contain;  /* Tetap terlihat full */
+    background-position: center;
+  }
+}
+
 
   
 </style>
