@@ -48,6 +48,9 @@ body{
   overflow-x:hidden;
   line-height:1.7;
 }
+html, body {
+  overflow-x: hidden;  /* cegah geser ke kanan di mobile */
+}
 
 /* subtle focus */
 :focus-visible{outline:2px dashed var(--gold);outline-offset:3px}
@@ -331,21 +334,31 @@ a:hover::after{transform:scaleX(1);transform-origin:left}
    ================================ */
 nav ul {
   display: flex;
-  flex-direction: row;         /* jangan biarkan vertikal */
+  flex-wrap: wrap;       /* kalau sempit, turun baris tapi tetap rapi */
   justify-content: center;
-  align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;             /* kalau layar sempit, tetap wrap rapi */
-}
-nav ul li {
-  list-style: none;
+  padding: 0;
   margin: 0;
 }
+
+nav ul li {
+  list-style: none;
+}
+
 nav ul li a {
-  text-decoration: none;
+  display: block;
   padding: 0.5rem 1rem;
   font-weight: 500;
+  text-decoration: none;
+  color: var(--gold);
+  text-align: center;
 }
+
+@media (max-width: 768px){
+  nav ul {
+    flex-direction: row;  /* tetap horizontal di mobile */
+    flex-wrap: wrap;      /* tapi bisa turun baris kalau terlalu sempit */
+  }
 
 /* ================================
    FIX 3 — Magical Side Line Panel
@@ -389,13 +402,16 @@ nav ul li a {
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
+
 
 <section class="hero">
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
