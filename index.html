@@ -470,6 +470,68 @@ nav ul li a {
     100% { opacity: 0.3; box-shadow: 0 0 5px rgba(255,255,200,0.5); }
 }
 
+/* Fireflies otomatis di seluruh halaman */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+  z-index: 0;
+  box-shadow:
+    20vw 10vh #fff,
+    40vw 30vh #fff,
+    60vw 50vh #fff,
+    80vw 70vh #fff,
+    25vw 20vh #fff,
+    50vw 40vh #fff,
+    70vw 60vh #fff,
+    90vw 80vh #fff,
+    15vw 55vh #fff,
+    35vw 75vh #fff;
+  border-radius: 50%;
+  animation: fireflies-move 10s linear infinite, fireflies-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes fireflies-move {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(20px, 15px) scale(0.9); }
+  50%  { transform: translate(-15px, -20px) scale(1.1); }
+  75%  { transform: translate(10px, 25px) scale(0.8); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes fireflies-glow {
+  0%   { opacity: 0.3; box-shadow:
+    20vw 10vh #fff,
+    40vw 30vh #fff,
+    60vw 50vh #fff,
+    80vw 70vh #fff,
+    25vw 20vh #fff,
+    50vw 40vh #fff,
+    70vw 60vh #fff,
+    90vw 80vh #fff,
+    15vw 55vh #fff,
+    35vw 75vh #fff;
+  }
+  50%  { opacity: 1; box-shadow:
+    20vw 10vh #fff, 20vw 10vh 10px #fffa90,
+    40vw 30vh #fff, 40vw 30vh 10px #fffa90,
+    60vw 50vh #fff, 60vw 50vh 10px #fffa90,
+    80vw 70vh #fff, 80vw 70vh 10px #fffa90,
+    25vw 20vh #fff, 25vw 20vh 10px #fffa90,
+    50vw 40vh #fff, 50vw 40vh 10px #fffa90,
+    70vw 60vh #fff, 70vw 60vh 10px #fffa90,
+    90vw 80vh #fff, 90vw 80vh 10px #fffa90,
+    15vw 55vh #fff, 15vw 55vh 10px #fffa90,
+    35vw 75vh #fff, 35vw 75vh 10px #fffa90;
+  }
+  100% { opacity: 0.3; }
+}
+
   
 </style>
 </head>
