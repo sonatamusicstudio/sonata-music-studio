@@ -51,6 +51,12 @@ body{
 html, body {
   overflow-x: hidden;  /* cegah geser ke kanan di mobile */
 }
+  /* Global border-radius reset */
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
 
 /* subtle focus */
 :focus-visible{outline:2px dashed var(--gold);outline-offset:3px}
