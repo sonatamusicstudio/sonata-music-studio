@@ -139,6 +139,22 @@ nav a:hover::after{transform:scaleX(1);transform-origin:left}
   background:radial-gradient(circle, rgba(34,85,34,.10) 0%, transparent 80%);
   border-radius:50%;mix-blend-mode:screen;z-index:2;
 }
+  .firefly {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, rgba(255,255,200,1) 0%, rgba(255,255,200,0) 70%);
+      border-radius: 50%;
+      filter: blur(4px);
+      opacity: 0.8;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translate(0,0) scale(1); opacity: 0.5; }
+      50% { transform: translate(20px, -10px) scale(1.5); opacity: 1; }
+      100% { transform: translate(0,0) scale(1); opacity: 0.5; }
+    }
 
 /* ===================== PANELS (uniform; no inline needed) ===================== */
 .panel{
