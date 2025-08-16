@@ -276,6 +276,43 @@ a:hover::after{transform:scaleX(1);transform-origin:left}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
 }
+
+/* =========================
+   FIX 1 — CONTACT ICONS CENTER
+   ========================= */
+#contact .contact-cards{
+  justify-content: center;   /* center secara horizontal */
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;           /* kalau sempit, turun baris tetap rapi & center */
+}
+#contact .contact-card{
+  /* responsif: cukup kecil supaya 4 ikon bisa sejajar di desktop */
+  flex: 0 1 clamp(180px, 22vw, 240px);
+}
+@media (min-width: 1024px){
+  #contact .contact-cards{
+    justify-content: center; /* pastikan desktop tetap center */
+    flex-wrap: nowrap;       /* coba pertahankan satu baris di layar lebar */
+  }
+}
+
+/* =========================
+   FIX 2 — PROGRAMS TEXT SIZE (DESKTOP)
+   samakan dengan panel lain
+   ========================= */
+@media (min-width: 1024px){
+  #programs .text p,
+  #programs ul li{
+    font-size: 1.1rem;   /* sesuaikan dengan Philosophy/About di desktop */
+    line-height: 1.65;
+  }
+  #programs ul li::before{
+    font-size: 1.1em;    /* biar bullet tidak tampak lebih kecil */
+  }
+}
+
+  
 </style>
 </head>
 
