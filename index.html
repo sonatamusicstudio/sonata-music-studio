@@ -312,6 +312,65 @@ a:hover::after{transform:scaleX(1);transform-origin:left}
   }
 }
 
+/* ================================
+   FIX 1 — Program Font Size Desktop
+   ================================ */
+@media (min-width: 1024px){
+  #programs .text p,
+  #programs .text li {
+    font-size: 1.15rem;    /* sama persis dengan about/philosophy */
+    line-height: 1.7;
+  }
+  #programs .text li::before {
+    font-size: 1.2em;
+  }
+}
+
+/* ================================
+   FIX 2 — Mobile Nav Contact
+   ================================ */
+nav ul {
+  display: flex;
+  flex-direction: row;         /* jangan biarkan vertikal */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;             /* kalau layar sempit, tetap wrap rapi */
+}
+nav ul li {
+  list-style: none;
+  margin: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+/* ================================
+   FIX 3 — Magical Side Line Panel
+   ================================ */
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 40, 100, 0.9),   /* deep royal navy */
+    rgba(80, 0, 120, 0.9),   /* royal purple */
+    rgba(0, 100, 80, 0.8),   /* emerald muted */
+    rgba(200, 180, 100, 0.7) /* soft golden shimmer */
+  );
+  box-shadow: 0 0 15px rgba(120, 200, 255, 0.5); /* glowing dreamy */
+}
+.panel {
+  position: relative; /* supaya ::before nempel */
+  overflow: hidden;
+}
+
   
 </style>
 </head>
