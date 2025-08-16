@@ -48,6 +48,9 @@ body{
   overflow-x:hidden;
   line-height:1.7;
 }
+html, body {
+  overflow-x: hidden;  /* cegah geser ke kanan di mobile */
+}
 
 /* subtle focus */
 :focus-visible{outline:2px dashed var(--gold);outline-offset:3px}
@@ -277,6 +280,111 @@ a:hover::after{transform:scaleX(1);transform-origin:left}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
 }
+/* =========================
+   FIX 1 — CONTACT ICONS CENTER
+   ========================= */
+#contact .contact-cards{
+  justify-content: center;   /* center secara horizontal */
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;           /* kalau sempit, turun baris tetap rapi & center */
+}
+#contact .contact-card{
+  /* responsif: cukup kecil supaya 4 ikon bisa sejajar di desktop */
+  flex: 0 1 clamp(180px, 22vw, 240px);
+}
+@media (min-width: 1024px){
+  #contact .contact-cards{
+    justify-content: center; /* pastikan desktop tetap center */
+    flex-wrap: nowrap;       /* coba pertahankan satu baris di layar lebar */
+  }
+}
+
+/* =========================
+   FIX 2 — PROGRAMS TEXT SIZE (DESKTOP)
+   samakan dengan panel lain
+   ========================= */
+@media (min-width: 1024px){
+  #programs .text p,
+  #programs ul li{
+    font-size: 1.1rem;   /* sesuaikan dengan Philosophy/About di desktop */
+    line-height: 1.65;
+  }
+  #programs ul li::before{
+    font-size: 1.1em;    /* biar bullet tidak tampak lebih kecil */
+  }
+}
+
+/* ================================
+   FIX 1 — Program Font Size Desktop
+   ================================ */
+@media (min-width: 1024px){
+  #programs .text p,
+  #programs .text li {
+    font-size: 1.15rem;    /* sama persis dengan about/philosophy */
+    line-height: 1.7;
+  }
+  #programs .text li::before {
+    font-size: 1.2em;
+  }
+}
+
+/* ================================
+   FIX 2 — Mobile Nav Contact
+   ================================ */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;       /* kalau sempit, turun baris tapi tetap rapi */
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--gold);
+  text-align: center;
+}
+
+@media (max-width: 768px){
+  nav ul {
+    flex-direction: row;  /* tetap horizontal di mobile */
+    flex-wrap: wrap;      /* tapi bisa turun baris kalau terlalu sempit */
+  }
+
+/* ================================
+   FIX 3 — Magical Side Line Panel
+   ================================ */
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 40, 100, 0.9),   /* deep royal navy */
+    rgba(80, 0, 120, 0.9),   /* royal purple */
+    rgba(0, 100, 80, 0.8),   /* emerald muted */
+    rgba(200, 180, 100, 0.7) /* soft golden shimmer */
+  );
+  box-shadow: 0 0 15px rgba(120, 200, 255, 0.5); /* glowing dreamy */
+}
+.panel {
+  position: relative; /* supaya ::before nempel */
+  overflow: hidden;
+}
+
+  
 </style>
 </head>
 
@@ -294,13 +402,16 @@ a:hover::after{transform:scaleX(1);transform-origin:left}
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
+
 
 <section class="hero">
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
