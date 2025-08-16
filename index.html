@@ -419,66 +419,71 @@ nav ul li a {
 
 
 
-/* Fireflies otomatis di seluruh halaman */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: transparent;
-  z-index: 0;
-  box-shadow:
-    20vw 10vh #fff,
-    40vw 30vh #fff,
-    60vw 50vh #fff,
-    80vw 70vh #fff,
-    25vw 20vh #fff,
-    50vw 40vh #fff,
-    70vw 60vh #fff,
-    90vw 80vh #fff,
-    15vw 55vh #fff,
-    35vw 75vh #fff;
+<!-- HERO FIRELIES CONTAINER -->
+<div class="hero-fireflies">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- FOOTER FIRELIES CONTAINER -->
+<div class="footer-fireflies">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  /* ===================== FIRELIES BASE ===================== */
+.hero-fireflies span,
+.footer-fireflies span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 250, 160, 0.9) 0%, rgba(255, 250, 160, 0.2) 60%);
   border-radius: 50%;
-  animation: fireflies-move 10s linear infinite, fireflies-glow 2s ease-in-out infinite alternate;
+  opacity: 0.7;
+  filter: blur(1.8px);
+  animation: firefly-move 12s linear infinite, firefly-glow 3s ease-in-out infinite alternate;
 }
 
-@keyframes fireflies-move {
-  0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(20px, 15px) scale(0.9); }
-  50%  { transform: translate(-15px, -20px) scale(1.1); }
-  75%  { transform: translate(10px, 25px) scale(0.8); }
-  100% { transform: translate(0, 0) scale(1); }
+/* RANDOM POSISI AWAL */
+.hero-fireflies span:nth-child(1){top:10%; left:15%; animation-delay:0s;}
+.hero-fireflies span:nth-child(2){top:20%; left:60%; animation-delay:2s;}
+.hero-fireflies span:nth-child(3){top:50%; left:30%; animation-delay:4s;}
+.hero-fireflies span:nth-child(4){top:70%; left:80%; animation-delay:1s;}
+.hero-fireflies span:nth-child(5){top:40%; left:50%; animation-delay:3s;}
+.hero-fireflies span:nth-child(6){top:15%; left:75%; animation-delay:5s;}
+.hero-fireflies span:nth-child(7){top:60%; left:20%; animation-delay:6s;}
+.hero-fireflies span:nth-child(8){top:30%; left:90%; animation-delay:7s;}
+
+/* FOOTER FIRELIES RANDOM POSISI */
+.footer-fireflies span:nth-child(1){top:20%; left:10%; animation-delay:0s;}
+.footer-fireflies span:nth-child(2){top:50%; left:30%; animation-delay:1s;}
+.footer-fireflies span:nth-child(3){top:60%; left:70%; animation-delay:2s;}
+.footer-fireflies span:nth-child(4){top:40%; left:50%; animation-delay:3s;}
+.footer-fireflies span:nth-child(5){top:10%; left:80%; animation-delay:4s;}
+
+/* ===================== ANIMASI GERAK ===================== */
+@keyframes firefly-move {
+  0% { transform: translate(0,0) scale(1); }
+  25% { transform: translate(15px, -10px) scale(0.9); }
+  50% { transform: translate(-20px, 10px) scale(1.1); }
+  75% { transform: translate(10px, 15px) scale(0.8); }
+  100% { transform: translate(0,0) scale(1); }
 }
 
-@keyframes fireflies-glow {
-  0%   { opacity: 0.3; box-shadow:
-    20vw 10vh #fff,
-    40vw 30vh #fff,
-    60vw 50vh #fff,
-    80vw 70vh #fff,
-    25vw 20vh #fff,
-    50vw 40vh #fff,
-    70vw 60vh #fff,
-    90vw 80vh #fff,
-    15vw 55vh #fff,
-    35vw 75vh #fff;
-  }
-  50%  { opacity: 1; box-shadow:
-    20vw 10vh #fff, 20vw 10vh 10px #fffa90,
-    40vw 30vh #fff, 40vw 30vh 10px #fffa90,
-    60vw 50vh #fff, 60vw 50vh 10px #fffa90,
-    80vw 70vh #fff, 80vw 70vh 10px #fffa90,
-    25vw 20vh #fff, 25vw 20vh 10px #fffa90,
-    50vw 40vh #fff, 50vw 40vh 10px #fffa90,
-    70vw 60vh #fff, 70vw 60vh 10px #fffa90,
-    90vw 80vh #fff, 90vw 80vh 10px #fffa90,
-    15vw 55vh #fff, 15vw 55vh 10px #fffa90,
-    35vw 75vh #fff, 35vw 75vh 10px #fffa90;
-  }
-  100% { opacity: 0.3; }
+/* ===================== ANIMASI GLOW HALUS ===================== */
+@keyframes firefly-glow {
+  0% { opacity:0.3; filter: blur(1.5px) drop-shadow(0 0 4px #fff8a0); }
+  50% { opacity:1; filter: blur(2.5px) drop-shadow(0 0 12px #fff8a0); }
+  100% { opacity:0.3; filter: blur(1.5px) drop-shadow(0 0 4px #fff8a0); }
 }
 
   
