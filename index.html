@@ -453,6 +453,41 @@ nav ul li a {
   }
 }
 
+
+  /* ✨ Tambahan efek glow kunang-kunang */
+  .hero-particles span {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  .hero-particles span:nth-child(1) { 
+    width: 12px; height: 12px; top: 20%; left: 30%; background: var(--gold);
+    box-shadow: 0 0 15px var(--gold), 0 0 30px var(--gold);
+  }
+  .hero-particles span:nth-child(2) { 
+    width: 18px; height: 18px; top: 50%; left: 70%; background: var(--emerald);
+    box-shadow: 0 0 20px var(--emerald), 0 0 40px var(--emerald);
+  }
+  .hero-particles span:nth-child(3) { 
+    width: 14px; height: 14px; top: 70%; left: 40%; background: var(--orchid);
+    box-shadow: 0 0 15px var(--orchid), 0 0 35px var(--orchid);
+  }
+  .hero-particles span:nth-child(4) { 
+    width: 10px; height: 10px; top: 10%; left: 80%; background: var(--gold);
+    box-shadow: 0 0 12px var(--gold), 0 0 25px var(--gold);
+  }
+  .hero-particles span:nth-child(5) { 
+    width: 16px; height: 16px; top: 85%; left: 20%; background: var(--emerald);
+    box-shadow: 0 0 18px var(--emerald), 0 0 38px var(--emerald);
+  }
+
+  @keyframes glow {
+    0% { opacity: 0.5; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1.1); }
+  }
+
 </style>
 
 
