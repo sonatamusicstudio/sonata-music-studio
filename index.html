@@ -487,29 +487,52 @@ nav ul li a {
   0% { opacity: 0.5; transform: scale(0.9); }
   100% { opacity: 1; transform: scale(1.1); }
 }
-/* 🌿 Cinematic Tropical Orchid Effect */
-.hero::before {
-  content: "";
+
+  /* 🌿 Tropical Cinematic Orchid Effect */
+.hero-decor {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at bottom right, rgba(218,112,214,0.12), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-.hero::after {
-  content: "";
+/* 🌿 Daun tropis */
+.leaf {
   position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 320px;
-  height: 320px;
   background: url('orchid-leaf.png') no-repeat center/contain;
   opacity: 0.15;
   filter: blur(3px);
-  pointer-events: none;
-  z-index: 0;
+  width: 320px;
+  height: 320px;
 }
+
+/* daun kanan bawah */
+.leaf1 {
+  bottom: -60px;
+  right: -60px;
+  transform: rotate(15deg);
+}
+
+/* daun kiri atas (dibalik) */
+.leaf2 {
+  top: -60px;
+  left: -60px;
+  transform: scaleX(-1) rotate(-15deg);
+  opacity: 0.12;
+}
+
+/* ✨ Glow orchid ungu */
+.orchid-glow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(218,112,214,0.15), transparent 70%);
+  filter: blur(60px);
+  opacity: 0.6;
+}
+
 
 
 </style>
@@ -559,6 +582,12 @@ nav ul li a {
   </ul>
 </nav>
 
+<section class="hero">
+  <div class="hero-decor">
+    <span class="leaf leaf1"></span>
+    <span class="leaf leaf2"></span>
+    <div class="orchid-glow"></div>
+  </div>
 
 <section class="hero">
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
