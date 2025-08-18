@@ -566,8 +566,29 @@ nav ul li a {
   z-index: 1;
 }
 
-  
 </style>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const particles = document.querySelectorAll(".hero-particles span");
+
+  particles.forEach(p => {
+    function move() {
+      const x = (Math.random() - 0.5) * 100; // range -50 to 50
+      const y = (Math.random() - 0.5) * 100; 
+      const duration = 3000 + Math.random()*3000; // 3-6s
+      p.animate(
+        [{ transform: "translate(0,0)" }, { transform: `translate(${x}px, ${y}px)` }],
+        { duration, direction: "alternate", iterations: Infinity, easing: "ease-in-out" }
+      );
+    }
+    move();
+  });
+});
+</script>
+
+
+  
 </head>
 
 <body>
