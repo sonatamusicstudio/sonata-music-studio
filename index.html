@@ -453,8 +453,7 @@ nav ul li a {
   }
 }
 
-
-  /* ✨ Efek kunang-kunang glow */
+/* ✨ Efek kunang-kunang glow */
 .hero-particles span {
   position: absolute;
   border-radius: 50%;
@@ -488,52 +487,7 @@ nav ul li a {
   100% { opacity: 1; transform: scale(1.1); }
 }
 
-  /* 🌿 Tropical Cinematic Orchid Effect */
-.hero-decor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 🌿 Daun tropis */
-.leaf {
-  position: absolute;
-  background: url('orchid-leaf.png') no-repeat center/contain;
-  opacity: 0.15;
-  filter: blur(3px);
-  width: 320px;
-  height: 320px;
-}
-
-/* daun kanan bawah */
-.leaf1 {
-  bottom: -60px;
-  right: -60px;
-  transform: rotate(15deg);
-}
-
-/* daun kiri atas (dibalik) */
-.leaf2 {
-  top: -60px;
-  left: -60px;
-  transform: scaleX(-1) rotate(-15deg);
-  opacity: 0.12;
-}
-
-/* ✨ Glow orchid ungu */
-.orchid-glow {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(218,112,214,0.15), transparent 70%);
-  filter: blur(60px);
-  opacity: 0.6;
-}
-
-/* --- HERO SAFE LAYERING --- */
+  /* --- HERO SAFE LAYERING --- */
 .hero {
   position: relative;
   overflow: hidden; /* biar daun/ornamen ga keluar area hero */
@@ -612,28 +566,8 @@ nav ul li a {
   z-index: 1;
 }
 
-
+  
 </style>
-
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const particles = document.querySelectorAll(".hero-particles span");
-
-    particles.forEach(p => {
-      function move() {
-        const x = (Math.random() - 0.5) * 100;
-        const y = (Math.random() - 0.5) * 100;
-        const duration = 3000 + Math.random()*3000;
-        p.animate(
-          [{ transform: "translate(0,0)" }, { transform: `translate(${x}px, ${y}px)` }],
-          { duration, direction: "alternate", iterations: Infinity, easing: "ease-in-out" }
-        );
-      }
-      move();
-    });
-  });
-  </script>
 </head>
 
 <body>
@@ -660,12 +594,6 @@ nav ul li a {
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-decor">
-    <span class="leaf leaf1"></span>
-    <span class="leaf leaf2"></span>
-    <div class="orchid-glow"></div>
-  </div>
 
 <section class="hero">
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
