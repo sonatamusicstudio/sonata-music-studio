@@ -585,6 +585,37 @@ document.addEventListener("DOMContentLoaded", () => {
     move();
   });
 });
+    
+// tunggu halaman siap
+document.addEventListener("DOMContentLoaded", function () {
+  const hero = document.querySelector(".hero");
+
+  // bikin container dekor
+  const decor = document.createElement("div");
+  decor.classList.add("hero-decor");
+  hero.appendChild(decor);
+
+  // tambahin daun tropis
+  const leaf1 = document.createElement("img");
+  leaf1.src = "https://upload.wikimedia.org/wikipedia/commons/5/5f/Monstera_leaf.png";
+  leaf1.className = "leaf leaf1";
+  decor.appendChild(leaf1);
+
+  const leaf2 = document.createElement("img");
+  leaf2.src = "https://upload.wikimedia.org/wikipedia/commons/5/5f/Monstera_leaf.png";
+  leaf2.className = "leaf leaf2";
+  decor.appendChild(leaf2);
+
+  // tambahin glow orchid
+  const glow1 = document.createElement("div");
+  glow1.className = "orchid-glow orchid1";
+  decor.appendChild(glow1);
+
+  const glow2 = document.createElement("div");
+  glow2.className = "orchid-glow orchid2";
+  decor.appendChild(glow2);
+});
+
 </script>
 
 
