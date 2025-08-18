@@ -565,6 +565,34 @@ nav ul li a {
   position: relative;
   z-index: 1;
 }
+  /* Hero Background */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("photo-1534885320675-b08aa131cc5e.jpeg") no-repeat center center/cover;
+  filter: brightness(0.5) blur(2px);
+  z-index: -3;
+}
+
+/* Orchid Decoration PNG */
+.orchid-decor {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 220px;
+  opacity: 0.85;
+  animation: floatOrchid 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes floatOrchid {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
 
 </style>
 
@@ -617,6 +645,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <section class="hero">
+  <!-- Background Orchid Cinematic -->
+  <div class="hero-bg"></div>
+
+  <!-- Particles Glow -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Orchid Decoration -->
+  <img src="PhalenopsisOrchidWhite.png" alt="Orchid Decoration" class="orchid-decor">
+
   <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
   <div class="hero-particles">
     <span style="position:absolute;top:80%;left:10%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
