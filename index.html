@@ -883,6 +883,63 @@ nav ul li a {
   }
 }
 
+  .hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 100px 20px;
+  color: var(--gold);
+}
+
+/* Orchid paling belakang */
+.hero .orchid-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/e2d121d2-1404-49d5-9e05-39c579373943.png") no-repeat center center/cover;
+  z-index: -1;
+}
+
+/* Background utama di atas Orchid */
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("photo-1534885320675-b08aa131cc5e.jpeg") no-repeat center center/cover;
+  filter: brightness(0.45) blur(2px);
+  z-index: 0;
+}
+
+/* Dekorasi (daun, bunga dll) */
+.hero-decor {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+}
+
+.hero-decor img {
+  position: absolute;
+  bottom: 20px; right: 20px;
+  width: 150px;
+  opacity: 0.8;
+}
+
+/* Teks hero paling atas */
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+}
+
   
 </style>
 
@@ -935,28 +992,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <section class="hero">
-  <!-- Background Orchid Cinematic -->
+  <div class="orchid-layer"></div>
   <div class="hero-bg"></div>
-
-  <!-- Particles Glow -->
-  <div class="particles" id="particles"></div>
-
-  <!-- Orchid Decoration -->
-  <img src="PhalenopsisOrchidWhite.png" alt="Orchid Decoration" class="orchid-decor">
-
-  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
-  <div class="hero-particles">
-    <span style="position:absolute;top:80%;left:10%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:60%;left:40%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:20%;left:70%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:50%;left:85%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:10%;left:30%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
+  
+  <div class="hero-decor">
+    <img src="PhalenopsisOrchidWhite.png" alt="Orchid Decoration" class="orchid-decor">
   </div>
+  
   <div class="hero-text">
     <h1>Invest in Your Artistry</h1>
     <p>Instruction | Composition | Sacred Artistic Refinement</p>
   </div>
 </section>
+
 
 <section id="about" class="panel">
   <h2>About</h2>
