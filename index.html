@@ -832,6 +832,35 @@ nav ul li a {
   }
 }
 
+  @media (max-width: 768px) {
+  .hero {
+    position: relative;
+    height: 75vh;
+    display: block; /* jangan flex */
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .hero .hero-text {
+    position: absolute;
+    top: 25%;                 /* naik ke 25% dari atas layar */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    max-width: 90%;
+    color: var(--gold);
+  }
+
+  .hero .hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero .hero-text p {
+    font-size: 1rem;
+  }
+}
+
   
 </style>
 
