@@ -753,6 +753,56 @@ nav ul li a {
   }
 }
 
+/* === HERO MOBILE FIX === */
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    display: block !important;   /* jangan flex di mobile */
+    height: 75vh;                /* boleh 65–80vh sesuai selera */
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* Gambar jadi background full */
+  .hero > img {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Partikel / daun dekor tetap di bawah teks */
+  .hero .hero-particles,
+  .hero .leaf,
+  .hero .orchid-decor {
+    position: absolute !important;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Teks di atas semua */
+  .hero .hero-text {
+    position: relative !important;
+    z-index: 10 !important;
+    max-width: 90%;
+    margin: 0 auto;
+    color: var(--gold);
+  }
+
+  .hero .hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero .hero-text p {
+    font-size: 1rem;
+  }
+}
+
   
 </style>
 
