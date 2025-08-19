@@ -803,6 +803,35 @@ nav ul li a {
   }
 }
 
+  @media (max-width: 768px) {
+  .hero {
+    height: 75vh; /* sudah oke */
+    display: flex;              /* aktifkan flex untuk center vertikal */
+    flex-direction: column;
+    justify-content: center;    /* teks auto ke tengah */
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .hero .hero-text {
+    position: relative;
+    z-index: 10;
+    max-width: 90%;
+    margin: 0 auto;
+    color: var(--gold);
+    transform: translateY(-10%); /* geser naik 10% layar */
+  }
+
+  .hero .hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero .hero-text p {
+    font-size: 1rem;
+  }
+}
+
   
 </style>
 
