@@ -697,6 +697,62 @@ nav ul li a {
   }
 }
 
+/* === HERO FIX LAYERING & MOBILE === */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  color: var(--gold);
+  overflow: hidden;
+  z-index: 0; /* base layer */
+}
+
+/* Background overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
+  z-index: 0; /* paling bawah */
+}
+
+/* Dekorasi partikel & daun */
+.hero-particles,
+.leaf {
+  position: absolute;
+  z-index: 1; /* di atas background, tapi masih di bawah teks */
+}
+
+/* Hero image (kalau ada <img> di dalam hero) */
+.hero img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero text: pastikan selalu paling depan */
+.hero h1,
+.hero p,
+.hero .cta-button {
+  position: relative;
+  z-index: 10; /* teks di atas semua */
+}
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
   
 </style>
 
