@@ -882,6 +882,25 @@ nav ul li a {
     font-size: 1rem;
   }
 }
+/* Orchid paling belakang */
+.orchid-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/e2d121d2-1404-49d5-9e05-39c579373943.png") no-repeat center center/cover;
+  z-index: -2;
+  opacity: 0.5; /* bisa diatur biar halus */
+}
+
+/* Foto utama hero */
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("photo-1534885320675-b08aa131cc5e.jpeg") no-repeat center center/cover;
+  filter: brightness(0.45) blur(2px);
+  z-index: -1;
+}
 
   
 </style>
@@ -934,30 +953,21 @@ document.addEventListener("DOMContentLoaded", () => {
 </nav>
 
 
+
 <section class="hero">
-  <!-- Background Orchid Cinematic -->
+  <!-- Orchid paling belakang -->
+  <div class="orchid-layer"></div>
+
+  <!-- Background utama (foto kamu) -->
   <div class="hero-bg"></div>
 
-  <!-- Particles Glow -->
-  <div class="particles" id="particles"></div>
-
-  <!-- Orchid Decoration -->
-  <img src="PhalenopsisOrchidWhite.png" alt="Orchid Decoration" class="orchid-decor">
-
-  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/20250813_191044.jpg?raw=true" alt="Felix Satia">
-  <div class="hero-particles">
-    <span style="position:absolute;top:80%;left:10%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:60%;left:40%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:20%;left:70%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:50%;left:85%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-    <span style="position:absolute;top:10%;left:30%;width:8px;height:8px;border-radius:50%;background:var(--shimmer)"></span>
-  </div>
   <div class="hero-text">
     <h1>Invest in Your Artistry</h1>
     <p>Instruction | Composition | Sacred Artistic Refinement</p>
   </div>
 </section>
 
+  
 <section id="about" class="panel">
   <h2>About</h2>
   <div class="section-with-image">
