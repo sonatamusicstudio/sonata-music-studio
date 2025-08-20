@@ -941,6 +941,27 @@ nav ul li a {
   }
 }
 
+/* Pastikan hero text selalu di depan di mobile */
+@media (max-width: 768px) {
+  .hero-text {
+    mix-blend-mode: normal;   /* hilangkan efek transparan */
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(0,0,0,0.6); /* biar tetap kebaca */
+    z-index: 5;               /* pastikan di atas layer lain */
+  }
+
+  .hero img {
+    object-fit: cover;
+    filter: brightness(0.45); /* gelapin background biar teks jelas */
+  }
+
+  .hero-decor,
+  .leaf,
+  .hero-particles {
+    z-index: 1; /* dorong ke belakang */
+  }
+}
+  
   
 </style>
 
