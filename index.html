@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonata Music Studio - Profile</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400&display=swap');
 
     body {
       margin: 0;
@@ -15,7 +15,7 @@
     }
 
     .profile-card {
-      max-width: 900px; /* dibesarkan dikit biar lebih grand */
+      max-width: 900px;
       margin: 40px auto;
       background: #120f24;
       display: flex;
@@ -35,14 +35,13 @@
 
     .name {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem; /* lebih besar */
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
     .role {
       font-size: 1.1rem;
-      font-weight: 400;
       letter-spacing: 1px;
       opacity: 0.9;
       margin-bottom: 25px;
@@ -54,30 +53,33 @@
       opacity: 0.85;
     }
 
-    /* kotak gradasi dekorasi */
-    .gradient-bar {
-      height: 50px; /* diperbesar jadi kotak lebar, bukan garis tipis */
+    /* KOTAK GRADIENT ala APCS */
+    .gradient-box {
       width: 100%;
-      background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
+      padding: 20px;
       margin: 30px 0;
-      border-radius: 8px;
+      background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
   <div class="profile-card">
-    <!-- ganti dengan foto kamu -->
     <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
 
     <div class="profile-content">
-      <div class="gradient-bar"></div>
+      <div class="gradient-box">Founder & Instructor</div>
       <h1 class="name">Felix Satia</h1>
-      <div class="role">Founder & Instructor — Sonata Music Studio</div>
+      <div class="role">Sonata Music Studio</div>
       <p class="bio">
         Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun 
         dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah 
         pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan, 
-        terstruktur, dan penuh ekspresi seni.  
+        terstruktur, dan penuh ekspresi seni.
       </p>
     </div>
   </div>
