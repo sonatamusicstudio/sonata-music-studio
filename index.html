@@ -13,7 +13,6 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-h1, h2 { font-family: 'Playfair Display', serif; }
 
 /* Profile */
 .profile-card {
@@ -54,7 +53,8 @@ h1, h2 { font-family: 'Playfair Display', serif; }
 .gallery {
   max-width: 1000px;
   margin: 50px auto 80px auto;
-  padding: 0 20px;
+  padding: 30px 20px 60px 20px;
+  background: linear-gradient(to bottom, rgba(18,15,36,0.8), rgba(18,15,36,0.95));
 }
 .gallery h2 {
   font-size: 2.8rem;
@@ -73,12 +73,12 @@ h1, h2 { font-family: 'Playfair Display', serif; }
   gap: 20px;
 }
 
-/* Gallery images with spotlight */
+/* Gallery images with spotlight & vignette */
 .gallery-item {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
 }
 
 .gallery-item img {
@@ -86,12 +86,13 @@ h1, h2 { font-family: 'Playfair Display', serif; }
   height: 200px;
   object-fit: contain;
   display: block;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.5s ease;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
 }
 
-/* Spotlight overlay */
 .gallery-item::after {
   content: '';
   position: absolute;
@@ -100,14 +101,29 @@ h1, h2 { font-family: 'Playfair Display', serif; }
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
   background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0) 60%);
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
 }
 
 /* Hover subtle */
 .gallery-item:hover img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
+.gallery-item:hover::before {
+  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.35) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.5) 100%);
+}
+
+/* Fade in animation */
+@keyframes fadeIn { to { opacity: 1; } }
 
 /* Responsive */
 @media (max-width: 900px) { 
