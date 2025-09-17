@@ -6,6 +6,45 @@
 <title>Sonata Music Studio - Cinematic Scroll</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
+  .composers {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.composers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.composer-item {
+  background: rgba(25,20,40,0.95);
+  border: 4px solid #d4af37; /* efek pigura emas */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.composer-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.composer-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
+}
+
+.composer-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -214,6 +253,31 @@ body::before {
     <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
   </div>
 </section>
+
+  <!-- Great Composers -->
+<section class="section composers fade-in">
+  <h2>The Great Composers</h2>
+  <div class="gradient-bar"></div>
+  <div class="composers-grid">
+    <div class="composer-item">
+      <img src="beethoven.jpg" alt="Beethoven">
+      <h3>Ludwig van Beethoven</h3>
+      <p>German composer bridging the Classical and Romantic eras.</p>
+    </div>
+    <div class="composer-item">
+      <img src="mozart.jpg" alt="Mozart">
+      <h3>Wolfgang Amadeus Mozart</h3>
+      <p>Prolific and influential Austrian composer of the Classical era.</p>
+    </div>
+    <div class="composer-item">
+      <img src="bach.jpg" alt="Bach">
+      <h3>Johann Sebastian Bach</h3>
+      <p>Master of counterpoint and Baroque polyphony.</p>
+    </div>
+    <!-- lanjut sampai 9 item (3x3) -->
+  </div>
+</section>
+
 
 <!-- Program -->
 <section class="section program fade-in">
