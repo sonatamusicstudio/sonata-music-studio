@@ -63,7 +63,7 @@ h1, h2 {
   opacity: 0.85;
 }
 
-/* Gallery Section - Office Vibe + Cinematic Gradient per Row */
+/* Gallery Section - Office Vibe + Cinematic Highlight Gradient */
 .gallery {
   max-width: 1000px;
   margin: 50px auto 80px auto;
@@ -86,7 +86,7 @@ h1, h2 {
   z-index: 2;
 }
 
-/* Gradient overlay per row */
+/* Gradient overlay per row dengan highlight cinematic */
 .gallery-grid::before {
   content: '';
   position: absolute;
@@ -96,14 +96,17 @@ h1, h2 {
   height: 100%;
   pointer-events: none;
   display: block;
-  background: repeating-linear-gradient(
-    180deg,
-    rgba(26,29,112,0.1), 0px, 200px,     /* row 1 */
-    rgba(46,83,162,0.08) 200px, 400px,   /* row 2 */
-    rgba(232,92,71,0.06) 400px, 600px,   /* row 3 */
-    rgba(246,199,108,0.04) 600px, 800px  /* row 4+ */
-  );
+  background:
+    linear-gradient(rgba(255,255,255,0.06), rgba(0,0,0,0.08)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(26,29,112,0.12) 0px, 200px,       /* row 1 highlight */
+      rgba(46,83,162,0.06) 200px, 400px,     /* row 2 subtle */
+      rgba(232,92,71,0.08) 400px, 600px,     /* row 3 medium highlight */
+      rgba(246,199,108,0.04) 600px, 800px    /* row 4+ subtle */
+    );
   z-index: 1;
+  background-blend-mode: overlay;
 }
 
 /* Individual images */
