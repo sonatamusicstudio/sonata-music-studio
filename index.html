@@ -1,89 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonata Music Studio - Profile</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sonata Music Studio - Profile</title>
+<style>
+  /* Fonts (Google) */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400&display=swap');
 
-    body {
-      margin: 0;
-      background-color: #0d0b1a;
-      font-family: 'Roboto', sans-serif;
-      color: white;
-    }
+  :root{
+    --bg:#0d0b1a;
+    --card-bg:#120f24;
+    --text:#ffffff;
+    --gap:40px;
+  }
 
-    .profile-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #120f24;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
-      position: relative;
-    }
+  /* Reset */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Roboto',system-ui,Segoe UI,Arial,sans-serif}
 
-    .profile-card img {
-      width: 100%;
-      max-height: 400px; /* foto tidak terlalu tinggi */
-      object-fit: cover;
-      display: block;
-    }
+  /* Container / Card */
+  .profile-card{
+    width:min(1200px,96%);
+    margin:32px auto;
+    background:var(--card-bg);
+    box-shadow:0 20px 60px rgba(0,0,0,0.65);
+    position:relative;
+    overflow:visible; /* agar gradient-box yg overlap tetap terlihat */
+  }
 
-    /* kotak gradient sebagai transisi */
-    .gradient-box {
-      width: 100%;
-      height: 80px;
-      background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
-      position: absolute;
-      bottom: 220px; /* naik ke area foto */
-      left: 0;
-      z-index: 1;
-    }
+  /* HERO: foto lebih kecil (tidak full-width) */
+  .hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:48px 20px 24px; /* ruang atas & bawah */
+    background:linear-gradient(180deg, rgba(20,12,36,0.05), transparent 60%);
+  }
 
-    .profile-content {
-      padding: 30px;
-      position: relative;
-      z-index: 2; /* biar tulisan di atas kotak */
-    }
+  /* pastikan foto tdk crop; height auto */
+  .hero img{
+    width:420px;         /* ukuran foto yang wajar; ganti sesuai selera */
+    max-width:86%;
+    height:auto;
+    display:block;
+    object-fit:contain;  /* hindari crop */
+    box-shadow:0 18px 40px rgba(0,0,0,0.6);
+    border:0;            /* pastikan kotak tajam (tidak membulat) */
+  }
 
-    .name {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
+  /* GRADIENT BOX: kotak besar, solid, rectangular (tidak rounded) */
+  .gradient-box{
+    width:100%;
+    height:100px; /* tinggi kotak; ubah kalau mau lebih/kurang */
+    background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
+    margin-top:-50px;            /* tarik ke atas supaya 'menyusup' ke bawah foto */
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+    border-radius:0;             /* TEGAS: tidak melengkung */
+    position:relative;
+    z-index:1;
+  }
 
-    .role {
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      opacity: 0.9;
-      margin-bottom: 20px;
-    }
+  /* CONTENT yang berada setelah kotak gradient */
+  .profile-content{
+    padding: calc(24px + 50px) 48px 48px; /* padding-top cukup untuk menghindari tumpang tindih */
+    position:relative;
+    z-index:2; /* pastikan teks di depan gradient */
+    background:transparent;
+  }
 
-    .bio {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      opacity: 0.85;
-    }
-  </style>
+  .name{
+    font-family:'Playfair Display',serif;
+    font-size:2.4rem;
+    line-height:1.05;
+    margin-bottom:8px;
+    color:var(--text);
+    letter-spacing:0.6px;
+  }
+
+  .role{
+    font-size:1rem;
+    opacity:0.9;
+    margin-bottom:18px;
+  }
+
+  .bio{
+    font-size:1rem;
+    line-height:1.7;
+    color:rgba(255,255,255,0.92);
+  }
+
+  /* small screens */
+  @media (max-width:900px){
+    .hero img{ width:320px; max-width:72%;}
+    .gradient-box{ height:88px; margin-top:-44px; }
+    .profile-content{ padding-top: calc(24px + 44px); padding-left:28px; padding-right:28px; }
+    .name{ font-size:2rem; }
+  }
+
+  @media (max-width:600px){
+    .hero{ padding:36px 12px 16px; }
+    .hero img{ width:260px; max-width:78%; }
+    .gradient-box{ height:72px; margin-top:-36px; }
+    .profile-content{ padding-top: calc(18px + 36px); padding-left:18px; padding-right:18px; }
+    .name{ font-size:1.6rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="profile-card">
-    <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
-    <div class="gradient-box"></div>
-    <div class="profile-content">
-      <h1 class="name">Felix Satia</h1>
-      <div class="role">Founder & Instructor — Sonata Music Studio</div>
-      <p class="bio">
-        Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun 
-        dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah 
-        pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan, 
-        terstruktur, dan penuh ekspresi seni.  
-      </p>
+
+  <main class="profile-card">
+    <!-- HERO: foto kecil, tidak full-width sehingga teks kelihatan -->
+    <div class="hero">
+      <!-- sesuaikan path gambar -->
+      <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Foto Felix Satia">
     </div>
-  </div>
+
+    <!-- Kotak gradient: berada setelah hero, ditarik naik sehingga 'menyusup' di bawah foto -->
+    <div class="gradient-box" aria-hidden="true"></div>
+
+    <!-- Konten: punya padding-top cukup agar kotak gradient tidak menimpa teks -->
+    <section class="profile-content" aria-labelledby="profile-name">
+      <h1 id="profile-name" class="name">Felix Satia</h1>
+      <div class="role">Founder &amp; Instructor — Sonata Music Studio</div>
+      <p class="bio">
+        Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun.
+        Studio ini fokus pada pembelajaran piano dan teori secara online dengan pendekatan elegan,
+        terstruktur, dan artistik. Materi mencakup repertoar klasik, teknik, dan teori untuk semua level.
+      </p>
+    </section>
+  </main>
+
 </body>
 </html>
