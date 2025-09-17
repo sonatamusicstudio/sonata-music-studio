@@ -6,7 +6,6 @@
 <title>Sonata Music Studio - Profile & Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* Base */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -14,23 +13,20 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-}
+h1, h2 { font-family: 'Playfair Display', serif; }
 
-/* Profile Section */
+/* Profile */
 .profile-card {
   max-width: 1000px;
   margin: 60px auto 100px auto;
-  position: relative;
   padding: 0 20px;
 }
 .profile-card img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   display: block;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 .profile-content {
   background: rgba(18, 15, 36, 0.92);
@@ -51,43 +47,42 @@ h1, h2 {
   margin-bottom: 10px;
   text-shadow: 0 2px 5px rgba(0,0,0,0.7);
 }
-.role {
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  opacity: 0.9;
-  margin-bottom: 20px;
-}
-.bio {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.85;
-}
+.role { font-size: 1.1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
+.bio { font-size: 1rem; line-height: 1.7; opacity: 0.85; }
 
-/* Gallery Section */
+/* Gallery */
 .gallery {
   max-width: 1000px;
   margin: 50px auto 80px auto;
   padding: 0 20px;
-  position: relative;
 }
 .gallery h2 {
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 40px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  z-index: 2;
-  position: relative;
 }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  position: relative;
-  z-index: 2;
 }
 
-/* Gradient overlay per row subtle for office vibe */
-.gallery-grid::before {
+/* Image container for spotlight */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.gallery-item::after {
   content: '';
   position: absolute;
   top: 0;
@@ -95,68 +90,19 @@ h1, h2 {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  display: block;
-  background:
-    linear-gradient(rgba(255,255,255,0.06), rgba(0,0,0,0.08)),
-    repeating-linear-gradient(
-      180deg,
-      rgba(26,29,112,0.12) 0px, 200px,       
-      rgba(46,83,162,0.06) 200px, 400px,     
-      rgba(232,92,71,0.08) 400px, 600px,     
-      rgba(246,199,108,0.04) 600px, 800px    
-    );
-  z-index: 1;
-  background-blend-mode: overlay;
+  background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.6) 100%);
 }
-
-/* Spotlight cinematic effect on each image */
-.gallery-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 50px 80px rgba(0,0,0,0.35), inset 0 -50px 80px rgba(0,0,0,0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
-  z-index: 2;
-
-  mask-image: radial-gradient(circle 60% at 50% 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.2) 100%);
-  -webkit-mask-image: radial-gradient(circle 60% at 50% 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.2) 100%);
-  mask-repeat: no-repeat;
-  mask-position: center top;
-  mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center top;
-  -webkit-mask-size: cover;
-}
-
-.gallery-grid img:hover {
+.gallery-item:hover img {
   transform: scale(1.03);
-  box-shadow: inset 0 40px 70px rgba(0,0,0,0.2), inset 0 -40px 70px rgba(0,0,0,0.2);
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gallery-grid img {
-    height: 180px;
-  }
-}
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-  .gallery-grid img {
-    height: 150px;
-  }
-}
+@media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } .gallery-item img { height: 180px; } }
+@media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-item img { height: 150px; } }
 </style>
 </head>
 <body>
 
-<!-- Profile Section -->
 <div class="profile-card">
   <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
   <div class="profile-content">
@@ -167,47 +113,46 @@ h1, h2 {
       Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun 
       dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah 
       pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan, 
-      terstruktur, dan penuh ekspresi seni.  
+      terstruktur, dan penuh ekspresi seni.
     </p>
   </div>
 </div>
 
-<!-- Gallery Section -->
 <div class="gallery">
   <h2>Gallery</h2>
   <div class="gallery-grid">
-    <img src="1728277097784.jpeg" alt="Gallery 1">
-    <img src="1728277959315.jpeg" alt="Gallery 2">
-    <img src="1728277994217.jpeg" alt="Gallery 3">
-    <img src="1728278062357.jpeg" alt="Gallery 4">
-    <img src="1728278413639.jpeg" alt="Gallery 5">
-    <img src="1728278498612.jpeg" alt="Gallery 6">
-    <img src="1728278535664.jpeg" alt="Gallery 7">
-    <img src="1728278743638.jpeg" alt="Gallery 8">
-    <img src="1728278972071.jpeg" alt="Gallery 9">
-    <img src="1728279819431.jpeg" alt="Gallery 10">
-    <img src="1728294846403.jpeg" alt="Gallery 11">
-    <img src="1728294894368.jpeg" alt="Gallery 12">
-    <img src="1728295139439.jpeg" alt="Gallery 13">
-    <img src="1728295173689.jpeg" alt="Gallery 14">
-    <img src="1728295202953.jpeg" alt="Gallery 15">
-    <img src="1728295402904.jpeg" alt="Gallery 16">
-    <img src="1728295429712.jpeg" alt="Gallery 17">
-    <img src="1728296617350.jpeg" alt="Gallery 18">
-    <img src="1728300782229.jpeg" alt="Gallery 19">
-    <img src="1728301815288.jpeg" alt="Gallery 20">
-    <img src="1728302182364.jpeg" alt="Gallery 21">
-    <img src="1728302212548.jpeg" alt="Gallery 22">
-    <img src="1728303826998.jpeg" alt="Gallery 23">
-    <img src="1728311786057.jpeg" alt="Gallery 24">
-    <img src="1728349078427.jpeg" alt="Gallery 25">
-    <img src="1728368821890.jpeg" alt="Gallery 26">
-    <img src="1728368987536.jpeg" alt="Gallery 27">
-    <img src="1728450148208.jpeg" alt="Gallery 28">
-    <img src="1728450200661.jpeg" alt="Gallery 29">
-    <img src="1728450222173.jpeg" alt="Gallery 30">
-    <img src="1728450251141.jpeg" alt="Gallery 31">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt="Gallery 32">
+    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt=""></div>
   </div>
 </div>
 
