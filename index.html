@@ -3,151 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Music School</title>
+  <title>Sonata Music Studio</title>
   <style>
-    /* ===== GLOBAL STYLE ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #0e0e0e; /* deep black */
-      color: #eaeaea;
-      line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0a0f29, #1d0f2e);
+      color: white;
+      overflow-x: hidden;
     }
 
-    h1, h2, h3 {
-      font-family: "Georgia", serif;
-      font-weight: 400;
-      letter-spacing: 1px;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      border-bottom: 1px solid #444; /* garis tipis elegan */
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    /* ===== HERO SECTION ===== */
     .hero {
+      position: relative;
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-                  url('https://images.unsplash.com/photo-1527356926128-968a0c44a3d3?auto=format&fit=crop&w=1600&q=80')
-                  no-repeat center/cover;
-      color: #fff;
+      overflow: hidden;
     }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+    /* background grid lines */
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      z-index: 1;
     }
 
-    .hero p {
+    .hero img {
+      position: relative;
+      z-index: 2;
+      max-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+    }
+
+    .hero-text {
+      position: absolute;
+      z-index: 3;
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h2 {
+      font-weight: 300;
       font-size: 1.2rem;
-      color: #ddd;
-      max-width: 600px;
-      margin: auto;
+      margin-bottom: 15px;
+      opacity: 0.85;
     }
 
-    /* ===== ABOUT ===== */
-    .about {
-      padding: 4rem 2rem;
-      border-top: 1px solid #333;
-    }
-
-    .about p {
-      max-width: 700px;
-    }
-
-    /* ===== COURSES ===== */
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .course {
-      padding: 1.5rem;
-      border: 1px solid #444;
-      border-radius: 4px;
-      transition: 0.3s;
-    }
-
-    .course:hover {
-      border-color: #888;
-      background: #111;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #333;
-      color: #777;
+    .hero-text p {
+      font-style: italic;
+      font-size: 1rem;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
   <section class="hero">
-    <div>
-      <h1>Online Music School</h1>
-      <p>Where timeless artistry meets modern learning. Learn piano and theory with elegance, depth, and clarity — anywhere, anytime.</p>
+    <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
+    <div class="hero-text">
+      <h1>Sonata Music Studio</h1>
+      <h2>Felix Satia — Founder & Instructor</h2>
+      <p>Where Sound Becomes Art</p>
     </div>
   </section>
-
-  <!-- ABOUT -->
-  <section class="about container">
-    <h2>About Us</h2>
-    <p>
-      Our online music school blends classical tradition with modern technology. 
-      We focus on artistic depth, technical precision, and the personal growth of every student.
-    </p>
-  </section>
-
-  <!-- COURSES -->
-  <section class="container">
-    <h2>Courses</h2>
-    <div class="courses">
-      <div class="course">
-        <h3>Piano Performance</h3>
-        <p>Private online lessons focusing on artistry, technique, and musical interpretation.</p>
-      </div>
-      <div class="course">
-        <h3>Music Theory</h3>
-        <p>Interactive lessons covering fundamentals to advanced harmony and analysis.</p>
-      </div>
-      <div class="course">
-        <h3>Choir & Ensemble</h3>
-        <p>Learn collaborative musicianship with virtual choir and ensemble training.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Online Music School · Crafted with Elegance
-  </footer>
 </body>
 </html>
