@@ -4,97 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonata Music Studio - Profile</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&family=Roboto+Slab:wght@300;400&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
-/* Body & Background */
+<style>
+/* -------------------------
+   Body & Font
+--------------------------*/
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: white;
   background: linear-gradient(180deg, #0a0f3d, #1a144d);
-  position: relative;
   overflow-x: hidden;
+  perspective: 1200px;
 }
 
+/* -------------------------
+   Subtle Light Streaks Background
+--------------------------*/
 body::before {
-  content:'';
-  position:fixed; top:0; left:0;
-  width:100%; height:100%;
-  background: url('https://www.transparenttextures.com/patterns/canvas.png') repeat;
-  opacity: 0.05;
-  pointer-events:none;
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+  animation: lightMove 25s linear infinite;
 }
 
-body::after {
-  content:'';
-  position:fixed; top:0; left:0;
-  width:100%; height:100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
-  pointer-events:none;
+@keyframes lightMove {
+  0% { transform: translate(0,0) rotate(0deg);}
+  50% { transform: translate(10px, -10px) rotate(180deg);}
+  100% { transform: translate(0,0) rotate(360deg);}
 }
 
-/* Profile Section */
+/* -------------------------
+   Fade-in animation
+--------------------------*/
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------------
+   Profile Card
+--------------------------*/
 .profile-card {
   max-width: 900px;
   margin: 50px auto 80px auto;
   position: relative;
+  perspective: 1200px;
 }
+
 .profile-card img {
   width: 100%;
   display: block;
   object-fit: cover;
-  filter: brightness(0.9);
+  transition: transform 1.2s ease;
 }
+
+.profile-card:hover img {
+  transform: scale(1.02) rotateY(2deg) rotateX(1deg);
+}
+
 .profile-content {
-  background: rgba(18,15,36,0.85);
-  backdrop-filter: blur(6px) brightness(1.05);
+  background: rgba(18,15,36,0.95);
   padding: 30px;
-  margin-top: -70px;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
   position: relative;
+  top: -70px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
 }
+
 .gradient-bar {
   height: 22px;
   width: 100%;
   background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
-  background-size: 400% 100%;
-  animation: shimmer 6s ease infinite;
   margin: 20px 0 30px 0;
 }
-@keyframes shimmer {
-  0%{background-position:0 0;}
-  50%{background-position:100% 0;}
-  100%{background-position:0 0;}
-}
+
 .name {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
-  text-shadow: 0 0 8px rgba(246,199,108,0.4);
 }
+
 .role {
-  font-family: 'Roboto Slab', serif;
   font-size: 1rem;
   letter-spacing: 1px;
   opacity: 0.9;
   margin-bottom: 20px;
-  text-transform: uppercase;
 }
+
 .bio {
   font-size: 0.95rem;
   line-height: 1.6;
   opacity: 0.85;
 }
 
-/* Gallery Section */
+/* -------------------------
+   Gallery Cinematic Hover
+--------------------------*/
 .gallery {
   max-width: 1200px;
   margin: 80px auto;
   padding: 0 20px 60px 20px;
+  position: relative;
+  z-index: 1;
 }
+
 .gallery h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
@@ -102,57 +133,68 @@ body::after {
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
+  perspective: 800px;
   position: relative;
   overflow: hidden;
 }
-.gallery-grid::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.6) 70%);
-  pointer-events: none;
-  animation: spotlightMove 12s linear infinite;
-}
-@keyframes spotlightMove {
-  0% { transform: translate(0,0) rotate(0deg); }
-  25% { transform: translate(10%,5%) rotate(30deg); }
-  50% { transform: translate(-5%,10%) rotate(60deg); }
-  75% { transform: translate(5%,-5%) rotate(90deg); }
-  100% { transform: translate(0,0) rotate(360deg); }
-}
+
 .gallery-item {
   position: relative;
   overflow: hidden;
-  perspective: 1000px;
+  transform-style: preserve-3d;
 }
+
 .gallery-item img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
-  transform-style: preserve-3d;
-}
-.gallery-item:hover img {
-  transform: scale(1.05) rotateY(3deg) rotateX(1deg);
-  filter: brightness(1.15);
-  box-shadow: 0 28px 50px rgba(0,0,0,0.75);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform 0.6s ease, filter 0.5s ease;
 }
 
-/* Program Section */
+.gallery-item:hover img {
+  transform: scale(1.08) rotateY(3deg) rotateX(2deg);
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.gallery-grid::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.6) 70%);
+  pointer-events: none;
+  animation: spotlightMove 20s linear infinite;
+}
+
+@keyframes spotlightMove {
+  0% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(12%,5%) rotate(30deg); }
+  50% { transform: translate(-8%,10%) rotate(60deg); }
+  75% { transform: translate(5%,-7%) rotate(90deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+/* -------------------------
+   Program Section
+--------------------------*/
 .program {
   max-width: 1000px;
   margin: 80px auto 100px auto;
   padding: 30px 20px 60px 20px;
   background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95));
   position: relative;
+  z-index: 1;
 }
+
 .program h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
@@ -160,76 +202,90 @@ body::after {
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
+
 .program-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-top: 20px;
 }
+
 .program-item {
   background: rgba(25,20,40,0.95);
   padding: 30px 25px;
   border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.55);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
 }
+
+.program-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%);
+}
+
+.program-item:hover {
+  transform: translateY(-8px) rotateY(2deg) rotateX(1deg);
+  box-shadow: 0 22px 48px rgba(0,0,0,0.65);
+}
+
 .program-item h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   margin-bottom: 6px;
 }
+
 .program-item .sub-info {
-  font-family: 'Roboto Slab', serif;
   font-size: 0.85rem;
   opacity: 0.7;
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
+
 .program-item p {
   font-size: 1rem;
   line-height: 1.6;
   opacity: 0.85;
 }
-.program-item::after {
-  content:'';
-  position:absolute;
-  top:-50%; left:-50%;
-  width:200%; height:200%;
-  pointer-events:none;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.45) 100%);
-}
-.program-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 38px rgba(0,0,0,0.55);
-  border: 1px solid rgba(246,199,108,0.4);
-}
 
-/* Contact Section */
+/* -------------------------
+   Contact Section
+--------------------------*/
 .contact {
   max-width: 900px;
   margin: 80px auto 100px auto;
   padding: 30px 20px 60px 20px;
   text-align: center;
 }
+
 .contact h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
+
 .contact p {
   font-size: 1rem;
   margin-bottom: 25px;
   opacity: 0.85;
 }
+
 .contact-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
+
 .contact-links a {
   display: flex;
   align-items: center;
@@ -237,35 +293,28 @@ body::after {
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.4s ease, color 0.3s ease;
 }
+
 .contact-links a:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.05);
   color: #f6c76c;
 }
-.contact-links a:hover img {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 6px #f6c76c);
-}
+
 .contact-links img {
   width: 28px;
   height: 28px;
 }
 
-/* Fade-in Animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* -------------------------
+   Responsive
+--------------------------*/
+@media (max-width: 900px) { 
+  .program-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+@media (max-width: 600px) { 
+  .program-grid { grid-template-columns: 1fr; }
 }
-
-/* Responsive */
-@media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } .gallery-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -291,7 +340,7 @@ body::after {
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- Semua 32 gambar gallery -->
+    <!-- Ganti src image sesuai koleksi -->
     <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
@@ -300,7 +349,7 @@ body::after {
     <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
-        <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
@@ -376,21 +425,15 @@ body::after {
 </div>
 
 <script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.3 };
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in');
+  elements.forEach(el => {
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 200);
   });
-}, appearOptions);
-
-faders.forEach(fader => { appearOnScroll.observe(fader); });
+});
 </script>
 
 </body>
 </html>
-
