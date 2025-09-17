@@ -22,15 +22,12 @@
       overflow: hidden;
     }
 
-    /* Foto tetap utuh, tidak terpotong */
+    /* Foto besar dan jelas */
     .profile-card img {
       width: 100%;
-      height: auto; /* tinggi mengikuti proporsi asli */
-      max-height: 450px; /* tetap tidak terlalu besar */
-      object-fit: contain; /* tampil utuh tanpa crop */
+      height: 550px; /* cukup besar untuk impact visual */
+      object-fit: cover; /* tetap menampilkan foto penuh tanpa distorsi */
       display: block;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
       filter: brightness(0.9);
     }
 
@@ -38,7 +35,7 @@
       background: rgba(18, 15, 36, 0.95);
       padding: 35px;
       position: relative;
-      top: -60px; /* overlap lebih sedikit */
+      top: -100px; /* overlap dengan foto, pas untuk visual */
       box-shadow: 0 12px 50px rgba(0,0,0,0.7);
       border-radius: 12px;
       backdrop-filter: blur(6px);
@@ -49,7 +46,7 @@
       width: 100%;
       background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
       margin: 25px 0 35px 0;
-      border-radius: 0; /* office vibe */
+      border-radius: 0; /* office vibe clean */
     }
 
     .name {
@@ -74,12 +71,12 @@
 
     @media (max-width: 600px) {
       .profile-card img {
-        max-height: 300px;
+        height: 350px; /* lebih kecil di mobile */
       }
 
       .profile-content {
         padding: 20px;
-        top: -40px;
+        top: -60px;
       }
 
       .name {
