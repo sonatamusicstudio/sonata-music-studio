@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonata Music Studio - Profile</title>
+  <title>Sonata Music Studio - Profile & Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
 
@@ -22,11 +22,11 @@
       overflow: hidden;
     }
 
-    /* Foto utuh, tidak dipotong */
+    /* Foto utama tetap utuh */
     .profile-card img {
       width: 100%;
-      height: auto; /* tinggi mengikuti proporsi asli */
-      object-fit: contain; /* utuh tanpa crop */
+      height: auto;
+      object-fit: contain;
       display: block;
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
@@ -37,7 +37,7 @@
       background: rgba(18, 15, 36, 0.95);
       padding: 35px;
       position: relative;
-      top: -40px; /* overlap sedikit, tidak menutupi foto */
+      top: -40px;
       box-shadow: 0 12px 50px rgba(0,0,0,0.7);
       border-radius: 12px;
       backdrop-filter: blur(6px);
@@ -71,6 +71,39 @@
       opacity: 0.88;
     }
 
+    /* Portfolio section */
+    .portfolio {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 0 15px;
+    }
+
+    .portfolio h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 600px) {
       .profile-content {
         padding: 20px;
@@ -88,10 +121,15 @@
       .bio {
         font-size: 0.9rem;
       }
+
+      .portfolio-grid img {
+        height: 120px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Profile Card -->
   <div class="profile-card">
     <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
     <div class="profile-content">
@@ -106,5 +144,44 @@
       </p>
     </div>
   </div>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <img src="1728277097784.jpeg" alt="Portfolio 1">
+      <img src="1728277959315.jpeg" alt="Portfolio 2">
+      <img src="1728277994217.jpeg" alt="Portfolio 3">
+      <img src="1728278062357.jpeg" alt="Portfolio 4">
+      <img src="1728278413639.jpeg" alt="Portfolio 5">
+      <img src="1728278498612.jpeg" alt="Portfolio 6">
+      <img src="1728278535664.jpeg" alt="Portfolio 7">
+      <img src="1728278743638.jpeg" alt="Portfolio 8">
+      <img src="1728278972071.jpeg" alt="Portfolio 9">
+      <img src="1728279819431.jpeg" alt="Portfolio 10">
+      <img src="1728294846403.jpeg" alt="Portfolio 11">
+      <img src="1728294894368.jpeg" alt="Portfolio 12">
+      <img src="1728295139439.jpeg" alt="Portfolio 13">
+      <img src="1728295173689.jpeg" alt="Portfolio 14">
+      <img src="1728295202953.jpeg" alt="Portfolio 15">
+      <img src="1728295402904.jpeg" alt="Portfolio 16">
+      <img src="1728295429712.jpeg" alt="Portfolio 17">
+      <img src="1728296617350.jpeg" alt="Portfolio 18">
+      <img src="1728300782229.jpeg" alt="Portfolio 19">
+      <img src="1728301815288.jpeg" alt="Portfolio 20">
+      <img src="1728302182364.jpeg" alt="Portfolio 21">
+      <img src="1728302212548.jpeg" alt="Portfolio 22">
+      <img src="1728303826998.jpeg" alt="Portfolio 23">
+      <img src="1728311786057.jpeg" alt="Portfolio 24">
+      <img src="1728349078427.jpeg" alt="Portfolio 25">
+      <img src="1728368821890.jpeg" alt="Portfolio 26">
+      <img src="1728368987536.jpeg" alt="Portfolio 27">
+      <img src="1728450148208.jpeg" alt="Portfolio 28">
+      <img src="1728450200661.jpeg" alt="Portfolio 29">
+      <img src="1728450222173.jpeg" alt="Portfolio 30">
+      <img src="1728450251141.jpeg" alt="Portfolio 31">
+    </div>
+  </div>
 </body>
 </html>
+
