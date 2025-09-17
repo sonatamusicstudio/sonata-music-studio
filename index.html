@@ -112,10 +112,6 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .program-item .icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
-  }
   .program-item h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -131,8 +127,6 @@
     line-height: 1.6;
     opacity: 0.85;
   }
-
-  /* Subtle cinematic spotlight effect */
   .program-item::after {
     content: '';
     position: absolute;
@@ -154,6 +148,49 @@
   }
   @media (max-width: 600px) { 
     .program-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Contact Section */
+  .contact {
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 30px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+  }
+  .contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  .contact p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 25px;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .contact-links a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  .contact-links a img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 8px;
+  }
+  .contact-links a:hover {
+    transform: translateY(-5px);
   }
 </style>
 </head>
@@ -235,6 +272,30 @@
       <div class="sub-info">Analytical & Intellectual</div>
       <p>Engaging curriculum connecting classical rigor with modern creativity. Perfect for students who aspire to understand and perform music at a premium level.</p>
     </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="contact">
+  <h2>Contact</h2>
+  <p>Reach out to Sonata Music Studio for lessons, collaborations, or inquiries.</p>
+  <div class="contact-links">
+    <a href="https://wa.me/6289656684852" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.youtube.com/@felixsatia" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.instagram.com/felixsatia" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
   </div>
 </div>
 
