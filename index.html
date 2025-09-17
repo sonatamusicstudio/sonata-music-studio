@@ -74,12 +74,20 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
   }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
   .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
   }
 
   /* Program Section */
@@ -111,10 +119,6 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .program-item .icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
   }
   .program-item h3 {
     font-family: 'Playfair Display', serif;
@@ -216,13 +220,84 @@
 </div>
 
 <!-- Gallery Section -->
+<!-- Gallery Section with Cinematic Spotlight -->
 <div class="gallery">
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- Gallery images (sama seperti sebelumnya) -->
+    <!-- 32 Gallery Items -->
+    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
   </div>
 </div>
+
+<style>
+/* Cinematic spotlight effect */
+.gallery-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-grid::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.6) 70%);
+  pointer-events: none;
+  animation: spotlightMove 12s linear infinite;
+}
+
+@keyframes spotlightMove {
+  0% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(10%,5%) rotate(30deg); }
+  50% { transform: translate(-5%,10%) rotate(60deg); }
+  75% { transform: translate(5%,-5%) rotate(90deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+.gallery-item img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+</style>
+
 
 <!-- Program Section -->
 <div class="program">
