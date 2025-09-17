@@ -131,7 +131,8 @@
     line-height: 1.6;
     opacity: 0.85;
   }
-  /* Cinematic spotlight effect */
+
+  /* Subtle cinematic spotlight effect */
   .program-item::after {
     content: '';
     position: absolute;
@@ -141,26 +142,13 @@
     height: 200%;
     pointer-events: none;
     z-index: 1;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.55) 100%);
-    animation: spotlightRandom 12s ease-in-out infinite;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.45) 100%);
   }
   .program-item:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 38px rgba(0,0,0,0.55);
   }
-  @keyframes spotlightRandom {
-    0%   { transform: translate(0%,0%) scale(1); }
-    10%  { transform: translate(5%,2%) scale(1.02); }
-    20%  { transform: translate(-4%,3%) scale(1.01); }
-    30%  { transform: translate(3%,-3%) scale(1.03); }
-    40%  { transform: translate(-2%,5%) scale(1.01); }
-    50%  { transform: translate(4%,-2%) scale(1.02); }
-    60%  { transform: translate(-3%,3%) scale(1.01); }
-    70%  { transform: translate(2%,-4%) scale(1.02); }
-    80%  { transform: translate(-1%,5%) scale(1.03); }
-    90%  { transform: translate(3%,-3%) scale(1.01); }
-    100% { transform: translate(0%,0%) scale(1); }
-  }
+
   @media (max-width: 900px) { 
     .program-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -192,39 +180,38 @@
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- Tambahkan semua gambar, termasuk raw GitHub URL terakhir -->
-    <img src="1728277097784.jpeg" alt="">
-    <img src="1728277959315.jpeg" alt="">
-    <img src="1728277994217.jpeg" alt="">
-    <img src="1728278062357.jpeg" alt="">
-    <img src="1728278413639.jpeg" alt="">
-    <img src="1728278498612.jpeg" alt="">
-    <img src="1728278535664.jpeg" alt="">
-    <img src="1728278743638.jpeg" alt="">
-    <img src="1728278972071.jpeg" alt="">
-    <img src="1728279819431.jpeg" alt="">
-    <img src="1728294846403.jpeg" alt="">
-    <img src="1728294894368.jpeg" alt="">
-    <img src="1728295139439.jpeg" alt="">
-    <img src="1728295173689.jpeg" alt="">
-    <img src="1728295202953.jpeg" alt="">
-    <img src="1728295402904.jpeg" alt="">
-    <img src="1728295429712.jpeg" alt="">
-    <img src="1728296617350.jpeg" alt="">
-    <img src="1728300782229.jpeg" alt="">
-    <img src="1728301815288.jpeg" alt="">
-    <img src="1728302182364.jpeg" alt="">
-    <img src="1728302212548.jpeg" alt="">
-    <img src="1728303826998.jpeg" alt="">
-    <img src="1728311786057.jpeg" alt="">
-    <img src="1728349078427.jpeg" alt="">
-    <img src="1728368821890.jpeg" alt="">
-    <img src="1728368987536.jpeg" alt="">
-    <img src="1728450148208.jpeg" alt="">
-    <img src="1728450200661.jpeg" alt="">
-    <img src="1728450222173.jpeg" alt="">
-    <img src="1728450251141.jpeg" alt="">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt="">
+    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt=""></div>
   </div>
 </div>
 
@@ -234,22 +221,19 @@
   <div class="gradient-bar"></div>
   <div class="program-grid">
     <div class="program-item">
-      <div class="icon">🎹</div>
-      <h3>Piano Mastery – Private Lessons</h3>
-      <p class="sub-info">Duration: 40 mins | Level: Beginner – Advanced</p>
-      <p>Personalized piano instruction focusing on technique, repertoire, and artistic expression. Curated for all levels, inspired by classical traditions.</p>
+      <h3>Trinity College London</h3>
+      <div class="sub-info">Piano & Theory Curriculum</div>
+      <p>40 minutes piano lesson, 20 minutes music theory. Structured to build technical mastery and artistic expression in a premium, high-class learning environment.</p>
     </div>
     <div class="program-item">
-      <div class="icon">📖</div>
-      <h3>Music Theory Excellence</h3>
-      <p class="sub-info">Duration: 20 mins | Level: Beginner – Advanced</p>
-      <p>Intensive theory training covering harmony, rhythm, notation, and sight-reading. Designed to complement Trinity College London exams.</p>
+      <h3>Private Piano Coaching</h3>
+      <div class="sub-info">Customized & One-on-One</div>
+      <p>Individual attention to foster musical independence, confidence, and precision, with a cinematic, artistic approach suitable for ambitious learners.</p>
     </div>
     <div class="program-item">
-      <div class="icon">🏆</div>
-      <h3>Trinity College London Preparation</h3>
-      <p class="sub-info">Grades 1–8 | Performance & Theory</p>
-      <p>Structured exam preparation with tailored coaching for performance and theory exams. Artistic, intellectual, and disciplined approach.</p>
+      <h3>Music Theory Deep Dive</h3>
+      <div class="sub-info">Analytical & Intellectual</div>
+      <p>Engaging curriculum connecting classical rigor with modern creativity. Perfect for students who aspire to understand and perform music at a premium level.</p>
     </div>
   </div>
 </div>
