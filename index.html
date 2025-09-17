@@ -99,6 +99,7 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 3;
+  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,var(--spotlight-intensity,0.2)) 0%, rgba(0,0,0,0) 60%);
 }
 
 .gallery-item::before {
@@ -108,20 +109,6 @@ body {
   pointer-events: none;
   z-index: 1;
   background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%);
-}
-
-/* Story lighting by row */
-.gallery-grid .gallery-item:nth-child(-n+3)::after {
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.35) 0%, rgba(0,0,0,0) 60%);
-}
-.gallery-grid .gallery-item:nth-child(n+4):nth-child(-n+6)::after {
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0) 60%);
-}
-.gallery-grid .gallery-item:nth-child(n+7):nth-child(-n+9)::after {
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 60%);
-}
-.gallery-grid .gallery-item:nth-child(n+10)::after {
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 60%);
 }
 
 /* Hover subtle */
@@ -169,38 +156,38 @@ body {
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.35"><img src="1728277097784.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.25"><img src="1728277959315.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728277994217.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.2"><img src="1728278062357.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.28"><img src="1728278413639.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.22"><img src="1728278498612.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728278535664.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.18"><img src="1728278743638.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.32"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.2"><img src="1728279819431.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.25"><img src="1728294846403.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.28"><img src="1728294894368.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.22"><img src="1728295139439.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728295173689.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.2"><img src="1728295202953.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.27"><img src="1728295402904.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.24"><img src="1728295429712.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.26"><img src="1728296617350.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.28"><img src="1728300782229.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.23"><img src="1728301815288.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.21"><img src="1728302182364.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.25"><img src="1728302212548.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728303826998.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.18"><img src="1728311786057.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.2"><img src="1728349078427.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728368821890.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.22"><img src="1728368987536.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.28"><img src="1728450148208.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.25"><img src="1728450200661.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.24"><img src="1728450222173.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.3"><img src="1728450251141.jpeg" alt=""></div>
+    <div class="gallery-item" style="--spotlight-intensity:0.32"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250905_123538.png" alt=""></div>
   </div>
 </div>
 
