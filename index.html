@@ -7,73 +7,119 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
 
+    /* Body & Background */
     body {
       margin: 0;
-      background: linear-gradient(180deg, #0a0f3d, #1a144d); /* navy + sedikit ungu */
       font-family: 'Roboto', sans-serif;
-      color: white;
+      color: #f5f5f5;
+      background: linear-gradient(180deg, #0a0f3d 0%, #1b154f 50%, #2b1a63 100%);
+      overflow-x: hidden;
     }
 
+    /* Profile Card Container */
     .profile-card {
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 850px;
+      margin: 50px auto;
       position: relative;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
+    /* Founder Photo */
     .profile-card img {
       width: 100%;
       display: block;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      filter: brightness(0.85);
+      transition: transform 0.4s ease;
     }
 
+    .profile-card img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Profile Content */
     .profile-content {
       background: rgba(18, 15, 36, 0.95);
-      padding: 30px;
+      padding: 35px;
       position: relative;
-      top: -70px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      top: -80px;
+      box-shadow: 0 12px 50px rgba(0,0,0,0.7);
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
     }
 
+    /* Gradient Bar */
     .gradient-bar {
-      height: 22px; /* lebih besar */
+      height: 24px;
       width: 100%;
-      background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
-      margin: 20px 0 30px 0;
+      background: linear-gradient(90deg, #1a1d70, #443e8c, #6a4ba0, #e85c47);
+      margin: 25px 0 35px 0;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(232, 92, 71, 0.5);
     }
 
+    /* Name & Role */
     .name {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.6rem;
       font-weight: 700;
+      letter-spacing: 1px;
       margin-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     .role {
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 1px;
       opacity: 0.9;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      font-style: italic;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
+    /* Bio */
     .bio {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      opacity: 0.85;
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.88;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .profile-content {
+        padding: 20px;
+        top: -50px;
+      }
+
+      .name {
+        font-size: 1.9rem;
+      }
+
+      .role {
+        font-size: 0.95rem;
+      }
+
+      .bio {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="profile-card">
     <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
-
     <div class="profile-content">
       <div class="gradient-bar"></div>
       <h1 class="name">Felix Satia</h1>
       <div class="role">Founder & Instructor — Sonata Music Studio</div>
       <p class="bio">
-        Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun 
-        dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah 
-        pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan, 
-        terstruktur, dan penuh ekspresi seni.  
+        Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun
+        dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah
+        pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan,
+        terstruktur, dan penuh ekspresi seni. Hal ini diwujudkan melalui metode yang modern, artistik,
+        dan personal untuk setiap murid.
       </p>
     </div>
   </div>
