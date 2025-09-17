@@ -19,7 +19,7 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* Header/Profile */
+    /* Profile Section */
     .profile-card {
       max-width: 1000px;
       margin: 60px auto 100px auto;
@@ -29,9 +29,9 @@
 
     .profile-card img {
       width: 100%;
-      height: auto; /* full, tidak dipotong */
-      object-fit: contain;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+      height: auto;
+      object-fit: contain; /* full, tidak dipotong */
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       display: block;
     }
 
@@ -70,7 +70,7 @@
       opacity: 0.85;
     }
 
-    /* Gallery Section */
+    /* Gallery Section - Office Vibe */
     .gallery {
       max-width: 1000px;
       margin: 50px auto 80px auto;
@@ -81,27 +81,27 @@
       font-size: 2.8rem;
       text-align: center;
       margin-bottom: 40px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 20px;
     }
 
     .gallery-grid img {
       width: 100%;
-      height: auto; /* full, tidak dipotong */
-      object-fit: contain;
-      border: 2px solid rgba(255, 215, 0, 0.25); /* subtle gold frame */
-      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      height: 200px; /* uniform height */
+      object-fit: contain; /* tidak dipotong */
+      border: 1px solid rgba(255, 255, 255, 0.15); /* clean & professional */
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25); /* subtle depth */
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .gallery-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.75);
+      transform: scale(1.02);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3); /* slight depth */
     }
 
     /* Responsive */
@@ -109,11 +109,17 @@
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .gallery-grid img {
+        height: 180px;
+      }
     }
 
     @media (max-width: 600px) {
       .gallery-grid {
         grid-template-columns: 1fr;
+      }
+      .gallery-grid img {
+        height: 150px;
       }
     }
   </style>
