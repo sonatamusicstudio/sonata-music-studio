@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio - Profile</title>
+<title>Sonata Music Studio - Cinematic Scroll</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
 /* -------------------------
    Body & Font
@@ -17,10 +16,11 @@ body {
   background: linear-gradient(180deg, #0a0f3d, #1a144d);
   overflow-x: hidden;
   perspective: 1200px;
+  scroll-behavior: smooth;
 }
 
 /* -------------------------
-   Subtle Light Streaks Background
+   Light Streaks & Particles
 --------------------------*/
 body::before {
   content: '';
@@ -29,8 +29,8 @@ body::before {
   left: -20%;
   width: 140%;
   height: 140%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
-              radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 60%);
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255,255,255,0.02) 0%, transparent 60%);
   z-index: 0;
   pointer-events: none;
   animation: lightMove 25s linear infinite;
@@ -50,10 +50,18 @@ body::before {
   transform: translateY(30px);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* -------------------------
+   Section Parallax Wrapper
+--------------------------*/
+.section {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
 }
 
 /* -------------------------
@@ -61,22 +69,20 @@ body::before {
 --------------------------*/
 .profile-card {
   max-width: 900px;
-  margin: 50px auto 80px auto;
+  margin: 100px auto 80px auto;
   position: relative;
   perspective: 1200px;
+  transform-style: preserve-3d;
 }
-
 .profile-card img {
   width: 100%;
   display: block;
   object-fit: cover;
   transition: transform 1.2s ease;
 }
-
 .profile-card:hover img {
   transform: scale(1.02) rotateY(2deg) rotateX(1deg);
 }
-
 .profile-content {
   background: rgba(18,15,36,0.95);
   padding: 30px;
@@ -87,28 +93,24 @@ body::before {
   border-top: 1px solid rgba(255,255,255,0.05);
   backdrop-filter: blur(5px);
 }
-
 .gradient-bar {
   height: 22px;
   width: 100%;
   background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
   margin: 20px 0 30px 0;
 }
-
 .name {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
-
 .role {
   font-size: 1rem;
   letter-spacing: 1px;
   opacity: 0.9;
   margin-bottom: 20px;
 }
-
 .bio {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -116,16 +118,14 @@ body::before {
 }
 
 /* -------------------------
-   Gallery Cinematic Hover
+   Gallery Cinematic
 --------------------------*/
 .gallery {
   max-width: 1200px;
   margin: 80px auto;
   padding: 0 20px 60px 20px;
   position: relative;
-  z-index: 1;
 }
-
 .gallery h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
@@ -133,7 +133,6 @@ body::before {
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -142,13 +141,11 @@ body::before {
   position: relative;
   overflow: hidden;
 }
-
 .gallery-item {
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
 }
-
 .gallery-item img {
   width: 100%;
   height: auto;
@@ -157,12 +154,10 @@ body::before {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   transition: transform 0.6s ease, filter 0.5s ease;
 }
-
 .gallery-item:hover img {
   transform: scale(1.08) rotateY(3deg) rotateX(2deg);
   filter: brightness(1.15) contrast(1.1);
 }
-
 .gallery-grid::before {
   content: '';
   position: absolute;
@@ -174,7 +169,6 @@ body::before {
   pointer-events: none;
   animation: spotlightMove 20s linear infinite;
 }
-
 @keyframes spotlightMove {
   0% { transform: translate(0,0) rotate(0deg); }
   25% { transform: translate(12%,5%) rotate(30deg); }
@@ -192,9 +186,7 @@ body::before {
   padding: 30px 20px 60px 20px;
   background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95));
   position: relative;
-  z-index: 1;
 }
-
 .program h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
@@ -202,14 +194,12 @@ body::before {
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
-
 .program-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-top: 20px;
 }
-
 .program-item {
   background: rgba(25,20,40,0.95);
   padding: 30px 25px;
@@ -220,7 +210,6 @@ body::before {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   transform-style: preserve-3d;
 }
-
 .program-item::after {
   content: '';
   position: absolute;
@@ -232,24 +221,20 @@ body::before {
   z-index: 1;
   background: radial-gradient(circle at center, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%);
 }
-
 .program-item:hover {
   transform: translateY(-8px) rotateY(2deg) rotateX(1deg);
   box-shadow: 0 22px 48px rgba(0,0,0,0.65);
 }
-
 .program-item h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   margin-bottom: 6px;
 }
-
 .program-item .sub-info {
   font-size: 0.85rem;
   opacity: 0.7;
   margin-bottom: 12px;
 }
-
 .program-item p {
   font-size: 1rem;
   line-height: 1.6;
@@ -265,27 +250,23 @@ body::before {
   padding: 30px 20px 60px 20px;
   text-align: center;
 }
-
 .contact h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
   margin-bottom: 10px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
-
 .contact p {
   font-size: 1rem;
   margin-bottom: 25px;
   opacity: 0.85;
 }
-
 .contact-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
-
 .contact-links a {
   display: flex;
   align-items: center;
@@ -293,14 +274,12 @@ body::before {
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  transition: transform 0.4s ease, color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .contact-links a:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-3px);
   color: #f6c76c;
 }
-
 .contact-links img {
   width: 28px;
   height: 28px;
@@ -309,128 +288,73 @@ body::before {
 /* -------------------------
    Responsive
 --------------------------*/
-@media (max-width: 900px) { 
-  .program-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) { 
-  .program-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- Profile Section -->
-<div class="profile-card fade-in">
+<!-- Profile -->
+<section class="section profile-card fade-in">
   <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
   <div class="profile-content">
     <div class="gradient-bar"></div>
     <h1 class="name">Felix Satia</h1>
     <div class="role">Founder & Instructor — Sonata Music Studio</div>
     <p class="bio">
-      Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun
-      dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah
-      pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan,
-      terstruktur, dan penuh ekspresi seni.
+      Pianist & music educator with 10+ years of experience, merging classical rigor with cinematic artistry in private and online lessons.
     </p>
   </div>
-</div>
+</section>
 
-<!-- Gallery Section -->
-<div class="gallery fade-in">
+<!-- Gallery -->
+<section class="section gallery fade-in">
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- Ganti src image sesuai koleksi -->
-    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
+    <!-- gallery items here -->
   </div>
-</div>
+</section>
 
-<!-- Program Section -->
-<div class="program fade-in">
+<!-- Program -->
+<section class="section program fade-in">
   <h2>Program</h2>
   <div class="gradient-bar"></div>
   <div class="program-grid">
-    <div class="program-item">
-      <h3>Trinity College London</h3>
-      <div class="sub-info">Piano & Theory Curriculum</div>
-      <p>40 minutes piano lesson, 20 minutes music theory. Structured to build technical mastery and artistic expression in a premium, high-class learning environment.</p>
-    </div>
-    <div class="program-item">
-      <h3>Private Piano Coaching</h3>
-      <div class="sub-info">Customized & One-on-One</div>
-      <p>Individual attention to foster musical independence, confidence, and precision, with a cinematic, artistic approach suitable for ambitious learners.</p>
-    </div>
-    <div class="program-item">
-      <h3>Music Theory Deep Dive</h3>
-      <div class="sub-info">Analytical & Intellectual</div>
-      <p>Engaging curriculum connecting classical rigor with modern creativity. Perfect for students who aspire to understand and perform music at a premium level.</p>
-    </div>
+    <!-- program items here -->
   </div>
-</div>
+</section>
 
-<!-- Contact Section -->
-<div class="contact fade-in">
+<!-- Contact -->
+<section class="section contact fade-in">
   <h2>Contact</h2>
   <div class="gradient-bar"></div>
-  <p>Reach out to Sonata Music Studio for lessons, collaborations, or inquiries.</p>
+  <p>Reach out for lessons, collaborations, or inquiries.</p>
   <div class="contact-links">
-    <a href="https://wa.me/6289656684852" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://www.youtube.com/@felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      <span>YouTube</span>
-    </a>
-    <a href="https://www.instagram.com/felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      <span>LinkedIn</span>
-    </a>
+    <!-- contact links here -->
   </div>
-</div>
+</section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach(el => {
-    setTimeout(() => {
-      el.classList.add('visible');
-    }, 200);
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const options = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Parallax scroll effect
+window.addEventListener('scroll', function(){
+  const scrolled = window.pageYOffset;
+  document.querySelectorAll('.section').forEach((section, idx)=>{
+    const depth = 0.05 + idx*0.02;
+    section.style.transform = `translateY(${scrolled*depth}px)`;
   });
 });
 </script>
