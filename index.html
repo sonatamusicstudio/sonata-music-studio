@@ -3,103 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APCS Style Sections</title>
+  <title>Sonata Music Studio - Profile</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap');
+
     body {
       margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #111;
-      color: #fff;
+      background-color: #0d0b1a;
+      font-family: 'Roboto', sans-serif;
+      color: white;
     }
 
-    .section {
-      width: 100%;
-      min-height: 300px;
+    .profile-card {
+      max-width: 900px; /* dibesarkan dikit biar lebih grand */
+      margin: 40px auto;
+      background: #120f24;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      flex-direction: column;
+      box-shadow: 0 0 50px rgba(0,0,0,0.6);
+    }
+
+    .profile-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .profile-content {
+      padding: 40px;
       position: relative;
-      overflow: hidden;
     }
 
-    /* Kotak gradient lebar */
-    .section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        #2c003e,
-        #2c003e 200px,
-        #5d1451 200px,
-        #5d1451 400px
-      );
-      z-index: 0;
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; /* lebih besar */
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      padding: 2rem;
+    .role {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      margin-bottom: 25px;
     }
 
-    h1, h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .bio {
+      font-size: 1rem;
+      line-height: 1.8;
+      opacity: 0.85;
     }
 
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    /* Foto kamu di bagian hero */
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    .hero img {
-      width: 250px;   /* bisa disesuaikan */
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      margin-bottom: 1.5rem;
+    /* kotak gradasi dekorasi */
+    .gradient-bar {
+      height: 50px; /* diperbesar jadi kotak lebar, bukan garis tipis */
+      width: 100%;
+      background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
+      margin: 30px 0;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
+  <div class="profile-card">
+    <!-- ganti dengan foto kamu -->
+    <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
 
-  <!-- Hero Section dengan foto kamu -->
-  <div class="hero">
-    <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Foto Instructor">
-    <h1>Felix Satia</h1>
-    <p>Piano & Music Theory Instructor | Classical & Contemporary</p>
-  </div>
-
-  <!-- Section dengan kotak gradient -->
-  <div class="section">
-    <div class="content">
-      <h2>🎹 Piano Lessons</h2>
-      <p>Learn classical and modern piano techniques with personalized guidance.</p>
+    <div class="profile-content">
+      <div class="gradient-bar"></div>
+      <h1 class="name">Felix Satia</h1>
+      <div class="role">Founder & Instructor — Sonata Music Studio</div>
+      <p class="bio">
+        Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun 
+        dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah 
+        pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan, 
+        terstruktur, dan penuh ekspresi seni.  
+      </p>
     </div>
   </div>
-
-  <div class="section">
-    <div class="content">
-      <h2>🎼 Music Theory</h2>
-      <p>Understand harmony, rhythm, and structure for deeper mastery.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="content">
-      <h2>🎤 Choir & Voice</h2>
-      <p>Develop vocal skills and experience the beauty of singing together.</p>
-    </div>
-  </div>
-
 </body>
 </html>
