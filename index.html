@@ -70,9 +70,10 @@ body {
   margin: 50px auto 100px auto;
   padding: 20px;
   position: relative;
-  background: #3e2f1c; /* dark wood */
+  background: url('https://i.imgur.com/2nCt3Sbl.jpg'); /* subtle dark wood texture */
+  background-size: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  border-radius: 0; /* tetap rectangular */
+  border-radius: 0; /* rectangular */
 }
 
 .gallery h2 {
@@ -111,6 +112,7 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.35);
 }
 
+/* Image style */
 .gallery-grid img {
   width: 100%;
   height: 180px;
@@ -126,16 +128,29 @@ body {
   left: 5px;
   width: 18px;
   height: 18px;
-  background: url('https://i.imgur.com/3O3g4dV.png') no-repeat center center;
-  background-size: contain;
-  z-index: 3;
+  border-radius: 50%;
 }
+
+/* Assign color based on row (every 3 images per row) */
+.gallery-grid .board-img:nth-child(3n-2) .pin { background: #1a1d70; } /* navy */
+.gallery-grid .board-img:nth-child(3n-1) .pin { background: #e85c47; } /* red/orange */
+.gallery-grid .board-img:nth-child(3n) .pin { background: #f6c76c; } /* gold */
 
 /* Hover subtle lift */
 .gallery-grid .board-img:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
   transition: 0.3s ease;
+}
+
+/* Bottom gradient bar */
+.gallery::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 8px;
+  margin-top: 30px;
+  background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c);
 }
 
 /* Responsive */
@@ -187,7 +202,6 @@ body {
   </div>
 
   <div class="gallery-grid">
-    <!-- 32+ images -->
     <div class="board-img"><div class="pin"></div><img src="1728277097784.jpeg" alt="Gallery 1"></div>
     <div class="board-img"><div class="pin"></div><img src="1728277959315.jpeg" alt="Gallery 2"></div>
     <div class="board-img"><div class="pin"></div><img src="1728277994217.jpeg" alt="Gallery 3"></div>
