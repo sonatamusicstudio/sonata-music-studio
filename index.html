@@ -70,7 +70,7 @@
       opacity: 0.85;
     }
 
-    /* Gallery Section - Office Vibe + Subtle Spotlight */
+    /* Gallery Section - Office Vibe + Gradient Overlay */
     .gallery {
       max-width: 1000px;
       margin: 50px auto 80px auto;
@@ -87,7 +87,7 @@
       position: relative;
     }
 
-    /* spotlight overlay */
+    /* gradient overlay + subtle spotlight */
     .gallery::before {
       content: '';
       position: absolute;
@@ -96,7 +96,10 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      background: linear-gradient(rgba(255,255,255,0.08), rgba(0,0,0,0.1));
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(0,0,0,0.1)), /* spotlight */
+        linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c); /* gradient kotak */
+      background-blend-mode: overlay;
       z-index: 1;
     }
 
@@ -110,8 +113,8 @@
 
     .gallery-grid img {
       width: 100%;
-      height: 200px; /* uniform height */
-      object-fit: contain; /* full, tidak dipotong */
+      height: 200px;
+      object-fit: contain;
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 6px 14px rgba(0,0,0,0.25);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
