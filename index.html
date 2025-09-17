@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Profile */
+/* Profile Section */
 .profile-card {
   max-width: 1000px;
   margin: 60px auto 100px auto;
@@ -49,7 +49,7 @@ body {
 .role { font-size: 1.1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
 .bio { font-size: 1rem; line-height: 1.7; opacity: 0.85; }
 
-/* Gallery */
+/* Gallery Section */
 .gallery {
   max-width: 1000px;
   margin: 50px auto 80px auto;
@@ -70,7 +70,7 @@ body {
   gap: 20px;
 }
 
-/* Gallery images uniform spotlight & subtle vignette */
+/* Gallery Images */
 .gallery-item {
   position: relative;
   overflow: hidden;
@@ -83,44 +83,37 @@ body {
   height: 200px;
   object-fit: contain;
   display: block;
-  transition: transform 0.25s ease, opacity 0.5s ease;
   position: relative;
   z-index: 2;
-  opacity: 0;
-  animation: fadeIn 0.8s forwards;
+  opacity: 1;
 }
 
+/* Dynamic Spotlight Effect */
 .gallery-item::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   pointer-events: none;
   z-index: 3;
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 60%);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.5) 100%);
+  animation: spotlightMove 6s ease-in-out infinite alternate;
 }
 
-.gallery-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(circle at 50% 20%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.45) 100%);
+@keyframes spotlightMove {
+  0% { transform: translate(0%,0%) scale(1); }
+  25% { transform: translate(10%,5%) scale(1.02); }
+  50% { transform: translate(-10%,10%) scale(1.03); }
+  75% { transform: translate(5%,-5%) scale(1.01); }
+  100% { transform: translate(0%,0%) scale(1); }
 }
 
 /* Hover subtle */
 .gallery-item:hover img {
   transform: scale(1.04);
 }
-.gallery-item:hover::before {
-  background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%);
-}
-
-/* Fade in animation */
-@keyframes fadeIn { to { opacity: 1; } }
 
 /* Responsive */
 @media (max-width: 900px) { 
