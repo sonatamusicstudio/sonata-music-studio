@@ -315,6 +315,29 @@ body, section, .hero, .gallery, .contact {
   height: auto;
   display: block;
 }
+  /* ==== FULL WIDTH FIX ==== */
+body, section, .hero, .gallery, .contact {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero img,
+.gallery img {
+  width: 100%;   /* biar foto besar full layar */
+  height: auto;
+  display: block;
+}
+
+/* ==== CONTACT ICONS ==== */
+.contact img.icon {
+  width: 40px;   /* ukuran ikon */
+  height: auto;
+  margin: 5px;
+  display: inline-block;
+}
+
 
 
 </style>
@@ -430,6 +453,12 @@ body, section, .hero, .gallery, .contact {
     </a>
   </div>
 </section>
+  <div class="contact">
+  <a href="#"><img src="wa.png" class="icon"></a>
+  <a href="#"><img src="ig.png" class="icon"></a>
+  <a href="#"><img src="email.png" class="icon"></a>
+</div>
+
 
 <script>
 // Fade-in on scroll
