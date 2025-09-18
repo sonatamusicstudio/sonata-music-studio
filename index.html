@@ -16,6 +16,22 @@ body {
   perspective: 1200px;
   scroll-behavior: smooth;
 }
+  /* ==== FULL WIDTH FIX ==== */
+body, section, .hero, .gallery, .contact {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero img,
+.gallery img,
+.contact img {
+  width: 100%;   /* biar full layar */
+  height: auto;
+  display: block;
+}
+
 
 /* Light Streaks */
 body::before {
