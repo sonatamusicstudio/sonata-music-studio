@@ -259,6 +259,31 @@ img {
     justify-items: center; /* grid item center */
   }
 }
+  /* ==== MOBILE FIX CENTERING ==== */
+@media (max-width: 768px) {
+  body {
+    text-align: center; /* fallback supaya semua teks + inline image ke tengah */
+  }
+
+  section, .hero, .gallery, .contact {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero img,
+  .gallery img,
+  .contact img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* pastikan semua gambar center */
+  }
+
+  .gallery-grid {
+    justify-items: center; /* grid item center */
+  }
+}
+
 
 </style>
 </head>
