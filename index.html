@@ -172,6 +172,30 @@ body::before {
   .program-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; } /* Biar tetap tampil rapi di mobile */
 }
+
+/* ==== FIX GALLERY ANTI-SETAN ==== */
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* shadow halus */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect elegan hanya untuk desktop */
+@media (hover:hover) {
+  .gallery-item img:hover {
+    transform: scale(1.02); /* smooth, ga serem */
+  }
+}
+
+/* Hapus overlay/spotlight gelap */
+.gallery-grid::before {
+  content: none; /* no more black aura 👻 */
+}
+
 </style>
 </head>
 <body>
