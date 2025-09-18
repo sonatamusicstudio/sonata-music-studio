@@ -96,7 +96,7 @@ body::before {
   gap: 15px;
   perspective: 800px;
   position: relative;
-  overflow: hidden;
+  /* FIX: hilangkan overflow hidden agar mobile tidak memotong grid */
 }
 .gallery-item { position: relative; overflow: hidden; transform-style: preserve-3d; }
 .gallery-item img {
@@ -166,8 +166,12 @@ body::before {
 .contact-links a:hover { transform: translateY(-3px); color: #f6c76c; }
 .contact-links img { width: 28px; height: 28px; }
 
+/* Responsive */
 @media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .program-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; } /* Biar tetap tampil rapi di mobile */
+}
 </style>
 </head>
 <body>
