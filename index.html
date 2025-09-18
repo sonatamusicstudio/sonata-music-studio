@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio - Cinematic Scroll</title>
+<title>Sonata Music Studio - Responsive Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
 body {
@@ -12,7 +12,6 @@ body {
   color: white;
   background: linear-gradient(180deg, #0a0f3d, #1a144d);
   overflow-x: hidden;
-  perspective: 1200px;
   scroll-behavior: smooth;
 }
 
@@ -40,7 +39,7 @@ body::before {
 .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* Section Parallax */
+/* Section */
 .section { position: relative; z-index: 1; transform-style: preserve-3d; }
 
 /* Profile Card */
@@ -152,15 +151,35 @@ body::before {
 .contact-links a:hover { transform: translateY(-3px); color: #f6c76c; }
 .contact-links img { width: 28px; height: 28px; }
 
-@media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
+/* Responsive adjustments */
+@media (max-width: 900px) { 
+  .program-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 600px) { 
+  .program-grid { grid-template-columns: 1fr; }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    overflow: visible !important;
+    transform: none !important;
+    perspective: none !important;
+  }
+
+  .gallery-item img {
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .profile-card, .profile-card img { perspective: none !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- Profile -->
 <section class="section profile-card fade-in">
-  <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
+  <img src="https://i.ibb.co/album1/1728277097784.jpeg" alt="Founder Photo">
   <div class="profile-content">
     <div class="gradient-bar"></div>
     <h1 class="name">Felix Satia</h1>
@@ -179,99 +198,41 @@ body::before {
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- Full 32+ images with lazy loading -->
-    <div class="gallery-item"><img src="1728277097784.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728277959315.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728277994217.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278062357.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278413639.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278498612.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278535664.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278743638.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728278972071.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728279819431.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728294846403.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728294894368.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728295139439.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728295173689.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728295202953.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728295402904.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728295429712.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728296617350.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728300782229.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728301815288.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728302182364.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728302212548.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728303826998.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728311786057.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728349078427.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728368821890.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728368987536.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728450148208.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728450200661.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728450222173.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="1728450251141.jpeg" alt="" loading="lazy"></div>
-    <div class="gallery-item"><img src="20250905_123538.png" alt="" loading="lazy"></div>
+    <!-- 32 Gallery Items (URL placeholder) -->
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277097784.jpeg" alt="Gallery 1"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277959315.jpeg" alt="Gallery 2"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277994217.jpeg" alt="Gallery 3"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278062357.jpeg" alt="Gallery 4"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278413639.jpeg" alt="Gallery 5"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278498612.jpeg" alt="Gallery 6"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278535664.jpeg" alt="Gallery 7"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278743638.jpeg" alt="Gallery 8"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278972071.jpeg" alt="Gallery 9"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728279819431.jpeg" alt="Gallery 10"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728294846403.jpeg" alt="Gallery 11"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728294894368.jpeg" alt="Gallery 12"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295139439.jpeg" alt="Gallery 13"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295173689.jpeg" alt="Gallery 14"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295202953.jpeg" alt="Gallery 15"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295402904.jpeg" alt="Gallery 16"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295429712.jpeg" alt="Gallery 17"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728296617350.jpeg" alt="Gallery 18"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728300782229.jpeg" alt="Gallery 19"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728301815288.jpeg" alt="Gallery 20"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728302182364.jpeg" alt="Gallery 21"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728302212548.jpeg" alt="Gallery 22"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728303826998.jpeg" alt="Gallery 23"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728311786057.jpeg" alt="Gallery 24"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728349078427.jpeg" alt="Gallery 25"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728368821890.jpeg" alt="Gallery 26"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728368987536.jpeg" alt="Gallery 27"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450148208.jpeg" alt="Gallery 28"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450200661.jpeg" alt="Gallery 29"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450222173.jpeg" alt="Gallery 30"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450251141.jpeg" alt="Gallery 31"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/album1/20250905-123538.png" alt="Gallery 32"></div>
   </div>
 </section>
-
-<!-- Program -->
-<section class="section program fade-in">
-  <h2>Program</h2>
-  <div class="gradient-bar"></div>
-  <div class="program-grid">
-    <div class="program-item">
-      <h3>Trinity College London</h3>
-      <div class="sub-info">Piano & Theory Curriculum</div>
-      <p>40 minutes piano lesson, 20 minutes music theory. Structured to build technical mastery and artistic expression in a premium, high-class learning environment.</p>
-    </div>
-    <div class="program-item">
-      <h3>Private Piano Coaching</h3>
-      <div class="sub-info">Customized & One-on-One</div>
-      <p>Individual attention to foster musical independence, confidence, and precision, with a cinematic, artistic approach suitable for ambitious learners.</p>
-    </div>
-    <div class="program-item">
-      <h3>Music Theory Deep Dive</h3>
-      <div class="sub-info">Analytical & Intellectual</div>
-      <p>Engaging curriculum connecting classical rigor with modern creativity. Perfect for students who aspire to understand and perform music at a premium level.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="section contact fade-in">
-  <h2>Contact</h2>
-  <div class="gradient-bar"></div>
-  <p>Reach out to Sonata Music Studio for lessons, collaborations, or inquiries.</p>
-  <div class="contact-links">
-    <a href="https://wa.me/6289656684852" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://www.youtube.com/@felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      <span>YouTube</span>
-    </a>
-    <a href="https://www.instagram.com/felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-  </div>
-</section>
-
-<script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-</script>
 
 </body>
 </html>
