@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio - Cinematic Scroll</title>
+<title>Sonata Music Studio - Full Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* Global Reset & Box Sizing */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { overflow-x: hidden; width: 100%; }
-
-/* Body & Background */
 body {
   font-family: 'Roboto', sans-serif;
   color: white;
@@ -18,8 +15,7 @@ body {
   perspective: 1200px;
   scroll-behavior: smooth;
 }
-
-/* Light Streaks */
+/* Light streaks */
 body::before {
   content: '';
   position: fixed;
@@ -38,29 +34,19 @@ body::before {
   50% { transform: translate(10px, -10px) rotate(180deg);}
   100% { transform: translate(0,0) rotate(360deg);}
 }
-
 /* Fade-in */
 .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* Section Parallax */
-.section { position: relative; z-index: 1; transform-style: preserve-3d; width: 100%; max-width: 1200px; margin: 0 auto; }
-
+/* Section */
+.section { position: relative; z-index: 1; transform-style: preserve-3d; width: 95%; max-width: 1200px; margin: 0 auto; }
 /* Profile Card */
 .profile-card {
   margin: 100px auto 80px auto;
   position: relative;
   perspective: 1200px;
   transform-style: preserve-3d;
-  width: 95%;
-  max-width: 900px;
 }
-.profile-card img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 1.2s ease;
-}
+.profile-card img { width: 100%; display: block; object-fit: cover; transition: transform 1.2s ease; }
 .profile-card:hover img { transform: scale(1.02) rotateY(2deg) rotateX(1deg); }
 .profile-content {
   background: rgba(18,15,36,0.95);
@@ -76,13 +62,12 @@ body::before {
 .name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
 .role { font-size: 1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
 .bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.85; }
-
 /* Gallery */
 .gallery { margin: 80px auto; padding: 0 10px 60px 10px; position: relative; }
 .gallery h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 15px;
   perspective: 800px;
   position: relative;
@@ -117,7 +102,6 @@ body::before {
   75% { transform: translate(5%,-7%) rotate(90deg); }
   100% { transform: translate(0,0) rotate(360deg); }
 }
-
 /* Program */
 .program { margin: 80px auto 100px auto; padding: 30px 10px 60px 10px; background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95)); position: relative; width: 95%; max-width: 1000px; }
 .program h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
@@ -147,7 +131,6 @@ body::before {
 .program-item h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 6px; }
 .program-item .sub-info { font-size: 0.85rem; opacity: 0.7; margin-bottom: 12px; }
 .program-item p { font-size: 1rem; line-height: 1.6; opacity: 0.85; }
-
 /* Contact */
 .contact { margin: 80px auto 100px auto; padding: 30px 10px 60px 10px; text-align: center; width: 95%; max-width: 900px; }
 .contact h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
@@ -156,7 +139,6 @@ body::before {
 .contact-links a { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-size: 1rem; transition: transform 0.3s ease, color 0.3s ease; }
 .contact-links a:hover { transform: translateY(-3px); color: #f6c76c; }
 .contact-links img { width: 28px; height: 28px; }
-
 /* Responsive */
 @media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
@@ -185,11 +167,38 @@ body::before {
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <!-- 32 gallery items -->
     <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
-    <!-- ... tambahkan semua item lain sama seperti sebelumnya ... -->
+    <div class="gallery-item"><img src="1728278012234.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278035123.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278053345.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278071123.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278099987.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278113345.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278134456.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278155678.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278172234.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278193345.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278214456.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278235567.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278256678.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278277789.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278298890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278319901.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278340012.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278361123.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278382234.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278403345.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278424456.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278445567.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278466678.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278487789.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278508890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278529901.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278550012.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278571123.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278592234.jpeg" alt=""></div>
   </div>
 </section>
 
