@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonata Music Studio - Cinematic Scroll</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
 body {
   margin: 0;
@@ -282,6 +283,21 @@ img {
   .gallery-grid {
     justify-items: center; /* grid item center */
   }
+}
+/* ==== FULL WIDTH FIX ==== */
+body, section, .hero, .gallery, .contact {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero img,
+.gallery img,
+.contact img {
+  width: 100%;   /* biar full layar */
+  height: auto;
+  display: block;
 }
 
 
