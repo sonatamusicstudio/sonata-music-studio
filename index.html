@@ -1,291 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio - Cinematic Scroll</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<style>
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  background: linear-gradient(180deg, #0a0f3d, #1a144d);
-  overflow-x: hidden;
-  perspective: 1200px;
-  scroll-behavior: smooth;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonata Music Studio</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background:#111;
+      color:#eee;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
 
-/* Light Streaks */
-body::before {
-  content: '';
-  position: fixed;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 50%),
-              radial-gradient(circle at 70% 70%, rgba(255,255,255,0.02) 0%, transparent 60%);
-  z-index: 0;
-  pointer-events: none;
-  animation: lightMove 25s linear infinite;
-}
-@keyframes lightMove {
-  0% { transform: translate(0,0) rotate(0deg);}
-  50% { transform: translate(10px, -10px) rotate(180deg);}
-  100% { transform: translate(0,0) rotate(360deg);}
-}
+    .section {
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px;
+      position:relative;
+    }
 
-/* Fade-in */
-.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+    h1,h2 {
+      text-align:center;
+      margin-bottom:30px;
+      color:#f6c76c;
+    }
 
-/* Section Parallax */
-.section { position: relative; z-index: 1; transform-style: preserve-3d; }
+    /* Profile */
+    .profile-card {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      padding:40px 20px;
+      border-radius:16px;
+    }
+    .profile-card img {
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:4px solid #f6c76c;
+    }
 
-/* Profile Card */
-.profile-card {
-  max-width: 900px;
-  margin: 100px auto 80px auto;
-  position: relative;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-}
-.profile-card img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 1.2s ease;
-}
-.profile-card:hover img { transform: scale(1.02) rotateY(2deg) rotateX(1deg); }
-.profile-content {
-  background: rgba(18,15,36,0.95);
-  padding: 30px;
-  position: relative;
-  top: -70px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
-  border-left: 1px solid rgba(255,255,255,0.1);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  backdrop-filter: blur(5px);
-}
-.gradient-bar { height: 22px; width: 100%; background: linear-gradient(90deg, #1a1d70, #2e53a2, #e85c47, #f6c76c); margin: 20px 0 30px 0; }
-.name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
-.role { font-size: 1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
-.bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.85; }
+    /* Gallery */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+      width:100%;
+    }
+    .gallery-item {
+      overflow:hidden;
+      border-radius:12px;
+      background:#222;
+      box-shadow:0 4px 12px rgba(0,0,0,0.6);
+    }
+    .gallery-item img {
+      width:100%;
+      height:auto;
+      display:block;
+      transition:transform .6s ease, filter .6s ease;
+    }
+    .gallery-item:hover img {
+      transform:scale(1.08);
+      filter:brightness(1.2);
+    }
 
-/* Gallery */
-.gallery { max-width: 1200px; margin: 80px auto; padding: 0 20px 60px 20px; position: relative; }
-.gallery h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  perspective: 800px;
-  position: relative;
-  overflow: hidden;
-}
-.gallery-item { position: relative; overflow: hidden; transform-style: preserve-3d; }
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  transition: transform 0.6s ease, filter 0.5s ease;
-}
-.gallery-item:hover img { transform: scale(1.08) rotateY(3deg) rotateX(2deg); filter: brightness(1.15) contrast(1.1); }
-.gallery-grid::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.6) 70%);
-  pointer-events: none;
-  animation: spotlightMove 20s linear infinite;
-}
-@keyframes spotlightMove {
-  0% { transform: translate(0,0) rotate(0deg); }
-  25% { transform: translate(12%,5%) rotate(30deg); }
-  50% { transform: translate(-8%,10%) rotate(60deg); }
-  75% { transform: translate(5%,-7%) rotate(90deg); }
-  100% { transform: translate(0,0) rotate(360deg); }
-}
+    /* Program */
+    .program-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+    .program-item {
+      background:rgba(255,255,255,0.05);
+      padding:25px 20px;
+      border-radius:12px;
+      text-align:center;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .program-item:hover {
+      transform:translateY(-6px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.5);
+    }
 
-/* Program */
-.program { max-width: 1000px; margin: 80px auto 100px auto; padding: 30px 20px 60px 20px; background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95)); position: relative; }
-.program h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-.program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 20px; }
-.program-item {
-  background: rgba(25,20,40,0.95);
-  padding: 30px 25px;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.55);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  transform-style: preserve-3d;
-}
-.program-item::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%);
-}
-.program-item:hover { transform: translateY(-8px) rotateY(2deg) rotateX(1deg); box-shadow: 0 22px 48px rgba(0,0,0,0.65); }
-.program-item h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 6px; }
-.program-item .sub-info { font-size: 0.85rem; opacity: 0.7; margin-bottom: 12px; }
-.program-item p { font-size: 1rem; line-height: 1.6; opacity: 0.85; }
+    /* Contact */
+    .contact-card {
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      padding:30px 20px;
+      border-radius:12px;
+    }
+    .contact-card p {margin:8px 0;}
 
-/* Contact */
-.contact { max-width: 900px; margin: 80px auto 100px auto; padding: 30px 20px 60px 20px; text-align: center; }
-.contact h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-.contact p { font-size: 1rem; margin-bottom: 25px; opacity: 0.85; }
-.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
-.contact-links a { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-size: 1rem; transition: transform 0.3s ease, color 0.3s ease; }
-.contact-links a:hover { transform: translateY(-3px); color: #f6c76c; }
-.contact-links img { width: 28px; height: 28px; }
+    /* Responsive */
+    @media(max-width:600px){
+      .section{padding:40px 15px;}
+      .gallery-grid{
+        grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+        gap:10px;
+      }
+      .program-grid{grid-template-columns:1fr;}
+    }
 
-@media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
-</style>
+    /* Fade-in */
+    .fade-in{opacity:0; transform:translateY(30px);
+      transition:opacity 1.2s cubic-bezier(0.5,0,0,1),
+                 transform 1.2s cubic-bezier(0.5,0,0,1);}
+    .fade-in.visible{opacity:1; transform:translateY(0);}
+
+    /* Back to top */
+    #topBtn {
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      padding:12px 18px;
+      background:#f6c76c;
+      color:#111;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      display:none;
+      font-weight:bold;
+    }
+    #topBtn:hover{background:#e85c47; color:#fff;}
+  </style>
 </head>
 <body>
 
-<!-- Profile -->
-<section class="section profile-card fade-in">
-  <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
-  <div class="profile-content">
-    <div class="gradient-bar"></div>
-    <h1 class="name">Felix Satia</h1>
-    <div class="role">Founder & Instructor — Sonata Music Studio</div>
-    <p class="bio">
-      Felix Satia adalah seorang pianis dan pengajar musik dengan pengalaman lebih dari 10 tahun
-      dalam mengajar piano dan teori musik. Ia mendirikan <em>Sonata Music Studio</em> sebagai wadah
-      pembelajaran musik privat dan online, dengan visi menghadirkan pendidikan musik yang elegan,
-      terstruktur, dan penuh ekspresi seni.
-    </p>
-  </div>
-</section>
-
-<!-- Gallery -->
-<section class="section gallery fade-in">
-  <h2>Gallery</h2>
-  <div class="gradient-bar"></div>
-  <div class="gallery-grid">
-    <!-- Paste all your 32 gallery items here -->
-    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
-  </div>
-</section>
-
-<!-- Program -->
-<section class="section program fade-in">
-  <h2>Program</h2>
-  <div class="gradient-bar"></div>
-  <div class="program-grid">
-    <div class="program-item">
-      <h3>Trinity College London</h3>
-      <div class="sub-info">Piano & Theory Curriculum</div>
-      <p>40 minutes piano lesson, 20 minutes music theory. Structured to build technical mastery and artistic expression in a premium, high-class learning environment.</p>
+  <!-- PROFILE -->
+  <section class="section fade-in">
+    <div class="profile-card">
+      <img src="your-profile.jpg" alt="Profile Picture">
+      <h1>Sonata Music Studio</h1>
+      <p>Belajar piano & teori musik dengan metode elegan, klasik, dan artistik.</p>
     </div>
-    <div class="program-item">
-      <h3>Private Piano Coaching</h3>
-      <div class="sub-info">Customized & One-on-One</div>
-      <p>Individual attention to foster musical independence, confidence, and precision, with a cinematic, artistic approach suitable for ambitious learners.</p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section fade-in">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278012345.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278036789.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278055555.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278077777.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278099999.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278123456.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278145678.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278167890.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278188888.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278200000.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278222222.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278244444.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278266666.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278288888.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278300000.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278322222.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278344444.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278366666.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278388888.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278400000.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="1728278412345.jpeg" alt=""></div>
     </div>
-    <div class="program-item">
-      <h3>Music Theory Deep Dive</h3>
-      <div class="sub-info">Analytical & Intellectual</div>
-      <p>Engaging curriculum connecting classical rigor with modern creativity. Perfect for students who aspire to understand and perform music at a premium level.</p>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="section fade-in">
+    <h2>Program</h2>
+    <div class="program-grid">
+      <div class="program-item">
+        <h3>Piano Private</h3>
+        <p>Kelas piano privat 30 menit dengan pendekatan personal.</p>
+      </div>
+      <div class="program-item">
+        <h3>Teori Musik</h3>
+        <p>Kelas teori musik 15 menit, untuk memperkuat pemahaman dasar.</p>
+      </div>
+      <div class="program-item">
+        <h3>Online Class</h3>
+        <p>Kelas teori musik online 1 jam per sesi, fleksibel dan efisien.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section class="section contact fade-in">
-  <h2>Contact</h2>
-  <div class="gradient-bar"></div>
-  <p>Reach out to Sonata Music Studio for lessons, collaborations, or inquiries.</p>
-  <div class="contact-links">
-    <a href="https://wa.me/6289656684852" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://www.youtube.com/@felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      <span>YouTube</span>
-    </a>
-    <a href="https://www.instagram.com/felixsatia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-    <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      <span>LinkedIn</span>
-    </a>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section class="section fade-in">
+    <h2>Contact</h2>
+    <div class="contact-card">
+      <p>Email: example@email.com</p>
+      <p>WhatsApp: +62 812 3456 7890</p>
+      <p>Instagram: @sonatamusicstudio</p>
+    </div>
+  </section>
 
-<script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const options = { threshold: 0.2 };
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, options);
-faders.forEach(fader => appearOnScroll.observe(fader));
+  <!-- BACK TO TOP -->
+  <button id="topBtn">↑ Top</button>
 
-// Parallax scroll effect
-window.addEventListener('scroll', function(){
-  const scrolled = window.pageYOffset;
-  document.querySelectorAll('.section').forEach((section, idx)=>{
-    const depth = 0.05 + idx*0.02;
-    section.style.transform = `translateY(${scrolled*depth}px)`;
-  });
-});
-</script>
+  <script>
+    // Fade-in effect
+    const faders=document.querySelectorAll('.fade-in');
+    const appearOptions={threshold:0.2};
+    const appearOnScroll=new IntersectionObserver((entries,observer)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    },appearOptions);
+    faders.forEach(fader=>appearOnScroll.observe(fader));
 
+    // Back to top
+    const topBtn=document.getElementById('topBtn');
+    window.addEventListener('scroll',()=>{
+      topBtn.style.display=(window.scrollY>500)?'block':'none';
+    });
+    topBtn.addEventListener('click',()=>{
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>
