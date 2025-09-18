@@ -363,7 +363,31 @@ body, section, .hero, .gallery, .contact {
   vertical-align: middle;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* blokir scroll horizontal */
+}
+  
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+.logo {
+  display: flex;
+  justify-content: center; /* center horizontal */
+  align-items: center;     /* center vertical kalau perlu */
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo img {
+  max-width: 150px;  /* biar nggak kebesaran */
+  height: auto;
+}
 
 </style>
 </head>
