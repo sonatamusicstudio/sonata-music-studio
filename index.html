@@ -3,19 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio - Full Gallery</title>
+<title>Sonata Music Studio - Cinematic Scroll</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { overflow-x: hidden; width: 100%; }
+  .composers {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.composers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.composer-item {
+  background: rgba(25,20,40,0.95);
+  border: 4px solid #d4af37; /* efek pigura emas */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.composer-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.composer-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
+}
+
+.composer-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   color: white;
   background: linear-gradient(180deg, #0a0f3d, #1a144d);
+  overflow-x: hidden;
   perspective: 1200px;
   scroll-behavior: smooth;
 }
-/* Light streaks */
+
+/* Light Streaks */
 body::before {
   content: '';
   position: fixed;
@@ -34,19 +74,28 @@ body::before {
   50% { transform: translate(10px, -10px) rotate(180deg);}
   100% { transform: translate(0,0) rotate(360deg);}
 }
+
 /* Fade-in */
 .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
-/* Section */
-.section { position: relative; z-index: 1; transform-style: preserve-3d; width: 95%; max-width: 1200px; margin: 0 auto; }
+
+/* Section Parallax */
+.section { position: relative; z-index: 1; transform-style: preserve-3d; }
+
 /* Profile Card */
 .profile-card {
+  max-width: 900px;
   margin: 100px auto 80px auto;
   position: relative;
   perspective: 1200px;
   transform-style: preserve-3d;
 }
-.profile-card img { width: 100%; display: block; object-fit: cover; transition: transform 1.2s ease; }
+.profile-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
 .profile-card:hover img { transform: scale(1.02) rotateY(2deg) rotateX(1deg); }
 .profile-content {
   background: rgba(18,15,36,0.95);
@@ -62,12 +111,13 @@ body::before {
 .name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
 .role { font-size: 1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
 .bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.85; }
+
 /* Gallery */
-.gallery { margin: 80px auto; padding: 0 10px 60px 10px; position: relative; }
+.gallery { max-width: 1200px; margin: 80px auto; padding: 0 20px 60px 20px; position: relative; }
 .gallery h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
   perspective: 800px;
   position: relative;
@@ -76,7 +126,6 @@ body::before {
 .gallery-item { position: relative; overflow: hidden; transform-style: preserve-3d; }
 .gallery-item img {
   width: 100%;
-  max-width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
@@ -102,8 +151,9 @@ body::before {
   75% { transform: translate(5%,-7%) rotate(90deg); }
   100% { transform: translate(0,0) rotate(360deg); }
 }
+
 /* Program */
-.program { margin: 80px auto 100px auto; padding: 30px 10px 60px 10px; background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95)); position: relative; width: 95%; max-width: 1000px; }
+.program { max-width: 1000px; margin: 80px auto 100px auto; padding: 30px 20px 60px 20px; background: linear-gradient(to bottom, rgba(18,15,36,0.85), rgba(18,15,36,0.95)); position: relative; }
 .program h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
 .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 20px; }
 .program-item {
@@ -131,15 +181,16 @@ body::before {
 .program-item h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 6px; }
 .program-item .sub-info { font-size: 0.85rem; opacity: 0.7; margin-bottom: 12px; }
 .program-item p { font-size: 1rem; line-height: 1.6; opacity: 0.85; }
+
 /* Contact */
-.contact { margin: 80px auto 100px auto; padding: 30px 10px 60px 10px; text-align: center; width: 95%; max-width: 900px; }
+.contact { max-width: 900px; margin: 80px auto 100px auto; padding: 30px 20px 60px 20px; text-align: center; }
 .contact h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
 .contact p { font-size: 1rem; margin-bottom: 25px; opacity: 0.85; }
 .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
 .contact-links a { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-size: 1rem; transition: transform 0.3s ease, color 0.3s ease; }
 .contact-links a:hover { transform: translateY(-3px); color: #f6c76c; }
 .contact-links img { width: 28px; height: 28px; }
-/* Responsive */
+
 @media (max-width: 900px) { .program-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
 </style>
@@ -163,47 +214,70 @@ body::before {
 </section>
 
 <!-- Gallery -->
-      <section class="section gallery fade-in">
+<section class="section gallery fade-in">
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277097784.jpeg" alt="Gallery Image 1"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277959315.jpeg" alt="Gallery Image 2"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728277994217.jpeg" alt="Gallery Image 3"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278062357.jpeg" alt="Gallery Image 4"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278413639.jpeg" alt="Gallery Image 5"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278498612.jpeg" alt="Gallery Image 6"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278535664.jpeg" alt="Gallery Image 7"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278743638.jpeg" alt="Gallery Image 8"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728278972071.jpeg" alt="Gallery Image 9"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728279819431.jpeg" alt="Gallery Image 10"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728294846403.jpeg" alt="Gallery Image 11"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728294894368.jpeg" alt="Gallery Image 12"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295139439.jpeg" alt="Gallery Image 13"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295173689.jpeg" alt="Gallery Image 14"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295202953.jpeg" alt="Gallery Image 15"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295402904.jpeg" alt="Gallery Image 16"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728295429712.jpeg" alt="Gallery Image 17"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728296617350.jpeg" alt="Gallery Image 18"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728300782229.jpeg" alt="Gallery Image 19"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728301815288.jpeg" alt="Gallery Image 20"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728302182364.jpeg" alt="Gallery Image 21"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728302212548.jpeg" alt="Gallery Image 22"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728303826998.jpeg" alt="Gallery Image 23"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728311786057.jpeg" alt="Gallery Image 24"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728349078427.jpeg" alt="Gallery Image 25"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728368821890.jpeg" alt="Gallery Image 26"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728368987536.jpeg" alt="Gallery Image 27"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450148208.jpeg" alt="Gallery Image 28"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450200661.jpeg" alt="Gallery Image 29"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450222173.jpeg" alt="Gallery Image 30"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/1728450251141.jpeg" alt="Gallery Image 31"></div>
-    <div class="gallery-item"><img src="https://i.ibb.co/album1/20250905-123538.png" alt="Gallery Image 32"></div>
+    <!-- Paste all your 32 gallery items here -->
+    <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
   </div>
 </section>
 
+  <!-- Great Composers -->
+<section class="section composers fade-in">
+  <h2>The Great Composers</h2>
+  <div class="gradient-bar"></div>
+  <div class="composers-grid">
+    <div class="composer-item">
+      <img src="beethoven.jpg" alt="Beethoven">
+      <h3>Ludwig van Beethoven</h3>
+      <p>German composer bridging the Classical and Romantic eras.</p>
+    </div>
+    <div class="composer-item">
+      <img src="mozart.jpg" alt="Mozart">
+      <h3>Wolfgang Amadeus Mozart</h3>
+      <p>Prolific and influential Austrian composer of the Classical era.</p>
+    </div>
+    <div class="composer-item">
+      <img src="bach.jpg" alt="Bach">
+      <h3>Johann Sebastian Bach</h3>
+      <p>Master of counterpoint and Baroque polyphony.</p>
+    </div>
+    <!-- lanjut sampai 9 item (3x3) -->
   </div>
 </section>
+
 
 <!-- Program -->
 <section class="section program fade-in">
