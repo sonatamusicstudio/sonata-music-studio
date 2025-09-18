@@ -388,6 +388,30 @@ img {
   max-width: 150px;  /* biar nggak kebesaran */
   height: auto;
 }
+  /* Logo default (desktop) */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo img {
+  max-width: 180px;  /* aman di desktop */
+  height: auto;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 120px;   /* biar nggak kepotong di layar kecil */
+    height: auto;
+    display: block;
+    margin: 0 auto;     /* tetap center */
+  }
+}
+
 
 </style>
 </head>
