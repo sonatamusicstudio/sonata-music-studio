@@ -156,6 +156,21 @@
       font-size: 0.9rem;
       background: #000;
     }
+    /* Batasi lebar maksimal, biar desktop ga terlalu melebar */
+.container {
+  max-width: 500px;  /* bebas, bisa 400–600px tergantung enak dilihat */
+  margin: 0 auto;    /* bikin center */
+  padding: 0 15px;   /* biar ada ruang dikit kiri-kanan */
+}
+
+/* Foto / profil biar selalu full width dari container */
+.profile img, .logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
   </style>
 </head>
 <body>
