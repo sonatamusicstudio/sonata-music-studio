@@ -14,6 +14,7 @@ body {
   overflow-x: hidden;
   perspective: 1200px;
   scroll-behavior: smooth;
+  padding-top: 100px; /* space for fixed header */
 }
 
 /* Full Width Fix */
@@ -81,6 +82,20 @@ body::before {
 .role { font-size: 1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; }
 .bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.85; }
 
+/* Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.gallery-grid img { width: 100%; display: block; object-fit: cover; }
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 900px) { 
   .program-grid { grid-template-columns: repeat(2, 1fr); } 
@@ -90,22 +105,62 @@ body::before {
   .gallery-grid { grid-template-columns: 1fr 1fr; }
 }
 
-  /* Space untuk fixed header */
-body {
-  padding-top: 100px; /* sesuaikan dengan tinggi header */
+/* Header */
+.header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(18,15,36,0.85); 
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-/* Optional cinematic text shadow */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.logo-img:hover { transform: scale(1.05); }
+
 .logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f6c76c;
+  letter-spacing: 1px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
+/* Responsive Header */
+@media (max-width: 768px) {
+  .logo-img { width: 45px; }
+  .logo-text { font-size: 1.2rem; }
+}
 </style>
 </head>
 <body>
 
-  
-  
+<!-- Header -->
+<header class="header">
+  <div class="logo-container">
+    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/output-onlinepngtools%20(2).png" alt="Sonata Logo" class="logo-img">
+    <span class="logo-text">Sonata Music Studio</span>
+  </div>
+</header>
+
 <!-- Profile Section -->
 <section class="section profile-card fade-in">
   <img src="Screenshot_20250905_083441_Gallery.jpg" alt="Founder Photo">
@@ -122,103 +177,20 @@ body {
   </div>
 </section>
 
-<!-- Header with Logo -->
-<header class="header">
-  <div class="logo-container">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/output-onlinepngtools%20(2).png" alt="Sonata Logo" class="logo-img">
-    <span class="logo-text">Sonata Music Studio</span>
-  </div>
-</header>
-
-<style>
-/* Header */
-.header {
-  width: 100%;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background: rgba(18,15,36,0.85); /* semi-transparent cinematic effect */
-  backdrop-filter: blur(8px);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-img {
-  width: 60px; /* desktop size */
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.05);
-}
-
-.logo-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #f6c76c; /* elegant cinematic gold */
-  letter-spacing: 1px;
-}
-
-/* Responsive Header */
-@media (max-width: 768px) {
-  .logo-img { width: 45px; }
-  .logo-text { font-size: 1.2rem; }
-}
-</style>
-
-  <section class="section gallery fade-in">
+<!-- Gallery -->
+<section class="section gallery fade-in">
   <h2>Gallery</h2>
   <div class="gradient-bar"></div>
   <div class="gallery-grid">
     <div class="gallery-item"><img src="1728277097784.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277959315.jpeg" alt=""></div>
     <div class="gallery-item"><img src="1728277994217.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278062357.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278413639.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278498612.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278535664.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278743638.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728278972071.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728279819431.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294846403.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728294894368.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295139439.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295173689.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295202953.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295402904.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728295429712.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728296617350.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728300782229.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728301815288.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302182364.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728302212548.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728303826998.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728311786057.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728349078427.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368821890.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728368987536.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450148208.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450200661.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450222173.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="1728450251141.jpeg" alt=""></div>
-    <div class="gallery-item"><img src="20250905_123538.png" alt=""></div>
+    <!-- Tambahkan semua gambar lain di sini -->
   </div>
 </section>
 
-  <section class="section program fade-in">
+<!-- Program -->
+<section class="section program fade-in">
   <h2>Program</h2>
   <div class="gradient-bar"></div>
   <div class="program-grid">
@@ -240,8 +212,8 @@ body {
   </div>
 </section>
 
-
-  <section class="section contact fade-in">
+<!-- Contact -->
+<section class="section contact fade-in">
   <h2>Contact</h2>
   <div class="gradient-bar"></div>
   <p>Reach out to Sonata Music Studio for lessons, collaborations, or inquiries.</p>
@@ -265,8 +237,33 @@ body {
   </div>
 </section>
 
-  <!-- Footer -->
+<!-- Footer -->
 <footer class="section fade-in" style="text-align:center; padding:40px 20px; background: rgba(18,15,36,0.9); font-size:0.9rem; color: #ccc;">
   <p>&copy; 2025 Sonata Music Studio. All rights reserved.</p>
   <p>Designed by Felix Satia</p>
 </footer>
+
+<!-- JS for fade-in -->
+<script>
+const faders = document.querySelectorAll('.fade-in');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50){
+      el.classList.add('visible');
+    }
+  });
+});
+// Trigger fade-in on load
+window.addEventListener('load', () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight){
+      el.classList.add('visible');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
