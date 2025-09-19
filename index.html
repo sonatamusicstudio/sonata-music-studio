@@ -4,284 +4,241 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonata Music Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --gradient: linear-gradient(90deg, #0057ff, #6a00ff, #c10000, #ff8c00, #ffd700);
+      --bg-dark: #111;
+      --text-light: #f4f4f4;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Roboto', sans-serif;
-      background: #111;
-      color: #eee;
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo img {
-      max-height: 80px;
-    }
-
-    .logo h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      margin: 0 1.5rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #eee;
-      font-weight: 500;
-    }
-
-    /* Gradient divider */
-    .divider {
-      height: 6px;
-      margin: 2rem auto;
-      width: 90%;
-      background: linear-gradient(to right, #0046ff, #6a00a8, #ff003c, #ff8c00, #ffd700);
-    }
-
-    /* Profile Section */
-    .profile {
-      max-width: 800px;
-      margin: 3rem auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .profile img {
-      width: 100%;
-      height: auto;
-      border-radius: 0;
-      display: block;
-      filter: brightness(0.9) contrast(1.1);
-      box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    }
-
-    .profile h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-top: 1rem;
-    }
-
-    .profile p {
-      max-width: 700px;
-      margin: 0.5rem auto;
+      background: var(--bg-dark);
+      color: var(--text-light);
       line-height: 1.6;
     }
 
-    /* Gallery */
-    .gallery {
-      max-width: 1200px;
-      margin: 3rem auto;
+    header {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #000;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .hero img {
+      max-width: 250px;
+      height: auto;
+      border-radius: 0;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 40px rgba(255,255,255,0.2);
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .divider {
+      height: 6px;
+      background: var(--gradient);
+      margin: 0.8rem auto 2rem;
+      max-width: 300px;
+    }
+
+    section {
+      padding: 3rem 2rem;
       text-align: center;
     }
 
-    .gallery-grid {
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Program */
+    .program-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .program-item {
+      background: #1c1c1c;
+      padding: 1.5rem;
+      border-radius: 0;
+      box-shadow: 0 0 25px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(255,255,255,0.2);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
+      margin-top: 2rem;
     }
 
     .gallery-grid img {
       width: 100%;
       height: auto;
-      display: block;
       border-radius: 0;
-      filter: brightness(0.85) contrast(1.1);
-      transition: transform 0.4s ease, filter 0.4s ease;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .gallery-grid img:hover {
-      transform: scale(1.03);
-      filter: brightness(1) contrast(1.2);
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(255,255,255,0.25);
     }
 
-    /* Program Section */
-    .programs {
-      max-width: 1100px;
-      margin: 3rem auto;
-      text-align: center;
-    }
-
-    .program-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .program-item {
-      background: #1c1c1c;
-      padding: 2rem;
-      border-radius: 0;
-      box-shadow: 0 0 30px rgba(0,0,0,0.7);
-      transition: transform 0.4s ease;
-    }
-
-    .program-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .program-item h3 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 1rem;
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      margin: 3rem auto;
-    }
-
+    /* Contact */
     .contact-icons {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     .contact-icons a {
       text-decoration: none;
-      color: #eee;
-      font-size: 1rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-icons a:hover {
+      color: #ffd700;
     }
 
     .contact-icons img {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0.5rem;
+      width: 24px;
+      height: 24px;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
-      font-size: 0.8rem;
-      color: #aaa;
-      border-top: 1px solid #333;
-      margin-top: 2rem;
+      font-size: 0.9rem;
+      background: #000;
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/output-onlinepngtools%20(2).png" alt="Logo">
-      <h1>Sonata Music Studio</h1>
-    </div>
-    <nav>
-      <a href="#gallery">Gallery</a>
-      <a href="#programs">Program</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/output-onlinepngtools%20(2).png" alt="Logo">
+    <h1>Sonata Music Studio</h1>
   </header>
 
-  <div class="divider"></div>
-
-  <!-- Profile Section -->
-  <section class="profile">
-    <img src="your-profile-image.jpg" alt="Profile Picture">
+  <!-- Hero -->
+  <section class="hero">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/Screenshot_20250905_083441_Gallery.jpg" alt="Felix Satia">
     <h2>Felix Satia</h2>
-    <p>Piano & Music Theory Instructor | Sonata Music Studio</p>
+    <div class="divider"></div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="gallery">
-  <h2>Gallery</h2>
-  <div class="divider"></div>
-  <div class="gallery-grid">
-    <img src="1728277097784.jpeg" alt="">
-    <img src="1728277959315.jpeg" alt="">
-    <img src="1728277994217.jpeg" alt="">
-    <img src="1728278062357.jpeg" alt="">
-    <img src="1728278413639.jpeg" alt="">
-    <img src="1728278498612.jpeg" alt="">
-    <img src="1728278535664.jpeg" alt="">
-    <img src="1728278743638.jpeg" alt="">
-    <img src="1728278972071.jpeg" alt="">
-    <img src="1728279819431.jpeg" alt="">
-    <img src="1728294846403.jpeg" alt="">
-    <img src="1728294894368.jpeg" alt="">
-    <img src="1728295139439.jpeg" alt="">
-    <img src="1728295173689.jpeg" alt="">
-    <img src="1728295202953.jpeg" alt="">
-    <img src="1728295402904.jpeg" alt="">
-    <img src="1728295429712.jpeg" alt="">
-    <img src="1728296617350.jpeg" alt="">
-    <img src="1728300782229.jpeg" alt="">
-    <img src="1728301815288.jpeg" alt="">
-    <img src="1728302182364.jpeg" alt="">
-    <img src="1728302212548.jpeg" alt="">
-    <img src="1728303826998.jpeg" alt="">
-    <img src="1728311786057.jpeg" alt="">
-    <img src="1728349078427.jpeg" alt="">
-    <img src="1728368821890.jpeg" alt="">
-    <img src="1728368987536.jpeg" alt="">
-    <img src="1728450148208.jpeg" alt="">
-    <img src="1728450200661.jpeg" alt="">
-    <img src="1728450222173.jpeg" alt="">
-    <img src="1728450251141.jpeg" alt="">
-    <img src="20250905_123538.png" alt="">
-  </div>
-</section>
-
-
-  <div class="divider"></div>
-
-  <!-- Program Section -->
-  <section id="programs" class="programs">
+  <!-- Program -->
+  <section id="program">
     <h2>Program</h2>
     <div class="divider"></div>
-    <div class="program-list">
-      <div class="program-item">
-        <h3>Piano</h3>
-        <p>Program pembelajaran piano privat untuk semua level.</p>
-      </div>
-      <div class="program-item">
-        <h3>Music Theory</h3>
-        <p>Kursus teori musik yang mendalam untuk menunjang performa.</p>
-      </div>
+    <div class="program-grid">
+      <div class="program-item">Piano Lessons</div>
+      <div class="program-item">Music Theory</div>
+      <div class="program-item">Choir Training</div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- Gallery -->
+  <section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <img src="1728277097784.jpeg" alt="">
+      <img src="1728277959315.jpeg" alt="">
+      <img src="1728277994217.jpeg" alt="">
+      <img src="1728278062357.jpeg" alt="">
+      <img src="1728278413639.jpeg" alt="">
+      <img src="1728278498612.jpeg" alt="">
+      <img src="1728278535664.jpeg" alt="">
+      <img src="1728278743638.jpeg" alt="">
+      <img src="1728278972071.jpeg" alt="">
+      <img src="1728279819431.jpeg" alt="">
+      <img src="1728294846403.jpeg" alt="">
+      <img src="1728294894368.jpeg" alt="">
+      <img src="1728295139439.jpeg" alt="">
+      <img src="1728295173689.jpeg" alt="">
+      <img src="1728295202953.jpeg" alt="">
+      <img src="1728295402904.jpeg" alt="">
+      <img src="1728295429712.jpeg" alt="">
+      <img src="1728296617350.jpeg" alt="">
+      <img src="1728300782229.jpeg" alt="">
+      <img src="1728301815288.jpeg" alt="">
+      <img src="1728302182364.jpeg" alt="">
+      <img src="1728302212548.jpeg" alt="">
+      <img src="1728303826998.jpeg" alt="">
+      <img src="1728311786057.jpeg" alt="">
+      <img src="1728349078427.jpeg" alt="">
+      <img src="1728368821890.jpeg" alt="">
+      <img src="1728368987536.jpeg" alt="">
+      <img src="1728450148208.jpeg" alt="">
+      <img src="1728450200661.jpeg" alt="">
+      <img src="1728450222173.jpeg" alt="">
+      <img src="1728450251141.jpeg" alt="">
+      <img src="20250905_123538.png" alt="">
+    </div>
+  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <!-- Contact -->
+  <section id="contact">
     <h2>Contact</h2>
     <div class="divider"></div>
     <div class="contact-icons">
-      <a href="https://www.instagram.com/felixsatia" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn"> LinkedIn
-      </a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"> Instagram</a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="YouTube"> YouTube</a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="LinkedIn"> LinkedIn</a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook"> Facebook</a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Sonata Music Studio | Design by Felix Satia</p>
+    Design by Felix Satia
   </footer>
 
 </body>
