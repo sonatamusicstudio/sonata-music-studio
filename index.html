@@ -740,6 +740,68 @@ header::after {
   right: 0;
   bottom: 0;
 }
+/* ===== HEADER HYBRID REFINED ===== */
+header {
+  background: linear-gradient(to bottom, #05080d 0%, #0a1420 100%);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.65);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+header img {
+  height: 36px;
+  margin-right: 12px;
+  position: relative;
+  top: 2px;
+}
+
+/* Judul */
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  text-shadow: 0 2px 4px rgba(10, 20, 40, 0.9);
+  position: relative;
+  top: -1px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header h1:hover {
+  color: #e5e5e5;
+  text-shadow: 0 0 12px rgba(30, 60, 120, 0.8);
+}
+
+/* Garis emas tua dengan animasi berjalan */
+header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, #8b6f2f, #d4af37, #8b6f2f);
+  background-size: 200% 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: goldenLine 6s linear infinite;
+}
+
+/* Animasi line berjalan */
+@keyframes goldenLine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
 
 
 </style>
