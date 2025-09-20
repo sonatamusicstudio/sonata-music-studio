@@ -640,6 +640,33 @@ section, .hero, .gallery, .contact, .program, .profile-card {
   body, section { text-align: center; }
   .hero img, .gallery img, .contact img { margin: 0 auto; display: block; width: 90%; }
 }
+  /* Logo Header */
+.logo-header {
+  display: flex;
+  justify-content: center;   /* center horizontal */
+  align-items: center;       /* sejajarkan logo & teks secara vertikal */
+  gap: 16px;                 /* jarak antara logo dan teks */
+  padding: 30px 0 10px 0;
+}
+
+.logo-header img {
+  max-width: 120px; /* ukuran logo */
+  height: auto;
+}
+
+.logo-header h1 {
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .logo-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 
 
 </style>
