@@ -690,6 +690,56 @@ section, .hero, .gallery, .contact, .program, .profile-card {
   color: #f5f5f5; /* putih lembut */
 }
 
+/* ===== HEADER HYBRID CINEMATIC OFFICE ===== */
+header {
+  background: linear-gradient(to bottom, #0a0f1a 0%, #000000 100%);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+header img {
+  height: 36px; /* sedikit lebih besar tapi tetap elegan */
+  margin-right: 12px;
+  position: relative;
+  top: 2px; /* logo turun sedikit */
+}
+
+/* Judul */
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  text-shadow: 0 2px 4px rgba(10, 20, 40, 0.9);
+  position: relative;
+  top: -1px; /* teks naik sedikit */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header h1:hover {
+  color: #e5e5e5;
+  text-shadow: 0 0 12px rgba(30, 60, 120, 0.8); /* glow biru navy halus */
+}
+
+/* Optional: garis emas tipis di bawah header */
+header::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, #e0c97a);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 
 </style>
