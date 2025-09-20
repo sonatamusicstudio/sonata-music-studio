@@ -666,6 +666,29 @@ section, .hero, .gallery, .contact, .program, .profile-card {
     text-align: center;
   }
 }
+/* Header styling */
+.site-header {
+  background-color: #0a0d26; /* biru navy sangat gelap */
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 40px;  /* ukuran logo */
+  width: auto;
+  margin-right: 10px; /* jarak logo ke teks */
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f5f5f5; /* putih lembut */
+}
 
 
 
@@ -674,10 +697,13 @@ section, .hero, .gallery, .contact, .program, .profile-card {
 <body>
 
 <!-- Logo -->
-<div class="logo-header">
-  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/output-onlinepngtools%20(2).png?raw=true" alt="Sonata Music Studio Logo">
-  <h1>Sonata Music Studio</h1>
-</div>
+<header class="site-header">
+  <div class="logo-container">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/output-onlinepngtools%20(2).png?raw=true" alt="Logo Sonata Music Studio">
+    <span class="logo-text">Sonata Music Studio</span>
+  </div>
+</header>
+
 
 <!-- Profile -->
 <section class="section profile-card fade-in">
