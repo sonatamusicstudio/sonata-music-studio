@@ -1039,6 +1039,32 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, li, div, section {
     font-size: 2rem;            /* bisa sesuaikan, karena transform scale, bakal lebih gede */
     margin: 0;
 }
+  /* --- Presisi versi logo + judul --- */
+.logo-container {
+    display: flex;
+    align-items: center;        /* vertikal center */
+    justify-content: center;    /* horizontal center */
+    gap: 12px;                  /* jarak logo & tulisan */
+    transform: scale(1.25);     /* besarkan semua elemen */
+    margin: 0 auto;             /* horizontal center di container */
+    position: relative;
+    top: -4px;                  /* tweak vertikal supaya pas */
+}
+
+.logo-container img {
+    height: 70px;               /* besar logo, proporsional */
+    width: auto;                /* pertahankan rasio */
+    display: block;
+}
+
+.logo-container h1 {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;           /* lebih bold */
+    font-size: 2.2rem;          /* lebih besar */
+    margin: 0;
+    line-height: 1;
+}
+
 
 
 </style>
