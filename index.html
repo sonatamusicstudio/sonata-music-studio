@@ -913,6 +913,57 @@ header::after {
   }
 }
 
+ /* === Header utama (Sonata Music Studio) === */
+.header-line {
+  position: relative;
+  height: 10px; /* lebih tebal */
+  overflow: hidden;
+  background: #2a2a2a; /* base biar lebih dramatis */
+}
+
+.header-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #b8860b,
+    #daa520,
+    #ffd700,
+    #daa520,
+    #b8860b
+  );
+  background-size: 300% 100%;
+  animation: smoothLine 18s linear infinite; /* lebih lambat & smooth */
+}
+
+@keyframes smoothLine {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* === Line statis untuk section lain === */
+.section .gradient-bar {
+  height: 6px;
+  margin: 12px auto;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    #b8860b,
+    #daa520,
+    #ffd700,
+    #daa520,
+    #b8860b
+  );
+}
+
 
 </style>
 </head>
