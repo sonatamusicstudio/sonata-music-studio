@@ -803,6 +803,81 @@ header::after {
   }
 }
 
+  /* Background header: dark indigo black */
+header {
+  background: linear-gradient(to bottom, #1a0a39 0%, #180838 100%);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.75);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+header img {
+  height: 36px;
+  margin-right: 12px;
+  position: relative;
+  top: 2px;
+}
+
+/* Judul */
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  text-shadow: 0 2px 4px rgba(20, 30, 50, 0.9);
+  position: relative;
+  top: -1px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header h1:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(100, 120, 200, 0.8);
+}
+
+/* Garis bawah gradasi APCS spectrum */
+header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #0a1a7d,  /* deep blue */
+    #1a0a39,  /* indigo */
+    #3d1a7f,  /* violet */
+    #b12d7d,  /* magenta */
+    #e78a42,  /* orange */
+    #f3a88f,  /* peach */
+    #f8e69a,  /* soft yellow */
+    #ffffff,  /* white highlight */
+    #0a1a7d   /* back to deep blue */
+  );
+  background-size: 600% 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: apcsLine 12s linear infinite;
+}
+
+/* Animasi smooth berjalan */
+@keyframes apcsLine {
+  0% {
+    background-position: 600% 0;
+  }
+  100% {
+    background-position: -600% 0;
+  }
+}
+
+  
 
 </style>
 </head>
