@@ -1019,6 +1019,26 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, li, div, section {
     line-height: 1.5; /* nyaman dibaca */
 }
 
+/* --- Styling khusus untuk logo + judul --- */
+.logo-container {
+    display: flex;              /* supaya logo + teks sejajar */
+    align-items: center;        /* vertikal centered */
+    gap: 10px;                  /* jarak logo & tulisan */
+    transform: scale(1.25);     /* besarin semua 125% */
+}
+
+.logo-container img {
+    height: auto;
+    width: auto;
+    max-height: 60px;           /* bisa sesuaikan biar proporsional */
+}
+
+.logo-container h1 {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 600;           /* lebih bold dari normal */
+    font-size: 2rem;            /* bisa sesuaikan, karena transform scale, bakal lebih gede */
+    margin: 0;
+}
 
 
 </style>
