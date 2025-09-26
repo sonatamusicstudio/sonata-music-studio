@@ -1022,6 +1022,30 @@ body {
 </head>
 <body>
 
+<div class="silk-bg"></div>
+
+<style>
+.silk-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc.png') center/cover no-repeat;
+  animation: silkMove 20s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes silkMove {
+  0% { transform: scale(1) translate(0,0); filter: brightness(1) contrast(1); }
+  25% { transform: scale(1.05) translate(-1%, -1%); filter: brightness(1.05) contrast(1.1); }
+  50% { transform: scale(1.1) translate(1%, 1%); filter: brightness(0.95) contrast(0.95); }
+  75% { transform: scale(1.05) translate(-1%, 1%); filter: brightness(1.1) contrast(1.05); }
+  100% { transform: scale(1) translate(0,0); filter: brightness(1) contrast(1); }
+}
+</style>
+
+  
 <!-- Logo -->
 <header class="site-header">
   <div class="logo-container">
