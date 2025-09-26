@@ -1075,6 +1075,22 @@ body {
   85%  { transform: scale(1.06) translateX(0.5%)  skewY(-1deg); }
   100% { transform: scale(1.05) translateX(0)     skewY(0deg); }
 }
+/* Smooth transition dari profil (plain navy) ke gallery (curtain) */
+.gallery-section {
+  position: relative;
+  z-index: 0; /* pastikan di bawah konten gallery */
+}
+
+.gallery-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;   /* overlap ke bagian profil */
+  left: 0;
+  right: 0;
+  height: 120px; /* tinggi gradasi */
+  background: linear-gradient(to bottom, #152b4d 0%, rgba(21,43,77,0) 100%);
+  z-index: -1;   /* biar gradasi ada di belakang konten */
+}
 
   
 </style>
