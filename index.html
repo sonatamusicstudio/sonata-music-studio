@@ -1043,6 +1043,15 @@ body {
   100% { transform: scale(1.05) translateX(0)   skewY(0deg); }
 }
 
+  /* ===== BRIDGE TRANSITION PROFILE → GALLERY ===== */
+.profile-card::after {
+  content: '';
+  display: block;
+  height: 120px; /* tinggi transisi */
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(18,15,36,0.95), rgba(10,15,61,1));
+}
+
 
 </style>
 </head>
