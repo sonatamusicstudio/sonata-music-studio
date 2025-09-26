@@ -1000,6 +1000,21 @@ header::after {
   border-radius: 0;     /* rectangular, ujung tidak membulat */
 }
 
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #152b4d, transparent 40%),
+              radial-gradient(circle at 80% 70%, #2a004f, transparent 40%),
+              linear-gradient(120deg, #152b4d, #1a0f2e, #2a004f);
+  background-size: 200% 200%;
+  animation: waveBG 12s ease-in-out infinite alternate;
+}
+
+@keyframes waveBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 
 
