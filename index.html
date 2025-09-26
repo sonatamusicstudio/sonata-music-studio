@@ -1063,6 +1063,39 @@ body {
   background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png") no-repeat center center;
   background-size: cover;
 }
+/* ===== PROGRAM BACKGROUND CINEMATIC ===== */
+.program {
+  position: relative;
+  overflow: hidden;
+}
+
+.program::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: url('https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.3; /* bisa diubah kalau mau lebih jelas */
+  z-index: 0;
+  pointer-events: none;
+  animation: programBGMove 40s linear infinite alternate;
+}
+
+.program * {
+  position: relative; /* biar konten tetap di atas background */
+  z-index: 1;
+}
+
+@keyframes programBGMove {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  25% { transform: scale(1.05) translate(10px, -10px) rotate(1deg); }
+  50% { transform: scale(1.1) translate(-10px, 5px) rotate(-1deg); }
+  75% { transform: scale(1.05) translate(5px, 10px) rotate(1deg); }
+  100% { transform: scale(1) translate(0, 0) rotate(0deg); }
+}
 
 
 </style>
