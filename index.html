@@ -1407,6 +1407,68 @@ body {
 .program * {
   border-radius: 0 !important;
 }
+/* ==== CINEMATIC ENCHANTING MAGICAL FOREST FLOWERS ==== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url('https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/InShot_20250926_200612452.jpg?raw=true');
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  animation: floatFlowers 40s linear infinite;
+  opacity: 0.25;
+  filter: blur(1.2px) drop-shadow(0 0 5px rgba(255,255,255,0.3));
+}
+
+@keyframes floatFlowers {
+  0% {
+    background-position: 0 0;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  20% {
+    background-position: 60px 80px;
+    transform: translateY(-15px) rotate(8deg) scale(1.05);
+  }
+  40% {
+    background-position: 120px 160px;
+    transform: translateY(0) rotate(-5deg) scale(0.95);
+  }
+  60% {
+    background-position: 180px 120px;
+    transform: translateY(20px) rotate(10deg) scale(1.1);
+  }
+  80% {
+    background-position: 240px 200px;
+    transform: translateY(-10px) rotate(-8deg) scale(0.9);
+  }
+  100% {
+    background-position: 0 0;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* OPTIONAL: tambahan cinematic depth */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('https://github.com/sonatamusicstudio/sonata-music-studio/blob/main/InShot_20250926_200612452.jpg?raw=true');
+  background-repeat: repeat;
+  background-size: 250px 250px;
+  opacity: 0.1;
+  animation: floatFlowers 60s linear infinite reverse;
+  filter: blur(2px);
+}
 
 
 </style>
