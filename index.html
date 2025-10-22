@@ -774,7 +774,69 @@ header img, .navbar img, #logo {
   z-index: 5;
   opacity: 1 !important;
 }
-  
+
+  /* ===============================
+   CINEMATIC CURTAIN – START AT ABOUT
+   =============================== */
+
+/* Layer horden hanya muncul mulai dari ABOUT ke bawah */
+.about::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png")
+              center center / cover no-repeat;
+  opacity: 0.9;
+  z-index: -1;
+  animation: curtainFlow 30s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform, filter;
+  pointer-events: none;
+  filter: saturate(1.02) contrast(1.03);
+}
+
+/* Gerak lembut dan dramatis (teatrikal, bukan goyang kiri kanan) */
+@keyframes curtainFlow {
+  0% {
+    transform: perspective(900px) scale(1.015) translateY(0px) rotateX(0.15deg) rotateY(0deg);
+    filter: brightness(0.97) contrast(1.03);
+  }
+  33% {
+    transform: perspective(900px) scale(1.02) translateY(-6px) rotateX(0.3deg) rotateY(0.5deg);
+    filter: brightness(1.00) contrast(1.02);
+  }
+  66% {
+    transform: perspective(900px) scale(1.02) translateY(6px) rotateX(-0.25deg) rotateY(-0.6deg);
+    filter: brightness(1.01) contrast(1.00);
+  }
+  100% {
+    transform: perspective(900px) scale(1.015) translateY(0px) rotateX(0.15deg) rotateY(0deg);
+    filter: brightness(0.97) contrast(1.03);
+  }
+}
+
+/* Semua panel tetap warna asli, tapi sedikit transparan agar horden terlihat samar */
+.about,
+.program,
+.philosophy,
+.contact {
+  position: relative;
+  z-index: 1;
+  opacity: 0.96; /* 0.94 = lebih tembus, 0.98 = lebih solid */
+}
+
+/* Logo dan header tetap solid, tanpa horden di belakang */
+header,
+header * {
+  position: relative;
+  z-index: 10;
+  opacity: 1 !important;
+  background: transparent !important;
+}
+
 
 </style>
 </head>
