@@ -598,6 +598,25 @@ section h2::after {
   border-radius:2px;
   animation:ribbonShift 30s linear infinite;
 }
+  /* --- Mobile responsive cinematic override --- */
+@media(max-width:880px){
+  .section-with-image{
+    flex-wrap:wrap;
+    gap:26px;
+  }
+
+  .section-with-image img{
+    width:auto;
+    max-width:320px;
+    height:auto;
+    object-fit:cover;
+    border-radius:0;
+  }
+
+  .panel{
+    padding:46px 40px 64px;
+  }
+
 
 </style>
 </head>
