@@ -763,6 +763,73 @@ header, .logo-section {
   z-index: 1;
   padding: 80px 20px;
 }
+/* === HORDEN (background kain sutera) untuk PANEL About ===
+   - Jadikan background IMAGE langsung di #about .panel (bukan ::before)
+   - Ada overlay gelap untuk keterbacaan teks
+   - Animasi subtle: background-position + background-size -> ilusi gerak kain
+   - Tidak memakai border-radius (kotak), konten tetap di depan
+*/
+#about .panel {
+  /* background layers: overlay (first), then the fabric image */
+  background-image:
+    linear-gradient(rgba(8,10,20,0.62), rgba(8,10,20,0.62)),
+    url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png");
+  background-repeat: no-repeat;
+  background-size: 140% 120%; /* sedikit diperbesar supaya ada ruang gerak */
+  background-position: 50% 45%;
+  background-attachment: scroll;
+  color: var(--text-light);
+  border-radius: 0 !important; /* pastikan kotak */
+  border: 2px solid var(--accent-4); /* opsional: border gold halus */
+  box-shadow: none; /* tetap flat/office */
+  overflow: hidden;
+  /* pastikan content tetap di depan */
+  position: relative;
+  z-index: 1;
+  /* padding & spacing tetap sesuai style utama */
+  padding: 46px 40px 64px;
+}
+
+/* Animasi gerak sutra: halus, natural, non-repetitive-feel */
+@keyframes hordenFlow {
+  0% {
+    background-position: 48% 42%;
+    background-size: 138% 118%;
+  }
+  25% {
+    background-position: 52% 40%;
+    background-size: 141% 119%;
+  }
+  50% {
+    background-position: 50% 46%;
+    background-size: 140% 122%;
+  }
+  75% {
+    background-position: 47% 48%;
+    background-size: 142% 120%;
+  }
+  100% {
+    background-position: 50% 45%;
+    background-size: 140% 120%;
+  }
+}
+
+/* jalankan animasinya (sangat halus & lambat) */
+#about .panel {
+  animation: hordenFlow 20s ease-in-out infinite;
+  /* kurangi getar dengan prefers-reduced-motion */
+}
+@media (prefers-reduced-motion: reduce) {
+  #about .panel { animation: none; }
+}
+
+/* Pastikan semua elemen di dalam panel tetap di depan (readable) */
+#about .panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Jika ingin tweak: ubah opacity overlay (line 3) atau durasi animasi */
 
 
 </style>
