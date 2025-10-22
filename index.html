@@ -639,6 +639,48 @@ header, .logo-section {
   background: #0b0c1e;
   z-index: 10;
 }
+/* === Background bunga anggrek layer lembut === */
+body {
+  position: relative;
+  background-color: #0b0c1e;
+  color: var(--text-light);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/InShot_20250926_200612452.jpg')
+    no-repeat center center;
+  background-size: cover;
+  opacity: 0.18; /* buat anggrek lembut tapi kelihatan */
+  z-index: -1;
+  filter: brightness(1.4) saturate(120%) contrast(100%) blur(1px);
+}
+
+/* Panel dibuat agak transparan biar layer kelihatan */
+.panel {
+  background: rgba(10, 12, 36, 0.85);
+  color: var(--text-light);
+  padding: 46px 40px 64px;
+  box-sizing: border-box;
+  margin: 28px 0;
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Header dan logo tetap solid */
+header, .logo-section {
+  position: relative;
+  background: rgba(11, 12, 30, 0.95);
+  z-index: 10;
+}
 
 
 </style>
