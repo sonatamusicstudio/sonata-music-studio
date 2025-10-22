@@ -12,21 +12,20 @@
 
 <style>
   :root{
-    --bg: #09060b; /* deep black/purple base */
-    --panel-bg: #0d0f2a; /* subtle deep navy for panel */
-    --accent-1: #002f6f; /* deep blue */
-    --accent-2: #5b2a7f; /* purple */
-    --accent-3: #e75f6a; /* coral/magenta */
-    --accent-4: #f6c78a; /* warm cream */
-    --accent-5: #3ab0ff; /* bright cyan */
+    --bg: #09060b;
+    --panel-bg: #0d0f2a;
+    --accent-1: #002f6f;
+    --accent-2: #5b2a7f;
+    --accent-3: #e75f6a;
+    --accent-4: #f6c78a;
+    --accent-5: #3ab0ff;
     --text-light: #fffefc;
     --ribbon-height-top: 20px;
     --ribbon-height-bottom: 14px;
-    --ribbon-animate: 1; /* 1 = animated gradient, 0 = static */
+    --ribbon-animate: 1;
   }
 
-  /* Page base */
-  html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4', serif; -webkit-font-smoothing:antialiased;}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4', serif;-webkit-font-smoothing:antialiased;}
   header{display:flex;align-items:center;gap:12px;padding:18px 28px;background:linear-gradient(90deg,#0d1b3a 0%, #0b1230 100%);position:relative;z-index:30}
   .header-left{display:flex;align-items:center;gap:14px}
   .header-left img{height:82px;object-fit:contain}
@@ -40,107 +39,73 @@
 
   main{max-width:1100px;margin:36px auto;padding:0 18px}
 
-  /* PANEL base (modified) */
   .panel{
     position:relative;
-    background: linear-gradient(180deg, rgba(10,12,36,0.95), rgba(7,8,20,0.95));
+    background:linear-gradient(180deg,rgba(10,12,36,0.95),rgba(7,8,20,0.95));
     color:var(--text-light);
     padding:46px 40px 64px;
     box-sizing:border-box;
     overflow:visible;
     margin:28px 0;
-    border-left:0;
-    border-right:0;
   }
 
-  /* Horizontal ribbon (top) */
   .panel::before{
     content:"";
     position:absolute;
     left:-8%;
-    top: - (var(--ribbon-height-top) );
-    /* extend wider than container so it visually matches IG strips */
+    top:-20px;
     width:116%;
-    height: var(--ribbon-height-top);
-    border-radius:0;
-    background: linear-gradient(90deg,
-      var(--accent-1) 0%,
-      var(--accent-2) 28%,
-      var(--accent-3) 52%,
-      var(--accent-4) 78%,
-      var(--accent-5) 100%);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    transform-origin:center;
+    height:var(--ribbon-height-top);
+    background:linear-gradient(90deg,var(--accent-1) 0%,var(--accent-2) 28%,var(--accent-3) 52%,var(--accent-4) 78%,var(--accent-5) 100%);
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
     z-index:5;
     opacity:0.98;
-    /* animated background shift (optional) */
-    background-size: 300% 100%;
-    animation: ribbonShift 18s linear infinite;
+    background-size:300% 100%;
+    animation:ribbonShift 18s linear infinite;
   }
 
-  /* Bottom thin ribbon */
   .panel::after{
     content:"";
     position:absolute;
     left:-6%;
-    bottom: - (var(--ribbon-height-bottom) );
+    bottom:-14px;
     width:112%;
-    height: var(--ribbon-height-bottom);
-    background: linear-gradient(90deg,
-      var(--accent-1) 0%,
-      var(--accent-2) 28%,
-      var(--accent-3) 52%,
-      var(--accent-4) 78%,
-      var(--accent-5) 100%);
-    background-size: 250% 100%;
+    height:var(--ribbon-height-bottom);
+    background:linear-gradient(90deg,var(--accent-1) 0%,var(--accent-2) 28%,var(--accent-3) 52%,var(--accent-4) 78%,var(--accent-5) 100%);
+    background-size:250% 100%;
     z-index:5;
     opacity:0.96;
-    transform-origin:center;
-    animation: ribbonShift 24s linear infinite;
+    animation:ribbonShift 24s linear infinite;
   }
 
-  /* Vertical left colored bar similar to instagram layout */
   .panel .left-strip{
     position:absolute;
     left:-34px;
     top:18px;
     width:28px;
     height:78%;
-    background: linear-gradient(180deg,
-      var(--accent-1) 0%,
-      var(--accent-2) 25%,
-      var(--accent-3) 55%,
-      var(--accent-4) 78%,
-      var(--accent-5) 100%);
+    background:linear-gradient(180deg,var(--accent-1) 0%,var(--accent-2) 25%,var(--accent-3) 55%,var(--accent-4) 78%,var(--accent-5) 100%);
     z-index:6;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    box-shadow:0 6px 18px rgba(0,0,0,0.5);
   }
 
-  /* subtle highlight edge that runs horizontally behind heading */
   .panel .heading-accent{
     position:absolute;
-    left: 6%;
-    top: 12px;
-    width: 40%;
+    left:6%;
+    top:12px;
+    width:40%;
     height:6px;
-    background: linear-gradient(90deg,
-      rgba(255,255,255,0.06) 0%,
-      rgba(255,255,255,0.02) 50%,
-      rgba(0,0,0,0.04) 100%);
+    background:linear-gradient(90deg,rgba(255,255,255,0.06) 0%,rgba(255,255,255,0.02) 50%,rgba(0,0,0,0.04) 100%);
     z-index:7;
-    pointer-events:none;
     border-radius:2px;
   }
 
-  /* Animation toggle: if user wants static ribbons, set --ribbon-animate: 0 on :root */
   @keyframes ribbonShift{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
   }
 
-  /* Text & layout inside panels */
-  section{margin:0}
   section h2{font-family:'Poppins',sans-serif;font-size:1.9rem;color:var(--accent-4);margin:0 0 18px 0;position:relative;z-index:10}
   .section-with-image{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
   .section-with-image img{width:320px;height:auto;object-fit:cover}
@@ -148,15 +113,12 @@
   ul{padding-left:18px}
   li{margin-bottom:8px}
 
-  /* Gallery grid */
   .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
   .gallery img{width:100%;height:170px;object-fit:cover;display:block}
 
-  /* Footer */
   .footer{padding:28px 18px;text-align:center;background:linear-gradient(90deg,#07122a 0%, #0b1530 100%);color:var(--text-light);font-family:'Poppins',sans-serif;margin-top:36px}
 
-  /* small devices */
-  @media (max-width:880px){
+  @media(max-width:880px){
     .panel .left-strip{left:-18px;width:18px;height:66%}
     .section-with-image img{width:90%}
     .panel{padding:32px 20px 54px}
@@ -164,26 +126,19 @@
     .header-left img{height:72px}
   }
 
-  /* Accessibility: reduce motion if user prefers reduced-motion */
-  @media (prefers-reduced-motion: reduce){
+  @media(prefers-reduced-motion:reduce){
     .panel::before,.panel::after{animation:none}
   }
 
-  /* Optional cinematic extras (comment/uncomment to enable) */
-  /* subtle film grain */
   .grain{
     pointer-events:none;
     position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;mix-blend-mode:overlay;opacity:0.06;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
   }
 
-  /* vignette for drama */
-  .vignette{position:fixed;inset:0;pointer-events:none;z-index:900;mix-blend-mode:multiply;background:radial-gradient(60% 40% at 50% 40%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);opacity:0.6}
-
-  /* subtle glow for heading */
+  .vignette{position:fixed;inset:0;pointer-events:none;z-index:900;mix-blend-mode:multiply;background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);opacity:0.6}
   .panel h2{text-shadow:0 6px 18px rgba(0,0,0,0.6)}
 </style>
-
 </head>
 <body>
 
@@ -212,10 +167,7 @@
 <main>
   <section id="about">
     <div class="panel">
-      <!-- decorative strips -->
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>About</h2>
       <div class="section-with-image">
         <img src="1728278677799.jpeg" alt="Felix Satia" />
@@ -228,9 +180,7 @@
 
   <section id="programs">
     <div class="panel">
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>Programs</h2>
       <div class="section-with-image">
         <img src="1728277959315.jpeg" alt="Teaching" />
@@ -247,9 +197,7 @@
 
   <section id="philosophy">
     <div class="panel">
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>Philosophy</h2>
       <div class="section-with-image">
         <img src="1728277097784.jpeg" alt="Concert" />
@@ -262,9 +210,7 @@
 
   <section id="portfolio">
     <div class="panel">
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>Portfolio</h2>
       <div class="section-with-image">
         <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
@@ -277,54 +223,48 @@
 
   <section id="gallery">
     <div class="panel">
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>Gallery</h2>
-      <div class="gallery" aria-hidden="false">
-        <!-- keep your large list of images -->
-    <img src="1728277097784.jpeg" alt="">
-    <img src="1728277959315.jpeg" alt="">
-    <img src="1728277994217.jpeg" alt="">
-    <img src="1728278062357.jpeg" alt="">
-    <img src="1728278413639.jpeg" alt="">
-    <img src="1728278498612.jpeg" alt="">
-    <img src="1728278535664.jpeg" alt="">
-    <img src="1728278743638.jpeg" alt="">
-    <img src="1728278972071.jpeg" alt="">
-    <img src="1728279819431.jpeg" alt="">
-    <img src="1728294846403.jpeg" alt="">
-    <img src="1728294894368.jpeg" alt="">
-    <img src="1728295139439.jpeg" alt="">
-    <img src="1728295173689.jpeg" alt="">
-    <img src="1728295202953.jpeg" alt="">
-    <img src="1728295402904.jpeg" alt="">
-    <img src="1728295429712.jpeg" alt="">
-    <img src="1728296617350.jpeg" alt="">
-    <img src="1728300782229.jpeg" alt="">
-    <img src="1728301815288.jpeg" alt="">
-    <img src="1728302182364.jpeg" alt="">
-    <img src="1728302212548.jpeg" alt="">
-    <img src="1728303826998.jpeg" alt="">
-    <img src="1728311786057.jpeg" alt="">
-    <img src="1728349078427.jpeg" alt="">
-    <img src="1728368821890.jpeg" alt="">
-    <img src="1728368987536.jpeg" alt="">
-    <img src="1728450148208.jpeg" alt="">
-    <img src="1728450200661.jpeg" alt="">
-    <img src="1728450222173.jpeg" alt="">
-    <img src="1728450251141.jpeg" alt="">
-    <img src="20250905_123538.png" alt="">
-
+      <div class="gallery">
+        <img src="1728277097784.jpeg" alt="">
+        <img src="1728277959315.jpeg" alt="">
+        <img src="1728277994217.jpeg" alt="">
+        <img src="1728278062357.jpeg" alt="">
+        <img src="1728278413639.jpeg" alt="">
+        <img src="1728278498612.jpeg" alt="">
+        <img src="1728278535664.jpeg" alt="">
+        <img src="1728278743638.jpeg" alt="">
+        <img src="1728278972071.jpeg" alt="">
+        <img src="1728279819431.jpeg" alt="">
+        <img src="1728294846403.jpeg" alt="">
+        <img src="1728294894368.jpeg" alt="">
+        <img src="1728295139439.jpeg" alt="">
+        <img src="1728295173689.jpeg" alt="">
+        <img src="1728295202953.jpeg" alt="">
+        <img src="1728295402904.jpeg" alt="">
+        <img src="1728295429712.jpeg" alt="">
+        <img src="1728296617350.jpeg" alt="">
+        <img src="1728300782229.jpeg" alt="">
+        <img src="1728301815288.jpeg" alt="">
+        <img src="1728302182364.jpeg" alt="">
+        <img src="1728302212548.jpeg" alt="">
+        <img src="1728303826998.jpeg" alt="">
+        <img src="1728311786057.jpeg" alt="">
+        <img src="1728349078427.jpeg" alt="">
+        <img src="1728368821890.jpeg" alt="">
+        <img src="1728368987536.jpeg" alt="">
+        <img src="1728450148208.jpeg" alt="">
+        <img src="1728450200661.jpeg" alt="">
+        <img src="1728450222173.jpeg" alt="">
+        <img src="1728450251141.jpeg" alt="">
+        <img src="20250905_123538.png" alt="">
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="panel">
-      <div class="left-strip" aria-hidden="true"></div>
-      <div class="heading-accent" aria-hidden="true"></div>
-
+      <div class="left-strip"></div><div class="heading-accent"></div>
       <h2>Contact</h2>
       <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px">
         <a href="https://wa.me/6289656684852" style="background:linear-gradient(90deg,var(--accent-3),var(--accent-5));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">WhatsApp</a>
@@ -340,9 +280,8 @@
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-<!-- Optional visual layers (enable for cinematic look) -->
-<div class="grain" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
 
 </body>
 </html>
