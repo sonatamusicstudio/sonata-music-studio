@@ -598,52 +598,6 @@ section h2::after {
   border-radius:2px;
   animation:ribbonShift 30s linear infinite;
 }
-  /* --- Mobile responsive cinematic override --- */
-@media(max-width:880px){
-  .section-with-image{
-    flex-wrap:wrap;
-    gap:26px;
-  }
-
-  .section-with-image img{
-    width:auto;
-    max-width:320px;
-    height:auto;
-    object-fit:cover;
-    border-radius:0;
-  }
-
-  .panel{
-    padding:46px 40px 64px;
-  }
-
-  /* --- Full responsive cinematic override --- */
-@media(max-width:880px){
-  .section-with-image{
-    flex-wrap:wrap; /* stack kalau sempit */
-    gap:26px;
-    justify-content:center; /* center images */
-  }
-
-  .section-with-image img{
-    width:100%;      /* full container */
-    max-width:none;  /* jangan dibatasi 320px */
-    height:auto;     /* pertahankan aspect ratio */
-    object-fit:cover; 
-    border-radius:0;
-    display:block;
-  }
-
-  .panel{
-    padding:46px 20px 64px; /* lebih sempit kiri-kanan, tetap kotak */
-    margin:36px 0;
-  }
-
-  main{
-    padding:0 12px; /* hindari pinggiran hitam */
-  }
-}
-
 
 </style>
 </head>
