@@ -598,7 +598,38 @@ section h2::after {
   border-radius:2px;
   animation:ribbonShift 30s linear infinite;
 }
+  
+/* === 1. LAYER HORDEN MULAI DARI ABOUT SAMPAI PALING BAWAH === */
+#about::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png")
+              center/cover no-repeat;
+  opacity: 0.55;
+  animation: curtainFlow 20s ease-in-out infinite alternate;
+  z-index: -3;
+  pointer-events: none;
+}
 
+/* Gerakan lembut seperti kain panggung */
+@keyframes curtainFlow {
+  0%   { transform: translateY(0) scale(1.02); filter: brightness(1); }
+  50%  { transform: translateY(-15px) scale(1.03); filter: brightness(1.05); }
+  100% { transform: translateY(0) scale(1.02); filter: brightness(1); }
+}
+
+/* === 2. PANEL JADI KACA TIPIS (TRANSPARAN ELEGAN) === */
+section, .panel, .content-panel {
+  background: rgba(20, 20, 25, 0.72) !important; /* warna asli tapi transparan */
+  backdrop-filter: blur(6px) brightness(1.1);
+  color: inherit !important;
+}
+
+  
 </style>
 </head>
 <body>
