@@ -599,37 +599,11 @@ section h2::after {
   animation:ribbonShift 30s linear infinite;
 }
   
-/* === 1. LAYER HORDEN MULAI DARI ABOUT SAMPAI PALING BAWAH === */
-#about::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png")
-              center/cover no-repeat;
-  opacity: 0.55;
-  animation: curtainFlow 20s ease-in-out infinite alternate;
-  z-index: -3;
-  pointer-events: none;
-}
+/* =====================================================
+   SONATA MUSIC STUDIO – FINAL VISUAL LAYER CLEANUP
+   ===================================================== */
 
-/* Gerakan lembut seperti kain panggung */
-@keyframes curtainFlow {
-  0%   { transform: translateY(0) scale(1.02); filter: brightness(1); }
-  50%  { transform: translateY(-15px) scale(1.03); filter: brightness(1.05); }
-  100% { transform: translateY(0) scale(1.02); filter: brightness(1); }
-}
-
-/* === 2. PANEL JADI KACA TIPIS (TRANSPARAN ELEGAN) === */
-section, .panel, .content-panel {
-  background: rgba(20, 20, 25, 0.72) !important; /* warna asli tapi transparan */
-  backdrop-filter: blur(6px) brightness(1.1);
-  color: inherit !important;
-}
-
-/* === CINEMATIC HORDEN UNTUK SELURUH HALAMAN (MULAI DARI ABOUT) === */
+/* === 1. Satu-satunya layer HORDEN di seluruh website === */
 body::before {
   content: "";
   position: fixed;
@@ -643,141 +617,74 @@ body::before {
   animation: curtainFlow 20s ease-in-out infinite alternate;
   z-index: -3;
   pointer-events: none;
-  display: block;
+  filter: brightness(1.05);
 }
 
-/* === GERAK HORDEN — NATURAL, BERAYUN ELEGAN === */
+/* Cinematic movement */
 @keyframes curtainFlow {
-  0%   { transform: translateY(0) scale(1.02); filter: brightness(1); }
-  50%  { transform: translateY(-15px) scale(1.03); filter: brightness(1.05); }
-  100% { transform: translateY(0) scale(1.02); filter: brightness(1); }
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-20px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
 }
 
-/* === PANEL JADI KACA TIPIS, BIAR HORDEN TETAP KELIHATAN === */
-section, .panel, .content-panel {
-  background: rgba(20, 20, 25, 0.72) !important; /* tetap dark, tapi transparan */
-  backdrop-filter: blur(6px) brightness(1.1);
-  color: inherit !important;
-}
-
-/* === Sembunyikan horden di area header/logo (biar tetap bersih) === */
-header::before,
-#hero::before {
-  content: none !important;
-
-}
-
-@keyframes waltzMove {
-  0% { transform: scale(1) translateY(0px); opacity: 0.9; }
-  50% { transform: scale(1.02) translateY(-10px); opacity: 1; }
-  100% { transform: scale(1) translateY(0px); opacity: 0.95; }
-}
-
-  .panel {
-  background: rgba(30, 30, 30, 0.20); /* lebih bening */
-  backdrop-filter: blur(3px) saturate(130%);
-  -webkit-backdrop-filter: blur(3px) saturate(130%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-  border-radius: 0; /* square */
-}
-
-#curtain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(25, 0, 0, 0.25), rgba(0, 0, 0, 0.85));
-  z-index: 1;
-  animation: curtainBreathe 18s ease-in-out infinite alternate;
-  backdrop-filter: blur(3px);
-  pointer-events: none;
-}
-
-@keyframes curtainBreathe {
-  0% { transform: scale(1) translateY(0); opacity: 0.9; }
-  50% { transform: scale(1.015) translateY(-6px); opacity: 1; }
-  100% { transform: scale(1) translateY(0); opacity: 0.9; }
-}
-
-/* === Seragamkan semua panel === */
-#about, #philosophy, #program, #gallery, #contact {
-  background: rgba(30, 30, 30, 0.20) !important;
-  backdrop-filter: blur(3px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(3px) saturate(130%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5) !important;
-  border-radius: 0 !important; /* square */
-}
-  /* === Buat semua panel kaca bening seperti About === */
+/* === 2. Semua panel: efek kaca bening square === */
 section,
 .panel,
-#about,
-#program,
-#programs,
-#philosophy,
-#portfolio,
-#gallery,
-#contact {
-  background: rgba(30, 30, 30, 0.20) !important;
+#about, #program, #philosophy, #gallery, #contact {
+  background: rgba(20, 20, 25, 0.25) !important;
   backdrop-filter: blur(3px) saturate(130%) !important;
   -webkit-backdrop-filter: blur(3px) saturate(130%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5) !important;
-  border-radius: 0 !important; /* square, not rounded */
-}
-/* === Sinkronisasi Panel Program agar sama seperti panel lain === */
-
-/* 1. Pastikan layer gorden juga aktif di bawah program */
-#program::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png")
-              center/cover no-repeat;
-  opacity: 0.55;
-  animation: curtainFlow 20s ease-in-out infinite alternate;
-  z-index: -3;
-  pointer-events: none;
-}
-
-/* 2. Buat semua panel (termasuk Program) konsisten transparansi & blur */
-#program.panel {
-  background: rgba(20, 20, 25, 0.72) !important;
-  backdrop-filter: blur(6px) brightness(1.1);
-  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 0 !important;
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
-/* 3. Tambahkan garis horizontal bawah judul (jika belum ada <h2>) */
-#program h2::after {
-  content:"";
-  display:block;
-  width:100%;
-  height:4px;
-  margin-top:12px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  border-radius:2px;
-  animation:ribbonShift 30s linear infinite;
+/* === 3. Garis vertikal kiri (strip) di semua panel === */
+.left-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-3), var(--accent-4), var(--accent-5));
+  animation: stripFlow 15s linear infinite alternate;
+}
+@keyframes stripFlow {
+  0% { filter: brightness(0.9); }
+  50% { filter: brightness(1.3); }
+  100% { filter: brightness(0.9); }
 }
 
-/* 4. Pastikan strip kiri tetap tampil */
-#program .left-strip {
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:8px;
-  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
+/* === 4. Garis horizontal di bawah judul tiap panel === */
+section h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-3), var(--accent-4), var(--accent-5));
+  background-size: 300% 100%;
+  border-radius: 2px;
+  animation: ribbonShift 30s linear infinite;
+}
+@keyframes ribbonShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
 }
 
+/* === 5. Hindari dobel layering (hapus efek lama yang tumpang tindih) === */
+#about::before,
+#program::before,
+#philosophy::before,
+#gallery::before,
+#contact::before {
+  content: none !important;
+}
 
+  
 </style>
 </head>
 <body>
