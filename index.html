@@ -665,7 +665,34 @@ header::before,
 #hero::before {
   content: none !important;
 }
-  
+
+  .panel {
+  background: rgba(20, 20, 20, 0.55); /* warna gelap transparan */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+#curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(40, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
+  z-index: 1;
+  animation: waltzMove 12s ease-in-out infinite alternate;
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+@keyframes waltzMove {
+  0% { transform: scale(1) translateY(0px); opacity: 0.9; }
+  50% { transform: scale(1.02) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0px); opacity: 0.95; }
+}
+
 
   
 </style>
