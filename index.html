@@ -599,53 +599,54 @@ section h2::after {
   animation:ribbonShift 30s linear infinite;
 }
 
-/* === FULL-PAGE CINEMATIC CURTAIN + GLASS PANELS === */
+ /* === FULLPAGE CINEMATIC CURTAIN + GLASS PANELS === */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("curtain.jpg") center/cover no-repeat;
-  opacity: 0.5; /* bisa ubah 0.3–0.6 untuk intensitas gorden */
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png") center/cover no-repeat;
+  opacity: 0.5; /* ubah 0.3–0.6 tergantung seberapa kuat tirainya */
   z-index: -1;
-  animation: curtainFlow 14s ease-in-out infinite alternate;
-  transform-origin: center;
+  animation: curtainFloat 16s ease-in-out infinite alternate;
 }
 
-@keyframes curtainFlow {
-  0% {
-    transform: scale(1) translateY(0);
-    filter: brightness(1) contrast(1);
-  }
-  50% {
-    transform: scale(1.03) translateY(-1.5%);
-    filter: brightness(1.1) contrast(1.05);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    filter: brightness(1) contrast(1);
-  }
+@keyframes curtainFloat {
+  0% { transform: scale(1) translateY(0); filter: brightness(1); }
+  50% { transform: scale(1.02) translateY(-1.5%); filter: brightness(1.1); }
+  100% { transform: scale(1) translateY(0); filter: brightness(1); }
 }
 
-/* Panel kaca untuk semua section */
+/* === GLASS PANEL EFFECT === */
 section {
-  background: rgba(255, 255, 255, 0.12); /* ubah 0.12 → 0.08 kalau mau lebih bening */
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 0; /* square edges */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background: rgba(20, 20, 20, 0.35); /* dark glassy tone */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0; /* square, not rounded */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  position: relative;
+  z-index: 2;
   transition: background 0.5s ease, transform 0.3s ease;
 }
 
 section:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(20, 20, 20, 0.45);
   transform: scale(1.01);
 }
 
-section:not(:last-child) {
-  margin-bottom: 60px;
+/* pastikan layer lama gak nabrak kaca */
+section::before {
+  content: none !important;
 }
 
-  
+/* === HEADER Tetap solid, tidak tembus kaca === */
+header, .header, .navbar {
+  background: #000 !important;
+  position: relative;
+  z-index: 5;
+}
+ 
+
 </style>
 </head>
 <body>
