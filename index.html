@@ -636,6 +636,23 @@ section, .panel, .content-panel {
   background-color: rgba(255, 255, 255, 0.92) !important; /* warna asli tetap tapi sedikit transparan */
   backdrop-filter: blur(2px);
 }
+/* === DARK GLASS PANELS (ELEGAN, TRANSPARAN, CINEMATIC) === */
+section, .panel, .content-panel {
+  background: rgba(15, 15, 20, 0.78) !important; /* warna gelap transparan */
+  backdrop-filter: blur(6px) brightness(1.1); /* efek kaca elegan */
+  color: inherit !important; /* teks tetap warna asli */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* garis lembut */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* kedalaman teatrikal */
+}
+
+section * {
+  color: inherit !important;
+}
+
+/* Sedikit transisi agar perubahan opacity halus */
+section, .panel, .content-panel {
+  transition: background 0.5s ease, backdrop-filter 0.5s ease;
+}
 
 
 </style>
