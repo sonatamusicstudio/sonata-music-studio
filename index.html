@@ -7,389 +7,60 @@
   <title>Sonata Music Studio – Felix Satia</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
 <style>
- :root{
-  --bg:#09060b;
-  --panel-bg:#0d0f2a;
-  --accent-1:#002f6f;
-  --accent-2:#5b2a7f;
-  --accent-3:#e75f6a;
-  --accent-4:#f6c78a; /* section title soft gold */
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
- }
-
-
-  html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4',serif;-webkit-font-smoothing:antialiased;}
-  header{display:flex;align-items:center;gap:12px;padding:18px 28px;background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);position:relative;z-index:30}
-  .header-left{display:flex;align-items:center;gap:14px}
-  .header-left img{height:82px;object-fit:contain}
-  .header-left h1{margin:0;font-family:'Poppins',sans-serif;font-size:1.45rem;color:var(--text-light)}
-  .header-left p{margin:0;font-family:'Poppins',sans-serif;opacity:0.85;font-size:0.95rem}
-  .header-right{margin-left:auto;background:linear-gradient(180deg,var(--accent-2),var(--accent-3));padding:12px 18px;border-radius:6px;font-weight:600;font-family:'Poppins',sans-serif;color:#fff}
-
-  nav{display:flex;gap:22px;justify-content:center;background:#111;position:sticky;top:0;padding:12px 8px;z-index:29}
-  nav a{color:var(--text-light);text-decoration:none;font-family:'Poppins',sans-serif;font-weight:500;opacity:0.95}
-  nav a:hover{color:var(--accent-4)}
-
-  main{max-width:1100px;margin:36px auto;padding:0 18px;box-sizing:border-box}
-
-  /* --- Panel --- */
-  .panel{
-    position:relative;
-    background:linear-gradient(180deg,rgba(10,12,36,0.97),rgba(7,8,20,0.97));
-    color:var(--text-light);
-    padding:46px 40px 64px;
-    margin:38px 0;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 0 24px rgba(0,0,0,0.5);
-  }
-
-  .panel::before,.panel::after{
-    content:"";
-    position:absolute;
-    left:0;
-    width:100%;
-    height:6px;
-    background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-    background-size:300% 100%;
-    animation:ribbonShift 20s linear infinite;
-  }
-
-  .panel::before{top:0;}
-  .panel::after{bottom:0;}
-
-  .panel .left-strip{
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:10px;
-    background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
-  }
-
-  @keyframes ribbonShift{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-
-  section h2{font-family:'Poppins',sans-serif;font-size:1.9rem;color:var(--accent-4);margin:0 0 18px 0;position:relative;z-index:10;text-shadow:0 6px 18px rgba(0,0,0,0.6)}
-  .section-with-image{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
-  .section-with-image img{width:320px;height:auto;object-fit:cover;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
-  .section-with-image .text{min-width:260px;font-family:'Poppins',sans-serif;line-height:1.6;color:rgba(255,255,255,0.95)}
-  ul{padding-left:18px}
-  li{margin-bottom:8px}
-
-  /* --- Gallery --- */
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:16px}
-  .gallery img{width:100%;height:170px;object-fit:cover;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.4)}
-
-  /* --- Footer --- */
-  .footer{padding:28px 18px;text-align:center;background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);color:var(--text-light);font-family:'Poppins',sans-serif;margin-top:36px}
-
-  @media(max-width:880px){
-    .section-with-image img{width:100%}
-    .panel{padding:32px 20px 54px}
-  }
-
-  .grain{
-    pointer-events:none;
-    position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;mix-blend-mode:overlay;opacity:0.06;
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
-  }
-
-  .vignette{position:fixed;inset:0;pointer-events:none;z-index:900;mix-blend-mode:multiply;background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);opacity:0.6}
-
+/* -------------------------
+   CORE THEME (single source)
+   ------------------------- */
 :root{
-  --bg:#09060b;
-  --panel-bg:#0a0c24;
-  --accent-1:#001f4f;
-  --accent-2:#3b1f5f;
-  --accent-3:#f6c78a;
-  --accent-4:#5b2a7f;
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
+  --bg: #09060b;
+  --panel-bg: #0a0c24;
+  --accent-1: #001f4f;
+  --accent-2: #3b1f5f;
+  --accent-3: #f6c78a; /* soft gold */
+  --accent-4: #5b2a7f;
+  --accent-5: #3ab0ff;
+  --text-light: #fffefc;
+
+  /* lighting controls */
+  --spotlight-strength: 0.06;
+  --warm-glow: rgba(246,199,138,0.06);
+  --cool-glow: rgba(58,176,255,0.03);
+  --film-scan-opacity: 0.035;
+  --grain-opacity: 0.04;
 }
 
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:var(--text-light);
-  font-family:'Source Serif 4',serif;
-  -webkit-font-smoothing:antialiased;
-}
+/* -------------------------
+   RESET & LAYOUT
+   ------------------------- */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4',serif;-webkit-font-smoothing:antialiased;line-height:1.45}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto;border:0}
 
+/* Keep everything square/tegas: no rounding */
+:where(.panel, .img-wrap, header, .header-right, section#contact a, .gallery img){border-radius:0}
+
+/* -------------------------
+   HEADER / NAV
+   ------------------------- */
 header{
   display:flex;
   align-items:center;
-  gap:12px;
-  padding:18px 28px;
+  gap:14px;
+  padding:20px 34px;
   background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);
   position:relative;
-  z-index:30;
+  z-index:40;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6), inset 0 -2px 12px rgba(255,240,200,0.01);
 }
 
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.header-left img{
-  height:82px;
-  object-fit:contain;
-}
-
-.header-left h1{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  font-size:1.45rem;
-  color:var(--text-light);
-}
-
-.header-left p{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  opacity:0.85;
-  font-size:0.95rem;
-}
-
-.header-right{
-  margin-left:auto;
-  background:linear-gradient(180deg,var(--accent-2),var(--accent-3));
-  padding:12px 18px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  color:#fff;
-  border-radius:0; /* kotak */
-}
-
-nav{
-  display:flex;
-  gap:22px;
-  justify-content:center;
-  background:#111;
-  position:sticky;
-  top:0;
-  padding:12px 8px;
-  z-index:29;
-}
-
-nav a{
-  color:var(--text-light);
-  text-decoration:none;
-  font-family:'Poppins',sans-serif;
-  font-weight:500;
-  opacity:0.95;
-}
-
-nav a:hover{
-  color:var(--accent-4);
-}
-
-main{
-  max-width:1100px;
-  margin:36px auto;
-  padding:0 18px;
-  box-sizing:border-box;
-}
-
-/* --- Panel --- */
-.panel{
-  position:relative;
-  background:var(--panel-bg);
-  color:var(--text-light);
-  padding:46px 40px 64px;
-  margin:38px 0;
-  border-radius:0; /* kotak */
-  overflow:hidden;
-}
-
-/* Gradient ribbon top & bottom */
-.panel::before,.panel::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:100%;
-  height:4px; /* tipis */
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  animation:ribbonShift 30s linear infinite; /* lebih slow */
-}
-
-.panel::before{top:0;}
-.panel::after{bottom:0;}
-
-@keyframes ribbonShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Left strip panel */
-.panel .left-strip{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:8px;
-  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
-  border-radius:0;
-}
-
-/* Section headers */
-section h2{
-  font-family:'Poppins',sans-serif;
-  font-size:1.9rem;
-  color:var(--accent-4);
-  margin:0 0 18px 0;
-  position:relative;
-  z-index:10;
-  text-shadow:0 3px 8px rgba(0,0,0,0.4);
-}
-
-.section-with-image{
-  display:flex;
-  gap:26px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-}
-
-.section-with-image img{
-  width:320px;
-  height:auto;
-  object-fit:cover;
-  border-radius:0; /* kotak */
-  box-shadow:none;
-}
-
-.section-with-image .text{
-  min-width:260px;
-  font-family:'Poppins',sans-serif;
-  line-height:1.6;
-  color:rgba(255,255,255,0.95);
-}
-
-ul{padding-left:18px}
-li{margin-bottom:8px}
-
-/* --- Gallery --- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-top:16px;
-}
-
-.gallery img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  border-radius:0; /* kotak */
-  box-shadow:none;
-}
-
-/* --- Footer --- */
-.footer{
-  padding:28px 18px;
-  text-align:center;
-  background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);
-  color:var(--text-light);
-  font-family:'Poppins',sans-serif;
-  margin-top:36px;
-}
-
-@media(max-width:880px){
-  .section-with-image img{width:100%}
-  .panel{padding:32px 20px 54px}
-}
-
-/* --- Grain & Vignette --- */
-.grain{
-  pointer-events:none;
-  position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;
-  mix-blend-mode:overlay;opacity:0.04;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
-}
-
-.vignette{
-  position:fixed;inset:0;pointer-events:none;z-index:900;
-  mix-blend-mode:multiply;
-  background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);
-  opacity:0.5;
-}
-
-/* --- Contact buttons --- */
-section#contact a{
-  border-radius:0; /* kotak */
-  padding:10px 14px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  text-decoration:none;
-  color:#fff;
-  display:inline-block;
-}
-
-:root{
-  --bg:#09060b;
-  --panel-bg:#0a0c24;
-  --accent-1:#001f4f;
-  --accent-2:#3b1f5f;
-  --accent-3:#f6c78a;
-  --accent-4:#f6c78a; /* section title color */
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
-}
-
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:var(--text-light);
-  font-family:'Source Serif 4',serif;
-  -webkit-font-smoothing:antialiased;
-}
-
-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 28px;
-  background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);
-  position:relative;
-  z-index:30;
-}
-
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.header-left img{
-  height:82px;
-  object-fit:contain;
-}
-
-.header-left h1{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  font-size:1.45rem;
-  color:var(--text-light);
-}
-
-.header-left p{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  opacity:0.85;
-  font-size:0.95rem;
-}
+.header-left{display:flex;align-items:center;gap:16px}
+.header-left img{height:86px;object-fit:contain}
+.header-left h1{margin:0;font-family:'Poppins',sans-serif;font-size:1.6rem;color:var(--text-light);letter-spacing:0.6px}
+.header-left p{margin:0;font-family:'Poppins',sans-serif;opacity:0.9;font-size:0.95rem}
 
 .header-right{
   margin-left:auto;
@@ -399,206 +70,243 @@ header{
   font-family:'Poppins',sans-serif;
   color:#fff;
   border-radius:0;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+  transform: translateZ(0);
 }
 
-nav{
-  display:flex;
-  gap:22px;
-  justify-content:center;
-  background:#111;
-  position:sticky;
-  top:0;
-  padding:12px 8px;
-  z-index:29;
-}
-
-nav a{
-  color:var(--text-light);
-  text-decoration:none;
-  font-family:'Poppins',sans-serif;
-  font-weight:500;
-  opacity:0.95;
-}
-
-nav a:hover{
-  color:var(--accent-3);
-}
-
-main{
-  max-width:1100px;
-  margin:36px auto;
-  padding:0 18px;
-  box-sizing:border-box;
-}
-
-/* --- Panel --- */
-.panel{
-  position:relative;
-  background:var(--panel-bg);
-  color:var(--text-light);
-  padding:46px 40px 64px;
-  margin:38px 0;
-  border-radius:0;
-  overflow:hidden;
-}
-
-/* Gradient ribbon horizontal - offset agar tidak nabrak strip kiri */
-.panel::before,.panel::after{
-  content:"";
-  position:absolute;
-  left:8px; /* mulai setelah strip kiri */
-  width:calc(100% - 8px);
-  height:4px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  animation:ribbonShift 30s linear infinite;
-}
-
-.panel::before{top:0;}
-.panel::after{bottom:0;}
-
-@keyframes ribbonShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Left strip panel */
-.panel .left-strip{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:8px;
-  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
-  border-radius:0;
-}
-
-/* Section headers */
-section h2{
-  font-family:'Poppins',sans-serif;
-  font-size:1.9rem;
-  color:var(--accent-4); /* soft gold */
-  margin:0 0 18px 0;
-  position:relative;
-  z-index:10;
-  text-shadow:0 3px 8px rgba(0,0,0,0.4);
-}
-
-.section-with-image{
-  display:flex;
-  gap:26px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-}
-
-.section-with-image img{
-  width:320px;
-  height:auto;
-  object-fit:cover;
-  border-radius:0;
-  box-shadow:none;
-}
-
-.section-with-image .text{
-  min-width:260px;
-  font-family:'Poppins',sans-serif;
-  line-height:1.6;
-  color:rgba(255,255,255,0.95);
-}
-
-ul{padding-left:18px}
-li{margin-bottom:8px}
-
-/* --- Gallery --- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-top:16px;
-  position:relative;
-}
-
-.gallery img{
-  width:100%;
-  height:auto; /* pertahankan full image */
-  object-fit:cover;
-  border-radius:0;
-  box-shadow:none;
-  position:relative;
-}
-
-/* cinematic vignette untuk setiap gambar */
-.gallery img::after{
+/* subtle header spotlight (static + animated shimmer) */
+.header-right::before{
   content:"";
   position:absolute;
   inset:0;
-  border-radius:0;
-  background:radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
   pointer-events:none;
-  mix-blend-mode:multiply;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 30%);
+  mix-blend-mode: screen;
 }
 
-/* --- Footer --- */
-.footer{
-  padding:28px 18px;
-  text-align:center;
-  background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);
+/* NAV */
+nav{display:flex;gap:22px;justify-content:center;background:#0d0d12;position:sticky;top:0;padding:12px 8px;z-index:39;box-shadow:0 6px 24px rgba(0,0,0,0.55)}
+nav a{color:var(--text-light);text-decoration:none;font-family:'Poppins',sans-serif;font-weight:500;opacity:0.95;padding:6px 8px}
+nav a:hover{color:var(--accent-3);text-decoration:none;box-shadow:inset 0 -2px 0 rgba(255,255,255,0.02)}
+
+/* -------------------------
+   MAIN & PANELS (Cinematic)
+   ------------------------- */
+main{max-width:1100px;margin:36px auto;padding:0 18px;box-sizing:border-box;position:relative;z-index:10}
+
+/* cinematic panel: interior glow, subtle lift on hover, inner spotlight */
+.panel{
+  position:relative;
+  background: linear-gradient(180deg, rgba(8,10,22,0.98), rgba(10,12,28,0.98));
   color:var(--text-light);
-  font-family:'Poppins',sans-serif;
-  margin-top:36px;
-}
-
-@media(max-width:880px){
-  .section-with-image img{width:100%}
-  .panel{padding:32px 20px 54px}
-}
-
-/* --- Grain & Vignette --- */
-.grain{
-  pointer-events:none;
-  position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;
-  mix-blend-mode:overlay;opacity:0.04;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
-}
-
-.vignette{
-  position:fixed;inset:0;pointer-events:none;z-index:900;
-  mix-blend-mode:multiply;
-  background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);
-  opacity:0.5;
-}
-
-/* --- Contact buttons --- */
-section#contact a{
+  padding:50px 44px 72px;
+  margin:40px 0;
   border-radius:0;
-  padding:10px 14px;
-  font-weight:600;
+  overflow:hidden;
+  box-shadow: 0 18px 50px rgba(2,2,6,0.7), inset 0 0 80px rgba(255,230,160,0.015);
+  transform: translateZ(0);
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1), box-shadow 420ms;
+}
+
+/* left strip: vertical ribbon (kept sharp) */
+.panel .left-strip{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:8px;
+  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
+  z-index:5;
+}
+
+/* inner soft spotlight — subtle static plus animated breathing */
+.panel::before{
+  content:"";
+  position:absolute;
+  top:-10%;
+  left:18%;
+  width:64%;
+  height:140%;
+  pointer-events:none;
+  background: radial-gradient(50% 50% at 50% 15%, rgba(255,255,255,var(--spotlight-strength)) 0%, rgba(255,255,255,0) 45%);
+  mix-blend-mode: screen;
+  z-index:2;
+  transform-origin:center;
+  animation: panelLight 6s ease-in-out infinite alternate;
+  opacity:0.95;
+}
+@keyframes panelLight{
+  from { transform: translateY(0) scale(1); opacity:0.9; }
+  to { transform: translateY(6px) scale(1.02); opacity:1; }
+}
+
+/* subtle top & bottom gradient ribbon under title (animated slow) */
+.panel .title-ribbon{
+  position:absolute;left:8px;right:0;height:4px;top:0;background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
+  background-size:300% 100%;animation:ribbonShift 36s linear infinite;z-index:6;
+}
+.panel .title-ribbon.bottom{top:auto;bottom:0}
+
+/* panel hover: slight lift and warmer rim */
+.panel:hover{ transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.75), inset 0 0 120px rgba(255,230,150,0.02) }
+
+/* -------------------------
+   SECTION TITLES (theatrical + churchlike gravity)
+   ------------------------- */
+section h2{
   font-family:'Poppins',sans-serif;
-  text-decoration:none;
-  color:#fff;
-  display:inline-block;
+  font-size:1.95rem;
+  color:var(--accent-3);
+  margin:0 0 18px 0;
+  position:relative;
+  z-index:10;
+  text-shadow:0 6px 22px rgba(0,0,0,0.55);
+  letter-spacing:0.6px;
+  text-transform:uppercase;
 }
 
-/* Hapus garis horizontal lama */
-.panel::before,
-.panel::after {
-  display: none;
-}
-
-/* Garis horizontal baru di bawah section title */
-section h2::after {
+/* cinematic underline (instead of panel before/after) */
+section h2::after{
   content:"";
   display:block;
   width:100%;
   height:4px;
-  margin-top:12px; /* jarak dari judul */
+  margin-top:12px;
   background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
   background-size:300% 100%;
-  border-radius:2px;
+  border-radius:0;
   animation:ribbonShift 30s linear infinite;
 }
 
+/* content layout */
+.section-with-image{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap}
+.section-with-image img{width:320px;height:auto;object-fit:cover;border-radius:0;box-shadow:0 8px 30px rgba(0,0,0,0.45);transition: transform 700ms cubic-bezier(.2,.9,.2,1), filter 700ms}
+.section-with-image img:hover{transform:translateY(-6px) scale(1.02);filter:brightness(1.04) contrast(1.05)}
+.section-with-image .text{min-width:260px;font-family:'Poppins',sans-serif;line-height:1.6;color:rgba(255,255,255,0.96)}
+
+/* subtle content entrance (hybrid: initial animated load) */
+section{opacity:0;transform:translateY(18px);animation:fadeUp 800ms ease forwards}
+section:nth-of-type(1){animation-delay:120ms}
+section:nth-of-type(2){animation-delay:260ms}
+section:nth-of-type(3){animation-delay:420ms}
+section:nth-of-type(4){animation-delay:560ms}
+@keyframes fadeUp { to {opacity:1; transform:translateY(0);} }
+
+/* -------------------------
+   GALLERY — use wrapper for per-image vignette
+   ------------------------- */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:16px;position:relative}
+.img-wrap{position:relative;overflow:hidden;display:block}
+.img-wrap img{display:block;width:100%;height:170px;object-fit:cover;border-radius:0;box-shadow:0 12px 36px rgba(0,0,0,0.55);transition:transform 700ms,filter 700ms}
+.img-wrap:hover img{transform:scale(1.02) translateY(-4px);filter:brightness(1.03) contrast(1.06)}
+/* per-image vignette overlay */
+.img-wrap::after{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.55) 100%);
+  mix-blend-mode:multiply;pointer-events:none;
+  z-index:2;
+}
+
+/* cinematic caption placeholder (hidden by default) */
+.img-wrap .caption{position:absolute;left:12px;bottom:12px;font-family:'Poppins',sans-serif;font-size:0.85rem;z-index:3;color:rgba(255,255,255,0.9);text-shadow:0 3px 10px rgba(0,0,0,0.6)}
+
+/* -------------------------
+   CONTACT / BUTTONS (sharp, office-like)
+   ------------------------- */
+section#contact a{
+  border-radius:0;
+  padding:10px 14px;
+  font-weight:600;
+  font-family:'Poppins',sans-serif;
+  text-decoration:none;
+  color:#fff;
+  display:inline-block;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.5);
+}
+
+/* -------------------------
+   FOOTER
+   ------------------------- */
+.footer{padding:28px 18px;text-align:center;background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);color:var(--text-light);font-family:'Poppins',sans-serif;margin-top:36px;box-shadow:inset 0 8px 40px rgba(0,0,0,0.6)}
+
+/* -------------------------
+   GLOBAL CINEMATIC LAYERS
+   - grain (static)
+   - vignette (static)
+   - cinematic-light (soft top spotlight; animated)
+   - film-scan (moving, very subtle)
+   ------------------------- */
+
+/* grain overlay */
+.grain{
+  pointer-events:none;
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  z-index:1000;
+  mix-blend-mode:overlay;
+  opacity:var(--grain-opacity);
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
+}
+
+/* vignette to darken edges (museum / church mood) */
+.vignette{
+  position:fixed;inset:0;pointer-events:none;z-index:900;
+  mix-blend-mode:multiply;
+  background:radial-gradient(60% 40% at 50% 35%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.68) 100%);
+  opacity:0.6;
+}
+
+/* large soft cinematic light — top centre, slight animation breathing */
+.cinematic-light{
+  position:fixed;inset:0;pointer-events:none;z-index:880;
+  background:
+    radial-gradient(60% 30% at 50% 12%, rgba(255,244,220,0.03) 0%, rgba(255,244,220,0) 38%),
+    radial-gradient(40% 20% at 15% 30%, rgba(58,176,255,0.02) 0%, rgba(58,176,255,0) 40%);
+  mix-blend-mode: screen;
+  opacity:0.95;
+  animation:lightBreathe 9.2s ease-in-out infinite alternate;
+}
+@keyframes lightBreathe{
+  from { transform: scale(1); opacity:0.88; }
+  to { transform: scale(1.02); opacity:1; }
+}
+
+/* moving thin film-scan lines across whole page (very subtle nostalgic film) */
+.film-scan{
+  pointer-events:none;
+  position:fixed;inset:0;z-index:920;mix-blend-mode:overlay;opacity:var(--film-scan-opacity);
+  background-image:linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.0) 2%);
+  background-size:100% 6px;
+  animation:scanMove 8s linear infinite;
+}
+@keyframes scanMove{ from { background-position:0 0 } to { background-position:0 6px } }
+
+/* subtle gold rim highlight on focused panels (museum artifact highlight) */
+.panel::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,240,200,0.01), rgba(255,240,200,0.0) 30%),
+    linear-gradient(90deg, rgba(58,176,255,0.01), rgba(58,176,255,0.0) 40%);
+  mix-blend-mode: screen;
+  z-index:3;
+}
+
+/* slow background shimmer along accent gradient (very subtle) */
+@keyframes ribbonShift{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+@media(max-width:880px){
+  .section-with-image img{width:100%}
+  .panel{padding:28px 18px 44px}
+  .header-left img{height:64px}
+  header{padding:14px 18px}
+}
+
+/* keep focus outlines subtle and clean for accessibility */
+:focus{outline:2px solid rgba(255,255,255,0.06);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -629,6 +337,7 @@ section h2::after {
   <section id="about">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>About</h2>
       <div class="section-with-image">
         <img src="1728278677799.jpeg" alt="Felix Satia" />
@@ -636,12 +345,14 @@ section h2::after {
           <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
         </div>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 
   <section id="programs">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>Programs</h2>
       <div class="section-with-image">
         <img src="1728277959315.jpeg" alt="Teaching" />
@@ -653,12 +364,14 @@ section h2::after {
           </ul>
         </div>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 
   <section id="philosophy">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>Philosophy</h2>
       <div class="section-with-image">
         <img src="1728277097784.jpeg" alt="Concert" />
@@ -666,12 +379,14 @@ section h2::after {
           <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
         </div>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 
   <section id="portfolio">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>Portfolio</h2>
       <div class="section-with-image">
         <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
@@ -679,61 +394,66 @@ section h2::after {
           <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
         </div>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 
   <section id="gallery">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>Gallery</h2>
       <div class="gallery">
-        <!-- Semua gambar asli tetap -->
-        <img src="1728277097784.jpeg" alt="">
-        <img src="1728277959315.jpeg" alt="">
-        <img src="1728277994217.jpeg" alt="">
-        <img src="1728278062357.jpeg" alt="">
-        <img src="1728278413639.jpeg" alt="">
-        <img src="1728278498612.jpeg" alt="">
-        <img src="1728278535664.jpeg" alt="">
-        <img src="1728278743638.jpeg" alt="">
-        <img src="1728278972071.jpeg" alt="">
-        <img src="1728279819431.jpeg" alt="">
-        <img src="1728294846403.jpeg" alt="">
-        <img src="1728294894368.jpeg" alt="">
-        <img src="1728295139439.jpeg" alt="">
-        <img src="1728295173689.jpeg" alt="">
-        <img src="1728295202953.jpeg" alt="">
-        <img src="1728295402904.jpeg" alt="">
-        <img src="1728295429712.jpeg" alt="">
-        <img src="1728296617350.jpeg" alt="">
-        <img src="1728300782229.jpeg" alt="">
-        <img src="1728301815288.jpeg" alt="">
-        <img src="1728302182364.jpeg" alt="">
-        <img src="1728302212548.jpeg" alt="">
-        <img src="1728303826998.jpeg" alt="">
-        <img src="1728311786057.jpeg" alt="">
-        <img src="1728349078427.jpeg" alt="">
-        <img src="1728368821890.jpeg" alt="">
-        <img src="1728368987536.jpeg" alt="">
-        <img src="1728450148208.jpeg" alt="">
-        <img src="1728450200661.jpeg" alt="">
-        <img src="1728450222173.jpeg" alt="">
-        <img src="1728450251141.jpeg" alt="">
-        <img src="20250905_123538.png" alt="">
+        <!-- Wrap images in .img-wrap so vignette overlay works reliably -->
+        <div class="img-wrap"><img src="1728277097784.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728277959315.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728277994217.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278062357.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278413639.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278498612.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278535664.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278743638.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728278972071.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728279819431.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728294846403.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728294894368.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728295139439.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728295173689.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728295202953.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728295402904.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728295429712.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728296617350.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728300782229.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728301815288.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728302182364.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728302212548.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728303826998.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728311786057.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728349078427.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728368821890.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728368987536.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728450148208.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728450200661.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728450222173.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="1728450251141.jpeg" alt=""></div>
+        <div class="img-wrap"><img src="20250905_123538.png" alt=""></div>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 
   <section id="contact">
     <div class="panel">
       <div class="left-strip"></div>
+      <div class="title-ribbon"></div>
       <h2>Contact</h2>
       <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px">
-        <a href="https://wa.me/6289656684852" style="background:linear-gradient(90deg,var(--accent-3),var(--accent-5));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">WhatsApp</a>
-        <a href="https://www.youtube.com/@felixsatia" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-4));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">YouTube</a>
-        <a href="https://www.instagram.com/felixsatia" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-5));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">Instagram</a>
-        <a href="https://www.linkedin.com/in/felix-satia-a78140302" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">LinkedIn</a>
+        <a href="https://wa.me/6289656684852" style="background:linear-gradient(90deg,var(--accent-3),var(--accent-5));color:#fff;padding:10px 14px;border-radius:0;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">WhatsApp</a>
+        <a href="https://www.youtube.com/@felixsatia" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-4));color:#fff;padding:10px 14px;border-radius:0;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">YouTube</a>
+        <a href="https://www.instagram.com/felixsatia" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-5));color:#fff;padding:10px 14px;border-radius:0;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">Instagram</a>
+        <a href="https://www.linkedin.com/in/felix-satia-a78140302" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#fff;padding:10px 14px;border-radius:0;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">LinkedIn</a>
       </div>
+      <div class="title-ribbon bottom"></div>
     </div>
   </section>
 </main>
@@ -742,8 +462,11 @@ section h2::after {
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-<div class="grain"></div>
-<div class="vignette"></div>
+<!-- Cinematic layers -->
+<div class="grain" aria-hidden="true"></div>
+<div class="film-scan" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cinematic-light" aria-hidden="true"></div>
 
 </body>
 </html>
