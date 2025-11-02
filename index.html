@@ -613,12 +613,13 @@ section::before {
 
 /* === END SONATA ROYAL PURPLE NAVY THEME === */
 
-/* === CINEMATIC SILK BACKGROUND === */
+  /* === CINEMATIC SILK BACKGROUND (SCROLL-FRIENDLY) === */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden; /* biar ga geser ke samping */
+  overflow-y: auto;   /* biar bisa scroll ke bawah */
   background: #0a0f2c;
 }
 
@@ -626,7 +627,6 @@ html, body {
 body {
   background: radial-gradient(circle at 30% 30%, #0a0f2c, #162a6b 60%, #3b1f6f 100%);
   position: relative;
-  overflow: hidden;
 }
 
 /* Lapisan warna 1 */
@@ -634,7 +634,7 @@ body::before,
 body::after,
 body::backdrop {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: -50%;
   background: conic-gradient(
     from 90deg,
@@ -647,6 +647,7 @@ body::backdrop {
   background-size: 300% 300%;
   filter: blur(60px);
   animation: silkFlow1 40s ease-in-out infinite alternate;
+  z-index: -3;
 }
 
 /* Lapisan warna 2 */
@@ -661,6 +662,7 @@ body::after {
   );
   mix-blend-mode: soft-light;
   animation: silkFlow2 60s ease-in-out infinite alternate;
+  z-index: -2;
 }
 
 /* Lapisan warna 3 (highlight lembut) */
@@ -668,6 +670,7 @@ body::backdrop {
   background: radial-gradient(circle at 70% 40%, rgba(255,255,255,0.08), transparent 60%);
   mix-blend-mode: overlay;
   animation: shimmerSoft 25s ease-in-out infinite alternate;
+  z-index: -1;
 }
 
 /* Animasi */
@@ -685,6 +688,7 @@ body::backdrop {
   0%   { opacity: 0.05; transform: translate(0%,0%); }
   100% { opacity: 0.15; transform: translate(-5%,5%); }
 }
+
 
 
 </style>
