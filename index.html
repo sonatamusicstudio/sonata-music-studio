@@ -533,6 +533,85 @@ section::before {
 
 /* === END REFINEMENT === */
 
+/* === SONATA DEEP PURPLE-BLUE ROYAL BACKGROUND === */
+
+/* Membatasi efek hanya dari About ke bawah */
+#about, #programs, #philosophy, #portfolio, #gallery, #contact {
+  position: relative;
+  background: linear-gradient(
+      to bottom,
+      rgba(15, 20, 60, 0.98) 0%,
+      rgba(35, 25, 95, 0.97) 20%,
+      rgba(55, 35, 120, 0.95) 50%,
+      rgba(70, 40, 130, 0.92) 70%,
+      rgba(180, 140, 80, 0.85) 100%
+    ),
+    radial-gradient(circle at 50% 10%, rgba(255, 220, 150, 0.15), transparent 70%);
+  background-blend-mode: screen, overlay;
+  color: #f4e8d8;
+  border: none;
+  box-shadow: inset 0 0 60px rgba(255, 230, 160, 0.1);
+}
+
+/* Panel di dalamnya tetap halus dan elegan */
+#about .panel,
+#programs .panel,
+#philosophy .panel,
+#portfolio .panel,
+#gallery .panel,
+#contact .panel {
+  background: transparent;
+  border: 1px solid rgba(255, 220, 180, 0.08);
+  box-shadow: inset 0 0 80px rgba(20, 10, 50, 0.6);
+  padding: 50px;
+}
+
+/* Cahaya lembut dari atas */
+#about::before,
+#programs::before,
+#philosophy::before,
+#portfolio::before,
+#gallery::before,
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% -20%,
+    rgba(255, 230, 180, 0.12),
+    rgba(0, 0, 0, 0.8)
+  );
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Heading di setiap section lebih bercahaya */
+#about h2, #programs h2, #philosophy h2, #portfolio h2, #gallery h2, #contact h2 {
+  background: linear-gradient(to right, #d8c478, #baa046, #e6d58a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(240, 210, 130, 0.25);
+}
+
+/* Warna teks */
+#about p, #programs li, #philosophy p, #portfolio p, #contact a {
+  color: #e9dcff;
+}
+
+/* Footer ikut harmoni gradasi */
+.footer {
+  background: linear-gradient(
+    to right,
+    rgba(15, 20, 60, 0.95),
+    rgba(50, 30, 100, 0.9),
+    rgba(140, 100, 60, 0.8)
+  );
+  border-top: 1px solid rgba(255, 220, 160, 0.2);
+  text-shadow: 0 0 10px rgba(255, 245, 200, 0.1);
+}
+
+/* === END SONATA ROYAL PURPLE NAVY THEME === */
 
 
 
