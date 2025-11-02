@@ -223,118 +223,101 @@
       padding: 40px 20px;
     }
   }
-  /* === CINEMATIC ELEGANT COLOR THEME === */
-
+  /* === CINEMATIC COLOUR THEME: THE SOUND OF ASIA === */
 body {
-  background-color: #070f1f;
-  color: #f4f4f7;
-  background-image:
-    radial-gradient(1200px 600px at 10% 30%, rgba(43,15,90,0.85) 0%, transparent 40%),
-    radial-gradient(900px 500px at 85% 40%, rgba(199,154,43,0.15) 0%, transparent 25%),
-    linear-gradient(180deg, #070f20 0%, #1b0a2d 45%, #180c24 100%);
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
+  background: radial-gradient(
+      circle at 40% 30%,
+      rgba(255, 200, 120, 0.15),
+      rgba(80, 40, 120, 0.25) 20%,
+      rgba(10, 15, 50, 0.9) 70%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(25, 20, 60, 1) 0%,
+      rgba(50, 30, 90, 0.95) 25%,
+      rgba(110, 50, 120, 0.8) 55%,
+      rgba(230, 140, 80, 0.6) 85%,
+      rgba(240, 180, 100, 0.4) 100%
+    );
+  background-blend-mode: screen, multiply;
+  color: #f4e7ce;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Vignette depth for cinematic mood */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(900px 500px at 50% 35%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%);
-  z-index: 0;
-}
-
-/* Soft ethereal light streaks */
+/* Tambahan depth cinematic lighting */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 220, 180, 0.12) 0%,
+    rgba(0, 0, 0, 0.85) 80%
+  );
   pointer-events: none;
-  background:
-    linear-gradient(115deg, rgba(59,40,116,0.22) 0%, rgba(43,15,90,0.05) 25%, rgba(0,0,0,0) 70%),
-    linear-gradient(340deg, rgba(199,154,43,0.08) 0%, rgba(199,154,43,0.02) 20%, rgba(0,0,0,0) 70%);
-  mix-blend-mode: screen;
-  filter: blur(60px) saturate(110%);
-  opacity: 0.9;
+  mix-blend-mode: overlay;
   z-index: 0;
 }
 
-/* Elegant text coloring */
+/* Warna teks agar tidak pucat di background gelap */
 h1, h2, h3, h4, h5, h6 {
-  color: #f5f5fa;
-  text-shadow: 0 6px 20px rgba(43,15,90,0.45);
-}
-p, li, span {
-  color: rgba(255,255,255,0.85);
+  color: #f9e9cc;
+  text-shadow: 0 0 12px rgba(255, 220, 150, 0.15);
 }
 
-/* Accent gold gradient line */
-h2 {
-  color: #e4c770 !important;
-  border-bottom: 2px solid #bfa24a !important;
+p, span, li {
+  color: #e5daff;
 }
 
-/* Buttons & social links */
-button, .btn, a.button, .social-icons a {
-  background: linear-gradient(90deg, #c79a2b, #b86f2a);
-  color: #070f1f;
+/* Elemen dekoratif/box */
+section, div, .card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 40px rgba(30, 10, 60, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Subtle glow efek */
+.glow {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 220, 120, 0.2),
+    rgba(120, 80, 255, 0.15)
+  );
+  box-shadow: 0 0 60px rgba(255, 150, 100, 0.25);
+}
+
+/* Tombol elegan */
+button {
+  background: linear-gradient(
+    to right,
+    rgba(80, 50, 150, 0.9),
+    rgba(230, 160, 90, 0.8)
+  );
+  color: #fff;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(199,154,43,0.2);
-  font-weight: 600;
+  padding: 10px 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 25px rgba(100, 50, 180, 0.3);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-button:hover, .btn:hover, a.button:hover, .social-icons a:hover {
+
+button:hover {
+  box-shadow: 0 0 45px rgba(255, 180, 100, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(199,154,43,0.35);
-  background: linear-gradient(90deg, #e7bb3a, #c79a2b);
 }
 
-/* Panels with soft glass effect */
-.panel {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px) saturate(120%);
-  box-shadow: 0 15px 40px rgba(6,8,18,0.6);
-  border-radius: 14px;
-  position: relative;
-  z-index: 1;
-}
+/* === END CINEMATIC COLOUR THEME === */
 
-/* Nav refinement */
-nav {
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-nav a {
-  color: #f3f3f3;
-}
-nav a:hover {
-  color: #e4c770;
-}
-
-/* Header refinement */
-.header-left {
-  background: linear-gradient(90deg, #0a1845, #142e6a);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-.header-right {
-  background: linear-gradient(90deg, #c79a2b, #b86f2a);
-  color: #111;
-}
-
-/* Footer refinement */
-.footer {
-  background: linear-gradient(180deg, #0a1845, #000);
-  color: rgba(255,255,255,0.8);
-  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
-}
-
-/* === END CINEMATIC ELEGANT COLOR THEME === */
 
 </style>
 
