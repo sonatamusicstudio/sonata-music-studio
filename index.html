@@ -613,121 +613,6 @@ section::before {
 
 /* === END SONATA ROYAL PURPLE NAVY THEME === */
 
-  /* === CINEMATIC SILK BACKGROUND (SCROLL-FRIENDLY) === */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden; /* biar ga geser ke samping */
-  overflow-y: auto;   /* biar bisa scroll ke bawah */
-  background: #0a0f2c;
-}
-
-/* Lapisan dasar warna */
-body {
-  background: radial-gradient(circle at 30% 30%, #0a0f2c, #162a6b 60%, #3b1f6f 100%);
-  position: relative;
-}
-
-/* Lapisan warna 1 */
-body::before,
-body::after,
-body::backdrop {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  background: conic-gradient(
-    from 90deg,
-    rgba(139,46,123,0.35),
-    rgba(217,92,106,0.25),
-    rgba(255,179,124,0.25),
-    rgba(22,42,107,0.3),
-    rgba(11,18,50,0.4)
-  );
-  background-size: 300% 300%;
-  filter: blur(60px);
-  animation: silkFlow1 40s ease-in-out infinite alternate;
-  z-index: -3;
-}
-
-/* Lapisan warna 2 */
-body::after {
-  background: conic-gradient(
-    from 0deg,
-    rgba(255,179,124,0.25),
-    rgba(139,46,123,0.35),
-    rgba(22,42,107,0.3),
-    rgba(11,18,50,0.4),
-    rgba(217,92,106,0.25)
-  );
-  mix-blend-mode: soft-light;
-  animation: silkFlow2 60s ease-in-out infinite alternate;
-  z-index: -2;
-}
-
-/* Lapisan warna 3 (highlight lembut) */
-body::backdrop {
-  background: radial-gradient(circle at 70% 40%, rgba(255,255,255,0.08), transparent 60%);
-  mix-blend-mode: overlay;
-  animation: shimmerSoft 25s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-/* Animasi */
-@keyframes silkFlow1 {
-  0%   { transform: translate(0%,0%) rotate(0deg) scale(1.1); }
-  50%  { transform: translate(-10%,10%) rotate(10deg) scale(1.05); }
-  100% { transform: translate(10%,-10%) rotate(-10deg) scale(1.1); }
-}
-@keyframes silkFlow2 {
-  0%   { transform: translate(0%,0%) rotate(0deg) scale(1.2); }
-  50%  { transform: translate(10%,-10%) rotate(15deg) scale(1.15); }
-  100% { transform: translate(-10%,10%) rotate(-15deg) scale(1.2); }
-}
-@keyframes shimmerSoft {
-  0%   { opacity: 0.05; transform: translate(0%,0%); }
-  100% { opacity: 0.15; transform: translate(-5%,5%); }
-}
-  html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: #0a0f2c;
-}
-
-body {
-  position: relative;
-  background: linear-gradient(120deg, #0a0f2c, #162a6b, #3b1f6f, #8b2e7b, #d95c6a, #ffb37c);
-  background-size: 300% 300%;
-  animation: silkColorFlow 40s ease-in-out infinite alternate;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='0.003' numOctaves='4'/><feDisplacementMap in='SourceGraphic' scale='120'/></filter><rect width='100%' height='100%' filter='url(%23noise)' fill='none'/></svg>");
-  background-size: cover;
-  mix-blend-mode: overlay;
-  opacity: 0.35;
-  animation: silkWave 60s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-@keyframes silkColorFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes silkWave {
-  0% { transform: translate(0%,0%) scale(1); }
-  50% { transform: translate(-5%,5%) scale(1.1); }
-  100% { transform: translate(5%,-5%) scale(1); }
-}
-
-
 
 
 </style>
@@ -865,7 +750,7 @@ body::before {
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
-<canvas id="silk-bg" style="position:fixed;inset:0;z-index:-1;"></canvas>
+  <canvas id="silk-bg" style="position:fixed;inset:0;z-index:-1;"></canvas>
 <script>
 const canvas = document.getElementById('silk-bg');
 const ctx = canvas.getContext('2d');
@@ -901,6 +786,6 @@ function draw(){
 draw();
 </script>
 
-  
+
 </body>
-</html>
+    </html>
