@@ -621,7 +621,98 @@ body::before {
   z-index: 1;
   mix-blend-mode: soft-light;
 }
-</style>
+
+  /* === Cinematic & Elegant Enhancement Layer === */
+
+/* Smooth lighting and vignette transitions */
+body {
+  background-color: #0e0d0d;
+  transition: background 1s ease, color 1s ease;
+  overflow-x: hidden;
+}
+
+/* Subtle gradient lighting that moves very slowly */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 240, 210, 0.08),
+      transparent 60%
+  ),
+  radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 200, 150, 0.06),
+      transparent 70%
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: ambientShift 60s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes ambientShift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-3%, -2%) scale(1.05); }
+  100% { transform: translate(2%, 3%) scale(1); }
+}
+
+/* Panels with cinematic shadow depth */
+.panel {
+  box-shadow: 0 0 30px rgba(0,0,0,0.4),
+              inset 0 0 10px rgba(255,255,255,0.05);
+  transition: transform 0.5s ease, box-shadow 0.8s ease;
+}
+
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5),
+              inset 0 0 12px rgba(255,255,255,0.08);
+}
+
+/* Elegant text glow for headers */
+h1, h2 {
+  text-shadow:
+    0 0 8px rgba(255, 230, 180, 0.15),
+    0 0 16px rgba(255, 220, 160, 0.08);
+  letter-spacing: 0.5px;
+}
+
+/* Cinematic fade-in for all main content */
+main, header, footer {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCinematic 1.5s ease forwards;
+}
+
+@keyframes fadeInCinematic {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating shimmer accent on titles */
+section h2::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.08) 45%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerMove 12s linear infinite;
+}
+
+@keyframes shimmerMove {
+  0% { transform: translateX(
+
 
 
 
