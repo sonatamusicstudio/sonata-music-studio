@@ -733,6 +733,34 @@ header .tagline {
     padding: 10px 0;
   }
 }
+      /* === Make Sacred Precision banner full width === */
+header .ribbon, 
+header .tagline, 
+header .button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 14px 0;
+  text-align: center;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(90deg, #543d82, #a87d3f);
+  border-radius: 0;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 5;
+}
+
+/* optional subtle glow */
+header .ribbon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
 
 
 
