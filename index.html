@@ -722,6 +722,52 @@ section::after {
   pointer-events: none;
 }
 
+  /* === Tambahkan kode aurora di bawah ini === */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #0a0f2c;
+  }
+
+  body {
+    background: linear-gradient(270deg,
+      #0a0f2c,
+      #162a6b,
+      #3b1f6f,
+      #8b2e7b,
+      #d95c6a,
+      #ffb37c,
+      #8b2e7b,
+      #162a6b
+    );
+    background-size: 800% 800%;
+    animation: auroraMove 30s ease-in-out infinite;
+  }
+
+  @keyframes auroraMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.07), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.05), transparent 60%);
+    mix-blend-mode: overlay;
+    animation: shimmer 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translate(0%, 0%); }
+    100% { transform: translate(-5%, 5%); }
+  }
+</style>
+
 
 
 
