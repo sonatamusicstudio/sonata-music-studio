@@ -225,55 +225,51 @@
   }
 
   :root {
-  --primary-color: #0A0A1A; /* Deep indigo-black */
-  --secondary-color: #201B3A; /* Violet navy */
-  --accent-color: #C0446E; /* Magenta rose light */
-  --highlight-color: #4C6DDC; /* Cinematic blue accent */
-  --text-light: #FFFFFF;
-  --text-dark: #EAEAEA;
-  --text-muted: #C9C9C9;
-  --background-panel: rgba(20, 15, 40, 0.85);
+  --primary-color: #0B0C1D;
+  --secondary-color: #2E2453;
+  --accent-color: #D09C54;
+  --accent2-color: #A4466E;
+  --highlight-color: #4A79FF;
+  --text-light: #F4F4F4;
+  --text-dark: #F4F4F4;
+  --background-panel: rgba(20,16,37,0.85);
   --header-height: 100px;
 }
 
 body {
   margin: 0;
   font-family: 'Source Serif 4', serif;
-  background: radial-gradient(circle at 30% 20%, #0A0A1A 0%, #111032 40%, #2A1240 70%, #36081F 100%);
-  color: var(--text-dark);
-  background-attachment: fixed;
-  background-size: cover;
+  background: radial-gradient(circle at 20% 15%, #0B0C1D 0%, #2E2453 60%, #0B0C1D 100%);
+  color: var(--text-light);
 }
 
 header {
   display: flex;
   height: var(--header-height);
   font-family: 'Poppins', sans-serif;
-  z-index: 10000;
   position: relative;
-  background: linear-gradient(90deg, #1B1440, #451A3F);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #2E2453, #0B0C1D);
 }
 
 .header-right {
-  background: linear-gradient(90deg, #4C6DDC, #C0446E);
+  background: linear-gradient(90deg, var(--accent2-color), var(--accent-color));
   color: var(--text-light);
 }
 
 nav {
-  background: rgba(15, 10, 40, 0.85);
-  backdrop-filter: blur(12px);
+  background: var(--secondary-color);
+  backdrop-filter: blur(8px);
 }
 
 nav a:hover {
-  color: var(--accent-color);
-  text-shadow: 0 0 6px rgba(192, 68, 110, 0.8);
+  color: var(--highlight-color);
+  text-shadow: 0 0 5px var(--highlight-color);
 }
 
 .panel {
-  background: rgba(25, 15, 45, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  background: var(--background-panel);
+  border: none;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.5);
 }
 
 h2 {
@@ -282,8 +278,10 @@ h2 {
 }
 
 .footer {
-  background: linear-gradient(90deg, #2A1240, #0A0A1A);
+  background: #0B0C1D;
+  color: var(--text-light);
 }
+
 
   
 </style>
