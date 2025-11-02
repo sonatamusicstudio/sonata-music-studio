@@ -647,6 +647,79 @@ section::before {
   margin-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+  /* === CINEMATIC SILK COLOUR MOVEMENT THEME === */
+
+/* Background utama — deep navy silk wash */
+body {
+  background: radial-gradient(circle at 20% 15%, rgba(35, 45, 100, 0.95), rgba(15, 20, 45, 1) 60%, rgba(10, 10, 25, 1) 100%),
+              linear-gradient(135deg, rgba(20, 30, 80, 0.9) 0%, rgba(40, 25, 80, 0.9) 40%, rgba(90, 60, 120, 0.7) 70%, rgba(186, 160, 70, 0.4) 100%);
+  background-blend-mode: soft-light, overlay;
+  color: #f6f1de;
+  transition: background 0.8s ease-in-out;
+}
+
+/* Panel refined — silk navy dengan golden hue subtle */
+.panel {
+  background: linear-gradient(160deg, rgba(15, 25, 60, 0.9) 0%, rgba(25, 35, 85, 0.9) 40%, rgba(45, 35, 95, 0.85) 80%, rgba(186, 160, 70, 0.15) 100%),
+              radial-gradient(circle at 75% 15%, rgba(255, 200, 120, 0.08), transparent 70%);
+  border: 1px solid rgba(255, 235, 180, 0.06);
+  box-shadow: inset 0 0 40px rgba(255, 220, 150, 0.05),
+              inset 0 0 120px rgba(0, 0, 0, 0.3);
+  color: #f7f3e8;
+}
+
+/* Section lighting flow — subtle moving color wash */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 0%, rgba(255, 210, 150, 0.07), transparent 70%),
+              linear-gradient(120deg, rgba(25, 30, 70, 0.4), rgba(60, 35, 100, 0.2), rgba(100, 80, 140, 0.15), rgba(186, 160, 70, 0.1));
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  animation: silkFlow 20s ease-in-out infinite alternate;
+}
+
+@keyframes silkFlow {
+  0% { background-position: 0% 0%; opacity: 0.85; }
+  50% { background-position: 50% 100%; opacity: 1; }
+  100% { background-position: 100% 0%; opacity: 0.9; }
+}
+
+/* Section heading — glowing golden serif accent */
+section h2 {
+  background: linear-gradient(to right, #c8b465, #e9dc9a, #bfa64d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(255, 230, 170, 0.25);
+  border-bottom: 1px solid rgba(255, 230, 180, 0.25);
+}
+
+/* Footer — royal indigo wash with warm gold light */
+.footer {
+  background: linear-gradient(to right, rgba(15, 25, 70, 0.9), rgba(35, 30, 80, 0.9), rgba(186, 160, 70, 0.7));
+  border-top: 1px solid rgba(255, 230, 180, 0.25);
+  text-shadow: 0 0 10px rgba(255, 245, 200, 0.15);
+  color: #f8f4e6;
+}
+
+/* Slight gradient fade between sections */
+.panel + .panel {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Optional: haluskan transisi antar section */
+section + section {
+  margin-top: 20px;
+  background: linear-gradient(to bottom, rgba(13, 20, 55, 0.1), rgba(0, 0, 0, 0.2));
+}
+
 
 
 
