@@ -719,6 +719,125 @@ section + section {
   margin-top: 20px;
   background: linear-gradient(to bottom, rgba(13, 20, 55, 0.1), rgba(0, 0, 0, 0.2));
 }
+  /* === CINEMATIC SILK WAVE THEME — Elegan, Tanpa Circular Highlight === */
+
+/* Background utama — pergerakan warna lembut seperti kain sutra */
+body {
+  background: linear-gradient(115deg,
+      rgba(15, 25, 60, 1) 0%,
+      rgba(25, 35, 80, 1) 25%,
+      rgba(35, 30, 85, 0.95) 50%,
+      rgba(55, 35, 95, 0.9) 75%,
+      rgba(186, 160, 70, 0.3) 100%);
+  background-size: 300% 300%;
+  animation: silkWave 28s ease-in-out infinite alternate;
+  color: #f6f1de;
+}
+
+@keyframes silkWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Panel — elegan, menyatu dengan background tapi tetap terdefinisi */
+.panel {
+  background: linear-gradient(125deg,
+      rgba(20, 30, 70, 0.9) 0%,
+      rgba(30, 35, 85, 0.85) 40%,
+      rgba(50, 40, 100, 0.8) 80%,
+      rgba(186, 160, 70, 0.18) 100%);
+  backdrop-filter: brightness(1.05) saturate(1.1);
+  border: 1px solid rgba(255, 235, 180, 0.06);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.25);
+  color: #f8f5eb;
+  transition: background 0.8s ease-in-out;
+}
+
+/* Section heading — refined gold shimmer */
+section h2 {
+  background: linear-gradient(to right, #cbb873, #e3d48e, #bfa64d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 235, 180, 0.25);
+  border-bottom: 1px solid rgba(255, 230, 180, 0.25);
+}
+
+/* Section flow — no circular highlight, hanya subtle movement */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg,
+      rgba(20, 25, 70, 0.3),
+      rgba(50, 35, 95, 0.25),
+      rgba(100, 80, 140, 0.2),
+      rgba(186, 160, 70, 0.1));
+  background-size: 250% 250%;
+  animation: silkFlow 32s ease-in-out infinite alternate;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+@keyframes silkFlow {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.9;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 50% 100%;
+    opacity: 0.95;
+  }
+}
+
+/* Footer — deep navy indigo dengan shimmer gold lembut */
+.footer {
+  background: linear-gradient(110deg,
+      rgba(15, 25, 60, 0.95),
+      rgba(25, 35, 80, 0.9),
+      rgba(186, 160, 70, 0.6));
+  background-size: 200% 200%;
+  animation: silkFooter 36s ease-in-out infinite alternate;
+  border-top: 1px solid rgba(255, 230, 180, 0.25);
+  text-shadow: 0 0 8px rgba(255, 245, 200, 0.15);
+  color: #f8f4e6;
+}
+
+@keyframes silkFooter {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Panel spacing refinement */
+.panel + .panel {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+section + section {
+  margin-top: 20px;
+  background: linear-gradient(to bottom, rgba(13, 20, 55, 0.1), rgba(0, 0, 0, 0.15));
+}
+
 
 
 
