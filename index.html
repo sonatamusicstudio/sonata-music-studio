@@ -551,6 +551,95 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
 }
+  :root {
+  --deep-navy: #05071A;
+  --royal-indigo: #1A1F52;
+  --royal-gold: #C9A44D;
+  --crimson-accent: #8E1B3A;
+  --magenta-ember: #AC2C57;
+  --text-light: #EAEAEA;
+}
+
+body {
+  background: radial-gradient(circle at 30% 20%, var(--royal-indigo) 0%, var(--deep-navy) 70%);
+  color: var(--text-light);
+  font-family: 'Poppins', 'Montserrat', sans-serif; /* font kamu sebelumnya */
+  letter-spacing: 0.3px;
+}
+
+header {
+  background: linear-gradient(90deg, var(--deep-navy), var(--royal-indigo));
+  border-bottom: 2px solid rgba(201,164,77,0.3);
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+}
+
+nav {
+  background: rgba(5,7,26,0.95);
+  border-bottom: 1px solid rgba(201,164,77,0.25);
+  backdrop-filter: blur(8px);
+}
+nav a {
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: var(--royal-gold);
+  text-shadow: 0 0 15px rgba(201,164,77,0.4);
+}
+
+.panel, section, .content-box {
+  background: linear-gradient(180deg, rgba(26,31,82,0.8), rgba(5,7,26,0.9));
+  border: 1px solid rgba(201,164,77,0.15);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  border-radius: 0;
+}
+
+h1, h2, h3 {
+  color: var(--royal-gold);
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 2px solid var(--crimson-accent);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+a.button, .cta, .social-icons a {
+  background: linear-gradient(90deg, var(--crimson-accent), var(--magenta-ember));
+  color: var(--text-light);
+  padding: 12px 32px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+a.button:hover, .cta:hover, .social-icons a:hover {
+  background: linear-gradient(90deg, var(--magenta-ember), var(--royal-gold));
+  box-shadow: 0 0 35px rgba(201,164,77,0.45);
+  transform: translateY(-2px);
+}
+
+footer {
+  background: linear-gradient(180deg, var(--deep-navy), #000);
+  color: var(--text-light);
+  border-top: 1px solid rgba(201,164,77,0.25);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+img, .photo {
+  filter: brightness(0.82) contrast(1.08) saturate(0.9);
+  transition: filter 0.3s ease;
+}
+img:hover, .photo:hover {
+  filter: brightness(1) contrast(1.2) saturate(1);
+}
+
 
 
 
