@@ -612,6 +612,116 @@ section::before {
 }
 
 /* === END SONATA ROYAL PURPLE NAVY THEME === */
+  /* === FINAL CINEMATIC CLEAN THEME — COPY THIS AT THE END === */
+
+body {
+  background: radial-gradient(
+      circle at 40% 35%,
+      rgba(255, 200, 140, 0.18),
+      rgba(140, 60, 180, 0.15) 25%,
+      rgba(10, 10, 40, 0.9) 75%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(20, 15, 45, 1) 0%,
+      rgba(40, 25, 75, 0.95) 25%,
+      rgba(90, 40, 120, 0.85) 55%,
+      rgba(230, 140, 80, 0.55) 85%,
+      rgba(255, 200, 120, 0.35) 100%
+    );
+  background-blend-mode: screen, multiply;
+  color: #f4e7ce;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-smooth: always;
+  position: relative;
+}
+
+/* depth lighting lembut & cinematic vignette */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 240, 200, 0.12) 0%,
+    rgba(0, 0, 0, 0.8) 85%
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+/* teks utama */
+h1, h2, h3, h4, h5, h6 {
+  color: #f9e9cc;
+  text-shadow: 0 0 20px rgba(255, 220, 150, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+p, span, li {
+  color: #e9dcff;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+}
+
+/* hilangkan kotak kaca di section dan container */
+section, div, .card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* tombol elegan tapi subtle */
+button {
+  background: linear-gradient(
+    to right,
+    rgba(70, 40, 140, 0.95),
+    rgba(230, 160, 90, 0.8)
+  );
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 25px rgba(100, 50, 180, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 45px rgba(255, 180, 100, 0.45);
+  transform: translateY(-2px);
+}
+
+/* glow cinematic di logo / judul */
+.logo, .site-title {
+  color: #fbeed0 !important;
+  text-shadow: 0 0 25px rgba(255, 200, 130, 0.3),
+               0 0 60px rgba(140, 70, 200, 0.25);
+  position: relative;
+  z-index: 2;
+}
+
+/* supaya tiap section terasa cinematic tanpa kotak tambahan */
+section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(255, 200, 120, 0.05),
+    transparent 80%
+  );
+  mix-blend-mode: overlay;
+  z-index: 1;
+  pointer-events: none;
+}
+
 
 
 
