@@ -865,5 +865,42 @@ body::before {
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
 
+<canvas id="silk-bg" style="position:fixed;inset:0;z-index:-1;"></canvas>
+<script>
+const canvas = document.getElementById('silk-bg');
+const ctx = canvas.getContext('2d');
+let t = 0;
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+window.addEventListener('resize',resize);resize();
+
+function draw(){
+  t+=0.003;
+  const w=canvas.width, h=canvas.height;
+  const g=ctx.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,"#0a0f2c");
+  g.addColorStop(0.2,"#162a6b");
+  g.addColorStop(0.4,"#3b1f6f");
+  g.addColorStop(0.6,"#8b2e7b");
+  g.addColorStop(0.8,"#d95c6a");
+  g.addColorStop(1,"#ffb37c");
+  ctx.fillStyle=g;
+  ctx.fillRect(0,0,w,h);
+  for(let i=0;i<40;i++){
+    const y=h*(i/40);
+    ctx.beginPath();
+    for(let x=0;x<=w;x+=20){
+      const off=Math.sin(x*0.002+t+i*0.1)*15*Math.sin(t*2+i);
+      ctx.lineTo(x,y+off);
+    }
+    ctx.strokeStyle=`rgba(255,255,255,${0.03+0.02*Math.sin(i+t)})`;
+    ctx.lineWidth=3;
+    ctx.stroke();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+  
 </body>
 </html>
