@@ -11,765 +11,227 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
 <style>
- :root{
-  --bg:#09060b;
-  --panel-bg:#0d0f2a;
-  --accent-1:#002f6f;
-  --accent-2:#5b2a7f;
-  --accent-3:#e75f6a;
-  --accent-4:#f6c78a; /* section title soft gold */
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
- }
-
-
-  html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4',serif;-webkit-font-smoothing:antialiased;}
-  header{display:flex;align-items:center;gap:12px;padding:18px 28px;background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);position:relative;z-index:30}
-  .header-left{display:flex;align-items:center;gap:14px}
-  .header-left img{height:82px;object-fit:contain}
-  .header-left h1{margin:0;font-family:'Poppins',sans-serif;font-size:1.45rem;color:var(--text-light)}
-  .header-left p{margin:0;font-family:'Poppins',sans-serif;opacity:0.85;font-size:0.95rem}
-  .header-right{margin-left:auto;background:linear-gradient(180deg,var(--accent-2),var(--accent-3));padding:12px 18px;border-radius:6px;font-weight:600;font-family:'Poppins',sans-serif;color:#fff}
-
-  nav{display:flex;gap:22px;justify-content:center;background:#111;position:sticky;top:0;padding:12px 8px;z-index:29}
-  nav a{color:var(--text-light);text-decoration:none;font-family:'Poppins',sans-serif;font-weight:500;opacity:0.95}
-  nav a:hover{color:var(--accent-4)}
-
-  main{max-width:1100px;margin:36px auto;padding:0 18px;box-sizing:border-box}
-
-  /* --- Panel --- */
-  .panel{
-    position:relative;
-    background:linear-gradient(180deg,rgba(10,12,36,0.97),rgba(7,8,20,0.97));
-    color:var(--text-light);
-    padding:46px 40px 64px;
-    margin:38px 0;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 0 24px rgba(0,0,0,0.5);
+  :root {
+    --primary-color: #000000;
+    --secondary-color: #0D2866; /* UOB Navy */
+    --accent-color: #BAA046;   /* UOB Blue */
+    --text-light: #ffffff;
+    --text-dark: #ffffff;
+    --text-muted: #ffffff;
+    --background-panel: #0D2866;
+    --header-height: 100px;
   }
 
-  .panel::before,.panel::after{
-    content:"";
-    position:absolute;
-    left:0;
-    width:100%;
-    height:6px;
-    background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-    background-size:300% 100%;
-    animation:ribbonShift 20s linear infinite;
+  body {
+    margin: 0;
+    font-family: 'Source Serif 4', serif;
+    background-color: var(--primary-color);
+    color: var(--text-dark);
   }
 
-  .panel::before{top:0;}
-  .panel::after{bottom:0;}
-
-  .panel .left-strip{
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:10px;
-    background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
+  header {
+    display: flex;
+    height: var(--header-height);
+    font-family: 'Poppins', sans-serif;
+    z-index: 10000;
+    position: relative;
   }
 
-  @keyframes ribbonShift{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  .header-left {
+    background-color: #0D2866;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    flex: 2;
   }
 
-  section h2{font-family:'Poppins',sans-serif;font-size:1.9rem;color:var(--accent-4);margin:0 0 18px 0;position:relative;z-index:10;text-shadow:0 6px 18px rgba(0,0,0,0.6)}
-  .section-with-image{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
-  .section-with-image img{width:320px;height:auto;object-fit:cover;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
-  .section-with-image .text{min-width:260px;font-family:'Poppins',sans-serif;line-height:1.6;color:rgba(255,255,255,0.95)}
-  ul{padding-left:18px}
-  li{margin-bottom:8px}
-
-  /* --- Gallery --- */
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:16px}
-  .gallery img{width:100%;height:170px;object-fit:cover;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.4)}
-
-  /* --- Footer --- */
-  .footer{padding:28px 18px;text-align:center;background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);color:var(--text-light);font-family:'Poppins',sans-serif;margin-top:36px}
-
-  @media(max-width:880px){
-    .section-with-image img{width:100%}
-    .panel{padding:32px 20px 54px}
+  .header-left img {
+    height: 145px;
+    margin-right: 15px;
+    transform: translateY(1px);
   }
 
-  .grain{
-    pointer-events:none;
-    position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;mix-blend-mode:overlay;opacity:0.06;
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
+  .header-left .text-block h1 {
+    margin: 0;
+    font-size: 1.75em;
+    font-weight: 600;
   }
 
-  .vignette{position:fixed;inset:0;pointer-events:none;z-index:900;mix-blend-mode:multiply;background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);opacity:0.6}
-
-:root{
-  --bg:#09060b;
-  --panel-bg:#0a0c24;
-  --accent-1:#001f4f;
-  --accent-2:#3b1f5f;
-  --accent-3:#f6c78a;
-  --accent-4:#5b2a7f;
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
-}
-
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:var(--text-light);
-  font-family:'Source Serif 4',serif;
-  -webkit-font-smoothing:antialiased;
-}
-
-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 28px;
-  background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);
-  position:relative;
-  z-index:30;
-}
-
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.header-left img{
-  height:82px;
-  object-fit:contain;
-}
-
-.header-left h1{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  font-size:1.45rem;
-  color:var(--text-light);
-}
-
-.header-left p{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  opacity:0.85;
-  font-size:0.95rem;
-}
-
-.header-right{
-  margin-left:auto;
-  background:linear-gradient(180deg,var(--accent-2),var(--accent-3));
-  padding:12px 18px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  color:#fff;
-  border-radius:0; /* kotak */
-}
-
-nav{
-  display:flex;
-  gap:22px;
-  justify-content:center;
-  background:#111;
-  position:sticky;
-  top:0;
-  padding:12px 8px;
-  z-index:29;
-}
-
-nav a{
-  color:var(--text-light);
-  text-decoration:none;
-  font-family:'Poppins',sans-serif;
-  font-weight:500;
-  opacity:0.95;
-}
-
-nav a:hover{
-  color:var(--accent-4);
-}
-
-main{
-  max-width:1100px;
-  margin:36px auto;
-  padding:0 18px;
-  box-sizing:border-box;
-}
-
-/* --- Panel --- */
-.panel{
-  position:relative;
-  background:var(--panel-bg);
-  color:var(--text-light);
-  padding:46px 40px 64px;
-  margin:38px 0;
-  border-radius:0; /* kotak */
-  overflow:hidden;
-}
-
-/* Gradient ribbon top & bottom */
-.panel::before,.panel::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:100%;
-  height:4px; /* tipis */
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  animation:ribbonShift 30s linear infinite; /* lebih slow */
-}
-
-.panel::before{top:0;}
-.panel::after{bottom:0;}
-
-@keyframes ribbonShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Left strip panel */
-.panel .left-strip{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:8px;
-  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
-  border-radius:0;
-}
-
-/* Section headers */
-section h2{
-  font-family:'Poppins',sans-serif;
-  font-size:1.9rem;
-  color:var(--accent-4);
-  margin:0 0 18px 0;
-  position:relative;
-  z-index:10;
-  text-shadow:0 3px 8px rgba(0,0,0,0.4);
-}
-
-.section-with-image{
-  display:flex;
-  gap:26px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-}
-
-.section-with-image img{
-  width:320px;
-  height:auto;
-  object-fit:cover;
-  border-radius:0; /* kotak */
-  box-shadow:none;
-}
-
-.section-with-image .text{
-  min-width:260px;
-  font-family:'Poppins',sans-serif;
-  line-height:1.6;
-  color:rgba(255,255,255,0.95);
-}
-
-ul{padding-left:18px}
-li{margin-bottom:8px}
-
-/* --- Gallery --- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-top:16px;
-}
-
-.gallery img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  border-radius:0; /* kotak */
-  box-shadow:none;
-}
-
-/* --- Footer --- */
-.footer{
-  padding:28px 18px;
-  text-align:center;
-  background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);
-  color:var(--text-light);
-  font-family:'Poppins',sans-serif;
-  margin-top:36px;
-}
-
-@media(max-width:880px){
-  .section-with-image img{width:100%}
-  .panel{padding:32px 20px 54px}
-}
-
-/* --- Grain & Vignette --- */
-.grain{
-  pointer-events:none;
-  position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;
-  mix-blend-mode:overlay;opacity:0.04;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
-}
-
-.vignette{
-  position:fixed;inset:0;pointer-events:none;z-index:900;
-  mix-blend-mode:multiply;
-  background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);
-  opacity:0.5;
-}
-
-/* --- Contact buttons --- */
-section#contact a{
-  border-radius:0; /* kotak */
-  padding:10px 14px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  text-decoration:none;
-  color:#fff;
-  display:inline-block;
-}
-
-:root{
-  --bg:#09060b;
-  --panel-bg:#0a0c24;
-  --accent-1:#001f4f;
-  --accent-2:#3b1f5f;
-  --accent-3:#f6c78a;
-  --accent-4:#f6c78a; /* section title color */
-  --accent-5:#3ab0ff;
-  --text-light:#fffefc;
-}
-
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:var(--text-light);
-  font-family:'Source Serif 4',serif;
-  -webkit-font-smoothing:antialiased;
-}
-
-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 28px;
-  background:linear-gradient(90deg,#0d1b3a 0%,#0b1230 100%);
-  position:relative;
-  z-index:30;
-}
-
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.header-left img{
-  height:82px;
-  object-fit:contain;
-}
-
-.header-left h1{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  font-size:1.45rem;
-  color:var(--text-light);
-}
-
-.header-left p{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  opacity:0.85;
-  font-size:0.95rem;
-}
-
-.header-right{
-  margin-left:auto;
-  background:linear-gradient(180deg,var(--accent-2),var(--accent-3));
-  padding:12px 18px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  color:#fff;
-  border-radius:0;
-}
-
-nav{
-  display:flex;
-  gap:22px;
-  justify-content:center;
-  background:#111;
-  position:sticky;
-  top:0;
-  padding:12px 8px;
-  z-index:29;
-}
-
-nav a{
-  color:var(--text-light);
-  text-decoration:none;
-  font-family:'Poppins',sans-serif;
-  font-weight:500;
-  opacity:0.95;
-}
-
-nav a:hover{
-  color:var(--accent-3);
-}
-
-main{
-  max-width:1100px;
-  margin:36px auto;
-  padding:0 18px;
-  box-sizing:border-box;
-}
-
-/* --- Panel --- */
-.panel{
-  position:relative;
-  background:var(--panel-bg);
-  color:var(--text-light);
-  padding:46px 40px 64px;
-  margin:38px 0;
-  border-radius:0;
-  overflow:hidden;
-}
-
-/* Gradient ribbon horizontal - offset agar tidak nabrak strip kiri */
-.panel::before,.panel::after{
-  content:"";
-  position:absolute;
-  left:8px; /* mulai setelah strip kiri */
-  width:calc(100% - 8px);
-  height:4px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  animation:ribbonShift 30s linear infinite;
-}
-
-.panel::before{top:0;}
-.panel::after{bottom:0;}
-
-@keyframes ribbonShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Left strip panel */
-.panel .left-strip{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:8px;
-  background:linear-gradient(180deg,var(--accent-1),var(--accent-3),var(--accent-4),var(--accent-5));
-  border-radius:0;
-}
-
-/* Section headers */
-section h2{
-  font-family:'Poppins',sans-serif;
-  font-size:1.9rem;
-  color:var(--accent-4); /* soft gold */
-  margin:0 0 18px 0;
-  position:relative;
-  z-index:10;
-  text-shadow:0 3px 8px rgba(0,0,0,0.4);
-}
-
-.section-with-image{
-  display:flex;
-  gap:26px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-}
-
-.section-with-image img{
-  width:320px;
-  height:auto;
-  object-fit:cover;
-  border-radius:0;
-  box-shadow:none;
-}
-
-.section-with-image .text{
-  min-width:260px;
-  font-family:'Poppins',sans-serif;
-  line-height:1.6;
-  color:rgba(255,255,255,0.95);
-}
-
-ul{padding-left:18px}
-li{margin-bottom:8px}
-
-/* --- Gallery --- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-top:16px;
-  position:relative;
-}
-
-.gallery img{
-  width:100%;
-  height:auto; /* pertahankan full image */
-  object-fit:cover;
-  border-radius:0;
-  box-shadow:none;
-  position:relative;
-}
-
-/* cinematic vignette untuk setiap gambar */
-.gallery img::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:0;
-  background:radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
-  pointer-events:none;
-  mix-blend-mode:multiply;
-}
-
-/* --- Footer --- */
-.footer{
-  padding:28px 18px;
-  text-align:center;
-  background:linear-gradient(90deg,#07122a 0%,#0b1530 100%);
-  color:var(--text-light);
-  font-family:'Poppins',sans-serif;
-  margin-top:36px;
-}
-
-@media(max-width:880px){
-  .section-with-image img{width:100%}
-  .panel{padding:32px 20px 54px}
-}
-
-/* --- Grain & Vignette --- */
-.grain{
-  pointer-events:none;
-  position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;
-  mix-blend-mode:overlay;opacity:0.04;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" /></filter><rect width="100%" height="100%" filter="url(%23n)" /></svg>');
-}
-
-.vignette{
-  position:fixed;inset:0;pointer-events:none;z-index:900;
-  mix-blend-mode:multiply;
-  background:radial-gradient(60% 40% at 50% 40%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 100%);
-  opacity:0.5;
-}
-
-/* --- Contact buttons --- */
-section#contact a{
-  border-radius:0;
-  padding:10px 14px;
-  font-weight:600;
-  font-family:'Poppins',sans-serif;
-  text-decoration:none;
-  color:#fff;
-  display:inline-block;
-}
-
-/* Hapus garis horizontal lama */
-.panel::before,
-.panel::after {
-  display: none;
-}
-
-/* Garis horizontal baru di bawah section title */
-section h2::after {
-  content:"";
-  display:block;
-  width:100%;
-  height:4px;
-  margin-top:12px; /* jarak dari judul */
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-4),var(--accent-5));
-  background-size:300% 100%;
-  border-radius:2px;
-  animation:ribbonShift 30s linear infinite;
-}
-
-/* Lighting dramatis & cinematic - taruh paling akhir */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: radial-gradient(
-      circle at 50% 20%, 
-      rgba(255, 255, 240, 0.15), 
-      transparent 70%
-    ),
-    linear-gradient(
-      to bottom right, 
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0.7)
-    );
-  z-index: 1;
-  mix-blend-mode: soft-light;
-}
-
-  /* === Cinematic & Elegant Enhancement Layer === */
-
-/* Smooth lighting and vignette transitions */
-body {
-  background-color: #0e0d0d;
-  transition: background 1s ease, color 1s ease;
-  overflow-x: hidden;
-}
-
-/* Subtle gradient lighting that moves very slowly */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(
-      circle at 50% 30%,
-      rgba(255, 240, 210, 0.08),
-      transparent 60%
-  ),
-  radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 200, 150, 0.06),
-      transparent 70%
-  );
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  animation: ambientShift 60s ease-in-out infinite alternate;
-  z-index: 2;
-}
-
-@keyframes ambientShift {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-3%, -2%) scale(1.05); }
-  100% { transform: translate(2%, 3%) scale(1); }
-}
-
-/* Panels with cinematic shadow depth */
-.panel {
-  box-shadow: 0 0 30px rgba(0,0,0,0.4),
-              inset 0 0 10px rgba(255,255,255,0.05);
-  transition: transform 0.5s ease, box-shadow 0.8s ease;
-}
-
-.panel:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5),
-              inset 0 0 12px rgba(255,255,255,0.08);
-}
-
-/* Elegant text glow for headers */
-h1, h2 {
-  text-shadow:
-    0 0 8px rgba(255, 230, 180, 0.15),
-    0 0 16px rgba(255, 220, 160, 0.08);
-  letter-spacing: 0.5px;
-}
-
-/* Cinematic fade-in for all main content */
-main, header, footer {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInCinematic 1.5s ease forwards;
-}
-
-@keyframes fadeInCinematic {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .header-left .text-block p {
+    margin: 0;
+    font-size: 1.01em;
+    opacity: 0.85;
   }
-}
 
-/* Floating shimmer accent on titles */
-section h2::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255,255,255,0.08) 45%,
-    transparent 100%
-  );
-  transform: translateX(-100%);
-  animation: shimmerMove 12s linear infinite;
-}
-
-@keyframes shimmerMove {
-  0% { transform: translateX(
-
-
-      /* === Make Sacred Precision banner full width === */
-header .ribbon, 
-header .tagline, 
-header .button {
-  display: block;
-  width: 100%;
+  .header-right {
+  background-color: #BAA046; /* mustard kuning */
+  color: var(--text-dark); /* biru violet indigo */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.01em;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .header-right p {
   margin: 0;
-  padding: 14px 0;
-  text-align: center;
-  font-weight: 500;
-  color: #fff;
-  background: linear-gradient(90deg, #543d82, #a87d3f);
-  border-radius: 0;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-  position: relative;
-  z-index: 5;
+}
+  nav {
+    font-family: 'Poppins', sans-serif;
+    background-color: #2F2F2F;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--accent-color);
+  }
+
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  section h2 {
+    font-size: 2em;
+    color: #BAA046;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 6px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .panel {
+  background-color: var(--background-panel);
+  color: var(--text-dark);
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 0; /* <-- no rounded corner */
+  box-shadow: none; /* <-- no shadow/emboss */
 }
 
-/* optional subtle glow */
-header .ribbon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
-  mix-blend-mode: overlay;
-  pointer-events: none;
-}
-      .navbar .tagline {
-  background: #c6b36b; /* warna gold klasik dari versi pertama */
-  color: #0a0a0a; /* teks tetap kontras */
-  font-weight: 600;
-  text-transform: none;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  height: 100%; /* biar tinggi latar sama dengan navbar penuh */
-  border-radius: 0; /* hilangkan efek tombol */
-  margin: 0; /* hilangkan jarak biar mentok */
-}
+  .section-with-image {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+  }
 
-.navbar {
-  align-items: stretch; /* biar tagline isi penuh tinggi header */
-}
+  .section-with-image img {
+    width: 300px;
+    border-radius: 0;
+  }
 
+  .section-with-image .text {
+    flex: 1;
+    min-width: 280px;
+  }
 
+  #about p, #programs li, #philosophy p, #portfolio p {
+    font-family: 'Poppins', sans-serif;
+  }
 
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
 
+  .social-icons a {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+  }
 
+  .social-icons a:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .footer {
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 30px;
+    color: var(--text-light);
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .header-left,
+    .header-right {
+      width: 100%;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .section-with-image {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-with-image img {
+      width: 90%;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+  }
 </style>
+
 </head>
 <body>
 
 <header>
   <div class="header-left">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-    <div>
+  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo" style="height: 90px; margin-right: 15px;">
+    <div class="text-block">
       <h1>Sonata Music Studio</h1>
       <p>Instruction | Composition | Educational Materials</p>
     </div>
@@ -784,129 +246,117 @@ header .ribbon::after {
   <a href="#programs">Programs</a>
   <a href="#philosophy">Philosophy</a>
   <a href="#portfolio">Portfolio</a>
-  <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<main>
-  <section id="about">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>About</h2>
-      <div class="section-with-image">
-        <img src="1728278677799.jpeg" alt="Felix Satia" />
-        <div class="text">
-          <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
-        </div>
+<section id="about">
+  <div class="panel">
+    <h2>About</h2>
+    <div class="section-with-image">
+      <img src="1728278677799.jpeg" alt="Felix Satia" />
+      <div class="text">
+        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="programs">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>Programs</h2>
-      <div class="section-with-image">
-        <img src="1728277959315.jpeg" alt="Teaching" />
-        <div class="text">
-          <ul>
-            <li>Piano – Classical Repertoire & Technique</li>
-            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-          </ul>
-        </div>
+<section id="programs">
+  <div class="panel">
+    <h2>Programs</h2>
+    <div class="section-with-image">
+      <img src="1728277959315.jpeg" alt="Teaching" />
+      <div class="text">
+        <ul>
+          <li>Piano – Classical Repertoire & Technique</li>
+          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="philosophy">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>Philosophy</h2>
-      <div class="section-with-image">
-        <img src="1728277097784.jpeg" alt="Concert" />
-        <div class="text">
-          <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
-        </div>
+<section id="philosophy">
+  <div class="panel">
+    <h2>Philosophy</h2>
+    <div class="section-with-image">
+      <img src="1728277097784.jpeg" alt="Concert" />
+      <div class="text">
+        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="portfolio">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>Portfolio</h2>
-      <div class="section-with-image">
-        <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
-        <div class="text">
-          <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
-        </div>
+<section id="portfolio">
+  <div class="panel">
+    <h2>Portfolio</h2>
+    <div class="section-with-image">
+      <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
+      <div class="text">
+        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="gallery">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <!-- Semua gambar asli tetap -->
-        <img src="1728277097784.jpeg" alt="">
-        <img src="1728277959315.jpeg" alt="">
-        <img src="1728277994217.jpeg" alt="">
-        <img src="1728278062357.jpeg" alt="">
-        <img src="1728278413639.jpeg" alt="">
-        <img src="1728278498612.jpeg" alt="">
-        <img src="1728278535664.jpeg" alt="">
-        <img src="1728278743638.jpeg" alt="">
-        <img src="1728278972071.jpeg" alt="">
-        <img src="1728279819431.jpeg" alt="">
-        <img src="1728294846403.jpeg" alt="">
-        <img src="1728294894368.jpeg" alt="">
-        <img src="1728295139439.jpeg" alt="">
-        <img src="1728295173689.jpeg" alt="">
-        <img src="1728295202953.jpeg" alt="">
-        <img src="1728295402904.jpeg" alt="">
-        <img src="1728295429712.jpeg" alt="">
-        <img src="1728296617350.jpeg" alt="">
-        <img src="1728300782229.jpeg" alt="">
-        <img src="1728301815288.jpeg" alt="">
-        <img src="1728302182364.jpeg" alt="">
-        <img src="1728302212548.jpeg" alt="">
-        <img src="1728303826998.jpeg" alt="">
-        <img src="1728311786057.jpeg" alt="">
-        <img src="1728349078427.jpeg" alt="">
-        <img src="1728368821890.jpeg" alt="">
-        <img src="1728368987536.jpeg" alt="">
-        <img src="1728450148208.jpeg" alt="">
-        <img src="1728450200661.jpeg" alt="">
-        <img src="1728450222173.jpeg" alt="">
-        <img src="1728450251141.jpeg" alt="">
-        <img src="20250905_123538.png" alt="">
-      </div>
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="panel">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="1728277097784.jpeg" />
+      <img src="1728277959315.jpeg" />
+      <img src="1728277994217.jpeg" />
+      <img src="1728278062357.jpeg" />
+      <img src="1728278413639.jpeg" />
+      <img src="1728278498612.jpeg" />
+      <img src="1728278535664.jpeg" />
+      <img src="1728278743638.jpeg" />
+      <img src="1728278972071.jpeg" />
+      <img src="1728279819431.jpeg" />
+      <img src="1728294846403.jpeg" />
+      <img src="1728294894368.jpeg" />
+      <img src="1728295139439.jpeg" />
+      <img src="1728295173689.jpeg" />
+      <img src="1728295202953.jpeg" />
+      <img src="1728295402904.jpeg" />
+      <img src="1728295429712.jpeg" />
+      <img src="1728296617350.jpeg" />
+      <img src="1728300782229.jpeg" />
+      <img src="1728301815288.jpeg" />
+      <img src="1728302182364.jpeg" />
+      <img src="1728302212548.jpeg" />
+      <img src="1728303826998.jpeg" />
+      <img src="1728311786057.jpeg" />
+      <img src="1728349078427.jpeg" />
+      <img src="1728368821890.jpeg" />
+      <img src="1728368987536.jpeg" />
+      <img src="1728450148208.jpeg" />
+      <img src="1728450200661.jpeg" />
+      <img src="1728450222173.jpeg" />
+      <img src="1728450251141.jpeg" />
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="panel">
-      <div class="left-strip"></div>
-      <h2>Contact</h2>
-      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px">
-        <a href="https://wa.me/6289656684852" style="background:linear-gradient(90deg,var(--accent-3),var(--accent-5));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">WhatsApp</a>
-        <a href="https://www.youtube.com/@felixsatia" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-4));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">YouTube</a>
-        <a href="https://www.instagram.com/felixsatia" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-5));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">Instagram</a>
-        <a href="https://www.linkedin.com/in/felix-satia-a78140302" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;font-family:'Poppins',sans-serif">LinkedIn</a>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="panel">
+    <h2>Contact</h2>
+    <div class="social-icons">
+      <a href="https://wa.me/6289656684852">WhatsApp</a>
+      <a href="https://www.youtube.com/@felixsatia">YouTube</a>
+      <a href="https://www.instagram.com/felixsatia">Instagram</a>
+      <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <div class="footer">
   <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
 </div>
-
-<div class="grain"></div>
-<div class="vignette"></div>
 
 </body>
 </html>
