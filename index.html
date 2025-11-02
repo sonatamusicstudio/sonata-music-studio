@@ -688,6 +688,45 @@ body::backdrop {
   0%   { opacity: 0.05; transform: translate(0%,0%); }
   100% { opacity: 0.15; transform: translate(-5%,5%); }
 }
+  html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #0a0f2c;
+}
+
+body {
+  position: relative;
+  background: linear-gradient(120deg, #0a0f2c, #162a6b, #3b1f6f, #8b2e7b, #d95c6a, #ffb37c);
+  background-size: 300% 300%;
+  animation: silkColorFlow 40s ease-in-out infinite alternate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='0.003' numOctaves='4'/><feDisplacementMap in='SourceGraphic' scale='120'/></filter><rect width='100%' height='100%' filter='url(%23noise)' fill='none'/></svg>");
+  background-size: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  animation: silkWave 60s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes silkColorFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes silkWave {
+  0% { transform: translate(0%,0%) scale(1); }
+  50% { transform: translate(-5%,5%) scale(1.1); }
+  100% { transform: translate(5%,-5%) scale(1); }
+}
+
 
 
 
