@@ -258,8 +258,52 @@ body::before {
   75% { background-position: 50% 30%; }
   100% { background-position: 0% 50%; }
 }
+    /* === Wavy Silk Cinematic Background – Stable Version === */
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: #0b0f24; /* fallback kalau animasi belum load */
+}
 
-  
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 30% 30%, #0b0f24, #1a254f, #0b0f24);
+  background-size: 400% 400%;
+  animation: wavySilk 20s ease-in-out infinite;
+  opacity: 1;
+  will-change: background-position;
+  transition: opacity 1s ease-in-out;
+}
+
+/* shimmer lembut biar ada efek cahaya panggung */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1), transparent 70%);
+  mix-blend-mode: overlay;
+  animation: shimmerMove 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes wavySilk {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 70%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 30%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmerMove {
+  0% { transform: translate(-10%, -10%) scale(1); opacity: 0.4; }
+  50% { transform: translate(10%, 10%) scale(1.05); opacity: 0.6; }
+  100% { transform: translate(-5%, -5%) scale(1); opacity: 0.5; }
+}
+
 
 </style>
 
