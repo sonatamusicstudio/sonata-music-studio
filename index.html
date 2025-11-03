@@ -196,84 +196,65 @@
     object-fit: cover;
     display: block;
   }
-  /* === CINEMATIC ROYAL SILK WAVES === */
-body {
-  position: relative;
+  body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 30% 20%, rgba(20, 40, 90, 1) 0%, rgba(10, 15, 30, 1) 70%) no-repeat fixed;
+  background-size: cover;
   overflow-x: hidden;
-  background: radial-gradient(circle at 50% 20%, #0a0f24, #0c1838 40%, #060b18 90%);
-  color: #ffffff;
+  animation: silkFlow 20s ease-in-out infinite alternate;
+  position: relative;
 }
 
-/* Lapisan dasar shimmer halus (gold shimmer lembut) */
+/* efek kain sutra bergelombang */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  z-index: -3;
-  background: radial-gradient(circle at 70% 30%, rgba(210,180,100,0.15), transparent 70%),
-              radial-gradient(circle at 30% 70%, rgba(255,240,190,0.08), transparent 80%);
-  animation: shimmerPulse 20s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: 
+    repeating-radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.15), rgba(128, 112, 0, 0.02) 200px),
+    linear-gradient(120deg, rgba(20, 25, 70, 0.8) 0%, rgba(30, 10, 60, 0.7) 40%, rgba(5, 5, 20, 0.9) 100%);
+  mix-blend-mode: overlay;
+  filter: blur(40px) brightness(1.1);
+  animation: waveMotion 30s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Lapisan wave elegan dan organik */
+/* cahaya sutra lembut */
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: 
-    url('data:image/svg+xml;utf8,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="royal" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="rgba(15,30,80,0.6)" />
-          <stop offset="100%" stop-color="rgba(250,210,120,0.15)" />
-        </linearGradient>
-      </defs>
-      <path d="M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z" fill="url(%23royal)">
-        <animate attributeName="d" dur="10s" repeatCount="indefinite"
-          values='
-            M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z;
-            M0,520 Q360,490 720,520 T1440,480 V1024 H0 Z;
-            M0,480 Q360,410 720,490 T1440,530 V1024 H0 Z;
-            M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z
-          ' />
-      </path>
-    </svg>');
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: overlay;
-  opacity: 0.45;
-  filter: blur(25px);
-  pointer-events: none;
-  transform: translateZ(0);
-}
-
-/* Tambahan layer shimmer garis halus bergerak */
-@keyframes shimmerPulse {
-  0% { filter: hue-rotate(0deg) brightness(1); }
-  50% { filter: hue-rotate(10deg) brightness(1.15); }
-  100% { filter: hue-rotate(-10deg) brightness(0.95); }
-}
-
-/* Lapisan wave lembut kedua (lebih dramatis dan cinematic) */
-html::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, rgba(10,15,40,0.9) 0%, rgba(15,25,60,0.7) 40%, rgba(20,30,70,0.8) 100%);
-  animation: royalWaves 25s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.15), transparent 60%),
+              radial-gradient(circle at 20% 10%, rgba(100, 80, 255, 0.15), transparent 50%);
   mix-blend-mode: soft-light;
-  filter: blur(20px);
+  animation: shimmer 25s ease-in-out infinite alternate;
+  z-index: -1;
 }
 
-@keyframes royalWaves {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 60%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 40%; }
-  100% { background-position: 0% 50%; }
+@keyframes silkFlow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 100% 0%; }
+}
+
+@keyframes waveMotion {
+  0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); }
+  50% { transform: translate(5%, 5%) rotate(3deg) scale(1.05); }
+  100% { transform: translate(-5%, -5%) rotate(-3deg) scale(1.02); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+  100% { opacity: 0.5; transform: scale(1); }
 }
 
 
