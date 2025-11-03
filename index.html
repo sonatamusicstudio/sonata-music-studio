@@ -196,61 +196,84 @@
     object-fit: cover;
     display: block;
   }
-  /* === Cinematic Wavy Silk Motion Background === */
+  /* === CINEMATIC ROYAL SILK WAVES === */
 body {
   position: relative;
-  overflow: hidden;
-  background: radial-gradient(circle at 40% 30%, #1b0f33 0%, #0a0819 100%);
-  color: #F5EDE0;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 50% 20%, #0a0f24, #0c1838 40%, #060b18 90%);
+  color: #ffffff;
 }
 
-/* Layer dasar warna */
+/* Lapisan dasar shimmer halus (gold shimmer lembut) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
-  background: radial-gradient(circle at 60% 70%, rgba(220,155,80,0.15), transparent 60%),
-              radial-gradient(circle at 30% 20%, rgba(140,90,255,0.2), transparent 70%);
-  animation: hueDrift 40s ease-in-out infinite alternate;
+  z-index: -3;
+  background: radial-gradient(circle at 70% 30%, rgba(210,180,100,0.15), transparent 70%),
+              radial-gradient(circle at 30% 70%, rgba(255,240,190,0.08), transparent 80%);
+  animation: shimmerPulse 20s ease-in-out infinite alternate;
 }
 
-/* Lapisan wave yang benar-benar W A V Y */
+/* Lapisan wave elegan dan organik */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background: 
     url('data:image/svg+xml;utf8,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="rgba(255,215,180,0.05)" />
-          <stop offset="100%" stop-color="rgba(90,50,160,0.1)" />
+        <linearGradient id="royal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="rgba(15,30,80,0.6)" />
+          <stop offset="100%" stop-color="rgba(250,210,120,0.15)" />
         </linearGradient>
       </defs>
-      <path d="M0,400 Q300,350 600,400 T1200,400 V800 H0 Z" fill="url(%23grad)">
+      <path d="M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z" fill="url(%23royal)">
         <animate attributeName="d" dur="10s" repeatCount="indefinite"
           values='
-            M0,400 Q300,350 600,400 T1200,400 V800 H0 Z;
-            M0,420 Q300,450 600,420 T1200,380 V800 H0 Z;
-            M0,390 Q300,330 600,410 T1200,430 V800 H0 Z;
-            M0,400 Q300,350 600,400 T1200,400 V800 H0 Z
+            M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z;
+            M0,520 Q360,490 720,520 T1440,480 V1024 H0 Z;
+            M0,480 Q360,410 720,490 T1440,530 V1024 H0 Z;
+            M0,500 Q360,450 720,500 T1440,500 V1024 H0 Z
           ' />
       </path>
     </svg>');
   background-size: cover;
-  mix-blend-mode: screen;
-  opacity: 0.35;
-  filter: blur(30px);
+  background-position: center;
+  mix-blend-mode: overlay;
+  opacity: 0.45;
+  filter: blur(25px);
+  pointer-events: none;
+  transform: translateZ(0);
 }
 
-/* Warna dasar berdenyut pelan */
-@keyframes hueDrift {
+/* Tambahan layer shimmer garis halus bergerak */
+@keyframes shimmerPulse {
   0% { filter: hue-rotate(0deg) brightness(1); }
-  50% { filter: hue-rotate(15deg) brightness(1.1); }
+  50% { filter: hue-rotate(10deg) brightness(1.15); }
   100% { filter: hue-rotate(-10deg) brightness(0.95); }
+}
+
+/* Lapisan wave lembut kedua (lebih dramatis dan cinematic) */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(10,15,40,0.9) 0%, rgba(15,25,60,0.7) 40%, rgba(20,30,70,0.8) 100%);
+  animation: royalWaves 25s ease-in-out infinite;
+  mix-blend-mode: soft-light;
+  filter: blur(20px);
+}
+
+@keyframes royalWaves {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 60%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 40%; }
+  100% { background-position: 0% 50%; }
 }
 
 
