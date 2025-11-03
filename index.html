@@ -222,37 +222,22 @@
     section {
       padding: 40px 20px;
     }
-    /* === Wavy Silk Motion Background (Artistic Layer) === */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 25% 30%, rgba(186,160,70,0.15) 0%, transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(13,40,102,0.25) 0%, transparent 60%),
-    linear-gradient(135deg, rgba(13,40,102,0.4) 0%, rgba(0,0,0,0.7) 100%);
-  background-blend-mode: overlay;
-  animation: silkFlow 40s ease-in-out infinite alternate;
-  filter: blur(8px) brightness(1.05);
-  opacity: 0.9;
+
+  body {
+  background: radial-gradient(circle at 30% 30%, #0b0f24, #1a254f, #0b0f24);
+  background-size: 400% 400%;
+  animation: wavySilk 18s ease-in-out infinite;
+  overflow-x: hidden;
 }
 
-/* subtle moving shimmer like fabric breathing */
-@keyframes silkFlow {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-  }
-  50% {
-    transform: translate3d(-1%, 1%, 0) scale(1.01);
-    background-position: 10% 20%, 90% 80%, 55% 45%;
-  }
-  100% {
-    transform: translate3d(1%, -1%, 0) scale(1);
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-  }
+@keyframes wavySilk {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 70%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 30%; }
+  100% { background-position: 0% 50%; }
+}
+  
 
 </style>
 
