@@ -196,55 +196,62 @@
     object-fit: cover;
     display: block;
   }
-  /* === Realistic Wavy Silk Background === */
+  /* === Cinematic Wavy Silk Motion Background === */
 body {
   position: relative;
-  overflow-x: hidden;
-  background: #0b0f24;
+  overflow: hidden;
+  background: radial-gradient(circle at 40% 30%, #1b0f33 0%, #0a0819 100%);
+  color: #F5EDE0;
 }
 
+/* Layer dasar warna */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: linear-gradient(135deg, #0b0f24 0%, #1b2a56 50%, #0b0f24 100%);
-  background-size: 200% 200%;
-  animation: silkFlow 30s ease-in-out infinite;
-  filter: blur(6px) brightness(1.2) contrast(1.1);
+  background: radial-gradient(circle at 60% 70%, rgba(220,155,80,0.15), transparent 60%),
+              radial-gradient(circle at 30% 20%, rgba(140,90,255,0.2), transparent 70%);
+  animation: hueDrift 40s ease-in-out infinite alternate;
 }
 
-/* tekstur halus seperti serat kain */
+/* Lapisan wave yang benar-benar W A V Y */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.04) 0px,
-    rgba(255,255,255,0.02) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  opacity: 0.2;
-  mix-blend-mode: soft-light;
-  animation: shimmerFlow 12s ease-in-out infinite alternate;
-  pointer-events: none;
+  background: 
+    url('data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="rgba(255,215,180,0.05)" />
+          <stop offset="100%" stop-color="rgba(90,50,160,0.1)" />
+        </linearGradient>
+      </defs>
+      <path d="M0,400 Q300,350 600,400 T1200,400 V800 H0 Z" fill="url(%23grad)">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values='
+            M0,400 Q300,350 600,400 T1200,400 V800 H0 Z;
+            M0,420 Q300,450 600,420 T1200,380 V800 H0 Z;
+            M0,390 Q300,330 600,410 T1200,430 V800 H0 Z;
+            M0,400 Q300,350 600,400 T1200,400 V800 H0 Z
+          ' />
+      </path>
+    </svg>');
+  background-size: cover;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  filter: blur(30px);
 }
 
-@keyframes silkFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Warna dasar berdenyut pelan */
+@keyframes hueDrift {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(15deg) brightness(1.1); }
+  100% { filter: hue-rotate(-10deg) brightness(0.95); }
 }
-
-@keyframes shimmerFlow {
-  0% { transform: translate(0,0) rotate(0deg); opacity: 0.15; }
-  50% { transform: translate(10px, -10px) rotate(2deg); opacity: 0.3; }
-  100% { transform: translate(0,0) rotate(0deg); opacity: 0.2; }
-}
-
 
 
   @media (max-width: 768px) {
@@ -272,89 +279,7 @@ body::after {
     section {
       padding: 40px 20px;
     }
-
-  body {
-  background: radial-gradient(circle at 30% 30%, #0b0f24, #1a254f, #0b0f24);
-  background-size: 400% 400%;
-  animation: wavySilk 18s ease-in-out infinite;
-  overflow-x: hidden;
-}
-
-@keyframes wavySilk {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 70%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 30%; }
-  100% { background-position: 0% 50%; }
-}
-    /* === Wave Silk Background (langsung jadi) === */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at 30% 30%, #0b0f24, #1a254f, #0b0f24);
-  background-size: 400% 400%;
-  animation: wavySilk 18s ease-in-out infinite;
-}
-
-@keyframes wavySilk {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 70%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 30%; }
-  100% { background-position: 0% 50%; }
-}
-    /* === Wavy Silk Cinematic Background – Stable Version === */
-body {
-  position: relative;
-  overflow-x: hidden;
-  background: #0b0f24; /* fallback kalau animasi belum load */
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at 30% 30%, #0b0f24, #1a254f, #0b0f24);
-  background-size: 400% 400%;
-  animation: wavySilk 20s ease-in-out infinite;
-  opacity: 1;
-  will-change: background-position;
-  transition: opacity 1s ease-in-out;
-}
-
-/* shimmer lembut biar ada efek cahaya panggung */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1), transparent 70%);
-  mix-blend-mode: overlay;
-  animation: shimmerMove 12s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes wavySilk {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 70%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 30%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes shimmerMove {
-  0% { transform: translate(-10%, -10%) scale(1); opacity: 0.4; }
-  50% { transform: translate(10%, 10%) scale(1.05); opacity: 0.6; }
-  100% { transform: translate(-5%, -5%) scale(1); opacity: 0.5; }
-}
-
-
+  }
 </style>
 
 </head>
