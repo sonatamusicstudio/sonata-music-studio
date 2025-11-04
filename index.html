@@ -272,6 +272,86 @@ body::after {
   100% {
     transform: translateY(0) rotate(-1deg);
   }
+  /* === Cinematic Silk Wavy Background === */
+body {
+  margin: 0;
+  background-color: #020817;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Times New Roman', serif;
+}
+
+/* Layer dasar: gradasi navy-gold mewah */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #001533 0%, #000a18 50%, #0a1b3b 100%);
+  z-index: -3;
+}
+
+/* Layer efek silk wave (gelombang lembut) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.08), transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(0, 100, 255, 0.1), transparent 70%),
+    repeating-linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(0, 0, 0, 0.1) 4px,
+      rgba(0, 0, 0, 0.1) 6px
+    );
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  filter: blur(12px) brightness(1.15);
+  opacity: 0.9;
+  animation: silkWave 18s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+/* Efek shimmer aurora */
+.silk-shimmer {
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 60% 40%, rgba(255, 215, 100, 0.15), transparent 70%),
+    radial-gradient(circle at 20% 80%, rgba(0, 80, 200, 0.2), transparent 70%);
+  mix-blend-mode: soft-light;
+  animation: shimmer 20s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes silkWave {
+  0% {
+    transform: translate(-10%, -5%) skewX(10deg) skewY(-8deg);
+    background-position: 0% 0%;
+  }
+  50% {
+    transform: translate(8%, 10%) skewX(-12deg) skewY(6deg);
+    background-position: 100% 50%;
+  }
+  100% {
+    transform: translate(-5%, 5%) skewX(14deg) skewY(-10deg);
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(-2deg);
+  
+}
+
 
   @media (max-width: 768px) {
     header {
