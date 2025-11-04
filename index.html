@@ -263,6 +263,35 @@ body::before{
   .silk-overlay.layer1, .silk-overlay.layer2, .silk-overlay.layer3 { animation:none !important; }
   .silk-overlay.layer2 { transform:none !important; }
 }
+  
+/* === ENHANCED VISIBILITY PATCH: Cinematic Hybrid Silk High-Contrast === */
+.silk-overlay.layer1 {
+  opacity: 0.75; /* sebelumnya 0.55 */
+  filter: blur(22px) contrast(1.2) saturate(1.15) brightness(1.05);
+}
+
+.silk-overlay.layer2 {
+  opacity: 0.55; /* sebelumnya 0.35 */
+  filter: blur(10px) saturate(1.3) brightness(1.08) contrast(1.1);
+}
+
+.silk-overlay.layer3 {
+  opacity: 0.28; /* sebelumnya 0.18 */
+  filter: blur(14px) contrast(1.2) brightness(1.1);
+}
+
+/* gold shimmer lebih nyata */
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-40%) scaleX(1.2); opacity:0.18; }
+  50%  { transform: translateX(40%) scaleX(1.1); opacity:0.32; }
+  100% { transform: translateX(-40%) scaleX(1.2); opacity:0.18; }
+}
+
+/* fabric grain lebih jelas tapi tetap lembut */
+.fabric-grain {
+  opacity: 0.1; /* sebelumnya 0.06 */
+  filter: blur(1.5px) contrast(1.05) saturate(1.05);
+}
 
 
   @media (max-width: 768px) {
