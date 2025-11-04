@@ -197,16 +197,12 @@
     display: block;
   }
   body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at 30% 20%, rgba(20, 40, 90, 1) 0%, rgba(10, 15, 30, 1) 70%) no-repeat fixed;
-  background-size: cover;
-  overflow-x: hidden;
-  animation: silkFlow 20s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 30% 30%, #001f3f, #000814 60%) no-repeat;
   position: relative;
+  overflow-x: hidden;
 }
 
-/* efek kain sutra bergelombang */
+/* Efek wavy sutera */
 body::before {
   content: "";
   position: fixed;
@@ -214,48 +210,60 @@ body::before {
   left: 0;
   width: 200%;
   height: 200%;
-  background: 
-    repeating-radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.15), rgba(128, 112, 0, 0.02) 200px),
-    linear-gradient(120deg, rgba(20, 25, 70, 0.8) 0%, rgba(30, 10, 60, 0.7) 40%, rgba(5, 5, 20, 0.9) 100%);
-  mix-blend-mode: overlay;
-  filter: blur(40px) brightness(1.1);
-  animation: waveMotion 30s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
-  pointer-events: none;
+  background: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 215, 0, 0.08),
+      rgba(255, 215, 0, 0.03) 20%,
+      rgba(0, 0, 128, 0.08) 40%
+  );
+  background-size: 150% 150%;
+  animation: silkWave 16s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  opacity: 0.6;
   z-index: -1;
 }
 
-/* cahaya sutra lembut */
+/* Lapisan kedua: pantulan lembut */
 body::after {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.15), transparent 60%),
-              radial-gradient(circle at 20% 10%, rgba(100, 80, 255, 0.15), transparent 50%);
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+      120deg,
+      rgba(0, 15, 35, 0.9) 0%,
+      rgba(10, 10, 25, 0.7) 30%,
+      rgba(255, 215, 0, 0.1) 60%,
+      rgba(0, 15, 35, 0.9) 100%
+  );
+  background-size: 200% 200%;
+  animation: goldShift 20s ease-in-out infinite alternate;
   mix-blend-mode: soft-light;
-  animation: shimmer 25s ease-in-out infinite alternate;
-  z-index: -1;
+  opacity: 0.8;
+  z-index: -2;
 }
 
-@keyframes silkFlow {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 50% 100%; }
-  100% { background-position: 100% 0%; }
+@keyframes silkWave {
+  0% {
+    transform: translate(-10%, -10%) skewX(10deg) skewY(6deg);
+  }
+  50% {
+    transform: translate(5%, 5%) skewX(-12deg) skewY(-8deg);
+  }
+  100% {
+    transform: translate(-10%, -5%) skewX(8deg) skewY(4deg);
+  }
 }
 
-@keyframes waveMotion {
-  0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); }
-  50% { transform: translate(5%, 5%) rotate(3deg) scale(1.05); }
-  100% { transform: translate(-5%, -5%) rotate(-3deg) scale(1.02); }
-}
-
-@keyframes shimmer {
-  0% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-  100% { opacity: 0.5; transform: scale(1); }
-}
+@keyframes goldShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 
 
   @media (max-width: 768px) {
