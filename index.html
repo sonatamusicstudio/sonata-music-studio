@@ -196,160 +196,72 @@
     object-fit: cover;
     display: block;
   }
-  /* === Background Cinematic Silk Wave === */
-body {
-  margin: 0;
-  background: radial-gradient(circle at 30% 30%, #000c1f, #000000 70%) no-repeat;
-  overflow-x: hidden;
-  color: white;
-  font-family: 'Times New Roman', serif;
+  /* ==== Cinematic Hybrid Silk — paste this at the very end of your <style> ==== */
+body { position: relative; overflow-x: hidden; }
+
+/* subtle fabric micro-texture (non-intrusive) */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-4; pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent 30%);
+  opacity:0.9; mix-blend-mode:overlay; filter:contrast(0.98) saturate(0.95);
 }
 
-/* Lapisan dasar — gradasi warna mewah */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 40% 60%, rgba(0, 20, 60, 0.8), transparent 70%),
-              linear-gradient(120deg, rgba(255, 200, 0, 0.15), rgba(0, 50, 150, 0.1), rgba(0, 0, 0, 0.5));
-  background-blend-mode: overlay;
-  z-index: -3;
+/* shared overlay base */
+.silk-overlay{
+  position:fixed; inset:0; pointer-events:none; z-index:-3; background-repeat:no-repeat;
+  background-position:center; background-size:cover; transform:translateZ(0);
 }
 
-/* Lapisan wavy kain sutera */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 215, 0, 0.12) 0%,
-      rgba(0, 30, 80, 0.08) 25%,
-      rgba(0, 0, 0, 0.2) 50%
-  );
-  background-size: 150% 150%;
-  animation: silkFlow 22s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
-  filter: blur(12px) brightness(1.15);
-  z-index: -2;
-  opacity: 0.85;
+/* deep navy curved base wave (slow, wide, blurred) */
+.silk-overlay.layer1{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800' preserveAspectRatio='xMidYMid slice'><defs><linearGradient id='g1' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='rgba(6,18,48,0.95)'/><stop offset='100%' stop-color='rgba(20,34,80,0.35)'/></linearGradient></defs><path d='M0,420 Q360,380 720,420 T1440,420 V800 H0 Z' fill='url(%23g1)'><animate attributeName='d' dur='14s' repeatCount='indefinite' values='M0,420 Q360,380 720,420 T1440,420 V800 H0 Z; M0,460 Q360,520 720,460 T1440,400 V800 H0 Z; M0,400 Q360,350 720,430 T1440,450 V800 H0 Z; M0,420 Q360,380 720,420 T1440,420 V800 H0 Z' /></path></svg>");
+  mix-blend-mode:overlay; opacity:0.55; filter: blur(30px) contrast(1.05) saturate(1.05);
 }
 
-/* Efek aurora sinematik */
-@keyframes silkFlow {
-  0% {
-    transform: translate(-10%, -5%) skewX(12deg) skewY(-8deg);
-    background-position: 0% 0%;
-  }
-  50% {
-    transform: translate(8%, 10%) skewX(-10deg) skewY(6deg);
-    background-position: 100% 50%;
-  }
-  100% {
-    transform: translate(-5%, 5%) skewX(14deg) skewY(-10deg);
-    background-position: 0% 100%;
-  }
+/* gold-tinted finer wave (faster, more details, less blurred) */
+.silk-overlay.layer2{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800' preserveAspectRatio='xMidYMid slice'><defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='rgba(255,220,140,0.08)'/><stop offset='100%' stop-color='rgba(50,60,140,0.06)'/></linearGradient></defs><path d='M0,380 Q240,360 480,380 T1440,380 V800 H0 Z' fill='url(%23g2)'><animate attributeName='d' dur='9s' repeatCount='indefinite' values='M0,380 Q240,360 480,380 T1440,380 V800 H0 Z; M0,400 Q240,420 480,400 T1440,360 V800 H0 Z; M0,360 Q240,320 480,390 T1440,420 V800 H0 Z; M0,380 Q240,360 480,380 T1440,380 V800 H0 Z' /></path></svg>");
+  mix-blend-mode:screen; opacity:0.35; filter: blur(14px) saturate(1.25) brightness(1.03);
+  transform-origin:center;
+  animation: layer2Shift 12s ease-in-out infinite;
 }
 
-/* Lapisan highlight shimmer emas */
-.silk-light {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(255, 223, 120, 0.15), transparent 60%),
-              radial-gradient(circle at 30% 70%, rgba(255, 180, 50, 0.08), transparent 80%);
-  mix-blend-mode: soft-light;
-  animation: shimmerMove 18s ease-in-out infinite alternate;
-  z-index: -1;
+/* subtle motion shift for layer2 to add non-linear movement */
+@keyframes layer2Shift {
+  0%   { transform: translate(-2%, -1%) scale(1.02) rotate(-0.2deg); }
+  50%  { transform: translate(3%, 2%) scale(1.03) rotate(0.6deg); }
+  100% { transform: translate(-2%, -1%) scale(1.02) rotate(-0.2deg); }
 }
 
-@keyframes shimmerMove {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10%) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0) rotate(-1deg);
-  }
-  /* === Cinematic Silk Wavy Background === */
-body {
-  margin: 0;
-  background-color: #020817;
-  overflow-x: hidden;
-  color: white;
-  font-family: 'Times New Roman', serif;
+/* thin gold shimmer streak passing slowly (adds cinematic highlight) */
+.silk-overlay.layer3{
+  background-image: linear-gradient(90deg, rgba(255,230,180,0.0) 0%, rgba(255,230,120,0.06) 50%, rgba(255,230,180,0.0) 100%);
+  mix-blend-mode:overlay; opacity:0.18; filter:blur(22px) contrast(1.1);
+  transform-origin:center;
+  animation: shimmerSweep 22s linear infinite;
 }
 
-/* Layer dasar: gradasi navy-gold mewah */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #001533 0%, #000a18 50%, #0a1b3b 100%);
-  z-index: -3;
+/* shimmer sweep */
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-40%) scaleX(1.2); opacity:0.12; }
+  50%  { transform: translateX(40%) scaleX(1.1); opacity:0.22; }
+  100% { transform: translateX(-40%) scaleX(1.2); opacity:0.12; }
 }
 
-/* Layer efek silk wave (gelombang lembut) */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.08), transparent 60%),
-    radial-gradient(circle at 70% 80%, rgba(0, 100, 255, 0.1), transparent 70%),
-    repeating-linear-gradient(135deg,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
-      rgba(0, 0, 0, 0.1) 4px,
-      rgba(0, 0, 0, 0.1) 6px
-    );
-  background-size: 200% 200%;
-  mix-blend-mode: overlay;
-  filter: blur(12px) brightness(1.15);
-  opacity: 0.9;
-  animation: silkWave 18s ease-in-out infinite alternate;
-  z-index: -2;
+/* light fabric microfolds using CSS gradient overlay (tiny detail) */
+.fabric-grain {
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, rgba(0,0,0,0.02) 1px 3px);
+  opacity:0.06; mix-blend-mode:soft-light; filter:blur(2px) saturate(0.9);
 }
 
-/* Efek shimmer aurora */
-.silk-shimmer {
-  position: fixed;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 60% 40%, rgba(255, 215, 100, 0.15), transparent 70%),
-    radial-gradient(circle at 20% 80%, rgba(0, 80, 200, 0.2), transparent 70%);
-  mix-blend-mode: soft-light;
-  animation: shimmer 20s ease-in-out infinite alternate;
-  z-index: -1;
-  pointer-events: none;
-}
-
-@keyframes silkWave {
-  0% {
-    transform: translate(-10%, -5%) skewX(10deg) skewY(-8deg);
-    background-position: 0% 0%;
-  }
-  50% {
-    transform: translate(8%, 10%) skewX(-12deg) skewY(6deg);
-    background-position: 100% 50%;
-  }
-  100% {
-    transform: translate(-5%, 5%) skewX(14deg) skewY(-10deg);
-    background-position: 0% 100%;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.1) rotate(3deg);
-  }
-  100% {
-    transform: scale(1) rotate(-2deg);
-  
+/* ensure responsiveness and performance hint */
+@media (prefers-reduced-motion: reduce){
+  .silk-overlay.layer1, .silk-overlay.layer2, .silk-overlay.layer3 { animation:none !important; }
+  .silk-overlay.layer2 { transform:none !important; }
 }
 
 
@@ -383,7 +295,10 @@ body::after {
 
 </head>
 <body>
-  <div class="silk-shimmer"></div>
+<div class="silk-overlay layer1"></div>
+<div class="silk-overlay layer2"></div>
+<div class="silk-overlay layer3"></div>
+<div class="fabric-grain"></div>
 
 <header>
   <div class="header-left">
