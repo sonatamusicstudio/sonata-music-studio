@@ -303,6 +303,119 @@ nav a:hover {
 .panel p, .panel li {
   color: #f8f0d4;
 }
+  /* Background utama dengan gambar GitHub + sutera lembut bergerak */
+body {
+  margin: 0;
+  font-family: 'Source Serif 4', serif;
+  background: url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20251104_193728.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Layer sutera wavy bergerak */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20251104_193728.png') repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(5px) brightness(1.1);
+}
+
+body::before { animation: wave1 40s infinite linear; }
+body::after { animation: wave2 60s infinite linear; }
+
+@keyframes wave1 {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(200px) translateY(50px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+@keyframes wave2 {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(-150px) translateY(-70px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+/* Panel kaca transparan */
+.panel {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  color: #f8f0d4;
+}
+
+/* Header warna harmonis & elegan */
+header .header-left {
+  background: rgba(15, 28, 70, 0.85); /* dark royal navy */
+  color: #f8e6b7; /* krem gold */
+}
+
+header .header-right {
+  background: rgba(203, 166, 74, 0.9); /* gold royal */
+  color: #1a1c2f; /* teks gelap */
+}
+
+/* Navbar semi-transparan agar tetap terlihat sutera */
+nav {
+  background: rgba(25, 28, 50, 0.85);
+  color: #f8e6b7;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+/* Navbar teks dan hover */
+nav a {
+  color: #f8e6b7;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* Footer transparan */
+.footer {
+  background: rgba(15,28,70,0.85);
+  text-align: center;
+  padding: 30px;
+  color: #f8e6b7;
+  font-size: 0.9em;
+}
+
+/* Gallery transparan */
+.gallery img {
+  border-radius: 0;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Teks panel lebih cerah untuk keterbacaan */
+.panel p, .panel li {
+  color: #f8f0d4;
+}
+
 
   @media (max-width: 768px) {
     header {
