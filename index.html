@@ -1,362 +1,452 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sonata Music Studio by Felix Satia – Classical piano, theory, and sacred musical philosophy rooted in excellence." />
-  <title>Sonata Music Studio – Felix Satia</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Sonata Music Studio by Felix Satia – Classical piano, theory, and sacred musical philosophy rooted in excellence." />
+<title>Sonata Music Studio — Felix Satia (Juilliard-style)</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!-- Fonts (dipakai dari HTML-mu) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
 
 <style>
-  :root {
-    --primary-color: #000000;
-    --secondary-color: #0D2866; /* UOB Navy */
-    --accent-color: #BAA046;   /* UOB Blue */
-    --text-light: #ffffff;
-    --text-dark: #ffffff;
-    --text-muted: #ffffff;
-    --background-panel: #0D2866;
-    --header-height: 100px;
+  /* ---------- Variables ---------- */
+  :root{
+    --navy: #0D2866;
+    --gold: #BAA046;
+    --muted-gold: rgba(186,160,70,0.12);
+    --bg: #0b0b0b;
+    --panel: #0f1724;
+    --text-light: #fff;
+    --text-muted: rgba(255,255,255,0.82);
+    --accent: #b70f0f; /* subtle red accent if needed */
+    --max-width: 1200px;
   }
 
-  body {
-    margin: 0;
-    font-family: 'Source Serif 4', serif;
-    background-color: var(--primary-color);
-    color: var(--text-dark);
+  /* ---------- Reset & Base ---------- */
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text-light);font-family:'Source Serif 4', serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+
+  .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+  /* ---------- Top header (logo + short) ---------- */
+  header.top{
+    background:linear-gradient(90deg,var(--navy) 65%, var(--gold) 35%);
+    display:flex;
+    align-items:center;
+    height:96px;
+  }
+  .top .brand{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    color:var(--text-light);
+  }
+  .brand img{height:72px;object-fit:contain;}
+  .brand .txt{
+    line-height:1;
+  }
+  .brand h1{margin:0;font-size:20px;font-weight:600;font-family:'Poppins',sans-serif;letter-spacing:0.4px;}
+  .brand p{margin:0;font-size:13px;opacity:.92;font-family:'Poppins',sans-serif}
+
+  /* ---------- Nav bar ---------- */
+  nav.main{
+    background:#0b0b0b;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.03);
+  }
+  nav.main .links{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap;}
+  nav.main a{font-family:'Poppins',sans-serif;color:var(--text-muted);font-size:14px;font-weight:500;padding:6px 4px}
+  nav.main a:hover{color:var(--gold)}
+
+  /* ---------- HERO (slider) ---------- */
+  .hero{
+    position:relative;
+    width:100%;
+    height:66vh;
+    min-height:420px;
+    display:block;
+    overflow:hidden;
+    background:#000;
   }
 
-  header {
-    display: flex;
-    height: var(--header-height);
-    font-family: 'Poppins', sans-serif;
-    z-index: 10000;
-    position: relative;
+  .slides{position:relative;height:100%}
+  .slide{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center center;
+    opacity:0;transform:scale(1.02);
+    transition:opacity .8s ease, transform 1s cubic-bezier(.22,.9,.37,1);
+  }
+  .slide.active{opacity:1;transform:scale(1)}
+
+  /* split overlay: dark left for text, clearer right for image showcase */
+  .slide::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(2,2,6,0.64) 0%, rgba(2,2,6,0.36) 38%, rgba(2,2,6,0.08) 62%, rgba(2,2,6,0) 100%);
+    pointer-events:none;
   }
 
-  .header-left {
-    background-color: #0D2866;
-    color: var(--text-light);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    flex: 2;
+  .hero-content{
+    position:absolute;left:0;top:50%;transform:translateY(-50%);
+    z-index:3;padding:48px 36px;max-width:52%;
+    color:var(--text-light);
+  }
+  .hero-kicker{font-family:'Poppins',sans-serif;font-size:13px;letter-spacing:1px;color:var(--gold);margin-bottom:10px}
+  .hero-title{font-size:clamp(28px,4vw,52px);line-height:1.02;margin:0 0 18px;font-weight:600}
+  .hero-desc{max-width:60ch;color:rgba(255,255,255,0.85);margin-bottom:22px;font-size:15px}
+  .hero-cta{display:inline-block;padding:12px 18px;border:1px solid rgba(255,255,255,0.12);background:transparent;border-radius:4px;font-family:'Poppins',sans-serif}
+
+  /* right card (video / promo) */
+  .promo{
+    position:absolute;right:4%;bottom:12%;z-index:4;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    padding:14px 18px;border-radius:8px;display:flex;gap:12px;align-items:center;backdrop-filter: blur(4px);
+    border-left:4px solid var(--gold);
+  }
+  .promo .play{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,0.35);font-size:20px;border:2px solid rgba(255,255,255,0.06)}
+  .promo .text{font-weight:600;font-family:'Poppins',sans-serif}
+
+  /* dots & arrows */
+  .controls{
+    position:absolute;left:50%;transform:translateX(-50%);bottom:18px;z-index:6;display:flex;gap:10px;
+  }
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.28);cursor:pointer;transition:all .2s}
+  .dot.active{background:var(--gold);transform:scale(1.35)}
+
+  .arrow{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:46px;height:46px;border-radius:6px;
+    display:grid;place-items:center;background:rgba(0,0,0,0.32);color:var(--text-light);cursor:pointer;border:1px solid rgba(255,255,255,0.04);
+  }
+  .arrow.left{left:18px}
+  .arrow.right{right:18px}
+
+  /* ---------- Content sections (Juilliard-like) ---------- */
+  main {
+    background:linear-gradient(180deg, rgba(10,10,14,0.6), rgba(10,10,14,1));
+    padding:40px 0 120px;
+  }
+  .section{
+    background:transparent;
+    color:var(--text-muted);
+    padding:28px 20px;
+    margin:30px auto;
+    max-width:var(--max-width);
+    display:grid;
+    gap:18px;
   }
 
-  .header-left img {
-    height: 145px;
-    margin-right: 15px;
-    transform: translateY(1px);
+  .intro{
+    display:flex;gap:24px;align-items:stretch;
+  }
+  .intro .text-block{
+    flex:1;background:rgba(255,255,255,0.03);padding:22px;border-left:4px solid var(--gold);
+  }
+  .intro .media{
+    width:420px;min-width:260px;max-width:48%;
+    background:#000;display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  .intro .media img{width:100%;height:100%;object-fit:cover}
+
+  .cta-row{display:flex;gap:12px;align-items:center;margin-top:8px}
+
+  /* gallery / news row */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+  .card{background:rgba(255,255,255,0.02);padding:12px;border-radius:6px}
+  .card img{width:100%;height:180px;object-fit:cover;border-radius:4px}
+  .card h4{margin:12px 0 6px;font-family:'Poppins',sans-serif;color:var(--text-light);font-size:16px}
+  .card p{margin:0;color:rgba(255,255,255,0.75);font-size:14px}
+
+  /* footer */
+  footer.site{
+    background:#06060a;padding:36px 20px;color:rgba(255,255,255,0.7);text-align:center;border-top:1px solid rgba(255,255,255,0.02)
   }
 
-  .header-left .text-block h1 {
-    margin: 0;
-    font-size: 1.75em;
-    font-weight: 600;
+  /* responsive */
+  @media (max-width:1000px){
+    .hero-content{max-width:66%;padding:32px}
+    .intro{flex-direction:column}
+    .intro .media{width:100%;max-width:100%;min-height:220px}
+    .cards{grid-template-columns:repeat(2,1fr)}
   }
-
-  .header-left .text-block p {
-    margin: 0;
-    font-size: 1.01em;
-    opacity: 0.85;
-  }
-
-  .header-right {
-  background-color: #BAA046; /* mustard kuning */
-  color: var(--text-dark); /* biru violet indigo */
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.01em;
-    font-weight: 600;
-    text-align: center;
-    padding: 0 10px;
-  }
-  .header-right p {
-  margin: 0;
-}
-  nav {
-    font-family: 'Poppins', sans-serif;
-    background-color: #2F2F2F;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-  }
-
-  nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1em;
-    transition: color 0.3s ease;
-  }
-
-  nav a:hover {
-    color: var(--accent-color);
-  }
-
-  section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
-
-  section h2 {
-    font-size: 2em;
-    color: #BAA046;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 6px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .panel {
-  background-color: var(--background-panel);
-  color: var(--text-dark);
-  padding: 40px;
-  box-sizing: border-box;
-  border-radius: 0; /* <-- no rounded corner */
-  box-shadow: none; /* <-- no shadow/emboss */
-}
-
-  .section-with-image {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding-top: 20px;
-  }
-
-  .section-with-image img {
-    width: 300px;
-    border-radius: 0;
-  }
-
-  .section-with-image .text {
-    flex: 1;
-    min-width: 280px;
-  }
-
-  #about p, #programs li, #philosophy p, #portfolio p {
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-
-  .social-icons a {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    padding: 10px 18px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.3s ease;
-  }
-
-  .social-icons a:hover {
-    background-color: var(--secondary-color);
-  }
-
-  .footer {
-    background-color: var(--secondary-color);
-    text-align: center;
-    padding: 30px;
-    color: var(--text-light);
-    font-size: 0.9em;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    object-fit: cover;
-    display: block;
-  }
-
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      height: auto;
-    }
-
-    .header-left,
-    .header-right {
-      width: 100%;
-      justify-content: center;
-      padding: 10px 0;
-    }
-
-    .section-with-image {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .section-with-image img {
-      width: 90%;
-    }
-
-    section {
-      padding: 40px 20px;
-    }
+  @media (max-width:640px){
+    header.top{height:auto;padding:14px 0}
+    .brand h1{font-size:18px}
+    .hero{height:56vh;min-height:320px}
+    .hero-content{max-width:92%;padding:18px}
+    .promo{display:none}
+    .cards{grid-template-columns:1fr}
+    nav.main .links{gap:14px}
+    .arrow{display:none}
   }
 </style>
-
 </head>
 <body>
 
-<header>
-  <div class="header-left">
-  <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo" style="height: 90px; margin-right: 15px;">
-    <div class="text-block">
-      <h1>Sonata Music Studio</h1>
-      <p>Instruction | Composition | Educational Materials</p>
-    </div>
-  </div>
-  <div class="header-right">
-    <p>Sacred Precision, Artistic Refinement</p>
-  </div>
-</header>
+  <!-- Top brand header (uses original logo from your HTML if exists) -->
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="brand" >
+        <!-- if you have a logo image in original, keep it. otherwise it uses text -->
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo" onerror="this.style.display='none'">
+        <div class="txt">
+          <h1>Sonata Music Studio</h1>
+          <p>Instruction · Composition · Educational Materials</p>
+        </div>
+      </div>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <div class="panel">
-    <h2>About</h2>
-    <div class="section-with-image">
-      <img src="1728278677799.jpeg" alt="Felix Satia" />
-      <div class="text">
-        <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
+      <div style="font-family:'Poppins',sans-serif;color:var(--text-light);font-weight:600;opacity:.95">
+        Sacred Precision · Artistic Refinement
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="programs">
-  <div class="panel">
-    <h2>Programs</h2>
-    <div class="section-with-image">
-      <img src="1728277959315.jpeg" alt="Teaching" />
-      <div class="text">
-        <ul>
-          <li>Piano – Classical Repertoire & Technique</li>
-          <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
-          <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
-        </ul>
+  <!-- nav -->
+  <nav class="main">
+    <div class="container links">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER: menggunakan gambar dari HTML-mu -->
+  <section class="hero" aria-label="Main hero">
+    <div class="slides" id="slides">
+      <!-- Slide 1 -->
+      <div class="slide active" data-index="0" style="background-image:url('1728277097784.jpeg')">
+        <div class="hero-content container">
+          <div class="hero-kicker">Pre-College</div>
+          <h2 class="hero-title">Application Now Open</h2>
+          <p class="hero-desc">Sonata Music Studio offers structured private instruction in piano and theory — an environment rooted in classical clarity and sacred refinement.</p>
+          <div class="cta-row">
+            <a class="hero-cta" href="#programs">Apply Now</a>
+            <a class="hero-cta" href="#portfolio" style="margin-left:8px">View Portfolio</a>
+          </div>
+        </div>
+
+        <div class="promo" role="group" aria-label="promo video or announcement">
+          <div class="play" aria-hidden="true">▶</div>
+          <div class="text">Happy Fifth<br/>Anniversary</div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" data-index="1" style="background-image:url('1728277959315.jpeg')">
+        <div class="hero-content container">
+          <div class="hero-kicker">Graduate Studies</div>
+          <h2 class="hero-title">New Major in Composition</h2>
+          <p class="hero-desc">A composition pathway blending technique, orchestration, and contemplative expression for the modern classical musician.</p>
+          <div class="cta-row">
+            <a class="hero-cta" href="#programs">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" data-index="2" style="background-image:url('20211028_112040.jpg')">
+        <div class="hero-content container">
+          <div class="hero-kicker">The Juilliard Experience — Inspired</div>
+          <h2 class="hero-title">Transforming Passion into Artistry</h2>
+          <p class="hero-desc">Training for musical depth: ensemble experience, repertoire mastery, and lifelong creative growth.</p>
+          <div class="cta-row">
+            <a class="hero-cta" href="#about">About</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="philosophy">
-  <div class="panel">
-    <h2>Philosophy</h2>
-    <div class="section-with-image">
-      <img src="1728277097784.jpeg" alt="Concert" />
-      <div class="text">
-        <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
+    <!-- nav controls -->
+    <div class="arrow left" id="prev" aria-label="Previous">&larr;</div>
+    <div class="arrow right" id="next" aria-label="Next">&rarr;</div>
+
+    <div class="controls" id="dots" aria-hidden="false"></div>
+  </section>
+
+  <!-- Main content -->
+  <main>
+    <section id="about" class="section container">
+      <div class="intro">
+        <div class="text-block">
+          <h3 style="margin-top:0;color:var(--gold);font-family:'Poppins',sans-serif">Welcome to Sonata Music Studio</h3>
+          <p style="color:var(--text-muted);margin-bottom:10px">
+            Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry.
+          </p>
+          <p style="color:rgba(255,255,255,0.76)"><strong>Instruction:</strong> Piano technique, repertoire, and tailored ABRSM-aware theory coaching. <strong>Ensembles:</strong> Choral and liturgical coaching for ensembles and choir.</p>
+          <div style="margin-top:12px">
+            <a class="hero-cta" href="#contact">Contact</a>
+            <a class="hero-cta" href="#programs" style="margin-left:8px">Programs</a>
+          </div>
+        </div>
+
+        <div class="media">
+          <img src="1728277097784.jpeg" alt="Felix Satia portrait">
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" class="section container">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px">
+          <h3 style="color:var(--gold);font-family:'Poppins',sans-serif;margin-top:0">Programs</h3>
+          <p style="color:var(--text-muted)">Structured curriculum with private lessons and ensemble coaching. Schemes available for ABRSM/Trinity prep and internal certification.</p>
+          <ul style="color:rgba(255,255,255,0.82)">
+            <li>Piano – Classical Repertoire & Technique</li>
+            <li>Music Theory – ABRSM, Trinity & Internal Curriculum</li>
+            <li>Choral/Vocal Coaching – Liturgical & Ensemble</li>
+          </ul>
+        </div>
+
+        <div style="width:380px;min-width:260px;background:rgba(255,255,255,0.02);padding:18px;border-left:4px solid var(--gold)">
+          <h4 style="margin:0 0 8px;font-family:'Poppins',sans-serif">Performance Calendar</h4>
+          <p style="margin:0;color:var(--text-muted)">See upcoming recitals, ensemble rehearsals, and performance opportunities.</p>
+        </div>
+      </div>
+
+      <div class="cards" style="margin-top:18px">
+        <div class="card">
+          <img src="1728277959315.jpeg" alt="">
+          <h4>Graduate Studies</h4>
+          <p>Composition pathways and ensemble immersion.</p>
+        </div>
+
+        <div class="card">
+          <img src="1728277994217.jpeg" alt="">
+          <h4>Pre-College</h4>
+          <p>Preparation for auditions and young musician training.</p>
+        </div>
+
+        <div class="card">
+          <img src="1728278062357.jpeg" alt="">
+          <h4>Ensemble</h4>
+          <p>Chamber music and choir workshop experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy" class="section container">
+      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+        <div style="flex:1;min-width:260px">
+          <h3 style="color:var(--gold);font-family:'Poppins',sans-serif;margin-top:0">Philosophy</h3>
+          <p style="color:var(--text-muted)">Learning is technical and spiritual—anchored in discipline, cultural awareness, and expressive intent. Curriculum seeks depth beyond the page.</p>
+        </div>
+        <div style="width:380px;min-width:260px">
+          <img src="1728277097784.jpeg" alt="concert" style="border-radius:2px;display:block;">
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section container">
+      <h3 style="color:var(--gold);font-family:'Poppins',sans-serif;margin-top:0">Portfolio</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+        <div style="background:rgba(255,255,255,0.02);padding:12px">
+          <img src="20211028_112040.jpg" alt="performance">
+          <p style="margin-top:8px;color:var(--text-muted)">Repertoire and performance highlights.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.02);padding:12px">
+          <img src="1728278413639.jpeg" alt="">
+          <p style="margin-top:8px;color:var(--text-muted)">Ensemble snapshots.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.02);padding:12px">
+          <img src="1728278498612.jpeg" alt="">
+          <p style="margin-top:8px;color:var(--text-muted)">Studio teaching moments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:240px">
+          <h3 style="color:var(--gold);font-family:'Poppins',sans-serif;margin-top:0">Contact</h3>
+          <p style="color:var(--text-muted)">Connect via WhatsApp, YouTube, Instagram, or LinkedIn.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <a class="hero-cta" href="https://wa.me/6289656684852">WhatsApp</a>
+            <a class="hero-cta" href="https://www.youtube.com/@felixsatia">YouTube</a>
+            <a class="hero-cta" href="https://www.instagram.com/felixsatia">Instagram</a>
+            <a class="hero-cta" href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
+          </div>
+        </div>
+
+        <div style="width:260px;min-width:220px;background:rgba(255,255,255,0.02);padding:14px;border-left:4px solid var(--gold)">
+          <p style="margin:0;font-weight:600">Studio Address</p>
+          <p style="margin:6px 0 0;color:var(--text-muted)">Jakarta · Contact for schedule</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container">
+      <div style="max-width:900px;margin:0 auto;">
+        <p style="margin:0 0 6px">&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
+        <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.45)">Built with content from your original file, reimagined as cinematic institutional layout.</p>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="portfolio">
-  <div class="panel">
-    <h2>Portfolio</h2>
-    <div class="section-with-image">
-      <img src="20211028_112040.jpg" alt="Teaching Portfolio" />
-      <div class="text">
-        <p>Felix Satia holds a Bachelor of Music in Piano Performance and has presented repertoire including WTC by Bach, Beethoven Sonatas, Debussy Etudes, and Brahms Rhapsodies. He is also experienced in liturgical music leadership and theory instruction for institutional programs.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<script>
+/* Minimal slider JS: autoplay, dots, arrows, swipe */
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsContainer = document.getElementById('dots');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const INTERVAL = 5000;
+  let idx = 0, timer=null, hovering=false;
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="panel">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="1728277097784.jpeg" />
-      <img src="1728277959315.jpeg" />
-      <img src="1728277994217.jpeg" />
-      <img src="1728278062357.jpeg" />
-      <img src="1728278413639.jpeg" />
-      <img src="1728278498612.jpeg" />
-      <img src="1728278535664.jpeg" />
-      <img src="1728278743638.jpeg" />
-      <img src="1728278972071.jpeg" />
-      <img src="1728279819431.jpeg" />
-      <img src="1728294846403.jpeg" />
-      <img src="1728294894368.jpeg" />
-      <img src="1728295139439.jpeg" />
-      <img src="1728295173689.jpeg" />
-      <img src="1728295202953.jpeg" />
-      <img src="1728295402904.jpeg" />
-      <img src="1728295429712.jpeg" />
-      <img src="1728296617350.jpeg" />
-      <img src="1728300782229.jpeg" />
-      <img src="1728301815288.jpeg" />
-      <img src="1728302182364.jpeg" />
-      <img src="1728302212548.jpeg" />
-      <img src="1728303826998.jpeg" />
-      <img src="1728311786057.jpeg" />
-      <img src="1728349078427.jpeg" />
-      <img src="1728368821890.jpeg" />
-      <img src="1728368987536.jpeg" />
-      <img src="1728450148208.jpeg" />
-      <img src="1728450200661.jpeg" />
-      <img src="1728450222173.jpeg" />
-      <img src="1728450251141.jpeg" />
-    </div>
-  </div>
-</section>
+  function buildDots(){
+    slides.forEach((s,i)=>{
+      const d = document.createElement('div');
+      d.className = 'dot' + (i===0?' active':'');
+      d.setAttribute('data-index', i);
+      d.addEventListener('click', ()=> go(i));
+      dotsContainer.appendChild(d);
+    });
+  }
+  function update(){
+    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    Array.from(dotsContainer.children).forEach((d,i)=> d.classList.toggle('active', i===idx));
+  }
+  function go(i){ idx = (i + slides.length) % slides.length; update(); reset(); }
+  function next(){ go(idx+1) }
+  function prev(){ go(idx-1) }
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="panel">
-    <h2>Contact</h2>
-    <div class="social-icons">
-      <a href="https://wa.me/6289656684852">WhatsApp</a>
-      <a href="https://www.youtube.com/@felixsatia">YouTube</a>
-      <a href="https://www.instagram.com/felixsatia">Instagram</a>
-      <a href="https://www.linkedin.com/in/felix-satia-a78140302">LinkedIn</a>
-    </div>
-  </div>
-</section>
+  function start(){ timer = setInterval(()=>{ if(!hovering) next(); }, INTERVAL); }
+  function stop(){ clearInterval(timer); timer=null }
+  function reset(){ stop(); start(); }
 
-<div class="footer">
-  <p>&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
-</div>
+  // swipe
+  function addSwipe(el){
+    let startX=0, startT=0;
+    el.addEventListener('touchstart', e=>{ startX=e.changedTouches[0].clientX; startT=Date.now(); stop(); }, {passive:true});
+    el.addEventListener('touchend', e=>{
+      const dx = e.changedTouches[0].clientX - startX;
+      const dt = Date.now()-startT;
+      if(Math.abs(dx) > 40 && dt < 800){
+        if(dx < 0) next(); else prev();
+      }
+      reset();
+    }, {passive:true});
+  }
+
+  // pause on hover/focus
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mouseenter', ()=> hovering=true);
+  hero.addEventListener('mouseleave', ()=> hovering=false);
+  hero.addEventListener('focusin', ()=> hovering=true);
+  hero.addEventListener('focusout', ()=> hovering=false);
+
+  buildDots();
+  update();
+  start();
+  addSwipe(document.getElementById('slides'));
+
+  prevBtn && prevBtn.addEventListener('click', ()=> prev());
+  nextBtn && nextBtn.addEventListener('click', ()=> next());
+})();
+</script>
 
 </body>
 </html>
