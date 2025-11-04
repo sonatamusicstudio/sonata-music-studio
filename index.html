@@ -196,75 +196,82 @@
     object-fit: cover;
     display: block;
   }
-  body {
-  background: radial-gradient(circle at 30% 30%, #001f3f, #000814 60%) no-repeat;
-  position: relative;
+  /* === Background Cinematic Silk Wave === */
+body {
+  margin: 0;
+  background: radial-gradient(circle at 30% 30%, #000c1f, #000000 70%) no-repeat;
   overflow-x: hidden;
+  color: white;
+  font-family: 'Times New Roman', serif;
 }
 
-/* Efek wavy sutera */
+/* Lapisan dasar — gradasi warna mewah */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: repeating-radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 215, 0, 0.08),
-      rgba(255, 215, 0, 0.03) 20%,
-      rgba(0, 0, 128, 0.08) 40%
-  );
-  background-size: 150% 150%;
-  animation: silkWave 16s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
-  opacity: 0.6;
-  z-index: -1;
+  inset: 0;
+  background: radial-gradient(circle at 40% 60%, rgba(0, 20, 60, 0.8), transparent 70%),
+              linear-gradient(120deg, rgba(255, 200, 0, 0.15), rgba(0, 50, 150, 0.1), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+  z-index: -3;
 }
 
-/* Lapisan kedua: pantulan lembut */
+/* Lapisan wavy kain sutera */
 body::after {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-      120deg,
-      rgba(0, 15, 35, 0.9) 0%,
-      rgba(10, 10, 25, 0.7) 30%,
-      rgba(255, 215, 0, 0.1) 60%,
-      rgba(0, 15, 35, 0.9) 100%
+  inset: 0;
+  background: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 215, 0, 0.12) 0%,
+      rgba(0, 30, 80, 0.08) 25%,
+      rgba(0, 0, 0, 0.2) 50%
   );
-  background-size: 200% 200%;
-  animation: goldShift 20s ease-in-out infinite alternate;
-  mix-blend-mode: soft-light;
-  opacity: 0.8;
+  background-size: 150% 150%;
+  animation: silkFlow 22s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  filter: blur(12px) brightness(1.15);
   z-index: -2;
+  opacity: 0.85;
 }
 
-@keyframes silkWave {
+/* Efek aurora sinematik */
+@keyframes silkFlow {
   0% {
-    transform: translate(-10%, -10%) skewX(10deg) skewY(6deg);
+    transform: translate(-10%, -5%) skewX(12deg) skewY(-8deg);
+    background-position: 0% 0%;
   }
   50% {
-    transform: translate(5%, 5%) skewX(-12deg) skewY(-8deg);
+    transform: translate(8%, 10%) skewX(-10deg) skewY(6deg);
+    background-position: 100% 50%;
   }
   100% {
-    transform: translate(-10%, -5%) skewX(8deg) skewY(4deg);
+    transform: translate(-5%, 5%) skewX(14deg) skewY(-10deg);
+    background-position: 0% 100%;
   }
 }
 
-@keyframes goldShift {
+/* Lapisan highlight shimmer emas */
+.silk-light {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(255, 223, 120, 0.15), transparent 60%),
+              radial-gradient(circle at 30% 70%, rgba(255, 180, 50, 0.08), transparent 80%);
+  mix-blend-mode: soft-light;
+  animation: shimmerMove 18s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes shimmerMove {
   0% {
-    background-position: 0% 50%;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10%) rotate(2deg);
   }
   100% {
-    background-position: 100% 50%;
+    transform: translateY(0) rotate(-1deg);
   }
-
 
   @media (max-width: 768px) {
     header {
