@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Sonata Music Studio — Where Art Meets Intellect</title>
 
 <!-- Fonts -->
@@ -17,108 +17,223 @@
     --bg: #05080b;
     --max-width: 1200px;
   }
+
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;background:var(--bg);color:#fff;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
   a{color:inherit;text-decoration:none}
 
-  /* HEADER */
+  /* Header */
   header.site {
     position:fixed;
-    top:0; left:0; right:0;
+    top:0;
+    left:0;
+    right:0;
     height:78px;
-    display:flex; align-items:center; justify-content:space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     padding:12px 36px;
     z-index:1200;
     background:linear-gradient(180deg, rgba(5,8,12,0.55), rgba(5,8,12,0.2));
     backdrop-filter: blur(6px);
     border-bottom:1px solid rgba(255,255,255,0.03);
   }
-  .brand{ display:flex; align-items:center; gap:14px; }
-  .brand img{ height:60px; display:block }
-  .brand h1{ font-family:"Source Serif 4", serif; font-size:1.15rem; color:var(--gold); margin:0; }
-  .tagline{ font-family:"Source Serif 4", serif; color:var(--muted); font-style:italic; letter-spacing:.6px; }
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .brand img{height:60px; display:block}
+  .brand h1{
+    font-family:"Source Serif 4", serif;
+    font-size:1.15rem;
+    color:var(--gold);
+    margin:0;
+  }
+  .tagline {
+    font-family:"Source Serif 4", serif;
+    color:var(--muted);
+    font-style:italic;
+    letter-spacing:.6px;
+  }
 
-  /* HERO: cinematic silk curtains + slides */
-  .hero{
-    margin-top:78px;
+  /* Hero */
+  .hero {
+    margin-top:78px; /* header height */
     position:relative;
     width:100%;
     height:68vh;
     min-height:420px;
     overflow:hidden;
   }
-  .hero-inner{
-    position:absolute; left:6%; top:50%; transform:translateY(-50%);
-    z-index:10; max-width:540px; color:var(--muted);
+
+  .slides { position:relative; width:100%; height:100%; }
+  .slide {
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 1s ease;
+    will-change:opacity, transform;
+    transform:translateZ(0);
   }
-  .hero-inner h2{ margin:0 0 10px 0; font-family:"Source Serif 4", serif; color:var(--gold); font-size:2.6rem; line-height:1.02; }
+  .slide.active { opacity:1; }
+
+  /* cinematic left gradient */
+  .slide::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(4,6,8,0.66) 0%, rgba(4,6,8,0.34) 36%, rgba(4,6,8,0.06) 62%, rgba(4,6,8,0) 100%);
+    pointer-events:none;
+  }
+
+  /* Silk layers */
+  .silk-layer {
+    position:absolute;
+    width:150%;
+    height:120%;
+    top:-10%;
+    left:-25%;
+    background:linear-gradient(120deg, rgba(201,167,90,0.08) 0%, rgba(201,167,90,0.04) 50%, rgba(201,167,90,0.08) 100%);
+    animation: drift 18s ease-in-out infinite alternate;
+    pointer-events:none;
+    transform: rotate(0deg);
+    border-radius:50%;
+    filter: blur(22px);
+    mix-blend-mode:screen;
+  }
+  .silk-layer:nth-child(2){ animation-duration:24s; top:-15%; left:-30%; filter: blur(28px); opacity:0.6; }
+  .silk-layer:nth-child(3){ animation-duration:20s; top:-5%; left:-20%; filter: blur(18px); opacity:0.4; }
+
+  @keyframes drift{
+    0%{transform:translate(0,0) rotate(0deg);}
+    100%{transform:translate(35px,40px) rotate(5deg);}
+  }
+
+  .hero-inner {
+    position:absolute;
+    left:6%;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:6;
+    max-width:540px;
+    color:var(--muted);
+  }
+  .hero-inner h2{
+    margin:0 0 10px 0;
+    font-family:"Source Serif 4", serif;
+    color:var(--gold);
+    font-size:2.6rem;
+    line-height:1.02;
+  }
   .hero-inner p{ margin:0; color:rgba(255,255,255,0.88); font-size:1.05rem; }
 
-  .curtain{
-    position:absolute; inset:0; background:linear-gradient(90deg, rgba(201,167,90,0.7) 0%, rgba(201,167,90,0.05) 100%);
-    transform:translateX(-100%);
-    z-index:5;
-    animation:curtainMove 12s infinite alternate ease-in-out;
-  }
-  @keyframes curtainMove{
-    0%{ transform:translateX(-100%); }
-    50%{ transform:translateX(0); }
-    100%{ transform:translateX(100%); }
-  }
-
-  .slides{ position:absolute; inset:0; overflow:hidden; }
-  .slide{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1s ease; }
-  .slide.active{ opacity:1; }
-
-  .arrow{
-    position:absolute; top:50%; transform:translateY(-50%);
-    z-index:12;
+  /* arrows & dots */
+  .arrow {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:8;
     width:48px;height:48px;border-radius:8px;
-    display:grid; place-items:center;
+    display:grid;place-items:center;
     background:rgba(0,0,0,0.36); color:#fff; cursor:pointer;
     border:1px solid rgba(255,255,255,0.04);
   }
   .arrow.left{ left:20px }
   .arrow.right{ right:20px }
 
-  .dots{
-    position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
-    display:flex; gap:10px; z-index:12;
+  .dots {
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    z-index:9;
   }
-  .dot{ width:10px;height:10px;border-radius:50%; background:rgba(255,255,255,0.28); cursor:pointer; transition: all .25s; }
-  .dot.active{ background:var(--gold); transform:scale(1.3); }
+  .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:rgba(255,255,255,0.28);
+    cursor:pointer; transition: all .25s;
+  }
+  .dot.active { background:var(--gold); transform:scale(1.3); }
 
-  /* NAV UNDER HERO */
-  nav.main{
-    margin-top:0; background:var(--navy-soft);
-    display:flex; justify-content:center; gap:32px; padding:14px 10px;
-    position:sticky; top:78px; z-index:1100;
+  /* nav under hero */
+  nav.main {
+    margin-top:0;
+    background:var(--navy-soft);
+    display:flex;
+    justify-content:center;
+    gap:32px;
+    padding:14px 10px;
+    position:sticky;
+    top:78px;
+    z-index:1100;
     border-bottom:1px solid rgba(255,255,255,0.03);
   }
-  nav.main a{ color:var(--muted); font-weight:500; letter-spacing:.4px; text-decoration:none; transition:color .2s; }
-  nav.main a:hover{ color:var(--gold); }
+  nav.main a{
+    color:var(--muted);
+    font-weight:500;
+    letter-spacing:.4px;
+    text-decoration:none;
+    transition:color .2s;
+  }
+  nav.main a:hover { color:var(--gold); }
 
-  /* Page sections */
-  .page-section{ max-width:var(--max-width); margin:90px auto; padding:0 20px; opacity:0; transform:translateY(30px); transition: all .9s cubic-bezier(.2,.9,.2,1); }
+  /* Page sections (About → Contact) */
+  .page-section {
+    max-width:var(--max-width);
+    margin:90px auto;
+    padding:0 20px;
+    opacity:0;
+    transform:translateY(30px);
+    transition: all .9s cubic-bezier(.2,.9,.2,1);
+  }
   .page-section.visible{ opacity:1; transform:translateY(0); }
-  h3.section-title{ font-family:"Source Serif 4", serif; color:var(--gold); font-size:2rem; margin-bottom:18px; border-bottom:1px solid rgba(201,167,90,0.12); padding-bottom:8px; }
 
-  .section-grid{ display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap; }
+  h3.section-title{
+    font-family:"Source Serif 4", serif;
+    color:var(--gold);
+    font-size:2rem;
+    margin-bottom:18px;
+    border-bottom:1px solid rgba(201,167,90,0.12);
+    padding-bottom:8px;
+  }
+
+  .section-grid { display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap; }
   .section-grid img{ width:320px; height:auto; border-radius:4px; object-fit:cover; border:0; }
   .section-grid p, .section-grid ul{ flex:1; color:var(--muted); line-height:1.7; font-size:1.03rem; }
-  .panel{ background:transparent; padding:12px 0; }
 
-  .gallery{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:18px; }
-  .gallery img{ width:100%; height:auto; display:block; object-fit:cover; border-radius:6px; transition: transform .35s ease, box-shadow .35s; }
-  .gallery img:hover{ transform:translateY(-6px) scale(1.02); box-shadow:0 12px 30px rgba(2,8,20,0.6); }
+  .panel { background:transparent; padding:12px 0; }
 
-  .socials{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+  .gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:14px;
+    margin-top:18px;
+  }
+  .gallery img{
+    width:100%; height: auto; display:block; object-fit:cover; border-radius:6px; transition: transform .35s ease, box-shadow .35s;
+  }
+  .gallery img:hover{ transform:translateY(-6px) scale(1.02); box-shadow: 0 12px 30px rgba(2,8,20,0.6); }
+
+  .socials { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
   .socials a{ background:var(--gold); color:var(--navy); padding:10px 16px; border-radius:6px; font-weight:600; text-decoration:none; }
 
-  footer.site{ margin-top:80px; padding:42px 20px; text-align:center; background:var(--navy-soft); color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); }
+  footer.site {
+    margin-top:80px;
+    padding:42px 20px;
+    text-align:center;
+    background:var(--navy-soft);
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,0.02);
+  }
 
   /* responsive */
-  @media (max-width:1000px){ .hero-inner{ left:5%; max-width:60%; } .section-grid img{ width:260px } }
+  @media (max-width:1000px){
+    .hero-inner{ left:5%; max-width:60%; }
+    .section-grid img{ width:260px }
+  }
   @media (max-width:720px){
     header.site{ padding:12px 18px; height:auto; gap:8px; flex-wrap:wrap; }
     .hero { height:56vh; min-height:320px }
@@ -129,9 +244,9 @@
   }
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header class="site" role="banner">
   <div class="brand">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo" />
@@ -140,25 +255,29 @@
   <div class="tagline">Where Art Meets Intellect</div>
 </header>
 
-<!-- HERO SLIDER WITH SILK CURTAIN -->
 <section class="hero" aria-label="Hero slider">
-  <div class="slides">
-    <div class="slide active" style="background-image:url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20250921_204502.jpg');"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a8?auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="slides" id="slides">
+    <div class="slide active" data-index="0" style="background-image:url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20250921_204502.jpg');"></div>
+    <div class="slide" data-index="1" style="background-image:url('https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg');"></div>
+    <div class="slide" data-index="2" style="background-image:url('https://i.etsystatic.com/20063013/r/il/d13104/5678313309/il_fullxfull.5678313309_2pk5.jpg');"></div>
   </div>
-  <div class="curtain"></div>
-  <div class="hero-inner">
+
+  <!-- Silk layers -->
+  <div class="silk-layer"></div>
+  <div class="silk-layer"></div>
+  <div class="silk-layer"></div>
+
+  <div class="hero-inner" role="region" aria-label="Hero text">
     <h2>Excellence in Classical & Sacred Music</h2>
     <p>Where performance meets philosophy — private piano, rigorous theory, and ensemble practice rooted in reverence.</p>
   </div>
-  <button class="arrow left" id="prev">‹</button>
-  <button class="arrow right" id="next">›</button>
+
+  <button class="arrow left" id="prev" aria-label="Previous slide">‹</button>
+  <button class="arrow right" id="next" aria-label="Next slide">›</button>
   <div class="dots" id="dots"></div>
 </section>
 
-<!-- NAV UNDER HERO -->
-<nav class="main">
+<nav class="main" role="navigation" aria-label="Main navigation">
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
   <a href="#philosophy">Philosophy</a>
@@ -271,57 +390,56 @@
 </footer>
 
 <script>
-/* Slider: autoplay + manual controls + dots */
+/* Slider + dots + touch swipe + section fade-in */
 (function(){
   const slides = Array.from(document.querySelectorAll('.slide'));
   const dotsWrap = document.getElementById('dots');
   const nextBtn = document.getElementById('next');
   const prevBtn = document.getElementById('prev');
-  let idx=0, timer=null;
-  const interval=4000;
+  let idx = 0;
+  let timer = null;
+  const interval = 4000;
 
   slides.forEach((s,i)=>{
-    const d=document.createElement('div');
-    d.className='dot'+(i===0?' active':'');
-    d.dataset.index=i;
-    d.addEventListener('click',()=>goTo(i));
+    const d = document.createElement('div');
+    d.className = 'dot'+(i===0?' active':'');
+    d.dataset.index = i;
+    d.addEventListener('click', ()=> goTo(i));
     dotsWrap.appendChild(d);
   });
 
   function update(){
-    slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
-    Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===idx));
+    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    Array.from(dotsWrap.children).forEach((d,i)=> d.classList.toggle('active', i===idx));
   }
   function goTo(i){ idx=(i+slides.length)%slides.length; update(); resetTimer(); }
   function next(){ goTo(idx+1); }
   function prev(){ goTo(idx-1); }
-
   function start(){ timer=setInterval(next, interval); }
   function stop(){ clearInterval(timer); timer=null; }
   function resetTimer(){ stop(); start(); }
 
-  // touch swipe
   function addTouch(el){
-    let startX=0,startT=0;
+    let startX=0, startT=0;
     el.addEventListener('touchstart', e=>{ startX=e.changedTouches[0].clientX; startT=Date.now(); stop(); }, {passive:true});
     el.addEventListener('touchend', e=>{
-      const dx=e.changedTouches[0].clientX-startX;
-      const dt=Date.now()-startT;
-      if(Math.abs(dx)>40 && dt<800){ if(dx<0) next(); else prev(); }
+      const dx = e.changedTouches[0].clientX - startX;
+      const dt = Date.now()-startT;
+      if(Math.abs(dx)>40 && dt<800){ dx<0?next():prev(); }
       resetTimer();
     }, {passive:true});
   }
   addTouch(document.querySelector('.hero'));
-  nextBtn.addEventListener('click',next);
-  prevBtn.addEventListener('click',prev);
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
   start();
 
-  // fade-in sections
   const observer = new IntersectionObserver(entries=>{
     entries.forEach(ent=>{ if(ent.isIntersecting) ent.target.classList.add('visible'); });
   }, {threshold:0.18});
   document.querySelectorAll('.page-section').forEach(s=>observer.observe(s));
 })();
 </script>
+
 </body>
 </html>
