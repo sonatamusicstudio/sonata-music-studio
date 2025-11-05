@@ -3,234 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sonata Music Studio by Felix Satia – Classical piano, theory, and sacred musical philosophy rooted in excellence." />
-  <title>Sonata Music Studio – Felix Satia</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-
+  <title>Sonata Music Studio | Classical Piano & Theory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy: #0b1d3a;
-      --gold: #c9a74d;
-      --white: #ffffff;
-      --gray: #e6e6e6;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
-      font-family: 'Lato', sans-serif;
-      background-color: var(--navy);
-      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      background-color: #0a1225;
+      color: #f2f2f2;
       overflow-x: hidden;
     }
 
-    /* NAVBAR */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(11, 29, 58, 0.85);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
-
-    header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
-      color: var(--gold);
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 400;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    /* HERO SECTION */
+    /* Hero Section */
     .hero {
       position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-      filter: brightness(80%) contrast(105%);
-    }
-
-    .hero img.active {
-      opacity: 1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      height: 75vh;
+      background: linear-gradient(rgba(10,18,37,0.6), rgba(10,18,37,0.8)), url('LINK-GAMBAR-KAMU-DISINI.jpg') center/cover no-repeat;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.3);
       text-align: center;
-      z-index: 2;
+      animation: fadeIn 2.5s ease-in-out;
     }
-
-    .hero-overlay h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.8rem;
-      letter-spacing: 1px;
-      color: var(--gold);
-      margin-bottom: 12px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      color: #d4af37;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
-
-    .hero-overlay p {
+    .hero p {
+      margin-top: 1rem;
       font-size: 1.2rem;
-      color: var(--gray);
-      margin-bottom: 30px;
+      color: #e6e6e6;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    .hero-overlay a {
-      padding: 12px 28px;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    }
-
-    .hero-overlay a:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    /* CONTENT SECTIONS */
+    /* About */
     section {
-      padding: 100px 60px;
-      max-width: 1100px;
+      padding: 80px 10%;
+    }
+    .about {
+      max-width: 900px;
       margin: auto;
-    }
-
-    section h2 {
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--gold);
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    section p {
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: #08172e;
       text-align: center;
-      padding: 40px 20px;
-      color: var(--gray);
-      font-size: 0.9rem;
+    }
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+    .about p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #d9d9d9;
     }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 15px 20px;
-      }
-      nav {
-        margin-top: 10px;
-      }
-      section {
-        padding: 80px 20px;
-      }
-      .hero-overlay h2 {
-        font-size: 2rem;
-      }
-      .hero-overlay p {
-        font-size: 1rem;
-      }
+    /* Programs */
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .program {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.4s ease;
+    }
+    .program:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .program h3 {
+      font-family: 'Playfair Display', serif;
+      color: #f8d774;
+      margin-bottom: 15px;
+    }
+    .program p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
   </style>
 </head>
 <body>
+  <header class="hero">
+    <div>
+      <h1>Sonata Music Studio</h1>
+      <p>Classical Piano • Theory • Sacred Aesthetics</p>
+    </div>
+  </header>
 
-<header>
-  <h1>Sonata Music Studio</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <section class="about">
+    <h2>About</h2>
+    <p>
+      Sonata Music Studio is dedicated to cultivating musical excellence through the art of classical piano and music theory. Inspired by the refinement of Juilliard’s tradition, our approach combines technical mastery, artistic sensibility, and spiritual depth.
+    </p>
+  </section>
 
-<section class="hero">
-  <img src="20250921_204502.jpg" class="active" alt="Sonata Music Studio" />
-  <img src="1728277959315.jpeg" alt="Teaching" />
-  <img src="1728277097784.jpeg" alt="Concert" />
-  <div class="hero-overlay">
-    <h2>Sonata Music Studio</h2>
-    <p>Classical Piano & Theory – Where Art Meets Intellect</p>
-    <a href="#about">Explore Studio</a>
-  </div>
-</section>
+  <section class="about">
+    <h2>Programs</h2>
+    <div class="programs">
+      <div class="program">
+        <h3>Piano Performance</h3>
+        <p>Private piano lessons focused on tone control, phrasing, and artistic interpretation, suitable for students of all levels.</p>
+      </div>
+      <div class="program">
+        <h3>Music Theory</h3>
+        <p>Comprehensive theory classes that explore structure, harmony, and aural skills to strengthen musicianship.</p>
+      </div>
+      <div class="program">
+        <h3>Sacred Music & Aesthetics</h3>
+        <p>Exploring the beauty of sacred art and the contemplative dimension of musical form.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="about">
-  <h2>About</h2>
-  <p>Sonata Music Studio is a sanctuary for structured musical growth rooted in cultural richness and reverence. Led by Felix Satia—music instructor, arranger, and composer—the studio combines classical precision with contemplative artistry, inspired by heritage, sacred tradition, and cross-cultural refinement.</p>
-</section>
-
-<section id="philosophy">
-  <h2>Philosophy</h2>
-  <p>Our philosophy is rooted in sacred discipline, artistry, and educational structure. Learning is not merely technical—it is spiritual, cultural, and transformative. We draw from Western classical training and Asian reflective values to create a holistic approach that transcends notes and embraces meaning.</p>
-</section>
-
-<footer>
-  &copy; 2025 Sonata Music Studio — Where Music Becomes Sacred
-</footer>
-
-<script>
-  // Simple slideshow fade effect
-  const slides = document.querySelectorAll('.hero img');
-  let index = 0;
-  setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }, 8000);
-</script>
-
+  <footer>
+    © 2025 Sonata Music Studio — Designed with timeless elegance
+  </footer>
 </body>
 </html>
