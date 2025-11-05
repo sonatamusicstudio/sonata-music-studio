@@ -10,11 +10,11 @@
 
 <style>
   :root{
-    --navy: #0b1524;
+    --navy: #0b1a33;
     --navy-soft: #0d2236;
     --gold: #c9a75a;
     --muted: #d4d4d4;
-    --bg: #05080b;
+    --bg: var(--navy);
     --max-width: 1200px;
   }
 
@@ -34,7 +34,7 @@
     justify-content:space-between;
     padding:12px 36px;
     z-index:1200;
-    background:linear-gradient(180deg, rgba(5,8,12,0.55), rgba(5,8,12,0.2));
+    background:linear-gradient(180deg, rgba(11,26,51,0.8), rgba(11,26,51,0.2));
     backdrop-filter: blur(6px);
     border-bottom:1px solid rgba(255,255,255,0.03);
   }
@@ -59,7 +59,7 @@
 
   /* Hero */
   .hero {
-    margin-top:78px; /* header height */
+    margin-top:78px;
     position:relative;
     width:100%;
     height:68vh;
@@ -79,35 +79,11 @@
   }
   .slide.active { opacity:1; }
 
-  /* cinematic left gradient */
   .slide::before{
     content:"";
     position:absolute; inset:0;
     background:linear-gradient(90deg, rgba(4,6,8,0.66) 0%, rgba(4,6,8,0.34) 36%, rgba(4,6,8,0.06) 62%, rgba(4,6,8,0) 100%);
     pointer-events:none;
-  }
-
-  /* Silk layers */
-  .silk-layer {
-    position:absolute;
-    width:150%;
-    height:120%;
-    top:-10%;
-    left:-25%;
-    background:linear-gradient(120deg, rgba(201,167,90,0.08) 0%, rgba(201,167,90,0.04) 50%, rgba(201,167,90,0.08) 100%);
-    animation: drift 18s ease-in-out infinite alternate;
-    pointer-events:none;
-    transform: rotate(0deg);
-    border-radius:50%;
-    filter: blur(22px);
-    mix-blend-mode:screen;
-  }
-  .silk-layer:nth-child(2){ animation-duration:24s; top:-15%; left:-30%; filter: blur(28px); opacity:0.6; }
-  .silk-layer:nth-child(3){ animation-duration:20s; top:-5%; left:-20%; filter: blur(18px); opacity:0.4; }
-
-  @keyframes drift{
-    0%{transform:translate(0,0) rotate(0deg);}
-    100%{transform:translate(35px,40px) rotate(5deg);}
   }
 
   .hero-inner {
@@ -180,7 +156,7 @@
   }
   nav.main a:hover { color:var(--gold); }
 
-  /* Page sections (About → Contact) */
+  /* Page sections */
   .page-section {
     max-width:var(--max-width);
     margin:90px auto;
@@ -201,11 +177,22 @@
   }
 
   .section-grid { display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap; }
-  .section-grid img{ width:320px; height:auto; border-radius:4px; object-fit:cover; border:0; }
-  .section-grid p, .section-grid ul{ flex:1; color:var(--muted); line-height:1.7; font-size:1.03rem; }
+  .section-grid img{
+    width:320px;
+    height:auto;
+    object-fit:cover;
+    border:none; /* remove rounded & border */
+    box-shadow:0 0 12px rgba(0,0,0,0.2);
+  }
+  .section-grid .panel p, .section-grid .panel ul{ flex:1; color:var(--muted); line-height:1.7; font-size:1.03rem; }
 
-  .panel { background:transparent; padding:12px 0; }
+  /* Hero image border */
+  .hero .slide:first-child, #about img{
+    border:1px solid var(--gold);
+    box-shadow:0 4px 16px rgba(0,0,0,0.4);
+  }
 
+  /* Gallery */
   .gallery {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
@@ -213,10 +200,14 @@
     margin-top:18px;
   }
   .gallery img{
-    width:100%; height: auto; display:block; object-fit:cover; border-radius:6px; transition: transform .35s ease, box-shadow .35s;
+    width:100%; height:auto; display:block; object-fit:cover;
+    border:none; /* no rounded */
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+    transition: transform .35s ease, box-shadow .35s;
   }
   .gallery img:hover{ transform:translateY(-6px) scale(1.02); box-shadow: 0 12px 30px rgba(2,8,20,0.6); }
 
+  /* contact */
   .socials { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
   .socials a{ background:var(--gold); color:var(--navy); padding:10px 16px; border-radius:6px; font-weight:600; text-decoration:none; }
 
@@ -246,7 +237,7 @@
 </head>
 
 <body>
-
+<!-- HEADER -->
 <header class="site" role="banner">
   <div class="brand">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo" />
@@ -255,29 +246,24 @@
   <div class="tagline">Where Art Meets Intellect</div>
 </header>
 
-<section class="hero" aria-label="Hero slider">
+<!-- HERO SLIDER -->
+<section class="hero">
   <div class="slides" id="slides">
     <div class="slide active" data-index="0" style="background-image:url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20250921_204502.jpg');"></div>
     <div class="slide" data-index="1" style="background-image:url('https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg');"></div>
     <div class="slide" data-index="2" style="background-image:url('https://i.etsystatic.com/20063013/r/il/d13104/5678313309/il_fullxfull.5678313309_2pk5.jpg');"></div>
   </div>
-
-  <!-- Silk layers -->
-  <div class="silk-layer"></div>
-  <div class="silk-layer"></div>
-  <div class="silk-layer"></div>
-
-  <div class="hero-inner" role="region" aria-label="Hero text">
+  <div class="hero-inner">
     <h2>Excellence in Classical & Sacred Music</h2>
     <p>Where performance meets philosophy — private piano, rigorous theory, and ensemble practice rooted in reverence.</p>
   </div>
-
-  <button class="arrow left" id="prev" aria-label="Previous slide">‹</button>
-  <button class="arrow right" id="next" aria-label="Next slide">›</button>
+  <button class="arrow left" id="prev">‹</button>
+  <button class="arrow right" id="next">›</button>
   <div class="dots" id="dots"></div>
 </section>
 
-<nav class="main" role="navigation" aria-label="Main navigation">
+<!-- NAV -->
+<nav class="main">
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
   <a href="#philosophy">Philosophy</a>
@@ -286,10 +272,9 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- SECTIONS: About, Programs, Philosophy, Portfolio, Gallery, Contact -->
-<!-- COPY PASTE DARI FILE HTML YANG KAMU BERIKAN -->
-<section id="about" class="page-section" aria-labelledby="about-title">
-  <h3 id="about-title" class="section-title">About</h3>
+<!-- PAGE SECTIONS -->
+<section id="about" class="page-section">
+  <h3 class="section-title">About</h3>
   <div class="section-grid">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia portrait" />
     <div class="panel">
@@ -298,8 +283,9 @@
   </div>
 </section>
 
-<section id="programs" class="page-section" aria-labelledby="programs-title">
-  <h3 id="programs-title" class="section-title">Programs</h3>
+<!-- PROGRAMS -->
+<section id="programs" class="page-section">
+  <h3 class="section-title">Programs</h3>
   <div class="section-grid">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching" />
     <div class="panel">
@@ -312,8 +298,9 @@
   </div>
 </section>
 
-<section id="philosophy" class="page-section" aria-labelledby="philosophy-title">
-  <h3 id="philosophy-title" class="section-title">Philosophy</h3>
+<!-- PHILOSOPHY -->
+<section id="philosophy" class="page-section">
+  <h3 class="section-title">Philosophy</h3>
   <div class="section-grid">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Concert" />
     <div class="panel">
@@ -322,8 +309,9 @@
   </div>
 </section>
 
-<section id="portfolio" class="page-section" aria-labelledby="portfolio-title">
-  <h3 id="portfolio-title" class="section-title">Portfolio</h3>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="page-section">
+  <h3 class="section-title">Portfolio</h3>
   <div class="section-grid">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/20211028_112040.jpg" alt="Teaching Portfolio" />
     <div class="panel">
@@ -332,8 +320,9 @@
   </div>
 </section>
 
-<section id="gallery" class="page-section" aria-labelledby="gallery-title">
-  <h3 id="gallery-title" class="section-title">Gallery</h3>
+<!-- GALLERY -->
+<section id="gallery" class="page-section">
+  <h3 class="section-title">Gallery</h3>
   <div class="gallery">
     <img src="1728277097784.jpeg" />
       <img src="1728277959315.jpeg" />
@@ -369,8 +358,9 @@
   </div>
 </section>
 
-<section id="contact" class="page-section" aria-labelledby="contact-title">
-  <h3 id="contact-title" class="section-title">Contact</h3>
+<!-- CONTACT -->
+<section id="contact" class="page-section">
+  <h3 class="section-title">Contact</h3>
   <div class="panel">
     <p style="color:var(--muted)">Connect via WhatsApp, YouTube, Instagram, or LinkedIn for schedules and inquiries.</p>
     <div class="socials">
@@ -382,64 +372,30 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site">
-  <div style="max-width:var(--max-width);margin:0 auto;padding:0 20px;">
-    <p style="margin:0 0 6px;">&copy; 2025 Sonata Music Studio — Designed with reverence and clarity</p>
-    <p style="margin:0;color:rgba(255,255,255,0.45);font-size:.92rem">Built from your content — ready for GitHub Pages.</p>
-  </div>
+  <div style="max-width:var(--max-width);margin:0 auto;">© 2025 Sonata Music Studio — All Rights Reserved</div>
 </footer>
 
 <script>
-/* Slider + dots + touch swipe + section fade-in */
-(function(){
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const dotsWrap = document.getElementById('dots');
-  const nextBtn = document.getElementById('next');
-  const prevBtn = document.getElementById('prev');
-  let idx = 0;
-  let timer = null;
-  const interval = 4000;
+const slides=document.querySelectorAll(".slide");
+const dotsContainer=document.getElementById("dots");
+let currentIndex=0;
+slides.forEach((_,i)=>{let dot=document.createElement("div");dot.classList.add("dot");if(i===0)dot.classList.add("active");dot.addEventListener("click",()=>{goToSlide(i)});dotsContainer.appendChild(dot)});
+const dots=document.querySelectorAll(".dot");
+function goToSlide(index){
+  slides[currentIndex].classList.remove("active");
+  dots[currentIndex].classList.remove("active");
+  currentIndex=index;
+  slides[currentIndex].classList.add("active");
+  dots[currentIndex].classList.add("active");
+}
+document.getElementById("prev").addEventListener("click",()=>{goToSlide((currentIndex-1+slides.length)%slides.length)});
+document.getElementById("next").addEventListener("click",()=>{goToSlide((currentIndex+1)%slides.length)});
 
-  slides.forEach((s,i)=>{
-    const d = document.createElement('div');
-    d.className = 'dot'+(i===0?' active':'');
-    d.dataset.index = i;
-    d.addEventListener('click', ()=> goTo(i));
-    dotsWrap.appendChild(d);
-  });
-
-  function update(){
-    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
-    Array.from(dotsWrap.children).forEach((d,i)=> d.classList.toggle('active', i===idx));
-  }
-  function goTo(i){ idx=(i+slides.length)%slides.length; update(); resetTimer(); }
-  function next(){ goTo(idx+1); }
-  function prev(){ goTo(idx-1); }
-  function start(){ timer=setInterval(next, interval); }
-  function stop(){ clearInterval(timer); timer=null; }
-  function resetTimer(){ stop(); start(); }
-
-  function addTouch(el){
-    let startX=0, startT=0;
-    el.addEventListener('touchstart', e=>{ startX=e.changedTouches[0].clientX; startT=Date.now(); stop(); }, {passive:true});
-    el.addEventListener('touchend', e=>{
-      const dx = e.changedTouches[0].clientX - startX;
-      const dt = Date.now()-startT;
-      if(Math.abs(dx)>40 && dt<800){ dx<0?next():prev(); }
-      resetTimer();
-    }, {passive:true});
-  }
-  addTouch(document.querySelector('.hero'));
-  nextBtn.addEventListener('click', next);
-  prevBtn.addEventListener('click', prev);
-  start();
-
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(ent=>{ if(ent.isIntersecting) ent.target.classList.add('visible'); });
-  }, {threshold:0.18});
-  document.querySelectorAll('.page-section').forEach(s=>observer.observe(s));
-})();
+// Animate sections on scroll
+const sections=document.querySelectorAll(".page-section");
+window.addEventListener("scroll",()=>{sections.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight*0.85)s.classList.add("visible")})});
 </script>
-
 </body>
 </html>
