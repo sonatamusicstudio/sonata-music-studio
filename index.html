@@ -291,6 +291,50 @@ img::before {
   mix-blend-mode: soft-light;
   z-index: 1;
 }
+  /* === HERO TEXT BACKGROUND VISIBILITY FIX === */
+
+/* Bungkus teks hero dalam container, misalnya .hero-text */
+.hero-text {
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+  z-index: 10;
+  padding: 16px 24px;
+  border-radius: 12px;
+  
+  /* Latar belakang transparan halus */
+  background: rgba(0, 0, 30, 0.45); /* navy gelap transparan */
+  backdrop-filter: blur(4px);        /* efek kaca lembut */
+  
+  /* Warna dan tipografi */
+  color: #f5f5f7;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Saat hover hero, teks sedikit lebih terang */
+.hero:hover .hero-text {
+  background: rgba(0, 0, 50, 0.55);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* Untuk judul di dalam hero text */
+.hero-text h1, .hero-text h2 {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Untuk subtitle / deskripsi hero */
+.hero-text p {
+  color: #ddd;
+  font-weight: 300;
+}
+
 
 
 
