@@ -238,6 +238,60 @@ img:hover {
   filter: brightness(0.82) contrast(1.15) saturate(0.95);
   transition: none;
 }
+  /* === UNIVERSAL CINEMATIC FILTER (Subtle Dark Tone + Gold–Blue Tint) === */
+
+/* 1. Efek dasar untuk SEMUA gambar */
+img {
+  position: relative;
+  filter: brightness(0.78) contrast(1.18) saturate(0.9)
+          sepia(0.05) hue-rotate(-5deg);
+  transition: filter 0.45s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* 2. Efek hover: lebih hidup tapi tetap elegan */
+img:hover {
+  filter: brightness(0.9) contrast(1.25) saturate(1)
+          sepia(0.03) hue-rotate(-8deg);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* 3. Hero Section: 
+   - Gambar 1 tanpa efek (biar tetap terang)
+   - Gambar 2 & 3 dengan cinematic halus */
+.hero img:nth-of-type(1) {
+  filter: none !important;
+}
+
+.hero img:nth-of-type(2),
+.hero img:nth-of-type(3) {
+  filter: brightness(0.8) contrast(1.15) saturate(0.9)
+          sepia(0.05) hue-rotate(-5deg);
+}
+
+/* 4. Tambahan untuk transisi halus pada hero */
+.hero img {
+  transition: filter 0.4s ease;
+}
+
+/* 5. Gold–Blue Tint ringan via overlay effect */
+img {
+  isolation: isolate;
+}
+img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 40, 90, 0.08),
+    rgba(255, 220, 160, 0.05)
+  );
+  mix-blend-mode: soft-light;
+  z-index: 1;
+}
+
 
 
 
