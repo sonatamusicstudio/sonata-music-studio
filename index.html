@@ -220,6 +220,25 @@ footer.site {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
 }
+  /* === UNIVERSAL CINEMATIC FILTER (Subtle Dark Tone) === */
+img {
+  filter: brightness(0.78) contrast(1.18) saturate(0.9);
+  transition: filter 0.45s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover effect untuk semua gambar */
+img:hover {
+  filter: brightness(0.9) contrast(1.25) saturate(1);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional: kalau ada hero image besar, biar tampil halus tanpa loncat efek */
+.hero img {
+  filter: brightness(0.82) contrast(1.15) saturate(0.95);
+  transition: none;
+}
+
 
 
 /* responsive */
