@@ -261,6 +261,60 @@ h3.section-title::after {
 
 </style>
 </head>
+  <style>
+/* --- ANIMASI SUTERA MEWAH --- */
+body {
+  position: relative;
+  background-color: #000053;
+  overflow: hidden;
+}
+
+/* Lapisan sutera */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, #a48cff, #000053 70%);
+  opacity: 0.15;
+  animation: silkWave 15s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Layer kedua: gerak berbeda */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 70% 70%, #d7b8ff, #000020 80%);
+  opacity: 0.1;
+  animation: silkWaveReverse 20s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Gerak gelombang lembut */
+@keyframes silkWave {
+  0% { transform: translateX(-10%) translateY(-5%) rotate(0deg) scale(1.05); }
+  50% { transform: translateX(10%) translateY(5%) rotate(2deg) scale(1.1); }
+  100% { transform: translateX(-8%) translateY(-3%) rotate(-2deg) scale(1.05); }
+}
+
+@keyframes silkWaveReverse {
+  0% { transform: translateX(8%) translateY(3%) rotate(2deg) scale(1.05); }
+  50% { transform: translateX(-10%) translateY(-5%) rotate(-2deg) scale(1.1); }
+  100% { transform: translateX(10%) translateY(5%) rotate(1deg) scale(1.05); }
+}
+</style>
+
 
 <body>
 
