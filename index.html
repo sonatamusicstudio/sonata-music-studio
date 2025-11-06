@@ -330,6 +330,26 @@ img::before {
 .hero-inner p:hover {
   background: rgba(0, 0, 50, 0.45);
 }
+  .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08); /* lapisan bening */
+  backdrop-filter: blur(6px) brightness(1.05); /* blur ringan & agak terang */
+  -webkit-backdrop-filter: blur(6px) brightness(1.05);
+  border-radius: 0; /* rectangular, no rounded */
+}
+
+/* Biar kiri-kanan seimbang dan tidak terlalu lebar */
+.hero img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  max-width: 90%; /* sesuaikan, misal 88–92% tergantung foto */
+  margin: 0 auto; /* center horizontal */
+  display: block;
+}
+
 
 
 
