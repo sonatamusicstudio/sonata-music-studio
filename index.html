@@ -280,6 +280,27 @@ img::before {
 .glass-sticker p {
   margin: 0;
 }
+  .glass-sticker {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px 20px;
+  border-radius: 0; /* rectangular, no rounded corners */
+  max-width: 460px; /* biar ga terlalu lebar, ga nabrak wajah */
+}
+
+/* geser sedikit ke kiri */
+.hero-inner {
+  position: absolute;
+  left: 4%; /* tadinya 6% — jadi sedikit lebih kiri */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  color: var(--muted);
+}
+
 
 
 
