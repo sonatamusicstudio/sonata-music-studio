@@ -262,6 +262,25 @@ img::before {
   mix-blend-mode: soft-light;
   z-index: 1;
 }
+  .glass-sticker {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 18px 22px;
+  border-radius: 12px;
+  max-width: fit-content;
+}
+
+.glass-sticker h2 {
+  margin: 0 0 8px 0;
+}
+
+.glass-sticker p {
+  margin: 0;
+}
+
 
 
 /* responsive */
@@ -323,9 +342,12 @@ h3.section-title::after {
     <div class="slide" style="background-image:url('https://i.etsystatic.com/20063013/r/il/d13104/5678313309/il_fullxfull.5678313309_2pk5.jpg');"></div>
   </div>
   <div class="hero-inner">
+  <div class="glass-sticker">
     <h2>Excellence in Classical & Sacred Music</h2>
     <p>Where performance meets philosophy — private piano, rigorous theory, and ensemble practice rooted in reverence.</p>
   </div>
+</div>
+
   <button class="arrow left" id="prev">‹</button>
   <button class="arrow right" id="next">›</button>
   <div class="dots" id="dots"></div>
