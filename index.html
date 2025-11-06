@@ -301,6 +301,46 @@ img::before {
   color: var(--muted);
 }
 
+  /* Hero Inner Glass Sticker */
+.glass-sticker {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px; /* jarak antara garis dan teks */
+  background: rgba(20, 20, 30, 0.35); /* sedikit gelap tapi transparan */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px 20px 16px 28px; /* tambahkan padding kiri biar ga ketabrak garis */
+  border-radius: 0;
+  max-width: 460px;
+  position: relative; /* penting untuk garis pseudo-element */
+}
+
+/* Garis vertikal ala NatGeo di kiri */
+.glass-sticker::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 100%;
+  background-color: #FFC845; /* medium yellow: Nat Geo inspired tapi elegan */
+  box-shadow: 0 0 4px rgba(255, 200, 70, 0.35); /* glow lembut */
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+
+/* Text Shadow untuk semua teks hero agar terbaca di semua background */
+.hero-inner h2,
+.hero-inner p {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* Responsive adjustment */
+@media (max-width:720px){
+  .glass-sticker { max-width: 90%; padding-left: 28px; }
+}
+
+
 
 
 
@@ -364,10 +404,13 @@ h3.section-title::after {
   </div>
   <div class="hero-inner">
   <div class="glass-sticker">
-    <h2>Excellence in Classical & Sacred Music</h2>
-    <p>Where performance meets philosophy — private piano, rigorous theory, and ensemble practice rooted in reverence.</p>
+    <div>
+      <h2>Excellence in Classical & Sacred Music</h2>
+      <p>Where performance meets philosophy — private piano, rigorous theory, and ensemble practice rooted in reverence.</p>
+    </div>
   </div>
 </div>
+
 
   <button class="arrow left" id="prev">‹</button>
   <button class="arrow right" id="next">›</button>
