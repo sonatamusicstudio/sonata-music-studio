@@ -394,6 +394,36 @@ h3.section-title::after {
   0% { background-position: 0 0; }
   100% { background-position: 200% 0; }
 }
+  /* Override responsive layout - make mobile look like desktop */
+@media (max-width: 1024px) {
+  html, body {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  * {
+    max-width: none !important;
+    width: auto !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .container, .wrapper, .main, .content, .section {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Pastikan tidak ada elemen yang stack vertikal */
+  [class*="col"], [class*="column"] {
+    display: inline-block !important;
+    vertical-align: top;
+  }
+
+  img, video {
+    max-width: none !important;
+    height: auto !important;
+  }
+}
+
 
 </style>
 </head>
