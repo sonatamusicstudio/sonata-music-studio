@@ -418,6 +418,57 @@ h3.section-title::after {
   100% { background-position: 200% 0; }
 }
 
+/* === FIX: Mobile version tampil sama seperti desktop === */
+@media (max-width: 720px) {
+  /* Hapus semua perilaku wrap di header */
+  header.site {
+    flex-wrap: nowrap !important;
+    height: 78px !important;
+    padding: 12px 36px !important;
+  }
+
+  /* Hero section tidak berubah tinggi atau posisi */
+  .hero {
+    height: 68vh !important;
+    min-height: 420px !important;
+  }
+
+  /* Gambar tidak digeser */
+  .slide {
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  /* Hero inner dan teks tetap seperti desktop */
+  .hero-inner {
+    left: 6% !important;
+    max-width: 540px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* Jangan ubah struktur section-grid */
+  .section-grid {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+  }
+
+  /* Gambar tidak full width */
+  .section-grid img {
+    width: 320px !important;
+    max-width: none !important;
+  }
+
+  /* Nav tetap sama */
+  nav.main {
+    position: sticky;
+    top: 78px;
+    gap: 32px;
+    padding: 14px 10px;
+  }
+}
+
+
 </style>
 </head>
 
