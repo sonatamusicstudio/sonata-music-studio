@@ -348,32 +348,55 @@ img::before {
   position: relative;
 }
 
-
-/* Responsive adjustment */
 @media (max-width:720px){
-  .glass-sticker { max-width: 90%; padding-left: 28px; }
+  header.site{
+    padding:12px 18px;
+    height:auto;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  /* Hero lebih tinggi dan posisi gambar diatur ulang */
+  .hero {
+    height:65vh;
+    min-height:360px;
+  }
+
+  /* Geser posisi background ke kanan (agar wajah terlihat) */
+  .slide {
+    background-position: 70% center !important;
+    background-size: cover;
+  }
+
+  /* Atur posisi teks supaya proporsional di mobile */
+  .hero-inner {
+    left: 6%;
+    max-width: 82%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .section-grid{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .section-grid img{
+    width:100%;
+    max-width:420px;
+  }
+
+  nav.main{
+    position:sticky;
+    top:72px;
+    gap:16px;
+    padding:10px;
+  }
 }
 
 
-
-
-
-/* responsive */
-@media (max-width:1000px){
-  .hero-inner{ left:5%; max-width:60%; }
-  .section-grid img{ width:260px }
-}
-@media (max-width:720px){
-  header.site{ padding:12px 18px; height:auto; gap:8px; flex-wrap:wrap; }
-  .hero { height:56vh; min-height:320px }
-  .hero-inner { left:6%; max-width:75%; top:50%; transform:translateY(-50%); }
-  .section-grid{ flex-direction:column; align-items:center; }
-  .section-grid img{ width:100%; max-width:420px }
-  nav.main{ position:sticky; top:72px; gap:16px; padding:10px }
-}
-/* Garis gradien bergerak di bawah section titles */
 h3.section-title {
-  position: relative; /* supaya ::after bisa posisi relatif ke title */
+  position: relative; 
   padding-bottom: 12px; /* ruang untuk garis */
 }
 
