@@ -467,6 +467,27 @@ h3.section-title::after {
     padding: 14px 10px;
   }
 }
+  /* === FIX HERO IMAGE di MOBILE agar sama seperti desktop === */
+@media (max-width: 768px) {
+  .slide {
+    background-size: contain !important;   /* ubah dari 'cover' jadi 'contain' */
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
+    background-color: #000 !important;     /* kasih latar belakang hitam */
+  }
+
+  .hero {
+    height: auto !important;               /* biar tinggi menyesuaikan gambar */
+    min-height: 100vh !important;
+  }
+
+  .hero-inner {
+    top: auto !important;
+    bottom: 5% !important;
+    transform: none !important;
+  }
+}
+
 
 
 </style>
