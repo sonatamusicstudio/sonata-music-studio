@@ -562,6 +562,30 @@ header.site, nav.main {
     white-space: nowrap; /* biar teks ga patah ke bawah */
   }
 }
+  /* === FINAL FIX: Navbar bisa swipe dua arah di mobile === */
+@media (max-width: 768px) {
+  nav.main {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important; /* ⬅️ ubah dari center jadi flex-start */
+    gap: 28px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important; /* biar geser halus di iOS/Android */
+    padding: 10px 18px !important;
+    scroll-behavior: smooth;
+  }
+
+  nav.main::-webkit-scrollbar {
+    display: none; /* sembunyikan scrollbar */
+  }
+
+  nav.main a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
 
 
 
