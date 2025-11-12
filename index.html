@@ -541,6 +541,28 @@ header.site, nav.main {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
+  /* === FIX: Navbar kiri (About) hilang di mobile === */
+@media (max-width: 768px) {
+  nav.main {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important; /* pastikan semua item terlihat */
+    gap: 28px !important;
+    overflow-x: auto !important; /* bisa digeser kalau terlalu panjang */
+    padding: 10px 18px !important;
+    scrollbar-width: none; /* sembunyikan scrollbar di Firefox */
+  }
+
+  nav.main::-webkit-scrollbar {
+    display: none; /* sembunyikan scrollbar di Chrome/Safari */
+  }
+
+  nav.main a {
+    flex: 0 0 auto; /* cegah item mengecil */
+    white-space: nowrap; /* biar teks ga patah ke bawah */
+  }
+}
+
 
 
 
