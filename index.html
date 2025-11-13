@@ -585,6 +585,21 @@ header.site, nav.main {
     white-space: nowrap;
   }
 }
+.hero-text {
+  position: absolute;
+  top: 55%; /* geser teks agak turun */
+  left: 10%;
+  transform: translateY(-50%);
+}
+.hero-text h2 {
+  max-width: 380px; /* batas lebar agar teks membungkus ke bawah */
+  white-space: normal; /* biar bisa turun baris */
+  line-height: 1.3; /* spasi antarbaris */
+  text-align: left; /* biar tetap elegan */
+  background: rgba(255, 255, 255, 0.2); /* opsional: transparan lembut agar teks lebih jelas */
+  padding: 10px 15px; /* biar kotaknya rapi */
+  border-radius: 12px; /* lembut di ujung */
+}
 
 
 
