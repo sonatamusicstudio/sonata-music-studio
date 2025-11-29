@@ -212,6 +212,58 @@ img:hover {
   .section-grid { flex-direction:column; align-items:center; }
   .section-grid img { width:100%; max-width:420px; }
 }
+
+  /* Layer utama background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55) contrast(1.15) saturate(0.9);
+  z-index: -3;
+  animation: waveMain 40s ease-in-out infinite alternate;
+}
+
+/* Layer gelombang halus untuk efek silk */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.08), rgba(0,0,0,0.05));
+  z-index: -2;
+  animation: waveOverlay 50s ease-in-out infinite alternate-reverse;
+}
+
+/* Blur & darken overlay supaya konten terbaca */
+.overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.18);
+  z-index: -1;
+}
+
+/* Animasi layer utama */
+@keyframes waveMain {
+  0%   { transform: scale(1.05) translate(0,0) rotate(0deg); }
+  25%  { transform: scale(1.06) translate(-0.5%, -0.3%) rotate(0.05deg); }
+  50%  { transform: scale(1.07) translate(0.4%, 0.6%) rotate(-0.05deg); }
+  75%  { transform: scale(1.06) translate(-0.3%, 0.2%) rotate(0.02deg); }
+  100% { transform: scale(1.05) translate(0,0) rotate(0deg); }
+}
+
+/* Animasi overlay gelombang halus */
+@keyframes waveOverlay {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  25%  { transform: translate(-0.3%, 0.2%) rotate(0.01deg); }
+  50%  { transform: translate(0.2%, -0.4%) rotate(-0.01deg); }
+  75%  { transform: translate(-0.2%, 0.3%) rotate(0.02deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+  
 </style>
 </head>
 
