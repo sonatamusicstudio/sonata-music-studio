@@ -266,6 +266,52 @@ body::after {
   100% { transform: translateY(0); }
 }
 
+  /* ===== ULTRA ELEGANT SILK WAVY BACKGROUND ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.78) contrast(1.1) saturate(0.95);
+  z-index: -999;
+  transform-origin: center center;
+  animation: silkWaveElegant 240s ease-in-out infinite alternate;
+}
+
+@keyframes silkWaveElegant {
+  0%   { transform: scale(1.03) translate(0,0) rotate(0deg); }
+  10%  { transform: scale(1.031) translate(0.12%, -0.08%) rotate(0.01deg); }
+  20%  { transform: scale(1.034) translate(-0.18%, 0.12%) rotate(-0.012deg); }
+  30%  { transform: scale(1.032) translate(0.09%, -0.15%) rotate(0.008deg); }
+  40%  { transform: scale(1.035) translate(-0.12%, 0.14%) rotate(-0.01deg); }
+  50%  { transform: scale(1.036) translate(0.15%, -0.1%) rotate(0.012deg); }
+  60%  { transform: scale(1.034) translate(-0.14%, 0.08%) rotate(-0.008deg); }
+  70%  { transform: scale(1.035) translate(0.1%, -0.05%) rotate(0.006deg); }
+  80%  { transform: scale(1.033) translate(-0.06%, 0.12%) rotate(-0.004deg); }
+  90%  { transform: scale(1.032) translate(0.08%, -0.09%) rotate(0.005deg); }
+  100% { transform: scale(1.03) translate(0,0) rotate(0deg); }
+}
+
+/* Subtle shadow overlay for depth */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.015), rgba(0,0,0,0.04), rgba(0,0,0,0.015));
+  z-index: -998;
+  animation: silkShadowElegant 220s ease-in-out infinite alternate;
+}
+
+@keyframes silkShadowElegant {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-2.2%); }
+  100% { transform: translateY(0); }
+}
+
+
   
 
 </style>
