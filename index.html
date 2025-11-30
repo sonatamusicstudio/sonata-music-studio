@@ -194,42 +194,37 @@ img:hover {
   position: fixed;
   inset: 0;
   background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: cover;
+  background-size: 110% 110%;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: -1;
 
+  /* cinematic filter */
   filter: brightness(0.72) contrast(1.12) saturate(0.92);
 
-  z-index: -1; /* FIX UTAMA */
-  transform-origin: center;
-
-  animation: silkWaveElegant 220s ease-in-out infinite alternate;
+  /* ANIMATION FIX */
+  animation: silkWaveElegant 40s ease-in-out infinite alternate;
+  will-change: transform;
 }
-
-.overlay { display:none !important; } /* FIX OVERLAY MENUTUP SEMUA */
 
 @keyframes silkWaveElegant {
   0% {
-    transform: scale(1.02) translate3d(0px, 0px, 0px);
-    filter: brightness(0.72) contrast(1.12) saturate(0.92);
+    transform: scale(1.03) translate3d(0px, 0px, 0px);
   }
   25% {
-    transform: scale(1.05) translate3d(-6px, -4px, 0px);
-    filter: brightness(0.74) contrast(1.15) saturate(0.95);
+    transform: scale(1.07) translate3d(-10px, -6px, 0px);
   }
   50% {
-    transform: scale(1.03) translate3d(4px, 6px, 0px);
-    filter: brightness(0.70) contrast(1.10) saturate(0.90);
+    transform: scale(1.05) translate3d(8px, 10px, 0px);
   }
   75% {
-    transform: scale(1.06) translate3d(-3px, 5px, 0px);
-    filter: brightness(0.73) contrast(1.13) saturate(0.93);
+    transform: scale(1.08) translate3d(-6px, 12px, 0px);
   }
   100% {
-    transform: scale(1.02) translate3d(0px, 0px, 0px);
-    filter: brightness(0.72) contrast(1.12) saturate(0.92);
+    transform: scale(1.03) translate3d(0px, 0px, 0px);
   }
 }
+
   .bg-silk {
   position: fixed;
   inset: 0;
