@@ -189,24 +189,23 @@ img:hover {
   .section-grid img { width:100%; max-width:420px; }
 }
 
-  body::before {
-  content: "";
+  
+
+  .bg-silk {
   position: fixed;
   inset: 0;
+  z-index: -9999;
   background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: 110% 110%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1;
 
-  /* cinematic filter */
   filter: brightness(0.72) contrast(1.12) saturate(0.92);
+  transform-origin: center;
 
-  /* ANIMATION FIX */
   animation: silkWaveElegant 40s ease-in-out infinite alternate;
-  will-change: transform;
 }
-
+  
 @keyframes silkWaveElegant {
   0% {
     transform: scale(1.03) translate3d(0px, 0px, 0px);
@@ -223,21 +222,6 @@ img:hover {
   100% {
     transform: scale(1.03) translate3d(0px, 0px, 0px);
   }
-}
-
-  .bg-silk {
-  position: fixed;
-  inset: 0;
-  z-index: -9999;
-  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  filter: brightness(0.72) contrast(1.12) saturate(0.92);
-  transform-origin: center;
-
-  animation: silkWaveElegant 220s ease-in-out infinite alternate;
 }
 
 
