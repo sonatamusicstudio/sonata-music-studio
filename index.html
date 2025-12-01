@@ -28,37 +28,6 @@ html, body {
   font-family: "Inter", sans-serif;
 }
 
-/* ===== CINEMATIC BACKGROUND ===== */
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(0.55) contrast(1.15) saturate(0.9);
-  z-index: -999;
-  animation: waveMain 40s ease-in-out infinite alternate;
-}
-
-@keyframes waveMain {
-  0%   { transform: scale(1.05) translate(0,0) rotate(0deg); }
-  25%  { transform: scale(1.06) translate(-0.5%, -0.3%) rotate(0.05deg); }
-  50%  { transform: scale(1.07) translate(0.4%, 0.6%) rotate(-0.05deg); }
-  75%  { transform: scale(1.06) translate(-0.3%, 0.2%) rotate(0.02deg); }
-  100% { transform: scale(1.05) translate(0,0) rotate(0deg); }
-}
-
-/* ===== SILK OVERLAY ===== */
-.overlay {
-  position:fixed;
-  inset:0;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.18);
-  z-index:-998;
-}
-
 /* ===== HEADER ===== */
 header.site {
   position:fixed; top:0; left:0; right:0; height:78px;
