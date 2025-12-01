@@ -227,6 +227,30 @@ animation: silkWaveElegant 30s ease-in-out infinite alternate;
     transform: scale(1.03) translate3d(0px, 0px, 0px);
   }
 }
+  .bg-silk {
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+
+  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
+  background-size: 120% 120%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: brightness(0.72) contrast(1.12) saturate(0.92);
+
+  transform-origin: center;
+  animation: silkWaveElegant 32s ease-in-out infinite alternate;
+}
+
+@keyframes silkWaveElegant {
+  0%   { transform: scale(1.05) translate3d(0, 0, 0); }
+  25%  { transform: scale(1.08) translate3d(-12px, -6px, 0); }
+  50%  { transform: scale(1.07) translate3d(10px, 12px, 0); }
+  75%  { transform: scale(1.09) translate3d(-8px, 14px, 0); }
+  100% { transform: scale(1.05) translate3d(0, 0, 0); }
+}
+
 
 
 
