@@ -188,115 +188,126 @@ img:hover {
   .section-grid img { width:100%; max-width:420px; }
 }
 
-  /* ========================= */
-/*     ULTIMATE CINEMATIC    */
-/*       SILK BACKGROUND      */
-/* ========================= */
-
-/* Durasi panjang = dramatis. Tidak cepat, tapi bergelombang besar. */
-:root {
-  --silk-duration: 46s;
-  --silk-shift-duration: 52s;
-  --silk-breathe-duration: 22s;
-  --silk-shimmer-duration: 11s;
-  --silk-ease: cubic-bezier(.22, .55, .25, 1);
-}
+  /* ===============================================================
+   EXTREME CINEMATIC WAVE SILK
+   3-LAYER VOLUMETRIC MOTION + PARALLAX + WARP + ANAMORPHIC LIGHT
+   =============================================================== */
 
 .bg-silk {
   position: fixed;
   inset: 0;
-  z-index: -9999;
+  z-index: -999;
+  overflow: hidden;
   pointer-events: none;
 
   background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: 150% 150%;
+  background-size: 200% 200%;
   background-position: 50% 50%;
-  background-repeat: no-repeat;
 
-  filter: brightness(0.70) contrast(1.18) saturate(1.02);
-  transform-origin: center;
-
-  will-change: transform, background-position, filter;
+  filter: brightness(0.65) contrast(1.24) saturate(1.05);
+  transform: translateZ(0);
 
   animation:
-    silkWave var(--silk-duration) var(--silk-ease) infinite alternate,
-    silkShift var(--silk-shift-duration) linear infinite alternate,
-    silkPulse var(--silk-breathe-duration) ease-in-out infinite;
+    waveMain 38s cubic-bezier(.15,.55,.25,1) infinite alternate,
+    parallaxMove 52s ease-in-out infinite alternate,
+    deepPulse 18s ease-in-out infinite;
 }
 
-/* Depth intense */
+/* ==== Layer 2: Deep distortion / volumetric warp ==== */
 .bg-silk::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(255,220,180,0.10), transparent 15%),
-    radial-gradient(ellipse at 80% 70%, rgba(0,0,0,0.30), transparent 25%);
-  filter: blur(18px) contrast(0.95);
-  opacity: 0.9;
-  animation: depthFloat 26s ease-in-out infinite;
+  inset: -30%;
+  background-image: inherit;
+  background-size: 240% 240%;
+  background-position: 48% 50%;
+  opacity: 0.45;
+
+  filter: blur(18px) brightness(0.55) contrast(1.18);
+  mix-blend-mode: soft-light;
+
+  animation:
+    waveWarper 33s cubic-bezier(.32,.02,.14,1) infinite alternate,
+    drift 60s ease-in-out infinite;
 }
 
-/* Strong cinematic light sweep */
+/* ==== Layer 3: Strong cinematic light beam ==== */
 .bg-silk::after {
   content: "";
   position: absolute;
-  inset: -50% -50%;
+  inset: -60%;
+  pointer-events: none;
+
   background: linear-gradient(
-    130deg,
-    rgba(255,255,255,0.00) 0%,
-    rgba(255,255,255,0.10) 45%,
-    rgba(255,255,255,0.18) 50%,
-    rgba(255,255,255,0.10) 55%,
-    rgba(255,255,255,0.00) 100%
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.25) 45%,
+    rgba(255,255,255,0.65) 50%,
+    rgba(255,255,255,0.25) 55%,
+    rgba(255,255,255,0) 100%
   );
+
+  filter: blur(28px) brightness(1.6);
   mix-blend-mode: screen;
-  filter: blur(16px);
-  opacity: 0.7;
-  transform: translateX(-60%) rotate(-12deg);
-  animation: shimmer var(--silk-shimmer-duration) ease-in-out infinite;
+  transform: rotate(-18deg) translateX(-120%);
+
+  animation: lightSweep 14s ease-in-out infinite;
 }
 
-/* === BIG CINEMATIC MOTION === */
-@keyframes silkWave {
-  0%   { transform: scale(1.05) translate(-12px, -8px) rotate(-0.8deg); }
-  20%  { transform: scale(1.10) translate(22px, 14px) rotate(0.5deg); }
-  40%  { transform: scale(1.13) translate(-30px, 10px) rotate(-1.1deg); }
-  60%  { transform: scale(1.15) translate(18px, -22px) rotate(0.9deg); }
-  80%  { transform: scale(1.12) translate(-8px, 18px) rotate(-0.4deg); }
-  100% { transform: scale(1.06) translate(0px, 0px) rotate(0deg); }
+/* ===============================================================
+   KEYFRAMES — EXTREME MOTION
+   =============================================================== */
+
+/* Main giant wave (front layer) */
+@keyframes waveMain {
+  0%   { transform: scale(1.08) translate(-60px, -18px) rotate(-1.5deg); }
+  20%  { transform: scale(1.13) translate(40px, 25px) rotate(1deg); }
+  40%  { transform: scale(1.18) translate(-80px, 40px) rotate(-2deg); }
+  60%  { transform: scale(1.22) translate(50px, -60px) rotate(1.8deg); }
+  80%  { transform: scale(1.15) translate(-20px, 32px) rotate(-0.5deg); }
+  100% { transform: scale(1.09) translate(0px, 0px) rotate(0deg); }
 }
 
-@keyframes silkShift {
+/* Deep parallax shift (like camera moving through fabric valleys) */
+@keyframes parallaxMove {
   0%   { background-position: 48% 52%; }
-  25%  { background-position: 55% 45%; }
-  50%  { background-position: 44% 58%; }
-  75%  { background-position: 58% 50%; }
-  100% { background-position: 50% 52%; }
+  25%  { background-position: 62% 42%; }
+  50%  { background-position: 38% 58%; }
+  75%  { background-position: 58% 34%; }
+  100% { background-position: 50% 50%; }
 }
 
-/* Breathing pulse, emotional heaviness */
-@keyframes silkPulse {
-  0%   { filter: brightness(0.70) contrast(1.16); }
-  50%  { filter: brightness(0.78) contrast(1.22); }
-  100% { filter: brightness(0.70) contrast(1.16); }
+/* Heavy emotional breathing pulse */
+@keyframes deepPulse {
+  0%   { filter: brightness(0.65) contrast(1.18); }
+  50%  { filter: brightness(0.82) contrast(1.35); }
+  100% { filter: brightness(0.65) contrast(1.18); }
 }
 
-/* Depth layer floating */
-@keyframes depthFloat {
-  0%   { transform: scale(0.98); opacity: 0.85; }
-  50%  { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(0.98); opacity: 0.85; }
+/* Warp distortion layer (subsurface wave energy) */
+@keyframes waveWarper {
+  0%   { transform: scale(1.25) translate(20px, -40px) rotate(1deg); }
+  25%  { transform: scale(1.32) translate(-60px, 20px) rotate(-1deg); }
+  50%  { transform: scale(1.38) translate(40px, 60px) rotate(2deg); }
+  75%  { transform: scale(1.28) translate(-30px, -70px) rotate(-2deg); }
+  100% { transform: scale(1.25) translate(0px, 0px) rotate(0deg); }
 }
 
-/* Brighter, heavier cinematic shine */
-@keyframes shimmer {
-  0%   { transform: translateX(-80%) rotate(-12deg); opacity: 0; }
-  25%  { opacity: 0.25; }
-  50%  { transform: translateX(40%) rotate(-12deg); opacity: 0.6; }
-  75%  { opacity: 0.20; }
-  100% { transform: translateX(130%) rotate(-12deg); opacity: 0; }
+/* Subtle drifting of deep layer */
+@keyframes drift {
+  0%   { background-position: 50% 50%; }
+  100% { background-position: 54% 46%; }
 }
+
+/* Strong sweeping cinematic white beam */
+@keyframes lightSweep {
+  0%   { transform: translateX(-120%) rotate(-18deg); opacity: 0; }
+  20%  { opacity: 0.35; }
+  50%  { transform: translateX(70%) rotate(-18deg); opacity: 0.65; }
+  80%  { opacity: 0.25; }
+  100% { transform: translateX(140%) rotate(-18deg); opacity: 0; }
+}
+
 
 
   
