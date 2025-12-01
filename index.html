@@ -190,67 +190,127 @@ img:hover {
 
   
 
-  .bg-silk {
+/* ===== CINEMATIC SILK — Replace previous .bg-silk block with this ===== */
+:root{
+  --silk-duration: 34s;        /* feel free to tweak: longer = more cinematic */
+  --silk-ease: cubic-bezier(.2,.6,.15,1);
+  --shimmer-duration: 9s;
+}
+
+.bg-silk {
   position: fixed;
   inset: 0;
   z-index: -9999;
+  pointer-events: none;
+
+  /* base image */
   background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 130% 130%;      /* slightly larger so motion never exposes edges */
+  background-position: 50% 50%;
   background-repeat: no-repeat;
 
-  filter: brightness(0.72) contrast(1.12) saturate(0.92);
+  /* visual finish */
+  filter: brightness(0.74) contrast(1.14) saturate(0.95) sepia(0.02);
   transform-origin: center;
-
-  animation: silkWaveElegant 40s ease-in-out infinite alternate;
-    background-size: 200% 200%;
-background-attachment: scroll;
-animation: silkWaveElegant 30s ease-in-out infinite alternate;
-
+  will-change: transform, background-position, filter;
+  animation:
+    silkWave var(--silk-duration) var(--silk-ease) infinite alternate,
+    silkShift calc(var(--silk-duration) * 1.1) linear infinite;
+  /* subtle softening layer to avoid pixelated edges during transform */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
+
+/* depth / glow layer (blurry, behind the silk to create volume) */
+.bg-silk::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 20% 30%, rgba(255,230,190,0.06), transparent 12%),
+              radial-gradient(ellipse at 80% 70%, rgba(0,0,0,0.18), transparent 20%);
+  filter: blur(12px) contrast(0.95);
+  opacity: 0.95;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  animation: depthBreathe 18s ease-in-out infinite;
+}
+
+/* thin cinematic light sweep */
+.bg-silk::after {
+  content: "";
+  position: absolute;
+  inset: -40% -40%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,245,0.03) 45%,
+    rgba(255,255,240,0.06) 50%,
+    rgba(255,255,245,0.03) 55%,
+    rgba(255,255,255,0.00) 100%);
+  transform: translateX(-40%) rotate(-8deg);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  filter: blur(8px) saturate(1.02);
+  animation: shimmer var(--shimmer-duration) ease-in-out infinite;
+}
+
+/* MAIN MOTIONS */
+@keyframes silkWave {
+  0%   { transform: scale(1.04) translate3d(0px, 0px, 0) rotate(-0.12deg);  }
+  18%  { transform: scale(1.07) translate3d(-18px, -8px, 0) rotate(0.08deg); }
+  36%  { transform: scale(1.06) translate3d(12px, 10px, 0) rotate(-0.06deg); }
+  54%  { transform: scale(1.08) translate3d(-10px, 14px, 0) rotate(0.10deg); }
+  72%  { transform: scale(1.06) translate3d(8px, -6px, 0) rotate(-0.04deg); }
+  100% { transform: scale(1.04) translate3d(0px, 0px, 0) rotate(0deg); }
+}
+
+@keyframes silkShift {
+  0%   { background-position: 50% 52%; }
+  25%  { background-position: 45% 48%; }
+  50%  { background-position: 52% 44%; }
+  75%  { background-position: 48% 56%; }
+  100% { background-position: 50% 52%; }
+}
+
+/* shimmer sweeping light */
+@keyframes shimmer {
+  0%   { transform: translateX(-60%) rotate(-8deg); opacity: 0; }
+  12%  { opacity: 0.0; }
+  30%  { transform: translateX(10%) rotate(-8deg); opacity: 0.8; }
+  55%  { transform: translateX(35%) rotate(-8deg); opacity: 0.45; }
+  75%  { transform: translateX(60%) rotate(-8deg); opacity: 0.12; }
+  100% { transform: translateX(120%) rotate(-8deg); opacity: 0; }
+}
+
+/* breathing depth */
+@keyframes depthBreathe {
+  0%   { transform: scale(0.995); opacity: 0.92; }
+  50%  { transform: scale(1.02);  opacity: 1; }
+  100% { transform: scale(0.995); opacity: 0.92; }
+}
+
+/* small filter pulse for cinematic highlight (optional subtle) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes filterPulse {
+    0%   { filter: brightness(0.74) contrast(1.14) saturate(0.95); }
+    40%  { filter: brightness(0.78) contrast(1.16) saturate(1.00); }
+    100% { filter: brightness(0.74) contrast(1.14) saturate(0.95); }
+  }
+
+  .bg-silk {
+    animation: 
+      silkWave var(--silk-duration) var(--silk-ease) infinite alternate,
+      silkShift calc(var(--silk-duration) * 1.08) linear infinite,
+      filterPulse calc(var(--silk-duration) * 0.6) ease-in-out infinite;
+  }
+}
+
+/* Performance hint: keep the silk behind everything; avoid interfering selectors */
+
   
-@keyframes silkWaveElegant {
-  0% {
-    transform: scale(1.03) translate3d(0px, 0px, 0px);
-  }
-  25% {
-    transform: scale(1.07) translate3d(-10px, -6px, 0px);
-  }
-  50% {
-    transform: scale(1.05) translate3d(8px, 10px, 0px);
-  }
-  75% {
-    transform: scale(1.08) translate3d(-6px, 12px, 0px);
-  }
-  100% {
-    transform: scale(1.03) translate3d(0px, 0px, 0px);
-  }
-}
-  .bg-silk {
-  position: fixed;
-  inset: 0;
-  z-index: -9999;
-
-  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251129_163015.png");
-  background-size: 120% 120%;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  filter: brightness(0.72) contrast(1.12) saturate(0.92);
-
-  transform-origin: center;
-  animation: silkWaveElegant 32s ease-in-out infinite alternate;
-}
-
-@keyframes silkWaveElegant {
-  0%   { transform: scale(1.05) translate3d(0, 0, 0); }
-  25%  { transform: scale(1.08) translate3d(-12px, -6px, 0); }
-  50%  { transform: scale(1.07) translate3d(10px, 12px, 0); }
-  75%  { transform: scale(1.09) translate3d(-8px, 14px, 0); }
-  100% { transform: scale(1.05) translate3d(0, 0, 0); }
-}
-
-
 
 
 </style>
@@ -271,9 +331,7 @@ animation: silkWaveElegant 30s ease-in-out infinite alternate;
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="slides" id="slides">
-    <div class="slide active" style="background-image:url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg');"></div>
+<section d-image:url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg');"></div>
     <div class="slide" style="background-image:url('https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg');"></div>
     <div class="slide" style="background-image:url('https://i.etsystatic.com/20063013/r/il/d13104/5678313309/il_fullxfull.5678313309_2pk5.jpg');"></div>
   </div>
