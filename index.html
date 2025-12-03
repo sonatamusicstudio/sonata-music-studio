@@ -355,44 +355,48 @@ img:hover {
   60%  { transform: translateX(35%) rotate(-8deg); opacity: 0.3; }
   100% { transform: translateX(120%) rotate(-8deg); opacity: 0; }
 }
-  /* === CINEMATIC DARK BLUE WAVY BACKGROUND === */
+  
+/* === BACKGROUND CONTAINER === */
 body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Layer khusus background saja */
+.bg-ocean {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1d608d23-7e42-4dd3-970e-47fb67276b99.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   filter: brightness(0.75) contrast(1.15) saturate(1.2) hue-rotate(210deg);
-  animation: deepWaves 14s ease-in-out infinite alternate;
+  animation: oceanWave 14s ease-in-out infinite alternate;
 }
 
-/* Motion lebih besar, lebih bergelombang, sangat sinematik */
-@keyframes deepWaves {
+/* Hanya background yang bergerak, konten aman */
+@keyframes oceanWave {
   0% {
-    transform: scale(1.04) translateY(-2%) skewX(0deg);
-    filter: brightness(0.75) contrast(1.15) saturate(1.2) hue-rotate(210deg);
+    transform: scale(1.05) translateY(-1%) skewX(0deg);
   }
   50% {
-    transform: scale(1.08) translateY(2%) skewX(3deg);
-    filter: brightness(0.78) contrast(1.18) saturate(1.22) hue-rotate(210deg);
+    transform: scale(1.1) translateY(1.5%) skewX(2.5deg);
   }
   100% {
-    transform: scale(1.06) translateY(-1%) skewX(-3deg);
-    filter: brightness(0.72) contrast(1.20) saturate(1.25) hue-rotate(210deg);
+    transform: scale(1.07) translateY(-1%) skewX(-2deg);
   }
 }
 
-/* Sedikit vignette gelap cinematic */
-body::before {
+/* Vignette lembut cinematic */
+.bg-ocean::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: radial-gradient(circle at center,
-    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0) 45%,
     rgba(0,0,20,0.55) 100%
   );
-  pointer-events: none;
 }
-
 
 
 
