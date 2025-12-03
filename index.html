@@ -397,6 +397,54 @@ body {
     rgba(0,0,20,0.55) 100%
   );
 }
+  /* === BACKGROUND CONTAINER === */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* LAYER BACKGROUND BERGERAK SEPERTI GELOMBANG SAMUDERA */
+.bg-ocean {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1d608d23-7e42-4dd3-970e-47fb67276b99.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.72) contrast(1.2) saturate(1.25) hue-rotate(210deg);
+  animation: oceanMotion 6s ease-in-out infinite;
+}
+
+/* GERAKAN GELOMBANG LEBIH BESAR, BERGELORA, REALISTIS */
+@keyframes oceanMotion {
+  0% {
+    transform: scale(1.1) translate(-1%, -2%) rotate(-0.4deg) skewX(1deg);
+  }
+  25% {
+    transform: scale(1.13) translate(1%, 1%) rotate(0.6deg) skewX(-2deg);
+  }
+  50% {
+    transform: scale(1.12) translate(-2%, 2%) rotate(-0.8deg) skewX(2deg);
+  }
+  75% {
+    transform: scale(1.14) translate(1.5%, -1%) rotate(0.3deg) skewX(-1.5deg);
+  }
+  100% {
+    transform: scale(1.1) translate(-1%, -2%) rotate(-0.4deg) skewX(1deg);
+  }
+}
+
+/* VIGNETTE CINEMATIC */
+.bg-ocean::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(0,0,0,0) 45%,
+    rgba(0,0,25,0.55) 100%
+  );
+}
+
 
 
 
@@ -410,6 +458,8 @@ body {
 <body>
   
  <div class="bg-silk"></div>
+  <div class="bg-ocean"></div>
+
   
 <!-- HEADER -->
 <header class="site">
