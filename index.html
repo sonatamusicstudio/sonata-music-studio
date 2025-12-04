@@ -398,6 +398,28 @@ body {
   );
 }
 
+  /* MOBILE SAFE ZONE */
+@media (max-width: 768px) {
+  .bg-ocean, .bg-silk {
+    transform: scale(1.15); /* zoom agar semua gerakan tertutup */
+  }
+
+  @keyframes waveMotion {
+    0%   { transform: scale(1.15) translate3d(0px, 0px, 0); }
+    25%  { transform: scale(1.16) translate3d(-10px, 6px, 0); }
+    50%  { transform: scale(1.17) translate3d(8px, -8px, 0); }
+    75%  { transform: scale(1.16) translate3d(-6px, 10px, 0); }
+    100% { transform: scale(1.15) translate3d(0px, 0px, 0); }
+  }
+
+  @keyframes bgShift {
+    0%   { background-position: 50% 52%; }
+    50%  { background-position: 52% 50%; }
+    100% { background-position: 50% 52%; }
+  }
+}
+
+
 
 
 
