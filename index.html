@@ -375,6 +375,37 @@ img:hover {
     100% { background-position: 50% 50%; }
   }
 
+
+/* ===== FIX #1 – GALLERY TIDAK MUNCUL DI MOBILE ===== */
+.gallery {
+  display: grid !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 14px !important;
+  margin-top: 18px !important;
+}
+
+.gallery img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+/* ===== FIX #2 – BACKGROUND TIDAK BOLEH ADA TEPIAN PUTIH ===== */
+.bg-silk {
+  background-size: 150% 150% !important;   /* zoom lebih besar */
+  background-position: center !important;
+  overflow: hidden !important;
+}
+
+/* SAFE ZONE tambahan untuk mobile */
+@media (max-width: 768px) {
+  .bg-silk {
+    background-size: 170% 170% !important;  /* mobile akan zoom lebih lagi */
+    background-position: 50% 50% !important;
+  }
 }
 
 
