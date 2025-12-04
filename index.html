@@ -208,28 +208,30 @@ img:hover {
 
   /* wavy cinematic motion */
   animation:
-    waveMotion 40s ease-in-out infinite alternate,
-    bgShift 70s linear infinite,
-    subtleFilter 25s ease-in-out infinite;
+  waveMotion 28s ease-in-out infinite alternate,
+  bgShift 45s linear infinite,
+  subtleFilter 20s ease-in-out infinite;
 }
 
 /* gelombang halus */
 @keyframes waveMotion {
-  0%   { transform: scale(1.02) translate3d(0px, 0px, 0) rotate(-0.05deg); }
-  25%  { transform: scale(1.05) translate3d(-18px, 8px, 0) rotate(0.03deg); }
-  50%  { transform: scale(1.04) translate3d(12px, -10px, 0) rotate(-0.02deg); }
-  75%  { transform: scale(1.06) translate3d(-10px, 12px, 0) rotate(0.04deg); }
-  100% { transform: scale(1.02) translate3d(0px, 0px, 0) rotate(0deg); }
+ 0%   { transform: scale(1.03) translate3d(0px, 0px, 0); }
+ 25%  { transform: scale(1.08) translate3d(-40px, 18px, 0); }
+ 50%  { transform: scale(1.07) translate3d(28px, -32px, 0); }
+ 75%  { transform: scale(1.10) translate3d(-30px, 36px, 0); }
+ 100% { transform: scale(1.03) translate3d(0px, 0px, 0); }
 }
+
 
 /* gerakan background halus */
 @keyframes bgShift {
-  0%   { background-position: 50% 52%; }
-  25%  { background-position: 47% 50%; }
-  50%  { background-position: 53% 48%; }
-  75%  { background-position: 50% 55%; }
-  100% { background-position: 50% 52%; }
+ 0%   { background-position: 50% 52%; }
+ 25%  { background-position: 45% 50%; }
+ 50%  { background-position: 60% 46%; }
+ 75%  { background-position: 48% 60%; }
+ 100% { background-position: 50% 52%; }
 }
+
 
 /* subtle cinematic filter pulse */
 @keyframes subtleFilter {
