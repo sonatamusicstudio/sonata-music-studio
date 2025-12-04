@@ -439,6 +439,51 @@ body {
   75%  { transform: scale(1.13) translate3d(-6px,8px,0); }
   100% { transform: scale(1.10) translate3d(0,0,0); }
 }
+  /* ====== FORCE GALLERY TO SHOW ON MOBILE ====== */
+@media (max-width: 768px) {
+
+  /* Pastikan sectionnya tidak hilang */
+  #gallery,
+  .gallery,
+  .gallery-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 200px !important;
+    overflow: visible !important;
+  }
+
+  /* Pastikan grid muncul */
+  .gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    gap: 10px !important;
+    padding: 16px 12px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Pastikan img tidak ke-hidden */
+  .gallery-grid img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    aspect-ratio: 4/3 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Fix jika parent pakai flex yang bikin collapse */
+  .gallery-wrapper,
+  .gallery-container {
+    display: block !important;
+    flex: unset !important;
+    width: 100% !important;
+  }
+}
+
 
 
 
