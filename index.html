@@ -460,6 +460,56 @@ body {
   50%  { transform: scale(1.02);  opacity: 1; }
   100% { transform: scale(0.995); opacity: 0.92; }
 }
+  /* ====== UNIVERSAL FIXES ====== */
+
+/* Hilangin tepian putih di pinggir karena transform, scale, dll */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    background-color: #000 !important; /* biar ga ada glare putih */
+}
+
+/* ====== GALLERY FIX ====== */
+#gallery, .gallery, section.gallery {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Kalau gambarnya hilang karena max-width atau height */
+#gallery img, .gallery img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+}
+
+/* ====== MOBILE FIX ====== */
+@media (max-width: 768px) {
+
+    /* Paksa container gallery muncul */
+    #gallery, .gallery, section.gallery {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Hilangin gap putih dari wave / background */
+    .wave, .waves, .bg-motion, .animated-bg {
+        transform: scale(1.2) !important;
+        width: 120% !important;
+        left: -10% !important;
+    }
+
+    /* Biar background ga pernah ngasih garis putih di kanan kiri */
+    body {
+        overflow-x: hidden !important;
+        background-color: #000 !important;
+    }
+}
+
 
 
 
