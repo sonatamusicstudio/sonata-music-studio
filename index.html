@@ -11,10 +11,11 @@
 <style>
 /* ===== LUXURY PALETTE ===== */
 :root {
-  --navy-base: #02081a;     /* Deep Blue base */
-  --gold-premium: #FFC845;  /* NatGeo Gold */
-  --text-light: #e2e8f0;    /* Off-white light blue */
-  --text-muted: #94a3b8;
+  --navy-base: #010312;
+  --royal-deep: #020c2b;
+  --gold-premium: #FFC845; /* National Geographic / Education Gold */
+  --text-light: #e2e8f0;   /* Light Blueish White */
+  --text-muted: #94a3b8;   /* Muted Light Blue */
   --max-width: 1200px;
 }
 
@@ -28,68 +29,44 @@ body {
   line-height: 1.8;
 }
 
-/* ===== NEW DRAMATIC CURTAIN MOTION ===== */
-.bg-wrapper {
-  position: fixed; inset: 0; z-index: -20;
-  background: var(--navy-base);
-  overflow: hidden;
+/* ===== CINEMATIC BACKGROUND ===== */
+.bg-vignette { position: fixed; inset: 0; z-index: -20; background: radial-gradient(circle at center, var(--royal-deep) 0%, var(--navy-base) 100%); }
+.bg-silk {
+  position: fixed; inset: 0; z-index: -15;
+  background-image: url("https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1d608d23-7e42-4dd3-970e-47fb67276b99.png");
+  background-size: cover; background-position: center;
+  filter: brightness(0.2) contrast(1.4) saturate(0.6);
+  opacity: 0.6; animation: cinematicWave 50s ease-in-out infinite alternate;
 }
-
-/* Siluet Horden yang lebih nyata */
-.bg-curtain {
-  position: absolute; inset: -10% -20%;
-  /* Efek Lipatan Kain menggunakan gradien berulang yang lebih kontras */
-  background: repeating-linear-gradient(
-    100deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(15, 23, 42, 0.1) 10%,
-    rgba(0, 0, 0, 0.4) 20%
-  );
-  background-size: 200% 100%;
-  filter: blur(50px); /* Melembutkan lipatan agar tidak kaku */
-  opacity: 0.8;
-  animation: gentleSway 20s ease-in-out infinite alternate;
-}
-
-/* Cahaya dari atas (Spotlight effect) agar horden lebih terlihat */
-.bg-spotlight {
-  position: absolute; inset: 0;
-  background: radial-gradient(50% 50% at 50% 0%, rgba(30, 58, 138, 0.3) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-@keyframes gentleSway {
-  0% { transform: scale(1.1) translateX(-2%) rotate(-1deg); }
-  100% { transform: scale(1.1) translateX(2%) rotate(1deg); }
-}
+@keyframes cinematicWave { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
 
 /* ===== CONDENSED HEADER ===== */
 header.site {
   position: fixed; top: 0; left: 0; right: 0; height: 85px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%; z-index: 1200;
-  background: rgba(1, 3, 18, 0.9); backdrop-filter: blur(15px);
+  background: rgba(1, 3, 18, 0.85); backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 200, 69, 0.2);
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { height: 55px; width: auto; }
+.brand img { height: 58px; width: auto; }
 .brand h1 {
   font-family: "Source Serif 4", serif; font-size: 1.25rem; font-weight: 600;
   color: var(--gold-premium); margin: 0; text-transform: uppercase; letter-spacing: 0.5px;
 }
 .tagline {
   font-family: "Source Serif 4", serif; color: var(--text-muted);
-  font-style: italic; font-size: 0.8rem; opacity: 0.8;
+  font-style: italic; font-size: 0.85rem; letter-spacing: 0px; opacity: 0.8;
 }
 
 /* ===== HERO ===== */
 .hero { margin-top: 85px; position: relative; height: 75vh; min-height: 480px; overflow: hidden; }
-.slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease; filter: brightness(0.8); }
+.slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease; filter: brightness(0.7); }
 .slide.active { opacity: 1; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 8, 26, 0.85) 10%, transparent 100%); z-index: 5; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy-base) 10%, rgba(1,4,26,0.2) 100%); z-index: 5; }
 .hero-inner { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); z-index: 10; max-width: 550px; }
 .glass-sticker {
-  background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(15px);
+  background: rgba(2, 12, 31, 0.5); backdrop-filter: blur(15px);
   padding: 35px; border-left: 3px solid var(--gold-premium);
 }
 .hero-inner h2 { font-family: "Source Serif 4", serif; font-size: 2.8rem; font-weight: 600; color: var(--text-light); margin: 0 0 15px; line-height: 1.1; letter-spacing: -0.5px; }
@@ -97,13 +74,13 @@ header.site {
 /* ===== NAV ===== */
 nav.main {
   position: sticky; top: 85px; z-index: 1100;
-  background: rgba(15, 23, 42, 0.98); display: flex; justify-content: center; gap: 35px;
+  background: rgba(2, 12, 43, 0.98); display: flex; justify-content: center; gap: 35px;
   padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 nav.main a { color: var(--text-light); text-decoration: none; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.7; transition: 0.3s; }
 nav.main a:hover { color: var(--gold-premium); opacity: 1; }
 
-/* ===== SECTIONS (Z-Pattern) ===== */
+/* ===== SECTIONS (FIXED LAYOUT) ===== */
 .page-section { max-width: var(--max-width); margin: 100px auto; padding: 0 40px; opacity: 0; transform: translateY(30px); transition: 1.2s ease-out; }
 .page-section.visible { opacity: 1; transform: translateY(0); }
 
@@ -112,12 +89,13 @@ h3.section-title {
   font-size: 2.2rem; margin-bottom: 35px; position: relative; display: inline-block; padding-bottom: 12px;
 }
 h3.section-title::after {
-  content:""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
+  content:""; position: absolute; left: 0; bottom: 0; width: 0; height: 1.5px;
   background: var(--gold-premium); transition: width 1.5s ease 0.3s;
 }
 .page-section.visible h3.section-title::after { width: 100%; }
 
 .section-grid { display: flex; gap: 60px; align-items: center; }
+/* Force Left-Right-Left pattern */
 #about .section-grid { flex-direction: row; }
 #programs .section-grid { flex-direction: row-reverse; }
 #philosophy .section-grid { flex-direction: row; }
@@ -125,38 +103,40 @@ h3.section-title::after {
 .section-image { flex: 1; }
 .section-image img { width: 100%; height: auto; border: 1px solid rgba(255, 200, 69, 0.2); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
 .section-content { flex: 1.3; color: var(--text-light); }
+.section-content p { color: var(--text-light); }
 
-/* ===== GALLERY ===== */
+/* ===== GALLERY (NO CROP) ===== */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 40px; }
 .gallery-grid img {
-  width: 100%; height: 240px; object-fit: contain; background: rgba(0,0,0,0.3);
+  width: 100%; height: 240px; object-fit: contain; background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255, 200, 69, 0.1); transition: 0.5s;
 }
 .gallery-grid img:hover { transform: scale(1.04); border-color: var(--gold-premium); }
 
-/* ===== CONTACT BOX ===== */
+/* ===== CONTACT (COMPACT & ICONS) ===== */
 .contact-box {
-  max-width: 500px; margin: 0 auto; text-align: center;
-  background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 200, 69, 0.2); padding: 40px 20px;
+  max-width: 600px; margin: 0 auto;
+  text-align: center; background: rgba(2, 12, 31, 0.4); 
+  border: 1px solid rgba(255, 200, 69, 0.2); padding: 40px 20px;
 }
-.social-icons { display: flex; justify-content: center; gap: 25px; margin-top: 25px; }
-.social-icons a { color: var(--text-light); font-size: 1.4rem; transition: 0.3s; }
-.social-icons a:hover { color: var(--gold-premium); transform: translateY(-3px); }
+.social-icons { display: flex; justify-content: center; gap: 25px; margin-top: 30px; }
+.social-icons a { color: var(--text-light); font-size: 1.5rem; transition: 0.3s; }
+.social-icons a:hover { color: var(--gold-premium); transform: translateY(-5px); }
 
-footer.site { background: #01040f; padding: 50px 20px; text-align: center; border-top: 1px solid rgba(255, 200, 69, 0.1); }
+/* ===== FOOTER ===== */
+footer.site { background: #000208; padding: 60px 20px; text-align: center; border-top: 1px solid rgba(255, 200, 69, 0.1); }
 
 @media (max-width: 768px) {
   .section-grid { flex-direction: column !important; text-align: center; }
+  .hero-inner h2 { font-size: 2.2rem; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-wrapper">
-  <div class="bg-curtain"></div>
-  <div class="bg-spotlight"></div>
-</div>
+<div class="bg-vignette"></div>
+<div class="bg-silk"></div>
 
 <header class="site">
   <div class="brand">
@@ -260,7 +240,6 @@ footer.site { background: #01040f; padding: 50px 20px; text-align: center; borde
 </footer>
 
 <script>
-  // Simple Hero Slider
   const slides = document.querySelectorAll('.slide');
   let idx = 0;
   setInterval(() => {
@@ -269,7 +248,6 @@ footer.site { background: #01040f; padding: 50px 20px; text-align: center; borde
     slides[idx].classList.add('active');
   }, 5000);
 
-  // Scroll Reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(ent => { if(ent.isIntersecting) ent.target.classList.add('visible'); });
   }, { threshold: 0.15 });
