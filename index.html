@@ -142,7 +142,7 @@ header.site::after {
   background-size: cover; background-position: center;
   opacity: 0;
   transition: opacity 2.5s ease;
-  filter: brightness(0.18) contrast(1.3) saturate(0.7);
+  filter: brightness(0.38) contrast(1.2) saturate(0.75);
 }
 .slide.active { opacity: 1; }
 .hero-overlay-left {
@@ -197,31 +197,7 @@ header.site::after {
   font-size: 1.1rem; font-style: italic;
   color: var(--text-muted); line-height: 1.7;
 }
-.hero-badge {
-  position: absolute; right: 6%; bottom: 12%;
-  z-index: 10; width: 130px; height: 130px;
-  border: 1px solid rgba(201,150,42,0.35);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  background: rgba(0,12,28,0.7);
-  backdrop-filter: blur(10px);
-}
-.hero-badge::before {
-  content: '';
-  position: absolute; inset: 7px;
-  border: 0.5px solid rgba(201,150,42,0.18);
-}
-.badge-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem; font-weight: 900;
-  color: var(--gold-bright); line-height: 1;
-}
-.badge-label {
-  font-size: 0.5rem; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--text-muted);
-  margin-top: 6px; line-height: 1.6;
-}
+
 
 /* ===================== NAV ===================== */
 nav.main {
@@ -519,11 +495,7 @@ footer.site {
     <div class="hero-rule"></div>
     <p class="hero-sub">Performance meets philosophy — private piano and rigorous theory rooted in reverence.</p>
   </div>
-  <div class="hero-badge">
-    <div class="badge-num">XII</div>
-    <div class="badge-label">Years of<br>Excellence</div>
-  </div>
-</section>
+
 
 <!-- NAV -->
 <nav class="main">
