@@ -33,14 +33,14 @@
             line-height: 1.6;
         }
 
-        /* Noise Texture Overlay */
+        /* Noise Texture */
         body::before {
             content: ""; position: fixed; inset: 0; z-index: 100;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
         }
 
-        /* ─── HEADER ─── */
+        /* ─── HEADER (CONDENSED LOGO) ─── */
         header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             height: 80px; display: flex; align-items: center; justify-content: space-between;
@@ -53,19 +53,20 @@
         .brand { display: flex; align-items: center; gap: 15px; }
         .brand img { height: 45px; filter: drop-shadow(0 0 8px var(--gold)); }
         .brand-text h1 { 
-            font-family: var(--serif-display); font-size: 0.95rem; 
-            letter-spacing: 3px; color: var(--gold-warm); text-transform: uppercase;
+            font-family: var(--serif-display); font-size: 1.1rem; 
+            letter-spacing: 1px; color: var(--gold-warm); text-transform: uppercase;
+            font-weight: 700; transform: scaleX(0.85); transform-origin: left; /* ULTRA CONDENSED */
         }
 
-        nav.main-nav { display: flex; gap: 30px; }
+        nav.main-nav { display: flex; gap: 25px; }
         nav.main-nav a {
-            font-size: 0.65rem; font-weight: 500; text-transform: uppercase;
-            letter-spacing: 2px; color: var(--text-light); text-decoration: none;
-            opacity: 0.7; transition: 0.3s;
+            font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--text-light); text-decoration: none;
+            opacity: 0.7; transition: 0.3s; transform: scaleX(0.9);
         }
         nav.main-nav a:hover { opacity: 1; color: var(--gold-warm); }
 
-        /* ─── CINEMATIC LINE (METRO TV STYLE) ─── */
+        /* ─── CINEMATIC LINE ─── */
         .cinematic-line-wrapper {
             position: fixed; top: 80px; left: 0; width: 100%; height: 1px;
             background: rgba(212, 168, 48, 0.1); z-index: 999; overflow: hidden;
@@ -76,7 +77,7 @@
         .moving-line {
             width: 40%; height: 100%;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            animation: moveLine 5s infinite linear;
+            animation: moveLine 6s infinite linear;
         }
         @keyframes moveLine {
             0% { transform: translateX(-100%); }
@@ -101,65 +102,53 @@
             background: linear-gradient(105deg, rgba(0,5,15,0.8) 0%, rgba(1,15,46,0.3) 50%, transparent 100%);
         }
 
-        .hero-content {
-            position: relative; z-index: 10; margin-left: 8%; max-width: 700px;
-        }
-
-        .hero-content h2 {
-            font-family: var(--serif-display); font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.1; color: #fff; margin-bottom: 20px;
-        }
+        .hero-content { position: relative; z-index: 10; margin-left: 8%; max-width: 700px; }
+        .hero-content h2 { font-family: var(--serif-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; color: #fff; margin-bottom: 20px; }
         .hero-content h2 em { font-family: var(--serif-body); font-style: italic; color: var(--gold-pale); }
         .hero-content p { font-family: var(--serif-body); font-size: 1.3rem; color: var(--text-light); opacity: 0.9; margin-bottom: 30px; }
 
         .btn-gold {
             display: inline-block; padding: 12px 35px; border: 1px solid var(--gold);
             color: var(--gold-warm); text-decoration: none; text-transform: uppercase;
-            letter-spacing: 3px; font-size: 0.7rem; font-weight: 600;
-            transition: 0.4s; background: transparent;
+            letter-spacing: 3px; font-size: 0.7rem; font-weight: 600; transition: 0.4s;
         }
         .btn-gold:hover { background: var(--gold); color: #000; }
 
-        /* ─── SECTIONS ─── */
+        /* ─── Z-PATTERN SECTIONS ─── */
         .section { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
         .section-eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.65rem; margin-bottom: 10px; display: block; }
         .section-title { font-family: var(--serif-display); font-size: 2.2rem; color: #fff; margin-bottom: 30px; letter-spacing: 1px; }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-        .img-frame { position: relative; border: 1px solid rgba(212, 168, 48, 0.3); padding: 10px; }
-        .img-frame img { width: 100%; display: block; filter: grayscale(30%); transition: 0.5s; }
+        .rev .grid-2 { grid-template-columns: 1.2fr 1fr; }
+        .rev .img-frame { order: 2; }
+        .rev .text-block { order: 1; }
+
+        .img-frame { position: relative; border: 1px solid rgba(212, 168, 48, 0.3); padding: 10px; background: rgba(255,255,255,0.02); }
+        .img-frame img { width: 100%; display: block; filter: grayscale(20%); transition: 0.5s; }
         .img-frame:hover img { filter: grayscale(0%); }
 
         .text-block p { font-family: var(--serif-body); font-size: 1.15rem; color: var(--text-muted); margin-bottom: 20px; }
+        .prog-list { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .prog-list li { padding: 15px; border-left: 2px solid var(--gold); background: rgba(200, 145, 26, 0.03); color: var(--text-light); }
 
-        /* ─── GALLERY ─── */
-        .gallery-masonry {
-            column-count: 4; column-gap: 15px;
-        }
-        .gallery-item {
-            break-inside: avoid; margin-bottom: 15px; position: relative;
-            border: 1px solid rgba(212, 168, 48, 0.15); padding: 5px;
-            background: rgba(255,255,255,0.02); transition: 0.4s var(--ease);
-        }
-        .gallery-item:hover { transform: translateY(-5px); border-color: var(--gold-warm); }
+        /* ─── GALLERY (THE BEST 3-COLUMN) ─── */
+        .gallery-masonry { column-count: 3; column-gap: 15px; }
+        .gallery-item { break-inside: avoid; margin-bottom: 15px; border: 1px solid rgba(212, 168, 48, 0.15); padding: 5px; transition: 0.4s; }
+        .gallery-item:hover { transform: translateY(-8px); border-color: var(--gold); }
         .gallery-item img { width: 100%; height: auto; display: block; }
 
         /* ─── CONTACT ─── */
-        .contact-box {
-            text-align: center; border: 1px solid rgba(212, 168, 48, 0.2);
-            padding: 60px; background: var(--midnight); margin-top: 50px;
-        }
-        .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .social-links a {
-            padding: 10px 20px; border: 1px solid rgba(212, 168, 48, 0.3);
-            color: var(--text-light); text-decoration: none; font-size: 0.7rem;
-            letter-spacing: 2px; text-transform: uppercase; transition: 0.3s;
-        }
-        .social-links a:hover { border-color: var(--gold); color: var(--gold-warm); background: rgba(200, 145, 26, 0.05); }
+        .contact-box { text-align: center; border: 1px solid rgba(212, 168, 48, 0.2); padding: 60px; background: var(--midnight); margin-top: 50px; }
+        .social-links { display: flex; justify-content: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+        .social-links a { padding: 10px 20px; border: 1px solid rgba(212, 168, 48, 0.3); color: var(--text-light); text-decoration: none; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
+        .social-links a:hover { background: var(--gold); color: #000; }
 
-        @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .gallery-masonry { column-count: 2; }
+        @media (max-width: 1000px) { .gallery-masonry { column-count: 2; } }
+        @media (max-width: 800px) {
+            .grid-2, .rev .grid-2 { grid-template-columns: 1fr; text-align: center; }
+            .rev .img-frame, .rev .text-block { order: 0; }
+            .gallery-masonry { column-count: 1; }
             nav.main-nav { display: none; }
         }
     </style>
@@ -173,6 +162,8 @@
         </div>
         <nav class="main-nav">
             <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#philosophy">Philosophy</a>
             <a href="#gallery">Archive</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -188,7 +179,7 @@
         <div class="hero-content">
             <span class="section-eyebrow">Jakarta · Est. 2024</span>
             <h2>Excellence in <em>Classical</em><br>& Sacred Music</h2>
-            <p>Performance meets philosophy — private piano and rigorous theory.</p>
+            <p>Performance meets philosophy — private piano and theory.</p>
             <a href="#contact" class="btn-gold">Begin Journey</a>
         </div>
     </section>
@@ -201,8 +192,39 @@
             <div class="text-block">
                 <span class="section-eyebrow">The Director</span>
                 <h3 class="section-title">Felix Satia</h3>
-                <p>Sonata Music Studio dipandu oleh <strong>Felix Satia</strong> — seorang instruktur, arranger, dan komposer yang membawa visi unik dalam pedagogi musik.</p>
+                <p><strong>Sonata Music Studio</strong> dipandu oleh Felix Satia — instruktur yang membawa visi unik dalam pedagogi musik.</p>
                 <p>Teknik tinggi bertemu dengan kedalaman ekspresi yang sejati.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section rev" id="programs" style="background: rgba(200, 145, 26, 0.015);">
+        <div class="grid-2">
+            <div class="img-frame">
+                <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Programs">
+            </div>
+            <div class="text-block">
+                <span class="section-eyebrow">Curriculum</span>
+                <h3 class="section-title">Core Programs</h3>
+                <ul class="prog-list">
+                    <li><strong>Piano Performance</strong> — Baroque to Contemporary.</li>
+                    <li><strong>Theory & Composition</strong> — ABRSM & Trinity.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="philosophy">
+        <div class="grid-2">
+            <div class="img-frame">
+                <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philosophy">
+            </div>
+            <div class="text-block">
+                <span class="section-eyebrow">Vision</span>
+                <h3 class="section-title">Philosophy</h3>
+                <p style="font-family: var(--serif-body); font-style: italic; font-size: 1.4rem; color: var(--gold-pale);">
+                    "To play a note beautifully is to first understand why it must be played."
+                </p>
             </div>
         </div>
     </section>
@@ -218,27 +240,23 @@
     <section class="section" id="contact">
         <div class="contact-box">
             <span class="section-eyebrow">Reservations</span>
-            <h3 class="section-title">Connect With Us</h3>
+            <h3 class="section-title">Connect</h3>
             <div class="social-links">
-                <a href="https://wa.me/6289656684852"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://instagram.com/felixsatia"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://youtube.com/@felixsatia"><i class="fab fa-youtube"></i> YouTube</a>
-                <a href="https://linkedin.com/in/felixsatia"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://wa.me/6289656684852">WhatsApp</a>
+                <a href="https://instagram.com/felixsatia">Instagram</a>
+                <a href="https://youtube.com/@felixsatia">YouTube</a>
+                <a href="https://linkedin.com/in/felixsatia">LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 50px; border-top: 1px solid rgba(212,168,48,0.1); font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase;">
+    <footer style="text-align: center; padding: 50px; border-top: 1px solid rgba(212,168,48,0.1); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase;">
         &copy; 2026 SONATA MUSIC STUDIO — TRADITION & EXCELLENCE
     </footer>
 
     <script>
         const base = "https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
-        const heroImages = [
-            base + "InShot_20251105_190939933.jpg",
-            "https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg"
-        ];
-
+        const heroImages = [base + "InShot_20251105_190939933.jpg", "https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg"];
         const heroSlides = document.getElementById('heroSlides');
         heroImages.forEach((src, i) => {
             const div = document.createElement('div');
@@ -246,12 +264,11 @@
             div.style.backgroundImage = `url('${src}')`;
             heroSlides.appendChild(div);
         });
-
         setInterval(() => {
             const slides = document.querySelectorAll('.slide');
-            let current = [...slides].findIndex(s => s.classList.contains('active'));
-            slides[current].classList.remove('active');
-            slides[(current + 1) % slides.length].classList.add('active');
+            let cur = [...slides].findIndex(s => s.classList.contains('active'));
+            slides[cur].classList.remove('active');
+            slides[(cur + 1) % slides.length].classList.add('active');
         }, 6000);
 
         const images = ["1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg","1728278413639.jpeg","1728278498612.jpeg","1728278535664.jpeg","1728278743638.jpeg","1728278972071.jpeg","1728279819431.jpeg","1728294846403.jpeg","1728294894368.jpeg","1728295139439.jpeg","1728295173689.jpeg","1728295202953.jpeg","1728295402904.jpeg","1728295429712.jpeg","1728296617350.jpeg","1728300782229.jpeg","1728301815288.jpeg","1728302182364.jpeg","1728302212548.jpeg","1728303826998.jpeg","1728311786057.jpeg","1728349078427.jpeg","1728368821890.jpeg","1728368987536.jpeg","1728450148208.jpeg","1728450200661.jpeg","1728450222173.jpeg","1728450251141.jpeg"];
@@ -262,7 +279,6 @@
             div.innerHTML = `<img src="${base}${img}" loading="lazy">`;
             grid.appendChild(div);
         });
-
         window.addEventListener('scroll', () => {
             const h = document.getElementById('mainHeader');
             if(window.scrollY > 50) h.classList.add('scrolled');
