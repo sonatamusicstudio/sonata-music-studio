@@ -4,27 +4,37 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sonata Music Studio — Excellence in Art &amp; Intellect</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
 /* ══════════════════════════════════════════════
-   SONATA MUSIC STUDIO — CINEMATIC PREMIUM v3
-   Deep Blue + Gold · Mobile-First · Full Rebuild
+   SONATA MUSIC STUDIO — CINEMATIC PREMIUM v6
+   Royal Navy Blue + Premium Gold · Libre Baskerville
 ══════════════════════════════════════════════ */
 
 :root {
-  --ink:         #00030B;
-  --deep:        #010820;
-  --midnight:    #010D2A;
-  --gold:        #C8911A;
-  --gold-mid:    #D4A52E;
-  --gold-pale:   #EDD272;
-  --gold-ultra:  #FAF0C8;
-  --text-light:  #B5C6E2;
-  --text-muted:  #4E6080;
-  --text-dim:    #2C3C58;
+  /* ── ROYAL NAVY BLUE — clearly visible as deep blue, executive ── */
+  --ink:         #060D22;   /* rich visible navy, not black */
+  --deep:        #081228;   /* slightly deeper for sections */
+  --midnight:    #091530;   /* header base */
+  --navy-card:   #0C1A38;   /* card / list bg */
+  --navy-glass:  #0A1632;   /* glass panel bg */
+
+  /* ── PREMIUM GOLD — warm, antique, editorial ── */
+  --gold:        #C8991C;   /* refined gold base */
+  --gold-mid:    #D8AE34;   /* warm mid */
+  --gold-pale:   #EDD060;   /* highlight pale */
+  --gold-ultra:  #FAF2C4;   /* near-white gold */
+  --gold-bright: #F5DC70;   /* accent peak */
+
+  /* ── TEXT — cool blue-white, highly readable on navy ── */
+  --text-light:  #C8D8F0;   /* bright blue-white */
+  --text-muted:  #607898;   /* steel blue muted */
+  --text-dim:    #384E70;   /* dim, ornamental */
+
+  /* ── TYPOGRAPHY — Libre Baskerville body ── */
   --serif-d: "Cinzel", serif;
-  --serif-b: "Cormorant Garamond", serif;
+  --serif-b: "Libre Baskerville", Baskerville, "Baskerville Old Face", "Goudy Old Style", Georgia, serif;
   --sans:    "Montserrat", sans-serif;
   --ease:    cubic-bezier(0.19, 1, 0.22, 1);
 }
@@ -45,30 +55,77 @@ body::before {
   content: '';
   position: fixed; inset: 0; z-index: 1;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23grain)' opacity='0.06'/%3E%3C/svg%3E");
-  opacity: 0.45;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23grain)' opacity='0.07'/%3E%3C/svg%3E");
+  opacity: 0.5;
   mix-blend-mode: overlay;
 }
 
-/* ══ AMBIENT LIGHT ORBS ══ */
+/* ══ AMBIENT CINEMATIC LIGHT ORBS ══ */
 .orb {
   position: fixed; pointer-events: none; z-index: 0;
-  border-radius: 50%; filter: blur(140px);
+  border-radius: 50%; filter: blur(130px);
 }
+/* top-left: warm gold crown — main key light, like a theatre spot */
 .orb-1 {
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(200,145,26,.08) 0%, transparent 65%);
-  top: -300px; left: -250px;
+  width: 900px; height: 900px;
+  background: radial-gradient(circle,
+    rgba(200,153,28,.14) 0%,
+    rgba(150,100,12,.07) 30%,
+    rgba(14,28,70,.03) 55%,
+    transparent 70%
+  );
+  top: -380px; left: -300px;
+  animation: orbFloat1 20s ease-in-out infinite;
 }
+/* right: rich royal blue fill — deep executive atmosphere */
 .orb-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(1,22,65,.6) 0%, transparent 70%);
-  top: 40%; right: -180px;
+  width: 650px; height: 650px;
+  background: radial-gradient(circle,
+    rgba(15,40,120,.75) 0%,
+    rgba(10,26,85,.50) 40%,
+    rgba(6,14,50,.20) 65%,
+    transparent 80%
+  );
+  top: 25%; right: -240px;
+  animation: orbFloat2 24s ease-in-out infinite;
 }
+/* bottom-center: soft gold warmth — floor wash like stage lighting */
 .orb-3 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(200,145,26,.05) 0%, transparent 65%);
-  bottom: 10%; left: 20%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle,
+    rgba(200,153,28,.10) 0%,
+    rgba(140,100,15,.05) 35%,
+    rgba(14,28,70,.02) 55%,
+    transparent 70%
+  );
+  bottom: -5%; left: 8%;
+  animation: orbFloat3 22s ease-in-out infinite;
+}
+/* left-mid: deep navy shadow — cinematic depth on left edge */
+.orb-4 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle,
+    rgba(10,28,95,.70) 0%,
+    rgba(8,18,65,.38) 45%,
+    transparent 70%
+  );
+  top: 50%; left: -200px;
+  animation: orbFloat2 28s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33%       { transform: translate(24px,34px) scale(1.04); }
+  66%       { transform: translate(-14px,18px) scale(.97); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50%       { transform: translate(-30px,-24px) scale(1.06); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  40%       { transform: translate(20px,-30px) scale(1.03); }
+  70%       { transform: translate(-14px,14px) scale(.98); }
 }
 
 /* ══ HEADER ══ */
@@ -77,9 +134,9 @@ header {
   height: 72px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%;
-  background: rgba(0,3,11,.9);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  background: rgba(6,13,34,.93);
+  backdrop-filter: blur(50px) saturate(180%) brightness(.95);
+  -webkit-backdrop-filter: blur(50px) saturate(180%) brightness(.95);
   transition: height .6s var(--ease), background .6s var(--ease);
 }
 header::after {
@@ -87,13 +144,18 @@ header::after {
   position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(200,145,26,.35) 20%,
-    rgba(237,210,114,.8) 50%,
-    rgba(200,145,26,.35) 80%,
+    rgba(200,153,28,.18) 8%,
+    rgba(216,174,52,.58) 28%,
+    rgba(237,208,96,1) 50%,
+    rgba(216,174,52,.58) 72%,
+    rgba(200,153,28,.18) 92%,
     transparent 100%
   );
+  box-shadow:
+    0 0 16px rgba(200,153,28,.28),
+    0 0 50px rgba(200,153,28,.09);
 }
-header.scrolled { height: 58px; background: rgba(0,2,7,.98); }
+header.scrolled { height: 58px; background: rgba(5,10,26,.98); }
 
 /* brand */
 .brand {
@@ -164,7 +226,7 @@ nav.main-nav a:hover::after { transform: scaleX(1); }
 .nav-full {
   display: none;
   position: fixed; inset: 0; z-index: 990;
-  background: rgba(0,3,11,.97);
+  background: rgba(6,13,34,.97);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   flex-direction: column; align-items: center; justify-content: center;
@@ -177,7 +239,7 @@ nav.main-nav a:hover::after { transform: scaleX(1); }
   position: absolute; left: 50%; top: 50%;
   transform: translate(-50%,-50%);
   width: 420px; height: 420px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,145,26,.08) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(196,154,24,.10) 0%, transparent 65%);
   pointer-events: none;
 }
 .nav-full a {
@@ -236,35 +298,47 @@ header.scrolled + .gold-line-wrap { top: 58px; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 2;
   background:
+    /* top-to-bottom: letterbox crush — deep royal navy tint */
     linear-gradient(180deg,
-      rgba(0,3,11,.55) 0%,
-      transparent 28%,
-      transparent 52%,
-      rgba(0,3,11,1) 100%
+      rgba(6,13,34,.65) 0%,
+      rgba(6,13,34,.18) 20%,
+      transparent 36%,
+      transparent 50%,
+      rgba(6,13,34,.82) 76%,
+      rgba(6,13,34,.99) 100%
     ),
+    /* left directional spotlight — executive focus */
     linear-gradient(108deg,
-      rgba(0,3,11,.94) 0%,
-      rgba(1,10,32,.55) 48%,
-      transparent 72%
+      rgba(6,13,34,.97) 0%,
+      rgba(8,20,58,.65) 36%,
+      rgba(6,16,46,.22) 60%,
+      transparent 76%
     );
 }
 .hero-vignette {
   position: absolute; inset: 0; z-index: 3; pointer-events: none;
-  background: radial-gradient(ellipse at 55% 50%, transparent 38%, rgba(0,3,11,.6) 100%);
+  background: radial-gradient(ellipse at 58% 46%,
+    transparent 28%,
+    rgba(6,13,34,.55) 75%,
+    rgba(6,13,34,.72) 100%
+  );
 }
-/* aura line at bottom */
+/* aura line at bottom — warm gold stage light, triple glow */
 .hero-aura {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 4; height: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(200,145,26,0) 8%,
-    rgba(200,145,26,.55) 35%,
-    rgba(237,210,114,.95) 50%,
-    rgba(200,145,26,.55) 65%,
-    rgba(200,145,26,0) 92%,
+    rgba(200,153,28,0) 5%,
+    rgba(200,153,28,.48) 26%,
+    rgba(237,208,96,1) 50%,
+    rgba(200,153,28,.48) 74%,
+    rgba(200,153,28,0) 95%,
     transparent 100%
   );
-  box-shadow: 0 0 28px rgba(200,145,26,.4), 0 0 80px rgba(200,145,26,.14);
+  box-shadow:
+    0 0 18px rgba(200,153,28,.6),
+    0 0 55px rgba(200,153,28,.25),
+    0 0 120px rgba(200,153,28,.10);
 }
 /* subtle scan-line texture */
 .hero-scan {
@@ -273,8 +347,8 @@ header.scrolled + .gold-line-wrap { top: 58px; }
     0deg,
     transparent,
     transparent 2px,
-    rgba(0,3,11,.04) 2px,
-    rgba(0,3,11,.04) 4px
+    rgba(6,13,34,.04) 2px,
+    rgba(6,13,34,.04) 4px
   );
 }
 
@@ -469,8 +543,8 @@ header.scrolled + .gold-line-wrap { top: 58px; }
 .prog-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
 .prog-list li {
   padding: clamp(16px,3vw,24px) clamp(16px,3vw,26px);
-  background: rgba(1,10,32,.55);
-  border: 1px solid rgba(200,145,26,.07);
+  background: rgba(8,18,50,.55);
+  border: 1px solid rgba(200,153,28,.08);
   display: flex; gap: 18px; align-items: flex-start;
   position: relative; overflow: hidden;
   transition: background .4s var(--ease), border-color .4s;
@@ -496,8 +570,8 @@ header.scrolled + .gold-line-wrap { top: 58px; }
   margin-top: 36px;
   padding: clamp(22px,4vw,40px) clamp(22px,4vw,44px);
   position: relative;
-  background: rgba(1,10,30,.72);
-  border: 1px solid rgba(200,145,26,.15);
+  background: rgba(8,18,52,.72);
+  border: 1px solid rgba(200,153,28,.16);
 }
 .phil-quote::before {
   content: '\201C';
@@ -521,12 +595,14 @@ header.scrolled + .gold-line-wrap { top: 58px; }
 
 /* ══ DARK BG SECTIONS ══ */
 .section-bg-dark {
-  background: rgba(1,8,22,.65); position: relative;
+  background: rgba(7,15,40,.70); position: relative;
 }
 .section-bg-dark::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(200,145,26,.018) 0%, transparent 45%, rgba(200,145,26,.018) 100%);
+  background:
+    linear-gradient(180deg, rgba(200,153,28,.022) 0%, transparent 40%, rgba(200,153,28,.022) 100%),
+    linear-gradient(90deg, rgba(6,12,36,.40) 0%, transparent 50%, rgba(6,12,36,.40) 100%);
   pointer-events: none;
 }
 
@@ -567,35 +643,51 @@ header.scrolled + .gold-line-wrap { top: 58px; }
 /* ══ CONTACT ══ */
 .contact-box {
   text-align: center;
-  border: 1px solid rgba(200,145,26,.15);
+  border: 1px solid rgba(200,153,28,.20);
   padding: clamp(48px,8vw,90px) clamp(22px,6vw,60px);
-  background: rgba(1,10,30,.68);
+  background: rgba(8,18,50,.74);
   position: relative; overflow: hidden;
 }
 .contact-box::before {
   content: '';
   position: absolute; top: -1px; left: 12%; right: 12%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  box-shadow: 0 0 20px rgba(200,145,26,.45);
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(200,153,28,.70),
+    rgba(237,208,96,1),
+    rgba(200,153,28,.70),
+    transparent
+  );
+  box-shadow:
+    0 0 22px rgba(200,153,28,.55),
+    0 0 60px rgba(200,153,28,.20);
 }
 .contact-box::after {
   content: '';
   position: absolute; bottom: -1px; left: 12%; right: 12%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  box-shadow: 0 0 20px rgba(200,145,26,.45);
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(200,153,28,.70),
+    rgba(237,208,96,1),
+    rgba(200,153,28,.70),
+    transparent
+  );
+  box-shadow:
+    0 0 22px rgba(200,153,28,.55),
+    0 0 60px rgba(200,153,28,.20);
 }
 .contact-orb {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%);
   width: 420px; height: 420px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,145,26,.07) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(200,153,28,.09) 0%, transparent 62%);
   pointer-events: none;
 }
 .contact-box > p {
   font-family: var(--serif-b);
   font-size: clamp(1.05rem,2.5vw,1.3rem);
   margin-bottom: 42px; color: var(--text-light);
-  font-weight: 300; position: relative; z-index: 1;
+  font-weight: 400; position: relative; z-index: 1;
 }
 .social-links {
   display: flex; justify-content: center;
@@ -710,6 +802,7 @@ footer::before {
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
+<div class="orb orb-4"></div>
 
 <!-- ══ HEADER ══ -->
 <header id="mainHeader">
@@ -896,7 +989,7 @@ footer::before {
       <a href="https://youtube.com/@felixsatia">
         <i class="fab fa-youtube"></i><span>YouTube</span>
       </a>
-      <a href="https://linkedin.com/in/felixsatia">
+      <a href="https://www.linkedin.com/mwlite/profile/me?trk=p_mwlite_feed-secondary_nav">
         <i class="fab fa-linkedin"></i><span>LinkedIn</span>
       </a>
     </div>
