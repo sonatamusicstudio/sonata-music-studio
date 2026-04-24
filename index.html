@@ -594,3 +594,113 @@
         <span class="k-label">A Musical Sanctuary</span>
     </div>
 </div>
+<style>
+  /* 1. GLOBAL CLEANUP: Memutihkan seluruh situs */
+  body, .sec-bg, .about-txt, .contact-box, .gallery-board, header {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #0A1545 !important;
+  }
+  
+  /* Hilangkan gradasi neon & background wash lama */
+  .bg-wash, .hero-scan, .hero-vignette, .col-tint {
+    display: none !important;
+  }
+
+  /* 2. HERO SECTION: Putih & Cinematic */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 60%, #fff 100%) !important;
+  }
+  .hero-content h2, .hero-content p, .hero-eyebrow, .hero-scroll, .hero-counter {
+    color: #0A1545 !important;
+  }
+  .btn-apcs {
+    border-color: #0A1545 !important;
+    color: #0A1545 !important;
+    background: transparent !important;
+  }
+  .hero-aura { background: #C8A040 !important; height: 1px !important; opacity: 0.3; }
+
+  /* 3. SECTION I: ABOUT (Text Kiri, Foto Kanan) */
+  #about .about-wrap {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr !important;
+    background: #fff !important;
+  }
+  #about .about-txt { order: 1 !important; border-left: 5px solid #C8A040 !important; padding-left: 50px !important; }
+  #about .about-photo { order: 2 !important; }
+
+  /* 4. SECTION II: PROGRAMS (Text Kanan, Foto Kiri) */
+  #programs .grid-2 {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 80px !important;
+  }
+  #programs .text-block { flex: 1 !important; text-align: left !important; }
+  #programs .img-frame { flex: 1.2 !important; }
+  .prog-list li {
+    background: #fcfcfc !important;
+    border: 1px solid #eee !important;
+    color: #0A1545 !important;
+  }
+  .prog-list li strong, .prog-list li span { color: #0A1545 !important; }
+
+  /* 5. SECTION III: PHILOSOPHY (Text Kiri, Foto Kanan) */
+  #philosophy .grid-2 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 80px !important;
+  }
+  .phil-quote {
+    background: #f9f9f9 !important;
+    border: none !important;
+    border-left: 3px solid #C8A040 !important;
+  }
+  .phil-quote p { color: #0A1545 !important; font-size: 1.3rem !important; }
+
+  /* 6. SECTION V: CONTACT (Executive Layout) */
+  .contact-box {
+    border: 1px solid #eee !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05) !important;
+  }
+  .contact-orb { background: radial-gradient(circle, rgba(200,160,64,0.05) 0%, transparent 70%) !important; }
+  .social-links a {
+    border-color: #eee !important;
+    color: #0A1545 !important;
+  }
+  .social-links a:hover { background: #0A1545 !important; color: #fff !important; }
+
+  /* 7. TYPOGRAPHY & DETAILS */
+  .sec-ttl, .about-name { color: #0A1545 !important; text-transform: uppercase !important; }
+  .sec-eye { color: #C8A040 !important; }
+  .dl { background: #eee !important; } /* Divider garis */
+  header.scrolled { border-bottom: 1px solid #eee !important; }
+  .brand img { filter: brightness(0) !important; opacity: 0.8; } /* Logo Hitam Clean */
+
+  /* Mobile Responsive Fix */
+  @media (max-width: 900px) {
+    #about .about-wrap, #programs .grid-2, #philosophy .grid-2 {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .about-photo, .img-frame { height: 250px !important; width: 100% !important; }
+    #about .about-txt { order: 2 !important; border-left: none !important; border-top: 5px solid #C8A040 !important; padding: 30px !important; }
+    #programs .text-block { order: 2 !important; }
+  }
+</style>
+
+<script>
+  // Sesuaikan kursor dan elemen interaktif ke Navy/Gold
+  try {
+    document.getElementById('cDot').style.backgroundColor = '#0A1545';
+    document.getElementById('cRing').style.borderColor = 'rgba(10, 21, 69, 0.3)';
+    
+    // Pastikan font hero tetap satu baris
+    const heroTitle = document.getElementById('heroTitle');
+    if(heroTitle) {
+      heroTitle.style.whiteSpace = 'nowrap';
+    }
+  } catch(e) { console.log("Minimal override applied"); }
+</script>
