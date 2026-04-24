@@ -1267,3 +1267,107 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 <div class="music-note" style="left: 65%; animation-duration: 28s;">∮</div>
 
 <div class="orchid-accent"></div>
+
+<style>
+/* ══════════════════════════════════════════════════
+   THEME: MARINA BAY EXECUTIVE GLASS & BOTANICAL
+   ══════════════════════════════════════════════════ */
+
+/* 1. CONTAINER MADING (THE NIGHT PARK) */
+#archive-section {
+    background: radial-gradient(circle at 50% 50%, #0a0e1f 0%, #03050a 100%) !important;
+    position: relative;
+    padding: 60px 20px;
+    overflow: hidden;
+}
+
+/* 2. THE GLASS PANEL (KARTU FOTO) */
+.photo-card {
+    /* Efek Kaca Transparan */
+    background: rgba(255, 255, 255, 0.05) !important; 
+    backdrop-filter: blur(15px) saturate(120%) !important; /* Buram di belakang kaca */
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    
+    /* Border Kaca Tipis & Tajam */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    
+    padding: 15px !important;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    
+    /* Refleksi Cahaya di Permukaan Kaca */
+    background-image: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0) 40%, 
+        rgba(255, 255, 255, 0) 100%) !important;
+    
+    /* Shadow Berat (The Weight) */
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.6), 
+        inset 0 0 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 3. HOVER INTERACTION: THE CINEMATIC HIGHLIGHT */
+.gallery-item:hover .photo-card {
+    background: rgba(255, 255, 255, 0.1) !important; /* Kaca lebih terang saat disentuh */
+    transform: translateY(-15px) rotateX(5deg) !important; /* Efek melayang sinematik */
+    border: 1px solid rgba(255, 255, 255, 0.35) !important; /* Border makin menyala */
+    
+    /* Bloom Effect (Cahaya Pijar) */
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.8), 
+        0 0 20px rgba(138, 43, 226, 0.2) !important; /* Pendaran ungu subtil */
+}
+
+/* 4. PIN KOTAK 3D (Tetap Berbobot & DNA Warna) */
+.gallery-item .pin {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 1px !important;
+    top: -7px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 50 !important;
+    position: absolute !important;
+    
+    /* Shadow Pin Nancep */
+    box-shadow: 
+        inset 1px 1px 2px rgba(255,255,255,0.3),
+        4px 6px 10px rgba(0,0,0,0.8) !important;
+}
+
+/* 5. BOTANICAL ACCENTS (Visibility Fix) */
+.firefly {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    filter: blur(2px);
+    z-index: 1;
+    animation: fly 15s infinite ease-in-out;
+    pointer-events: none;
+    box-shadow: 0 0 12px currentColor;
+}
+
+.orchid-accent {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    width: 450px;
+    height: 450px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Orchid_silhouette.svg/1024px-Orchid_silhouette.svg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.08 !important; /* Dinaikkan agar terlihat */
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fly {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    30% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
+}
+</style>
