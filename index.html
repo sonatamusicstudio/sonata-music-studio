@@ -920,3 +920,51 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
         inset 1px 1px 1px rgba(255,255,255,0.1) !important;
 }
 </style>
+<style>
+/* ══ REVISI: DRAMATIC 3D PIN (DNA COLOR PRESERVED) ══ */
+.pin {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    
+    /* TETAP PAKAI WARNA ASLI PAKETMU */
+    /* Kita tambahkan pencahayaan internal saja biar kelihatan 3D */
+    background-image: radial-gradient(circle at 30% 30%, 
+        rgba(255,255,255,0.4) 0%, 
+        rgba(255,255,255,0) 50%, 
+        rgba(0,0,0,0.2) 100%) !important;
+        
+    /* SHADOW DRAMATIS (Weight) - Seperti referensi gambar */
+    box-shadow: 
+        /* Bayangan 'tubuh' pin */
+        2px 3px 5px rgba(0,0,0,0.5),
+        /* Bayangan jatuh yang panjang & lembut ke samping bawah */
+        6px 8px 12px rgba(0,0,0,0.3) !important;
+    
+    border: none !important;
+    top: -5px !important;
+}
+
+/* Titik kilauan kecil di atas (biar kayak material premium/kaca) */
+.pin::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    filter: blur(0.5px);
+    display: block !important;
+}
+
+/* Efek Hover: Pin terasa lebih nancep */
+.gallery-item:hover .pin {
+    transform: translateX(-50%) scale(1.1) !important;
+    box-shadow: 
+        3px 5px 8px rgba(0,0,0,0.6),
+        8px 12px 18px rgba(0,0,0,0.4) !important;
+    filter: brightness(1.1);
+}
+</style>
