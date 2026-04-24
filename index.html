@@ -7,445 +7,124 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
-/* ══════════════════════════════════════════════
-   SONATA MUSIC STUDIO — APCS DNA v5
-   Unified gradient theme · Elegant mading pins
-   Hero slides visible · Char reveal fixed
-══════════════════════════════════════════════ */
 :root {
-  /* BASE NAVY — rich, visible, not near-black */
-  --ink:   #0D1545;
-  --deep:  #0A1238;
-  --mid:   #111B50;
-  --card:  #141D55;
-
-  /* ══ THE ONE UNIFIED GRADIENT PALETTE ══
-     All gradients across the site use ONLY these colours.
-     Same order, same stops — everything cohesive. */
-  --g1: #1535A8;   /* royal blue */
-  --g2: #2A1F9A;   /* deep indigo */
-  --g3: #5A2090;   /* violet */
-  --g4: #7A2878;   /* mauve */
-  --g5: #9A1E5A;   /* deep rose */
-  --g6: #B83828;   /* rich crimson */
-  --g7: #0E5A9A;   /* teal blue */
-  --g8: #1060B0;   /* sky blue */
-
-  /* The gradient string — reused everywhere */
-  --art-grad: linear-gradient(90deg,
-    var(--g1) 0%, var(--g2) 14%, var(--g3) 28%,
-    var(--g4) 42%, var(--g5) 56%, var(--g6) 68%,
-    var(--g7) 82%, var(--g8) 100%
-  );
-  /* same but slightly transparent for bands */
-  --art-grad-soft: linear-gradient(90deg,
-    rgba(21,53,168,.85) 0%, rgba(42,31,154,.85) 14%,
-    rgba(90,32,144,.85) 28%, rgba(122,40,120,.85) 42%,
-    rgba(154,30,90,.85) 56%, rgba(184,56,40,.80) 68%,
-    rgba(14,90,154,.85) 82%, rgba(16,96,176,.85) 100%
-  );
-
-  /* CREAM / GOLD editorial */
-  --cream:      #EAD8A8;
-  --gold:       #C8A040;
-  --gold-lt:    #DEB858;
-  --gold-pale:  #F0D878;
-  --warm-white: #F4EDD8;
-
-  /* text */
-  --txt-hi:  #EAD8A8;
-  --txt-mid: #8888B0;
-  --txt-lo:  #3A3A60;
-
-  --bask: "Libre Baskerville","Baskerville Old Face",Georgia,serif;
-  --cinz: "Cinzel",serif;
-  --sans: "Montserrat",sans-serif;
+  --ink: #FFFFFF;
+  --navy: #0A1545;
+  --gold: #C8A040;
+  --cream: #F4EDD8;
+  --txt-hi: #0A1545;
+  --txt-mid: #444444;
+  --txt-lo: #999999;
+  --line: rgba(10, 21, 69, 0.08);
+  
+  --bask: "Libre Baskerville", serif;
+  --cinz: "Cinzel", serif;
+  --sans: "Montserrat", sans-serif;
   --ease: cubic-bezier(.19,1,.22,1);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--ink);color:var(--txt-hi);font-family:var(--bask);overflow-x:hidden;line-height:1.85;cursor:none;}
-@media(hover:none){body{cursor:auto;}}
-
-/* grain */
-body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='0.048'/%3E%3C/svg%3E");opacity:.55;mix-blend-mode:overlay;}
-
-/* ══ AMBIENT BG ══ */
-.bg-wash{position:fixed;inset:0;z-index:0;pointer-events:none;}
-.bg-wash::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 85% 25%,rgba(21,53,168,.52) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 10% 65%,rgba(42,31,154,.45) 0%,transparent 58%),radial-gradient(ellipse 65% 45% at 50% 95%,rgba(154,30,90,.25) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 95% 78%,rgba(14,90,154,.30) 0%,transparent 52%),radial-gradient(ellipse 40% 35% at 0% 0%,rgba(90,32,144,.22) 0%,transparent 50%);animation:bgp1 30s ease-in-out infinite alternate;}
-.bg-wash::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 30% 10%,rgba(14,90,154,.28) 0%,transparent 55%),radial-gradient(ellipse 45% 40% at 75% 60%,rgba(122,40,120,.20) 0%,transparent 50%),radial-gradient(ellipse 35% 30% at 20% 90%,rgba(154,30,90,.16) 0%,transparent 48%);animation:bgp2 22s ease-in-out infinite alternate;}
-@keyframes bgp1{0%{opacity:.75;}100%{opacity:1;transform:scale(1.04);}}
-@keyframes bgp2{0%{opacity:.6;transform:scale(1.02);}100%{opacity:.95;}}
-
-/* ══ CURSOR ══ */
-#cDot{position:fixed;top:0;left:0;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--cream);pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s;animation:cpulse 2.5s ease-in-out infinite;}
-#cRing{position:fixed;top:0;left:0;z-index:9998;width:30px;height:30px;border-radius:50%;border:1px solid rgba(234,216,168,.38);pointer-events:none;transform:translate(-50%,-50%);transition:width .4s var(--ease),height .4s var(--ease);}
-body.ch #cDot{width:12px;height:12px;background:var(--gold-lt);}
-body.ch #cRing{width:42px;height:42px;border-color:rgba(222,184,88,.55);}
-@keyframes cpulse{0%,100%{box-shadow:0 0 0 0 rgba(234,216,168,.4);}50%{box-shadow:0 0 0 9px rgba(234,216,168,0);}}
-@media(hover:none){#cDot,#cRing{display:none;}}
-
-/* ══ SCROLL PROGRESS — uses unified gradient ══ */
-#spb{position:fixed;top:0;left:0;z-index:9997;height:2px;width:0%;background:var(--art-grad);pointer-events:none;transition:width .08s linear;box-shadow:0 0 12px rgba(154,30,90,.35);}
+body{background:var(--ink);color:var(--txt-hi);font-family:var(--bask);overflow-x:hidden;line-height:1.8;}
 
 /* ══ HEADER ══ */
-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(10,18,52,.88);backdrop-filter:blur(44px) saturate(180%);-webkit-backdrop-filter:blur(44px) saturate(180%);transition:height .5s var(--ease),background .5s;}
-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(42,31,154,.32) 8%,rgba(122,40,120,.55) 28%,rgba(234,216,168,.82) 50%,rgba(122,40,120,.55) 72%,rgba(42,31,154,.32) 92%,transparent 100%);box-shadow:0 0 14px rgba(122,40,120,.18);}
-header.scrolled{height:56px;background:rgba(8,14,42,.96);}
-
-/* BRAND — logo tinted blue-violet, text more condensed */
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:1;min-width:0;}
-.brand img{
-  height:38px;flex-shrink:0;
-  /* logo: tint toward blue-violet, less pure gold */
-  filter:
-    hue-rotate(200deg) saturate(1.4) brightness(1.1)
-    drop-shadow(0 0 8px rgba(90,32,144,.65))
-    drop-shadow(0 0 22px rgba(42,31,154,.40));
-  transition:filter .4s;
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 80px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%; background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px); border-bottom: 1px solid var(--line);
+  transition: all 0.4s var(--ease);
 }
-.brand:hover img{filter:hue-rotate(200deg) saturate(1.6) brightness(1.2) drop-shadow(0 0 14px rgba(90,32,144,.85)) drop-shadow(0 0 40px rgba(154,30,90,.45));}
+header.scrolled { height: 65px; background: #fff; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { height: 42px; filter: brightness(0.2); }
+.brand-name { font-family: var(--cinz); font-size: 0.75rem; letter-spacing: 2px; color: var(--navy); text-transform: uppercase; font-weight: 700; }
+.brand-sub { display: block; font-family: var(--sans); font-size: 0.45rem; letter-spacing: 2px; color: var(--txt-lo); text-transform: uppercase; }
 
-/* condensed brand text */
-.brand-name{
-  font-family:var(--cinz);font-size:.68rem;
-  letter-spacing:1.2px; /* was 2.5px — more condensed */
-  color:var(--cream);text-transform:uppercase;font-weight:600;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  line-height:1.1;
-}
-.brand-sub{display:block;font-family:var(--sans);font-size:.42rem;letter-spacing:2.5px;color:var(--txt-mid);text-transform:uppercase;font-weight:300;margin-top:3px;}
-
-nav.mn{display:flex;gap:26px;align-items:center;flex-shrink:0;}
-nav.mn a{font-family:var(--sans);font-size:.55rem;font-weight:400;text-transform:uppercase;letter-spacing:2.2px;color:var(--txt-mid);text-decoration:none;position:relative;padding-bottom:2px;transition:color .35s;}
-nav.mn a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--cream);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
-nav.mn a:hover{color:var(--cream);}
-nav.mn a:hover::after{transform:scaleX(1);}
-
-.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px;flex-shrink:0;}
-.ham span{display:block;width:22px;height:1px;background:var(--cream);transition:all .4s var(--ease);transform-origin:center;}
-.ham.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
-.ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-.ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-
-.nav-full{display:none;position:fixed;inset:0;z-index:990;background:rgba(10,18,52,.97);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .5s var(--ease);}
-.nav-full.open{opacity:1;}
-.nav-full::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(42,31,154,.20) 0%,rgba(122,40,120,.10) 40%,transparent 70%);pointer-events:none;}
-.nav-full a{font-family:var(--cinz);font-size:clamp(1.2rem,5vw,1.9rem);letter-spacing:5px;color:var(--txt-mid);text-decoration:none;text-transform:uppercase;padding:18px 0;width:80%;text-align:center;border-bottom:1px solid rgba(200,160,64,.07);position:relative;transition:color .3s,letter-spacing .3s;}
-.nav-full a:last-child{border-bottom:none;}
-.nav-full a:hover{color:var(--cream);letter-spacing:7px;}
-.nav-num{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:var(--sans);font-size:.43rem;letter-spacing:2px;color:var(--txt-lo);}
-
-/* shimmer line — uses art-grad colours */
-.shl-wrap{position:fixed;top:70px;left:0;width:100%;height:1px;background:rgba(42,31,154,.04);z-index:999;overflow:hidden;transition:top .5s var(--ease);}
-header.scrolled+.shl-wrap{top:56px;}
-.shl{width:20%;height:100%;background:linear-gradient(90deg,transparent,rgba(90,32,144,.55),rgba(154,30,90,.75),rgba(234,216,168,1),rgba(154,30,90,.75),rgba(90,32,144,.55),transparent);animation:shline 9s linear infinite;}
-@keyframes shline{0%{transform:translateX(-200%);}100%{transform:translateX(600%);}}
+nav.mn { display: flex; gap: 25px; }
+nav.mn a { font-family: var(--sans); font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--txt-mid); transition: 0.3s; position: relative; }
+nav.mn a:hover { color: var(--gold); }
 
 /* ══ HERO ══ */
-.hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:center;overflow:hidden;}
+.hero { position: relative; height: 100svh; display: flex; align-items: center; overflow: hidden; background: #fff; }
+.hero-slides { position: absolute; inset: 0; z-index: 1; }
+.slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease; filter: brightness(0.9); }
+.slide.active { opacity: 1; }
+.hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%, #fff 100%); }
+#notesCanvas { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.4; }
 
-/* SLIDES — z-index 1, clearly visible under columns */
-.hero-slides{position:absolute;inset:0;z-index:1;}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 3s var(--ease);filter:brightness(.32) saturate(.55) contrast(1.08);}
-.slide.active{opacity:1;}
+.hero-content { position: relative; z-index: 10; padding: 0 8%; width: 100%; max-width: 1200px; }
+.hero-eyebrow { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
 
-/* COLUMNS — z-index 2, lighten over dark photo */
-.hero-cols{position:absolute;inset:0;z-index:2;display:flex;align-items:stretch;pointer-events:none;}
-.hc{flex:1;position:relative;}
-/* All columns use the same colour family — unified, not random */
-.hc:nth-child(1){background:linear-gradient(180deg,transparent 5%,rgba(21,53,168,.0) 14%,rgba(21,53,168,.82) 34%,rgba(14,90,154,.88) 60%,rgba(21,53,168,.55) 80%,transparent 100%);transform:scaleY(.88) translateY(7%);mix-blend-mode:lighten;opacity:.92;}
-.hc:nth-child(2){background:linear-gradient(180deg,transparent 8%,rgba(90,32,144,.0) 17%,rgba(90,32,144,.78) 34%,rgba(122,40,120,.82) 56%,rgba(154,30,90,.62) 74%,transparent 92%);transform:scaleY(.96) translateY(2%);mix-blend-mode:lighten;opacity:.90;}
-.hc:nth-child(3){background:linear-gradient(180deg,transparent 3%,rgba(21,53,168,.0) 10%,rgba(21,53,168,.86) 28%,rgba(42,31,154,.90) 54%,rgba(90,32,144,.65) 74%,transparent 92%);transform:scaleY(.80) translateY(14%);mix-blend-mode:lighten;opacity:.88;}
-.hc:nth-child(4){background:linear-gradient(180deg,transparent 10%,rgba(154,30,90,.0) 18%,rgba(154,30,90,.70) 34%,rgba(122,40,120,.75) 54%,rgba(90,32,144,.55) 72%,transparent 90%);transform:scaleY(.91) translateY(6%);mix-blend-mode:lighten;opacity:.80;}
-.hc:nth-child(5){background:linear-gradient(180deg,transparent 5%,rgba(14,90,154,.0) 14%,rgba(14,90,154,.80) 32%,rgba(21,53,168,.84) 55%,rgba(42,31,154,.64) 74%,transparent 92%);transform:scaleY(.86) translateY(10%);mix-blend-mode:lighten;opacity:.88;}
-.hc:nth-child(6){background:linear-gradient(180deg,transparent 4%,rgba(122,40,120,.0) 12%,rgba(122,40,120,.72) 30%,rgba(154,30,90,.78) 54%,rgba(90,32,144,.52) 74%,transparent 92%);transform:scaleY(.84) translateY(12%);mix-blend-mode:lighten;opacity:.82;}
-.hc:nth-child(7){background:linear-gradient(180deg,transparent 7%,rgba(21,53,168,.0) 16%,rgba(21,53,168,.74) 34%,rgba(14,90,154,.82) 57%,rgba(42,31,154,.60) 75%,transparent 92%);transform:scaleY(.93) translateY(5%);mix-blend-mode:lighten;opacity:.86;}
-.hc:nth-child(8){background:linear-gradient(180deg,transparent 2%,rgba(90,32,144,.0) 11%,rgba(90,32,144,.60) 30%,rgba(122,40,120,.68) 52%,rgba(154,30,90,.52) 72%,transparent 90%);transform:scaleY(.74) translateY(18%);mix-blend-mode:lighten;opacity:.72;}
+.hero-content h2 { 
+  font-family: var(--bask); font-size: clamp(1.8rem, 7vw, 4.5rem); color: var(--navy); 
+  line-height: 1.1; font-weight: 700; white-space: nowrap; letter-spacing: -1px;
+}
+.hero-content h2 em { font-style: italic; color: var(--gold); font-weight: 400; display: block; }
+.hero-content p { font-size: 1.1rem; color: var(--txt-mid); margin: 30px 0; font-style: italic; }
 
-.hero-overlay{position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,rgba(10,18,52,.76) 0%,rgba(10,18,52,.10) 22%,transparent 40%,transparent 55%,rgba(10,18,52,.88) 80%,rgba(10,18,52,1) 100%),linear-gradient(112deg,rgba(10,18,52,.95) 0%,rgba(13,22,64,.62) 28%,rgba(10,18,52,.08) 58%,transparent 75%);}
-.hero-vignette{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 64% 50%,transparent 24%,rgba(10,18,52,.46) 66%,rgba(10,18,52,.66) 100%);}
-.hero-scan{position:absolute;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(10,18,52,.026) 2px,rgba(10,18,52,.026) 4px);}
-/* aura line = unified gradient */
-.hero-aura{position:absolute;bottom:0;left:0;right:0;z-index:5;height:2px;background:var(--art-grad-soft);box-shadow:0 0 22px rgba(122,40,120,.40),0 0 70px rgba(42,31,154,.16);}
-#notesCanvas{position:absolute;inset:0;z-index:5;pointer-events:none;width:100%;height:100%;}
-
-/* hero text */
-.hero-content{position:relative;z-index:10;padding:0 7%;padding-top:90px;width:100%;max-width:920px;}
-.hero-eyebrow{font-family:var(--sans);font-size:.56rem;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:300;display:flex;align-items:center;gap:14px;margin-bottom:22px;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;}
-.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold);}
-
-.hero-content h2{font-family:var(--bask);font-size:clamp(2.8rem,10vw,6.6rem);color:var(--warm-white);line-height:.90;letter-spacing:-.5px;font-weight:700;margin-bottom:26px;text-shadow:0 6px 90px rgba(10,18,52,.60);}
-.hero-content h2 em{font-style:italic;color:var(--cream);font-weight:400;font-size:.86em;display:block;letter-spacing:.5px;}
-.hero-line{display:block;overflow:hidden;}
-/* FIXED char reveal — whitespace-nowrap ensures no line-break mid-word */
-.hero-char{display:inline-block;opacity:0;transform:translateY(108%);animation:charRev .65s var(--ease) both;white-space:pre;}
-@keyframes charRev{to{opacity:1;transform:translateY(0);}}
-
-.hero-content>p{font-family:var(--bask);font-size:clamp(1.05rem,2.4vw,1.28rem);color:rgba(210,195,160,.75);margin-bottom:38px;font-weight:400;letter-spacing:.3px;font-style:italic;opacity:0;animation:fadeUp 1.2s var(--ease) 1.45s forwards;}
-.btn-apcs{font-family:var(--sans);font-size:.56rem;letter-spacing:3.5px;text-transform:uppercase;font-weight:400;color:var(--cream);border:1px solid rgba(234,216,168,.42);padding:14px 36px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;position:relative;overflow:hidden;transition:border-color .5s var(--ease),color .5s;opacity:0;animation:fadeUp 1.2s var(--ease) 1.7s forwards;}
-.btn-apcs::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(234,216,168,.10),transparent);transform:translateX(-100%);transition:transform .7s var(--ease);}
-.btn-apcs::after{content:'';display:inline-block;width:20px;height:1px;background:var(--cream);transition:width .4s var(--ease);}
-.btn-apcs:hover{border-color:var(--cream);color:var(--warm-white);}
-.btn-apcs:hover::before{transform:translateX(100%);}
-.btn-apcs:hover::after{width:32px;}
-
-.hero-scroll{position:absolute;bottom:clamp(20px,4vw,44px);left:7%;z-index:10;display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:.5rem;letter-spacing:3px;text-transform:uppercase;color:var(--txt-lo);animation:fadeIn 1s ease 2.1s both;}
-.scroll-line{width:1px;height:42px;background:linear-gradient(180deg,var(--gold),transparent);animation:scp 2.2s ease-in-out infinite;}
-@keyframes scp{0%,100%{opacity:.3;transform:scaleY(.6);}50%{opacity:1;transform:scaleY(1);}}
-.hero-scroll span{writing-mode:vertical-rl;}
-.hero-counter{position:absolute;bottom:clamp(20px,4vw,44px);right:7%;z-index:10;font-family:var(--cinz);font-size:.6rem;letter-spacing:2px;color:var(--txt-lo);display:flex;align-items:center;gap:10px;animation:fadeIn 1s ease 2.1s both;}
-.hero-counter .cur{color:var(--gold);font-size:.72rem;}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-
-/* ══ DIVIDERS ══ */
-.sec-div{width:100%;display:flex;align-items:center;justify-content:center;gap:18px;padding:0 6%;}
-.sec-div .dl{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(122,40,120,.18),rgba(42,31,154,.12),transparent);}
-.sec-div .do{font-family:var(--cinz);font-size:.5rem;letter-spacing:5px;text-transform:uppercase;color:var(--txt-lo);padding:0 4px;white-space:nowrap;}
+.btn-apcs { 
+  display: inline-flex; align-items: center; gap: 15px; padding: 15px 35px; border: 1px solid var(--navy); 
+  text-decoration: none; color: var(--navy); font-family: var(--sans); font-size: 0.6rem; 
+  letter-spacing: 3px; text-transform: uppercase; transition: 0.4s;
+}
+.btn-apcs:hover { background: var(--navy); color: #fff; }
 
 /* ══ SECTIONS ══ */
-.section{padding:clamp(55px,9vw,120px) 6%;max-width:1500px;margin:0 auto;}
-.sec-eye{font-family:var(--sans);color:var(--gold);text-transform:uppercase;letter-spacing:4.5px;font-size:.54rem;font-weight:300;margin-bottom:13px;display:flex;align-items:center;gap:12px;}
-.sec-eye::before{content:'';display:inline-block;width:22px;height:1px;background:var(--gold);opacity:.7;}
-.sec-ttl{font-family:var(--cinz);font-size:clamp(1.4rem,3.8vw,2.5rem);color:var(--warm-white);margin-bottom:26px;letter-spacing:2px;text-transform:uppercase;line-height:1.1;}
+.section { padding: 120px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1500px; margin: 0 auto; }
+.sec-div { width: 100%; height: 1px; background: var(--line); margin: 0 auto; max-width: 84%; opacity: 0.5; }
 
-/* ══ ABOUT — APCS JURY STYLE ══ */
-.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:500px;overflow:hidden;}
-.about-photo{position:relative;overflow:hidden;}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.88) saturate(.95);transition:filter .8s,transform .8s var(--ease);transform:scale(1.04);}
-.about-photo:hover img{filter:brightness(.96) saturate(1.05);transform:scale(1);}
+/* About: Text Left, Photo Right */
+#about { background: #fff; }
 
-/* HBAND — uses EXACT same unified gradient, no more norak colours */
-.hband{
-  position:absolute;bottom:0;left:0;right:0;height:7px;z-index:2;
-  background:var(--art-grad);
-  box-shadow:0 0 22px rgba(122,40,120,.30),0 -2px 40px rgba(42,31,154,.18);
-}
+/* Programs: Text Right, Photo Left */
+#programs { background: #fcfcfc; grid-template-columns: 1fr 1fr; }
+#programs .text-block { order: 2; }
+#programs .img-frame { order: 1; }
 
-.about-txt{background:linear-gradient(135deg,rgba(15,24,72,.94) 0%,rgba(18,27,80,.98) 100%);padding:clamp(36px,5vw,64px) clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
-.about-txt::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 95% 15%,rgba(42,31,154,.28) 0%,transparent 52%),radial-gradient(ellipse at 5% 85%,rgba(122,40,120,.18) 0%,transparent 48%);}
+/* Philosophy: Text Left, Photo Right */
+#philosophy { background: #fff; }
 
-.jury-lbl{font-family:var(--sans);font-size:.5rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:300;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-.jury-lbl::before{content:'';width:18px;height:1px;background:var(--gold);}
-.about-name{font-family:var(--bask);font-size:clamp(2.2rem,5.5vw,3.5rem);color:var(--cream);font-weight:700;line-height:.97;letter-spacing:-.5px;margin-bottom:24px;}
-.hdots{width:100%;height:1px;margin:20px 0;border-top:1px dotted rgba(200,160,64,.20);}
-.about-txt p{font-size:clamp(.98rem,2.1vw,1.16rem);color:rgba(210,195,160,.80);margin-bottom:16px;font-weight:400;line-height:1.92;position:relative;}
-.about-txt strong{color:var(--cream);font-weight:700;}
+.img-frame { position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
+.img-frame img { width: 100%; display: block; transition: 1s var(--ease); filter: saturate(0.9); }
+.img-frame:hover img { transform: scale(1.05); filter: saturate(1.1); }
 
-/* ══ PROGRAMS ══ */
-.sec-bg{background:rgba(11,17,46,.75);position:relative;}
-.sec-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,31,154,.04) 0%,transparent 40%,rgba(42,31,154,.04) 100%);pointer-events:none;}
+.sec-eye { font-family: var(--sans); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.55rem; margin-bottom: 15px; display: block; }
+.sec-ttl { font-family: var(--cinz); font-size: 2.2rem; color: var(--navy); margin-bottom: 25px; letter-spacing: 2px; }
 
-.grid-2{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(36px,6vw,90px);align-items:center;}
-.rev .img-frame{order:2;}.rev .text-block{order:1;}
+.prog-list { list-style: none; }
+.prog-list li { padding: 25px; border-bottom: 1px solid var(--line); display: flex; gap: 20px; transition: 0.3s; }
+.prog-list li:hover { background: rgba(10,21,69,0.02); }
+.prog-list i { color: var(--gold); font-size: 0.9rem; margin-top: 5px; }
+.prog-list strong { font-family: var(--cinz); display: block; font-size: 0.8rem; letter-spacing: 1px; }
+.prog-list span { color: var(--txt-mid); font-size: 0.95rem; }
 
-.img-frame{position:relative;padding:14px 0 0 14px;}
-.img-frame::before{content:'';position:absolute;top:0;left:0;right:18px;bottom:18px;border:1px solid rgba(122,40,120,.18);z-index:0;transition:border-color .5s,top .5s,left .5s;}
-.img-frame::after{content:'';position:absolute;top:18px;left:18px;right:0;bottom:0;background:rgba(42,31,154,.04);border:1px solid rgba(42,31,154,.08);z-index:0;}
-.img-frame:hover::before{border-color:rgba(154,30,90,.45);top:-5px;left:-5px;}
-.img-fi{position:relative;z-index:1;overflow:hidden;line-height:0;}
-.img-fi img{width:100%;display:block;filter:brightness(.82) saturate(1.0);transition:all .9s var(--ease);transform:scale(1.03);}
-.img-frame:hover .img-fi img{filter:brightness(.92) saturate(1.12);transform:scale(1);}
-.col-tint{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,rgba(42,31,154,.20) 0%,rgba(122,40,120,.12) 50%,rgba(14,90,154,.14) 100%);pointer-events:none;transition:opacity .5s;}
-.img-frame:hover .col-tint{opacity:.4;}
-.img-fi::after{content:'';position:absolute;z-index:3;bottom:10px;right:10px;width:16px;height:16px;border-color:rgba(122,40,120,.55);border-style:solid;border-width:0 1px 1px 0;}
-.img-tl{position:absolute;top:24px;left:24px;z-index:4;width:16px;height:16px;border-color:rgba(122,40,120,.55);border-style:solid;border-width:1px 0 0 1px;pointer-events:none;}
+.phil-quote { font-size: 1.6rem; font-style: italic; color: var(--navy); border-left: 4px solid var(--gold); padding-left: 30px; margin: 40px 0; }
 
-.text-block p{font-size:clamp(1rem,2.2vw,1.18rem);color:rgba(210,195,160,.80);margin-bottom:18px;font-weight:400;line-height:1.92;}
-.text-block strong{color:var(--cream);font-weight:700;}
-
-.prog-list{list-style:none;display:flex;flex-direction:column;gap:1px;}
-.prog-list li{padding:clamp(16px,2.8vw,22px) clamp(16px,2.8vw,24px);background:rgba(13,21,60,.62);border:1px solid rgba(90,32,144,.10);display:flex;gap:18px;align-items:flex-start;position:relative;overflow:hidden;transition:background .4s var(--ease),border-color .4s;}
-.prog-list li::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--g1),var(--g4),var(--g5));transform:scaleY(0);transition:transform .4s var(--ease);}
-.prog-list li::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(90,32,144,.14) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;}
-.prog-list li:hover{background:rgba(42,31,154,.14);border-color:rgba(154,30,90,.22);}
-.prog-list li:hover::before{transform:scaleY(1);}
-.prog-list li:hover::after{opacity:1;}
-.prog-list i{color:var(--gold);font-size:.85rem;margin-top:5px;opacity:.8;flex-shrink:0;}
-.prog-list div strong{font-family:var(--cinz);font-size:.76rem;letter-spacing:1.8px;display:block;margin-bottom:5px;color:var(--cream);text-transform:uppercase;}
-.prog-list div span{font-size:1.02rem;color:var(--txt-mid);font-weight:300;}
-
-/* ══ PHILOSOPHY ══ */
-.phil-quote{margin-top:32px;padding:clamp(20px,4vw,38px) clamp(20px,4vw,42px);position:relative;background:rgba(13,21,60,.80);border:1px solid rgba(90,32,144,.18);}
-.phil-quote::before{content:'\201C';position:absolute;top:-20px;left:20px;font-family:var(--bask);font-size:6rem;line-height:1;color:var(--gold);opacity:.12;}
-.phil-quote::after{content:'';position:absolute;bottom:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(122,40,120,.7),transparent);opacity:.42;}
-.phil-quote p{font-family:var(--bask)!important;font-size:clamp(1.05rem,2.8vw,1.42rem)!important;color:var(--cream)!important;font-style:italic!important;line-height:1.58!important;margin-bottom:0!important;font-weight:400!important;letter-spacing:.3px;}
-
-/* ══════════════════════════════════════════
-   GALLERY — MADING ELEGAN
-   Straight / lurus, elegant SVG pins, no tilt
-   Pin colours cycle through unified palette
-══════════════════════════════════════════ */
-.gallery-header{text-align:center;margin-bottom:clamp(28px,5vw,55px);}
-.gallery-header::after{content:'';display:block;width:44px;height:1px;background:var(--art-grad);margin:14px auto 0;opacity:.65;}
-
-.gallery-board{
-  background:linear-gradient(135deg,rgba(13,21,60,.58) 0%,rgba(17,27,80,.48) 100%);
-  border:1px solid rgba(90,32,144,.10);
-  padding:clamp(24px,3.5vw,44px) clamp(20px,3vw,36px);
-  position:relative;
-  box-shadow:inset 0 0 80px rgba(10,18,52,.35);
-}
-/* faint grid lines — office board feel */
-.gallery-board::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(90,32,144,.022) 32px,rgba(90,32,144,.022) 33px),
-  repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(90,32,144,.015) 32px,rgba(90,32,144,.015) 33px);}
-
-.gallery-masonry{column-count:3;column-gap:clamp(14px,2vw,26px);position:relative;z-index:1;}
-
-.gallery-item{
-  break-inside:avoid;
-  margin-bottom:clamp(14px,2vw,26px);
-  position:relative;
-  display:inline-block;width:100%;
-  /* extra top padding for pin */
-  padding-top:16px;
-}
-
-/* photo card — straight, no tilt */
-.photo-card{
-  position:relative;
-  background:rgba(16,24,68,.90);
-  padding:7px 7px 26px 7px;
-  box-shadow:
-    0 10px 32px rgba(5,10,30,.72),
-    0 2px 8px rgba(5,10,30,.50),
-    inset 0 1px 0 rgba(255,255,255,.04);
-  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
-  cursor:pointer;
-  /* no rotation — straight, elegant */
-  transform:translateY(0);
-}
-.gallery-item:hover .photo-card{
-  transform:translateY(-7px) scale(1.015);
-  box-shadow:
-    0 22px 60px rgba(5,10,30,.82),
-    0 6px 20px rgba(5,10,30,.55),
-    0 0 0 1px rgba(154,30,90,.28),
-    inset 0 1px 0 rgba(255,255,255,.06);
-}
-
-.photo-card img{width:100%;display:block;filter:brightness(.82) saturate(.88) contrast(1.06);transition:filter .6s var(--ease);}
-.gallery-item:hover .photo-card img{filter:brightness(.94) saturate(1.15) contrast(1.04);}
-
-/* APCS colour tint on hover */
-.photo-card .ptint{position:absolute;top:7px;left:7px;right:7px;bottom:26px;z-index:2;pointer-events:none;background:transparent;transition:background .5s;}
-.gallery-item:hover .photo-card .ptint{background:linear-gradient(135deg,rgba(42,31,154,.24),rgba(122,40,120,.16));}
-
-/* bottom caption strip — minimal */
-.photo-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:26px;background:rgba(10,16,52,.92);pointer-events:none;}
-
-/* pin — elegant SVG circle with shadow, colour cycles via data-attr */
-.pin{
-  position:absolute;top:-6px;left:50%;transform:translateX(-50%);
-  z-index:5;width:20px;height:20px;
-  border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.18);
-  box-shadow:
-    0 3px 10px rgba(0,0,0,.55),
-    0 1px 3px rgba(0,0,0,.40),
-    inset 0 1px 0 rgba(255,255,255,.22),
-    0 0 12px var(--pin-glow,rgba(90,32,144,.6));
-  background:var(--pin-bg,rgba(90,32,144,.85));
-  transition:transform .3s var(--ease),box-shadow .3s;
-}
-.pin::after{
-  content:'';position:absolute;top:3px;left:3px;
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(255,255,255,.35);
-}
-.gallery-item:hover .pin{
-  transform:translateX(-50%) scale(1.15);
-  box-shadow:0 4px 14px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.28),0 0 20px var(--pin-glow,rgba(90,32,144,.8));
-}
-
-/* number label */
-.gnum{position:absolute;bottom:4px;right:8px;z-index:6;font-family:var(--cinz);font-size:.42rem;letter-spacing:2px;color:rgba(200,160,64,.40);transition:color .4s;}
-.gallery-item:hover .gnum{color:rgba(200,160,64,.75);}
-
-/* border glow on card hover */
-.photo-card .pglow{position:absolute;inset:0;border:1px solid rgba(154,30,90,0);transition:border-color .4s;pointer-events:none;z-index:3;}
-.gallery-item:hover .photo-card .pglow{border-color:rgba(154,30,90,.35);}
+/* ══ GALLERY ══ */
+#gallery { background: #fcfcfc; display: block; text-align: center; }
+.gallery-board { margin-top: 50px; column-count: 3; column-gap: 20px; }
+.gallery-item { break-inside: avoid; margin-bottom: 20px; background: #fff; padding: 10px; border: 1px solid var(--line); }
+.gallery-item img { width: 100%; display: block; filter: saturate(0.8); }
 
 /* ══ CONTACT ══ */
-.contact-box{text-align:center;border:1px solid rgba(90,32,144,.22);padding:clamp(46px,8vw,86px) clamp(20px,6vw,58px);background:rgba(13,21,60,.82);position:relative;overflow:hidden;}
-/* top/bottom lines = unified gradient */
-.contact-box::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:var(--art-grad-soft);box-shadow:0 0 24px rgba(122,40,120,.35),0 0 65px rgba(42,31,154,.14);}
-.contact-box::after{content:'';position:absolute;bottom:-1px;left:10%;right:10%;height:1px;background:var(--art-grad-soft);box-shadow:0 0 24px rgba(122,40,120,.35),0 0 65px rgba(42,31,154,.14);}
-.contact-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(42,31,154,.13) 0%,rgba(122,40,120,.06) 40%,transparent 65%);pointer-events:none;}
-.contact-box>p{font-family:var(--bask);font-size:clamp(1rem,2.4vw,1.28rem);margin-bottom:40px;color:rgba(210,195,160,.78);font-weight:400;font-style:italic;position:relative;z-index:1;}
+#contact { display: block; text-align: center; background: var(--navy); color: #fff; padding: 100px 5%; }
+#contact .sec-ttl { color: #fff; }
+.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
+.social-links a { padding: 12px 25px; border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+.social-links a:hover { border-color: var(--gold); color: var(--gold); }
 
-.social-links{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;position:relative;z-index:1;}
-.social-links a{font-family:var(--sans);padding:clamp(10px,1.8vw,13px) clamp(15px,2.8vw,24px);border:1px solid rgba(90,32,144,.26);color:var(--txt-mid);text-decoration:none;font-size:.54rem;letter-spacing:2px;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:8px;position:relative;overflow:hidden;transition:border-color .5s var(--ease);}
-.social-links a::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,31,154,.85),rgba(122,40,120,.85));transform:translateY(101%);transition:transform .42s var(--ease);}
-.social-links a i,.social-links a span{position:relative;z-index:1;transition:color .4s;}
-.social-links a:hover{border-color:rgba(154,30,90,.45);}
-.social-links a:hover::before{transform:translateY(0);}
-.social-links a:hover i,.social-links a:hover span{color:var(--cream);}
-
-/* ══ FOOTER ══ */
-footer{text-align:center;padding:clamp(35px,5vw,55px) 6%;border-top:1px solid rgba(90,32,144,.08);font-family:var(--sans);font-size:.48rem;letter-spacing:4px;color:var(--txt-lo);text-transform:uppercase;}
-footer::before{content:'♦';display:block;font-size:.42rem;color:var(--gold);opacity:.30;margin-bottom:13px;letter-spacing:0;}
-
-/* ══ REVEAL ══ */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-/* ══ DESKTOP ══ */
-@media(min-width:901px){
-  header{height:82px;padding:0 6%;}
-  header.scrolled{height:62px;}
-  .shl-wrap{top:82px;}
-  header.scrolled+.shl-wrap{top:62px;}
-  .brand img{height:44px;}
-  nav.mn{display:flex;}
-  .ham{display:none!important;}
-  .hero-content{padding:0 8%;padding-top:90px;}
-  .grid-2{gap:90px;}
-}
-
-@media(max-width:900px){
-  .ham{display:flex;}
-  nav.mn{display:none;}
-  .nav-full{display:flex;}
-  .hero-content{padding:0 6%;padding-top:70px;text-align:center;}
-  .hero-eyebrow{justify-content:center;}
-  .hero-scroll{display:none;}
-  .hero-counter{right:5%;bottom:18px;font-size:.52rem;}
-  .about-wrap{grid-template-columns:1fr;}
-  .about-photo{height:280px;}
-  .hband{height:5px;}
-  .grid-2{grid-template-columns:1fr;gap:32px;}
-  .rev .img-frame{order:0;}.rev .text-block{order:0;}
-  .img-frame{padding:9px 0 0 9px;}
-  .gallery-masonry{column-count:2;column-gap:12px;}
-  .gallery-item{margin-bottom:12px;}
-  .hc:nth-child(n+6){display:none;}
-  .contact-orb{width:250px;height:250px;}
-  .gallery-board{padding:16px;}
-}
-@media(max-width:480px){
-  .gallery-masonry{column-count:2;}
-  .hero-content h2{font-size:clamp(2.1rem,10.5vw,3rem);}
-  .sec-ttl{font-size:clamp(1.2rem,5vw,1.65rem);}
-  .brand-sub{display:none;}
-  .phil-quote{padding:18px;}
-  .contact-box{padding:40px 18px;}
-  .about-photo{height:220px;}
+@media (max-width: 900px) {
+  .section { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
+  #programs .text-block, #programs .img-frame { order: unset; }
+  .gallery-board { column-count: 2; }
+  .hero-content h2 { white-space: normal; font-size: 2.5rem; }
 }
 </style>
 </head>
 <body>
 
-<div id="cDot"></div>
-<div id="cRing"></div>
-<div id="spb"></div>
-<div class="bg-wash"></div>
-
-<!-- HEADER -->
 <header id="hdr">
   <a class="brand" href="#">
     <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
@@ -461,157 +140,87 @@ footer::before{content:'♦';display:block;font-size:.42rem;color:var(--gold);op
     <a href="#gallery">Archive</a>
     <a href="#contact">Contact</a>
   </nav>
-  <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 
-<nav class="nav-full" id="navFull">
-  <a href="#about"      class="nl"><span class="nav-num">01</span>About</a>
-  <a href="#programs"   class="nl"><span class="nav-num">02</span>Programs</a>
-  <a href="#philosophy" class="nl"><span class="nav-num">03</span>Philosophy</a>
-  <a href="#gallery"    class="nl"><span class="nav-num">04</span>Archive</a>
-  <a href="#contact"    class="nl"><span class="nav-num">05</span>Contact</a>
-</nav>
-
-<div class="shl-wrap"><div class="shl"></div></div>
-
-<!-- HERO -->
 <section class="hero">
   <div class="hero-slides" id="heroSlides"></div>
-  <div class="hero-cols">
-    <div class="hc"></div><div class="hc"></div><div class="hc"></div>
-    <div class="hc"></div><div class="hc"></div><div class="hc"></div>
-    <div class="hc"></div><div class="hc"></div>
-  </div>
   <canvas id="notesCanvas"></canvas>
   <div class="hero-overlay"></div>
-  <div class="hero-vignette"></div>
-  <div class="hero-scan"></div>
-  <div class="hero-aura"></div>
-
   <div class="hero-content">
-    <div class="hero-eyebrow">Jakarta · Est. 2024</div>
-    <h2 id="heroTitle"></h2>
+    <div class="hero-eyebrow">Jakarta · Established 2024</div>
+    <h2>EXCELLENCE IN <em>Classical Music</em></h2>
     <p>A journey through piano performance and rigorous theory.</p>
     <a href="#contact" class="btn-apcs">Begin Journey</a>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
-  <div class="hero-counter">
-    <span class="cur" id="slideNum">01</span>
-    <span style="width:16px;height:1px;background:currentColor;display:inline-block;vertical-align:middle;opacity:.28"></span>
-    <span id="slideTotal">02</span>
-  </div>
 </section>
 
-<!-- I · ABOUT -->
-<div class="sec-div" style="padding-top:clamp(50px,8vw,80px)">
-  <div class="dl"></div><div class="do">I</div><div class="dl"></div>
-</div>
 <section class="section" id="about">
-  <div class="about-wrap reveal">
-    <div class="about-photo">
-      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
-      <div class="hband"></div>
-    </div>
-    <div class="about-txt">
-      <div class="jury-lbl">The Director</div>
-      <div class="about-name">Felix<br>Satia</div>
-      <div class="hdots"></div>
-      <p><strong>Sonata Music Studio</strong> dipandu oleh Felix Satia — seorang instruktur dan komposer yang menjembatani ketepatan klasik dengan seni kontemplatif.</p>
-      <p>Kami menciptakan ruang edukasi di mana teknik tinggi bertemu dengan kedalaman ekspresi yang sejati.</p>
-    </div>
+  <div class="text-block">
+    <span class="sec-eye">The Director</span>
+    <h2 class="sec-ttl">Felix Satia</h2>
+    <p><strong>Sonata Music Studio</strong> dipandu oleh Felix Satia — seorang instruktur dan komposer yang menjembatani ketepatan klasik dengan seni kontemplatif.</p>
+    <p>Kami menciptakan ruang edukasi di mana teknik tinggi bertemu dengan kedalaman ekspresi yang sejati. Milestone kami berikutnya: rilis 17 karya orisinal pada 30 April 2026.</p>
+  </div>
+  <div class="img-frame">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
   </div>
 </section>
 
-<!-- II · PROGRAMS -->
-<div class="sec-div"><div class="dl"></div><div class="do">II</div><div class="dl"></div></div>
-<div class="sec-bg">
-  <section class="section rev" id="programs">
-    <div class="grid-2 reveal">
-      <div class="img-frame">
-        <div class="img-fi">
-          <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Piano Programs">
-          <div class="col-tint"></div>
-        </div>
-        <div class="img-tl"></div>
-      </div>
-      <div class="text-block">
-        <span class="sec-eye">Curriculum</span>
-        <h3 class="sec-ttl">Core Programs</h3>
-        <ul class="prog-list">
-          <li><i class="fa-solid fa-music"></i><div><strong>Piano Performance</strong><span>Comprehensive literature from Baroque to Contemporary.</span></div></li>
-          <li><i class="fa-solid fa-scroll"></i><div><strong>Theory &amp; Composition</strong><span>Following ABRSM &amp; Trinity international standards.</span></div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</div>
+<div class="sec-div"></div>
 
-<!-- III · PHILOSOPHY -->
-<div class="sec-div"><div class="dl"></div><div class="do">III</div><div class="dl"></div></div>
+<section class="section" id="programs">
+  <div class="text-block">
+    <span class="sec-eye">Curriculum</span>
+    <h2 class="sec-ttl">Core Programs</h2>
+    <ul class="prog-list">
+      <li><i class="fa-solid fa-music"></i><div><strong>Piano Performance</strong><span>Comprehensive literature from Baroque to Contemporary.</span></div></li>
+      <li><i class="fa-solid fa-scroll"></i><div><strong>Theory &amp; Composition</strong><span>Following ABRSM &amp; Trinity international standards.</span></div></li>
+    </ul>
+  </div>
+  <div class="img-frame">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Piano Programs">
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
 <section class="section" id="philosophy">
-  <div class="grid-2 reveal">
-    <div class="img-frame">
-      <div class="img-fi">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philosophy">
-        <div class="col-tint"></div>
-      </div>
-      <div class="img-tl"></div>
-    </div>
-    <div class="text-block">
-      <span class="sec-eye">Vision</span>
-      <h3 class="sec-ttl">Philosophy</h3>
-      <p>Pembelajaran di Sonata Music Studio bukan sekadar masalah teknis — ini adalah perjalanan spiritual dan budaya yang melampaui sekadar nada.</p>
-      <div class="phil-quote"><p>"To play a note beautifully is to first understand why it must be played."</p></div>
-    </div>
+  <div class="text-block">
+    <span class="sec-eye">Vision</span>
+    <h2 class="sec-ttl">Our Philosophy</h2>
+    <div class="phil-quote">"To play a note beautifully is to first understand why it must be played."</div>
+    <p>Pembelajaran di Sonata Music Studio bukan sekadar masalah teknis — ini adalah perjalanan spiritual yang melampaui sekadar nada.</p>
+  </div>
+  <div class="img-frame">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philosophy">
   </div>
 </section>
 
-<!-- IV · GALLERY -->
-<div class="sec-div"><div class="dl"></div><div class="do">IV</div><div class="dl"></div></div>
-<div class="sec-bg">
-  <section class="section" id="gallery">
-    <div class="gallery-header reveal">
-      <span class="sec-eye" style="justify-content:center;">Visual Archive</span>
-      <h3 class="sec-ttl" style="margin-bottom:0;">Curated Portfolio</h3>
-    </div>
-    <div class="gallery-board">
-      <div class="gallery-masonry" id="galleryGrid"></div>
-    </div>
-  </section>
-</div>
+<section class="section" id="gallery">
+  <span class="sec-eye">Visual Archive</span>
+  <h2 class="sec-ttl">Portfolio</h2>
+  <div class="gallery-board" id="galleryGrid"></div>
+</section>
 
-<!-- V · CONTACT -->
-<div class="sec-div"><div class="dl"></div><div class="do">V</div><div class="dl"></div></div>
-<section class="section" id="contact">
-  <div class="contact-box reveal">
-    <div class="contact-orb"></div>
-    <span class="sec-eye" style="justify-content:center;margin-bottom:13px;">Reservations</span>
-    <h3 class="sec-ttl" style="margin-bottom:18px;">Inquiries</h3>
-    <p>Hubungi kami untuk jadwal dan konsultasi eksklusif.</p>
-    <div class="social-links">
-      <a href="https://wa.me/6289656684852"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-      <a href="https://instagram.com/felixsatia"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-      <a href="https://youtube.com/@felixsatia"><i class="fab fa-youtube"></i><span>YouTube</span></a>
-      <a href="https://www.linkedin.com/mwlite/profile/me?trk=p_mwlite_feed-secondary_nav"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-    </div>
+<section id="contact">
+  <h2 class="sec-ttl">Inquiries</h2>
+  <p>Hubungi kami untuk jadwal dan konsultasi eksklusif.</p>
+  <div class="social-links">
+    <a href="https://wa.me/6289656684852"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://instagram.com/felixsatia"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://youtube.com/@felixsatia"><i class="fab fa-youtube"></i> YouTube</a>
   </div>
 </section>
 
-<footer>&copy; 2026 Sonata Music Studio — Tradition &amp; Excellence</footer>
+<footer style="text-align: center; padding: 40px; font-family: var(--sans); font-size: 0.5rem; letter-spacing: 3px; color: var(--txt-lo); text-transform: uppercase;">
+  &copy; 2026 Sonata Music Studio — Tradition &amp; Excellence
+</footer>
 
 <script>
-/* ══ SONATA v5 ══ */
-
 /* 1. HERO SLIDES */
 const base="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
-const heroImgs=[
-  base+"InShot_20251105_190939933.jpg",
-  "https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg"
-];
+const heroImgs=[base+"InShot_20251105_190939933.jpg", "https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg"];
 const sc=document.getElementById('heroSlides');
-const sn=document.getElementById('slideNum');
-const st=document.getElementById('slideTotal');
-st.textContent=String(heroImgs.length).padStart(2,'0');
 heroImgs.forEach((src,i)=>{
   const d=document.createElement('div');
   d.className='slide'+(i===0?' active':'');
@@ -624,935 +233,42 @@ setInterval(()=>{
   sl[cs].classList.remove('active');
   cs=(cs+1)%sl.length;
   sl[cs].classList.add('active');
-  sn.textContent=String(cs+1).padStart(2,'0');
-},7000);
+},5000);
 
-/* 2. CHAR REVEAL — fixed: all chars rendered, proper whitespace */
-function charReveal(el,lines,bD){
-  el.innerHTML='';
-  lines.forEach((txt,li)=>{
-    const le=document.createElement('span');
-    le.className='hero-line';
-    le.style.display='block';
-    le.style.overflow='hidden';
-    /* split every character including space */
-    const chars=[...txt];
-    chars.forEach((ch,ci)=>{
-      const sp=document.createElement('span');
-      sp.className='hero-char';
-      /* use non-breaking space so it doesn't collapse */
-      sp.textContent = ch===' ' ? '\u00A0' : ch;
-      /* stagger: base delay + line offset + char offset */
-      sp.style.animationDelay=(bD + li*600 + ci*32)+'ms';
-      if(li===1){
-        sp.style.fontStyle='italic';
-        sp.style.color='var(--cream)';
-        sp.style.fontWeight='400';
-        sp.style.fontSize='.86em';
-      }
-      le.appendChild(sp);
-    });
-    el.appendChild(le);
-  });
-}
-charReveal(document.getElementById('heroTitle'),['EXCELLENCE IN','Classical Music'],680);
-
-/* 3. FLOATING NOTES */
+/* 2. FLOATING NOTES */
 (function(){
   const canvas=document.getElementById('notesCanvas');
   const ctx=canvas.getContext('2d');
-  const SYMS=['♩','♪','♫','♬','𝄞','𝄢','♭','♯'];
+  const SYMS=['♩','♪','♫','♬','𝄞'];
   let W,H,notes=[];
-  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
-  resize();window.addEventListener('resize',resize,{passive:true});
-  /* palette matches unified gradient */
-  const COLS=[
-    'hsl(225,65%,68%)','hsl(260,55%,70%)','hsl(300,45%,65%)',
-    'hsl(340,50%,62%)','hsl(42,62%,72%)','hsl(210,60%,70%)'
-  ];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize(); window.addEventListener('resize',resize);
   class Note{
-    constructor(init){this.reset(init);}
-    reset(init){
-      this.x=Math.random()*W;this.y=init?Math.random()*H:H+20;
+    constructor(){this.reset();}
+    reset(){
+      this.x=Math.random()*W; this.y=H+20;
       this.sym=SYMS[Math.floor(Math.random()*SYMS.length)];
-      this.size=10+Math.random()*15;
-      this.vx=(Math.random()-.5)*.34;this.vy=-(.28+Math.random()*.50);
-      this.maxA=.04+Math.random()*.12;this.life=init?Math.random():0;
-      this.angle=init?Math.random()*Math.PI*2:0;this.rot=(Math.random()-.5)*.2;
-      this.alpha=init?Math.random()*this.maxA:0;
-      this.color=COLS[Math.floor(Math.random()*COLS.length)];
+      this.vy=-(0.5+Math.random()*1); this.alpha=Math.random()*0.5;
     }
-    update(){this.x+=this.vx;this.y+=this.vy;this.life+=.0036;this.angle+=this.rot*.007;this.alpha=Math.sin(this.life*Math.PI)*this.maxA;if(this.y<-40)this.reset(false);}
-    draw(){ctx.save();ctx.globalAlpha=Math.max(0,this.alpha);ctx.fillStyle=this.color;ctx.font=`${this.size}px serif`;ctx.translate(this.x,this.y);ctx.rotate(this.angle);ctx.fillText(this.sym,0,0);ctx.restore();}
+    update(){this.y+=this.vy; if(this.y<-20)this.reset();}
+    draw(){ctx.globalAlpha=this.alpha; ctx.fillStyle='#0A1545'; ctx.fillText(this.sym,this.x,this.y); }
   }
-  for(let i=0;i<16;i++)notes.push(new Note(true));
-  (function loop(){ctx.clearRect(0,0,W,H);notes.forEach(n=>{n.update();n.draw();});requestAnimationFrame(loop);})();
+  for(let i=0;i<15;i++)notes.push(new Note());
+  function loop(){ctx.clearRect(0,0,W,H); notes.forEach(n=>{n.update();n.draw();}); requestAnimationFrame(loop);}
+  loop();
 })();
 
-/* 4. CURSOR */
-(function(){
-  if(window.matchMedia('(hover: none)').matches)return;
-  const dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
-  let rx=0,ry=0,mx=0,my=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;},{passive:true});
-  (function ar(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.transform=`translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;requestAnimationFrame(ar);})();
-  document.querySelectorAll('a,button,.gallery-item,.prog-list li').forEach(el=>{
-    el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
-    el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
-  });
-})();
-
-/* 5. SCROLL PROGRESS */
-(function(){
-  const bar=document.getElementById('spb');
-  function u(){const t=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(t>0?window.scrollY/t*100:0)+'%';}
-  window.addEventListener('scroll',u,{passive:true});u();
-})();
-
-/* 6. PROG LIST GLOW */
-document.querySelectorAll('.prog-list li').forEach(li=>{
-  li.addEventListener('mousemove',e=>{
-    const r=li.getBoundingClientRect();
-    li.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-    li.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-  });
-});
-
-/* 7. GALLERY — elegant straight mading with cycling pin colours */
-const imgs=[
-  "1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg",
-  "1728278413639.jpeg","1728278498612.jpeg","1728278535664.jpeg","1728278743638.jpeg",
-  "1728278972071.jpeg","1728279819431.jpeg","1728294846403.jpeg","1728294894368.jpeg",
-  "1728295139439.jpeg","1728295173689.jpeg","1728295202953.jpeg","1728295402904.jpeg",
-  "1728295429712.jpeg","1728296617350.jpeg","1728300782229.jpeg","1728301815288.jpeg",
-  "1728302182364.jpeg","1728302212548.jpeg","1728303826998.jpeg","1728311786057.jpeg",
-  "1728349078427.jpeg","1728368821890.jpeg","1728368987536.jpeg","1728450148208.jpeg",
-  "1728450200661.jpeg","1728450222173.jpeg","1728450251141.jpeg"
-];
-
-/* pin colours cycle through the unified gradient palette */
-const pinPalette=[
-  {bg:'rgba(21,53,168,.88)',  glow:'rgba(21,53,168,.65)'},
-  {bg:'rgba(90,32,144,.88)',  glow:'rgba(90,32,144,.65)'},
-  {bg:'rgba(122,40,120,.88)', glow:'rgba(122,40,120,.65)'},
-  {bg:'rgba(154,30,90,.88)',  glow:'rgba(154,30,90,.65)'},
-  {bg:'rgba(184,56,40,.85)',  glow:'rgba(184,56,40,.60)'},
-  {bg:'rgba(14,90,154,.88)',  glow:'rgba(14,90,154,.65)'},
-  {bg:'rgba(42,31,154,.88)',  glow:'rgba(42,31,154,.65)'},
-  {bg:'rgba(16,96,176,.88)',  glow:'rgba(16,96,176,.65)'},
-];
-
+/* 3. GALLERY MASONRY */
+const imgs=["1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg","1728278413639.jpeg","1728278498612.jpeg"];
 const grid=document.getElementById('galleryGrid');
 imgs.forEach((img,i)=>{
-  const pin=pinPalette[i % pinPalette.length];
   const item=document.createElement('div');
   item.className='gallery-item';
-
-  item.innerHTML=
-    `<div class="pin" style="--pin-bg:${pin.bg};--pin-glow:${pin.glow};"></div>`+
-    `<div class="photo-card">`+
-      `<img src="${base}${img}" alt="Sonata ${i+1}" loading="lazy">`+
-      `<div class="ptint"></div>`+
-      `<div class="pglow"></div>`+
-      `<span class="gnum">${String(i+1).padStart(2,'0')}</span>`+
-    `</div>`;
+  item.innerHTML=`<img src="${base}${img}" loading="lazy">`;
   grid.appendChild(item);
 });
 
-/* 8. MOBILE NAV */
-const hamBtn=document.getElementById('hamBtn'),navFull=document.getElementById('navFull');
-let navOpen=false;
-function toggleNav(){
-  navOpen=!navOpen;hamBtn.classList.toggle('open',navOpen);
-  if(navOpen){navFull.style.display='flex';requestAnimationFrame(()=>navFull.classList.add('open'));}
-  else{navFull.classList.remove('open');setTimeout(()=>{navFull.style.display='none';},520);}
-  document.body.style.overflow=navOpen?'hidden':'';
-}
-hamBtn.addEventListener('click',toggleNav);
-document.querySelectorAll('.nl').forEach(a=>a.addEventListener('click',()=>{if(navOpen)toggleNav();}));
-
-/* 9. HEADER */
-window.addEventListener('scroll',()=>{document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>50);},{passive:true});
-
-/* 10. SCROLL REVEAL */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>50);});
 </script>
 </body>
 </html>
-<style>
-  /* Memaksa teks di bagian Hero agar tetap satu baris lurus */
-  .hero-line, .hero-content h2 {
-    white-space: nowrap !important;
-    word-break: keep-all !important;
-  }
-</style>
-
-    </a>
-      </nav>
-    </header>
-
-  </body>
-</html>
-
-<style>
-  /* Menyesuaikan ukuran font agar 'Excellence' muat dalam satu baris */
-  .hero-content h2 {
-    white-space: nowrap !important;
-    /* Kita turunkan batas atasnya dari 6.6rem ke 4.8rem supaya aman di desktop */
-    font-size: clamp(1.8rem, 7.5vw, 4.8rem) !important;
-    letter-spacing: -1px !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-  }
-
-  /* Penyesuaian khusus untuk Mobile (Layar di bawah 600px) */
-  @media (max-width: 600px) {
-    .hero-content h2 {
-      /* Font diperkecil lagi sedikit supaya kata 'in' tidak terpotong */
-      font-size: clamp(1.4rem, 9vw, 2.4rem) !important;
-      letter-spacing: -0.5px !important;
-    }
-    
-    .hero-content {
-      padding: 0 4% !important; /* Memberi ruang lebih lebar ke samping */
-      max-width: 100% !important;
-    }
-  }
-
-  /* Memastikan baris animasinya tidak memotong huruf */
-  .hero-line {
-    overflow: visible !important; 
-    white-space: nowrap !important;
-  }
-</style>
-
-    </nav>
-    </header>
-  </body>
-</html>
-
-<style>
-/* ══ REVISI BENTUK PIN TANPA MENGUBAH WARNA PAKET ══ */
-.pin {
-    /* Ukuran diperkecil biar lebih 'high-class' */
-    width: 10px !important;
-    height: 10px !important;
-    
-    /* Bentuk kotak (square) lebih terkesan 'architectural office' */
-    border-radius: 1px !important; 
-    
-    /* Hilangkan border putih tebal yang bikin mirip anting */
-    border: none !important; 
-    
-    /* Kita pertahankan background warna-warni aslimu, 
-       tapi kita hilangkan efek glossy yang berlebihan */
-    background-image: none !important;
-    
-    /* Shadow tipis saja supaya terlihat nempel di papan */
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.4) !important;
-    
-    /* Letakkan agak lebih tinggi sedikit */
-    top: -2px !important;
-}
-
-/* Hilangkan titik putih di tengah (sumber utama 'vibe' perhiasan) */
-.pin::after {
-    display: none !important;
-}
-
-/* Efek Hover tetap elegan */
-.gallery-item:hover .pin {
-    transform: translateX(-50%) scale(1.3) !important;
-    filter: brightness(1.2); /* Hanya jadi lebih terang sedikit saat di-hover */
-}
-</style>
-<style>
-/* ══ REVISI PIN: VOLUMETRIC SEAL (DRAMATIC PERSPECTIVE) ══ */
-.pin {
-    /* 1. BENTUK & UKURAN: Volumetrik & Besar */
-    width: 24px !important;
-    height: 24px !important;
-    border-radius: 50% !important; /* Kembali ke lingkaran, tapi volumetrik */
-    
-    /* 2. PERSPEKTIF: Dibuat seperti dilihat dari depan (front-on) 
-       menggunakan volumetric lighting & deep shadows */
-    background: radial-gradient(circle at 35% 35%, 
-        rgba(255,255,255,0.15) 0%,   /* Kilauan cahaya depan-atas */
-        rgba(200,160,64,0.05) 20%,   /* Refleksi warna emas tipis */
-        rgba(10,16,52,0.98) 70%,     /* Navy gelap (matte seal) */
-        #08102B 100%) !important;    /* Bayangan dalam */
-    
-    /* 3. BORDER: Bingkai emas tipis & deep */
-    border: 1px solid rgba(200, 160, 64, 0.4) !important;
-    
-    /* 4. DRAMATIC VOLUMETRIC SHADOW: Kunci "Weight" */
-    box-shadow: 
-        /* Bayangan dalam (Volume) */
-        inset -1px -1px 3px rgba(0,0,0,0.8),
-        inset 1px 1px 1px rgba(255,255,255,0.08),
-        
-        /* Bayangan luar (Nancep) - Deep & Soft, seperti referensi */
-        4px 5px 8px rgba(0,0,0,0.7), 
-        0 0 12px rgba(200, 160, 64, 0.2) !important; /* Glow emas tipis */
-    
-    /* Letakkan agak proporsional */
-    top: -8px !important;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
-}
-
-/* Hilangkan semua sisa 'anting' */
-.pin::after, .pin::before {
-    display: none !important;
-}
-
-/* 5. HOVER: Lebih Dramatis & Bersinar */
-.gallery-item:hover .pin {
-    transform: translateX(-50%) translateY(-2px) scale(1.08) !important; /* Terangkat sedikit */
-    box-shadow: 
-        /* Bayangan luar makin jauh (makin tinggi) */
-        6px 10px 18px rgba(0,0,0,0.85),
-        0 0 20px rgba(200, 160, 64, 0.35),
-        /* Volume internal tetap */
-        inset -1px -1px 3px rgba(0,0,0,0.8),
-        inset 1px 1px 1px rgba(255,255,255,0.1) !important;
-}
-</style>
-<style>
-/* ══ REVISI: DRAMATIC 3D PIN (DNA COLOR PRESERVED) ══ */
-.pin {
-    width: 14px !important;
-    height: 14px !important;
-    border-radius: 50% !important;
-    
-    /* TETAP PAKAI WARNA ASLI PAKETMU */
-    /* Kita tambahkan pencahayaan internal saja biar kelihatan 3D */
-    background-image: radial-gradient(circle at 30% 30%, 
-        rgba(255,255,255,0.4) 0%, 
-        rgba(255,255,255,0) 50%, 
-        rgba(0,0,0,0.2) 100%) !important;
-        
-    /* SHADOW DRAMATIS (Weight) - Seperti referensi gambar */
-    box-shadow: 
-        /* Bayangan 'tubuh' pin */
-        2px 3px 5px rgba(0,0,0,0.5),
-        /* Bayangan jatuh yang panjang & lembut ke samping bawah */
-        6px 8px 12px rgba(0,0,0,0.3) !important;
-    
-    border: none !important;
-    top: -5px !important;
-}
-
-/* Titik kilauan kecil di atas (biar kayak material premium/kaca) */
-.pin::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 4px;
-    height: 4px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    filter: blur(0.5px);
-    display: block !important;
-}
-
-/* Efek Hover: Pin terasa lebih nancep */
-.gallery-item:hover .pin {
-    transform: translateX(-50%) scale(1.1) !important;
-    box-shadow: 
-        3px 5px 8px rgba(0,0,0,0.6),
-        8px 12px 18px rgba(0,0,0,0.4) !important;
-    filter: brightness(1.1);
-}
-</style>
-<style>
-/* ══════════════════════════════════════════════
-   GALLERY PIN REVISION: DRAMATIC ADMINISTRATIVE
-══════════════════════════════════════════════ */
-
-/* Reset sisa-sisa pin lama */
-.gallery-item .pin {
-    /* Menggunakan warna dari skema warna asli Anda */
-    background: var(--pin-bg, #902090) !important;
-    border-radius: 2px !important; /* Kotak, bukan bulat */
-    width: 14px !important;  /* Ukuran lebih kecil sesuai permintaan */
-    height: 14px !important;
-    border: none !important;
-    top: -6px !important;
-    transform: translateX(-50%) !important;
-    left: 50% !important;
-    z-index: 10 !important;
-    position: absolute !important;
-    overflow: visible !important;
-    transition: all 0.35s cubic-bezier(.21, 1, .3, 1) !important;
-    
-    /* ══ VOLUMETRIC & SHADOWS (Kunci Drama & Weight) ══ */
-    /* Menambahkan efek 3D dengan inset shadows */
-    box-shadow: 
-        /* Kilauan internal tipis di atas agar terlihat cembung */
-        inset 1px 1px 1px rgba(255, 255, 255, 0.15),
-        /* Bayangan internal dalam di bawah (volumetrik) */
-        inset -1px -1px 3px rgba(0, 0, 0, 0.7),
-        
-        /* Bayangan jatuh dramatis ke samping bawah seperti referensi */
-        5px 6px 10px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Hilangkan titik putih "anting" lama sepenuhnya */
-.gallery-item .pin::after,
-.gallery-item .pin::before {
-    display: none !important;
-}
-
-/* ══ HOVER STATE: CINEMATIC ELEVATION ══ */
-.gallery-item:hover .pin {
-    /* Pin terangkat sedikit */
-    transform: translateX(-50%) translateY(-2px) scale(1.08) !important;
-    filter: brightness(1.1) saturate(1.1); /* Warna lebih 'hidup' */
-    
-    /* Bayangan jatuh menjadi lebih panjang & lembut */
-    box-shadow: 
-        inset 1px 1px 1px rgba(255, 255, 255, 0.15),
-        inset -1px -1px 3px rgba(0, 0, 0, 0.7),
-        
-        /* Bayangan luar lebih jauh & lembut */
-        8px 10px 18px rgba(0, 0, 0, 0.8) !important;
-}
-
-/* Memastikan kartu foto tetap 'straight' dan elegan */
-.photo-card {
-    transform: translateY(0) !important;
-    transform-origin: center top;
-}
-
-/* Penyesuaian jarak item di mobile agar tetap rapi */
-@media(max-width:900px) {
-  .gallery-masonry {
-     column-gap: 16px;
-   }
-   .gallery-item {
-      margin-bottom: 16px;
-      padding-top: 20px;
-   }
-  .gallery-item .pin {
-     width: 12px !important; /* Sedikit lebih kecil di mobile */
-     height: 12px !important;
-     top: -4px !important;
-  }
-}
-</style>
-
-    </nav>
-</header>
-
-<style>
-  .pin {
-    /* 1. KUNCI UTAMA: Hapus semua perintah warna dari saya */
-    /* Kita biarkan background-color asli dari paket DNA kamu yang tampil */
-    
-    width: 14px !important; 
-    height: 14px !important;
-    border-radius: 2px !important; /* Kotak administratif */
-    border: none !important;
-    top: -8px !important;
-    
-    /* 2. EFEK VOLUME (Bukan Warna): 
-       Gunakan filter & mask tipis supaya warna aslimu tetap kelihatan
-       tapi punya dimensi 3D (pencahayaan dari kiri atas) */
-    background-image: linear-gradient(135deg, 
-      rgba(255,255,255,0.25) 0%, 
-      rgba(0,0,0,0) 60%, 
-      rgba(0,0,0,0.3) 100%) !important;
-    
-    /* 3. DRAMATIC WEIGHT: Shadow nancep ke kanan-bawah */
-    box-shadow: 
-      inset 1px 1px 1px rgba(255,255,255,0.15), /* Highlight pinggir atas */
-      4px 5px 8px rgba(0,0,0,0.6) !important;    /* Shadow nancep */
-  }
-
-  /* Hilangkan total sisa-sisa 'anting' putih yang mengganggu DNA warna */
-  .pin::before, .pin::after {
-    display: none !important;
-  }
-
-  /* Hover: Warna asli makin 'nyala' tapi tetap berbobot */
-  .gallery-item:hover .pin {
-    transform: translateX(-50%) translateY(-1px) scale(1.1) !important;
-    filter: brightness(1.1); 
-    box-shadow: 6px 8px 15px rgba(0,0,0,0.7) !important;
-  }
-</style>
-<style>
-  /* FORCE DNA COLOR + 3D WEIGHT */
-  .pin {
-    background-color: inherit !important; /* Paksa pakai warna asli paketmu */
-    width: 13px !important; 
-    height: 13px !important;
-    border-radius: 2px !important;
-    border: none !important;
-    top: -6px !important;
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(0,0,0,0.3)) !important;
-    box-shadow: inset 1px 1px 1px rgba(255,255,255,0.1), 4px 5px 8px rgba(0,0,0,0.6) !important;
-  }
-  .pin::before, .pin::after { display: none !important; }
-</style>
-
-<style>
-/* ══════════════════════════════════════════════════
-   SONATA ARCHIVE: THE 8-DNA EXECUTIVE REVISION
-   ══════════════════════════════════════════════════ */
-
-/* 1. DEFINISI WARNA DNA (8 Warna Paket Kamu) */
-/* Kita tembak langsung ke urutan item gallery agar tidak lari */
-.gallery-item:nth-child(8n+1) .pin { background-color: #1535A8 !important; } /* Royal Blue */
-.gallery-item:nth-child(8n+2) .pin { background-color: #2A1F9A !important; } /* Deep Indigo */
-.gallery-item:nth-child(8n+3) .pin { background-color: #5A2090 !important; } /* Violet */
-.gallery-item:nth-child(8n+4) .pin { background-color: #7A2878 !important; } /* Mauve */
-.gallery-item:nth-child(8n+5) .pin { background-color: #9A1E5A !important; } /* Deep Rose */
-.gallery-item:nth-child(8n+6) .pin { background-color: #B83828 !important; } /* Rich Crimson */
-.gallery-item:nth-child(8n+7) .pin { background-color: #0E5A9A !important; } /* Teal Blue */
-.gallery-item:nth-child(8n+8) .pin { background-color: #1060B0 !important; } /* Sky Blue */
-
-/* 2. PIN STRUCTURE: OFFICE VIBE & WEIGHTED */
-.gallery-item .pin {
-    width: 14px !important;
-    height: 14px !important;
-    border-radius: 1px !important; /* Kotak administratif */
-    position: absolute !important;
-    top: -7px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    border: none !important;
-    z-index: 30 !important;
-    
-    /* Efek Material Logam/Kaca (Sinematik) */
-    background-image: linear-gradient(135deg, 
-        rgba(255,255,255,0.25) 0%, 
-        rgba(0,0,0,0) 50%, 
-        rgba(0,0,0,0.3) 100%) !important;
-    
-    /* Deep Shadow (The Weight) - Bayangan nancep */
-    box-shadow: 
-        inset 1px 1px 1px rgba(255,255,255,0.2),
-        inset -1px -1px 2px rgba(0,0,0,0.5),
-        4px 5px 8px rgba(0,0,0,0.7) !important;
-    
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-/* Hilangkan semua sisa 'anting' */
-.pin::before, .pin::after { display: none !important; }
-
-/* 3. PHOTO CARD: CINEMATIC INTERACTION */
-.gallery-item {
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-    cursor: pointer;
-}
-
-/* 4. EFFECT SAAT DI-KLIK ATAU HOVER (Highlight & Shadow) */
-.gallery-item:hover, .gallery-item:active {
-    transform: translateY(-10px) scale(1.03) !important;
-    z-index: 100 !important;
-}
-
-/* Cinematic Shadow pada foto saat interaksi */
-.gallery-item:hover .photo-card, 
-.gallery-item:active .photo-card {
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.7),        /* Deep shadow */
-        0 0 15px rgba(255, 255, 255, 0.08) !important; /* Subtle Highlight/Bloom */
-}
-
-/* Reaksi Pin saat interaksi */
-.gallery-item:hover .pin {
-    transform: translateX(-50%) translateY(-2px) scale(1.1) !important;
-    filter: brightness(1.2);
-    box-shadow: 6px 12px 20px rgba(0, 0, 0, 0.8) !important;
-}
-
-/* 5. MOBILE ADJUSTMENT */
-@media (max-width: 600px) {
-    .gallery-item .pin { width: 12px !important; height: 12px !important; }
-}
-</style>
-<style>
-/* ══════════════════════════════════════════════════
-   ACCENT: SINGAPORE BOTANICAL X MUSICAL DYNAMICS
-   ══════════════════════════════════════════════════ */
-
-/* 1. BACKGROUND ORCHID ACCENT (Subtil & Executive) */
-#archive-section {
-    position: relative;
-    background-color: #050a18 !important; /* Deep Navy Base */
-    /* Tekstur anggrek siluet yang sangat tipis agar tidak mengganggu */
-    background-image: 
-        radial-gradient(circle at 80% 20%, rgba(90, 32, 144, 0.08) 0%, transparent 40%),
-        linear-gradient(rgba(5, 10, 24, 0.95), rgba(5, 10, 24, 0.95)),
-        url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Subtle texture */
-    overflow: hidden;
-}
-
-/* 2. FIREFLIES (KUNANG-KUNANG) - Bergerak dengan warna DNA */
-.firefly {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    filter: blur(2px);
-    opacity: 0;
-    animation: fly 15s infinite ease-in-out;
-    z-index: 1;
-}
-
-/* Warna kunang-kunang mengikuti aksen DNA kamu secara acak */
-.ff-1 { background: #1535A8; left: 10%; animation-delay: 0s; }
-.ff-2 { background: #5A2090; left: 30%; animation-delay: 3s; }
-.ff-3 { background: #9A1E5A; left: 50%; animation-delay: 6s; }
-.ff-4 { background: #1060B0; left: 70%; animation-delay: 9s; }
-.ff-5 { background: #B83828; left: 90%; animation-delay: 12s; }
-
-@keyframes fly {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-    20% { opacity: 0.6; }
-    50% { transform: translateY(50vh) translateX(50px) scale(1); opacity: 0.3; }
-    80% { opacity: 0.6; }
-    100% { transform: translateY(-10vh) translateX(-20px) scale(0.5); opacity: 0; }
-}
-
-/* 3. MUSICAL SYMBOLS (Subtil Floating) */
-.music-note {
-    position: absolute;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.05); /* Sangat tipis/transparent */
-    pointer-events: none;
-    z-index: 1;
-    font-family: serif;
-    animation: floatNote 20s infinite linear;
-}
-
-@keyframes floatNote {
-    0% { transform: translateY(110vh) rotate(0deg); }
-    100% { transform: translateY(-10vh) rotate(360deg); }
-}
-
-/* 4. ORCHID SILHOUETTE (The Singapore Accent) */
-.orchid-accent {
-    position: absolute;
-    bottom: -50px;
-    right: -20px;
-    width: 400px;
-    height: 400px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Orchid_silhouette.svg/1024px-Orchid_silhouette.svg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.03; /* Sangat subtil, hampir tidak terlihat tapi terasa */
-    filter: brightness(0) invert(1);
-    pointer-events: none;
-    z-index: 0;
-}
-</style>
-
-<div class="firefly ff-1"></div>
-<div class="firefly ff-2"></div>
-<div class="firefly ff-3"></div>
-<div class="firefly ff-4"></div>
-<div class="firefly ff-5"></div>
-
-<div class="music-note" style="left: 15%; animation-duration: 25s;">♩</div>
-<div class="music-note" style="left: 45%; animation-duration: 30s;">♪</div>
-<div class="music-note" style="left: 85%; animation-duration: 22s;">♫</div>
-<div class="music-note" style="left: 65%; animation-duration: 28s;">∮</div>
-
-<div class="orchid-accent"></div>
-
-<style>
-/* ══════════════════════════════════════════════════
-   THEME: MARINA BAY EXECUTIVE GLASS & BOTANICAL
-   ══════════════════════════════════════════════════ */
-
-/* 1. CONTAINER MADING (THE NIGHT PARK) */
-#archive-section {
-    background: radial-gradient(circle at 50% 50%, #0a0e1f 0%, #03050a 100%) !important;
-    position: relative;
-    padding: 60px 20px;
-    overflow: hidden;
-}
-
-/* 2. THE GLASS PANEL (KARTU FOTO) */
-.photo-card {
-    /* Efek Kaca Transparan */
-    background: rgba(255, 255, 255, 0.05) !important; 
-    backdrop-filter: blur(15px) saturate(120%) !important; /* Buram di belakang kaca */
-    -webkit-backdrop-filter: blur(15px) saturate(120%);
-    
-    /* Border Kaca Tipis & Tajam */
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 4px !important;
-    
-    padding: 15px !important;
-    position: relative;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-    
-    /* Refleksi Cahaya di Permukaan Kaca */
-    background-image: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.1) 0%, 
-        rgba(255, 255, 255, 0) 40%, 
-        rgba(255, 255, 255, 0) 100%) !important;
-    
-    /* Shadow Berat (The Weight) */
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.6), 
-        inset 0 0 1px rgba(255, 255, 255, 0.2) !important;
-}
-
-/* 3. HOVER INTERACTION: THE CINEMATIC HIGHLIGHT */
-.gallery-item:hover .photo-card {
-    background: rgba(255, 255, 255, 0.1) !important; /* Kaca lebih terang saat disentuh */
-    transform: translateY(-15px) rotateX(5deg) !important; /* Efek melayang sinematik */
-    border: 1px solid rgba(255, 255, 255, 0.35) !important; /* Border makin menyala */
-    
-    /* Bloom Effect (Cahaya Pijar) */
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.8), 
-        0 0 20px rgba(138, 43, 226, 0.2) !important; /* Pendaran ungu subtil */
-}
-
-/* 4. PIN KOTAK 3D (Tetap Berbobot & DNA Warna) */
-.gallery-item .pin {
-    width: 14px !important;
-    height: 14px !important;
-    border-radius: 1px !important;
-    top: -7px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 50 !important;
-    position: absolute !important;
-    
-    /* Shadow Pin Nancep */
-    box-shadow: 
-        inset 1px 1px 2px rgba(255,255,255,0.3),
-        4px 6px 10px rgba(0,0,0,0.8) !important;
-}
-
-/* 5. BOTANICAL ACCENTS (Visibility Fix) */
-.firefly {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    filter: blur(2px);
-    z-index: 1;
-    animation: fly 15s infinite ease-in-out;
-    pointer-events: none;
-    box-shadow: 0 0 12px currentColor;
-}
-
-.orchid-accent {
-    position: absolute;
-    bottom: -30px;
-    right: -20px;
-    width: 450px;
-    height: 450px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Orchid_silhouette.svg/1024px-Orchid_silhouette.svg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.08 !important; /* Dinaikkan agar terlihat */
-    filter: brightness(0) invert(1);
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes fly {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-    30% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
-}
-</style>
-<style>
-/* ══════════════════════════════════════════════════
-   REVISI: CRYSTAL EXECUTIVE + BOTANICAL ACCENT
-   ══════════════════════════════════════════════════ */
-
-/* 1. PHOTO CARD: SHARP, CLEAR, & HIGH-END */
-.photo-card {
-    background: rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: none !important; /* Hapus buram agar 'bersih' */
-    border-radius: 0 !important; /* KOTAK TAJAM: Office Vibe */
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    padding: 10px !important;
-    
-    /* EFEK SHADOW & HIGHLIGHT: Tipis tapi dalam */
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.5), /* Deep Shadow */
-        inset 0 0 10px rgba(255, 255, 255, 0.03) !important; /* Subtle Internal Highlight */
-    transition: all 0.4s ease;
-}
-
-/* Hover: Highlight bertambah dikit banget biar elegan */
-.gallery-item:hover .photo-card {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.7), 
-        inset 0 0 15px rgba(255, 255, 255, 0.05) !important;
-}
-
-/* 2. KUNANG-KUNANG: SEKARANG KELIHATAN (Visible Pulse) */
-.firefly {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    opacity: 0;
-    animation: flyVisible 12s infinite ease-in-out;
-    z-index: 1;
-    /* Efek pendaran lampu taman */
-    box-shadow: 0 0 8px currentColor; 
-}
-
-@keyframes flyVisible {
-    0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
-    30% { opacity: 0.8; } /* Naikkan opacity biar kelihatan */
-    70% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) translateX(30px) scale(0.5); opacity: 0; }
-}
-
-/* 3. ANGGREK (ORCHID): VISIBLE ACCENT */
-.orchid-accent {
-    position: absolute;
-    bottom: -30px;
-    right: -20px;
-    width: 450px;
-    height: 450px;
-    /* Pakai siluet yang lebih tegas */
-    background: url('https://www.svgrepo.com/show/21430/orchid.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.08 !important; /* Naikkan dari 0.03 biar nampak */
-    filter: invert(1) brightness(0.8); /* Buat jadi putih keabu-abuan mewah */
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* 4. MUSICAL SYMBOLS: SLIGHTLY MORE VISIBLE */
-.music-note {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.1) !important; /* Naikkan opacity */
-    animation: floatNote 25s infinite linear;
-}
-</style>
-
-<div class="firefly ff-1"></div>
-<div class="firefly ff-2"></div>
-<div class="firefly ff-3"></div>
-<div class="firefly ff-4"></div>
-<div class="firefly ff-5"></div>
-
-<div class="music-note" style="left: 10%; top: 100vh;">♩</div>
-<div class="music-note" style="left: 40%; top: 110vh;">♪</div>
-<div class="music-note" style="left: 80%; top: 105vh;">♫</div>
-
-<div class="orchid-accent"></div>
-
-<style>
-/* ══ MENGHAPUS RUANG KOSONG BERLEBIH (LAYOUT COMPACTION) ══ */
-
-#archive-section {
-    padding-bottom: 40px !important; /* Kurangi spasi bawah secara drastis */
-    margin-bottom: 0 !important;
-    min-height: auto !important; /* Biar tingginya pas dengan konten */
-}
-
-.gallery-masonry {
-    margin-bottom: 20px !important; /* Jarak mading ke batas bawah section */
-}
-
-/* Pastikan anggrek tidak mendorong halaman jadi lebih panjang */
-.orchid-accent {
-    bottom: 0 !important;
-    max-height: 50% !important; 
-    pointer-events: none;
-}
-
-/* Pastikan footer atau section setelahnya nempel rapi */
-footer, .next-section {
-    margin-top: 0 !important;
-    padding-top: 20px !important;
-}
-
-/* Hilangkan scrollbar horizontal jika kunang-kunang lewat batas */
-body {
-    overflow-x: hidden;
-}
-</style>
-<style>
-  /* 1. Reset Background & Colors ke White Executive */
-  body, .sec-bg, .gallery-board, .about-txt {
-    background-color: #ffffff !important;
-    color: #0A1545 !important;
-  }
-  
-  /* 2. Hero Adjustments (Clean & Bright) */
-  .hero-overlay {
-    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 50%, #fff 100%) !important;
-  }
-  .hero-content h2, .hero-content p, .hero-eyebrow {
-    color: #0A1545 !important;
-    text-shadow: none !important;
-  }
-  .btn-apcs {
-    border-color: #0A1545 !important;
-    color: #0A1545 !important;
-  }
-
-  /* 3. Re-ordering Layout (About Kiri, Program Kanan, Philo Kiri) */
-  /* About (Section I) - Pastikan Text Kiri */
-  #about .about-wrap {
-    display: flex !important;
-    flex-direction: row !important; /* Text Kiri (default flow) */
-  }
-  #about .about-txt { order: 1 !important; border-left: 4px solid #C8A040 !important; }
-  #about .about-photo { order: 2 !important; }
-
-  /* Programs (Section II) - Paksa Text Kanan */
-  #programs .grid-2 {
-    display: flex !important;
-    flex-direction: row-reverse !important; /* Foto Kiri, Text Kanan */
-  }
-  #programs .text-block { order: 2 !important; text-align: left !important; }
-  #programs .img-frame { order: 1 !important; }
-
-  /* Philosophy (Section III) - Text Kiri */
-  #philosophy .grid-2 {
-    display: flex !important;
-    flex-direction: row !important;
-  }
-
-  /* 4. Gallery & Pins (Minimalist) */
-  .photo-card { background: #fff !important; border: 1px solid #eee !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; }
-  .pin { background: #0A1545 !important; box-shadow: 0 0 10px rgba(0,0,0,0.1) !important; }
-  
-  /* 5. Typography */
-  .sec-ttl, .about-name { color: #0A1545 !important; }
-  .sec-eye { color: #C8A040 !important; }
-  p { color: #555 !important; }
-
-  /* Mobile Fix */
-  @media (max-width: 900px) {
-    #about .about-wrap, #programs .grid-2, #philosophy .grid-2 {
-      flex-direction: column !important;
-    }
-    .about-photo { height: 300px !important; }
-  }
-</style>
-
-<script>
-  // Mengubah warna kursor agar terlihat di background putih
-  document.getElementById('cDot').style.backgroundColor = '#0A1545';
-  document.getElementById('cRing').style.borderColor = 'rgba(10, 21, 69, 0.3)';
-  
-  // Mengubah filter logo agar menjadi hitam/gelap
-  document.querySelector('.brand img').style.filter = 'brightness(0.2) contrast(1.2)';
-</script>
