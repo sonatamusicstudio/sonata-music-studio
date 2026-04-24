@@ -833,3 +833,39 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     </header>
   </body>
 </html>
+
+<style>
+/* ══ REVISI BENTUK PIN TANPA MENGUBAH WARNA PAKET ══ */
+.pin {
+    /* Ukuran diperkecil biar lebih 'high-class' */
+    width: 10px !important;
+    height: 10px !important;
+    
+    /* Bentuk kotak (square) lebih terkesan 'architectural office' */
+    border-radius: 1px !important; 
+    
+    /* Hilangkan border putih tebal yang bikin mirip anting */
+    border: none !important; 
+    
+    /* Kita pertahankan background warna-warni aslimu, 
+       tapi kita hilangkan efek glossy yang berlebihan */
+    background-image: none !important;
+    
+    /* Shadow tipis saja supaya terlihat nempel di papan */
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.4) !important;
+    
+    /* Letakkan agak lebih tinggi sedikit */
+    top: -2px !important;
+}
+
+/* Hilangkan titik putih di tengah (sumber utama 'vibe' perhiasan) */
+.pin::after {
+    display: none !important;
+}
+
+/* Efek Hover tetap elegan */
+.gallery-item:hover .pin {
+    transform: translateX(-50%) scale(1.3) !important;
+    filter: brightness(1.2); /* Hanya jadi lebih terang sedikit saat di-hover */
+}
+</style>
