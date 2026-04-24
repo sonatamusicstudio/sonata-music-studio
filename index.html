@@ -1487,3 +1487,72 @@ body {
     overflow-x: hidden;
 }
 </style>
+<style>
+  /* 1. Reset Background & Colors ke White Executive */
+  body, .sec-bg, .gallery-board, .about-txt {
+    background-color: #ffffff !important;
+    color: #0A1545 !important;
+  }
+  
+  /* 2. Hero Adjustments (Clean & Bright) */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 50%, #fff 100%) !important;
+  }
+  .hero-content h2, .hero-content p, .hero-eyebrow {
+    color: #0A1545 !important;
+    text-shadow: none !important;
+  }
+  .btn-apcs {
+    border-color: #0A1545 !important;
+    color: #0A1545 !important;
+  }
+
+  /* 3. Re-ordering Layout (About Kiri, Program Kanan, Philo Kiri) */
+  /* About (Section I) - Pastikan Text Kiri */
+  #about .about-wrap {
+    display: flex !important;
+    flex-direction: row !important; /* Text Kiri (default flow) */
+  }
+  #about .about-txt { order: 1 !important; border-left: 4px solid #C8A040 !important; }
+  #about .about-photo { order: 2 !important; }
+
+  /* Programs (Section II) - Paksa Text Kanan */
+  #programs .grid-2 {
+    display: flex !important;
+    flex-direction: row-reverse !important; /* Foto Kiri, Text Kanan */
+  }
+  #programs .text-block { order: 2 !important; text-align: left !important; }
+  #programs .img-frame { order: 1 !important; }
+
+  /* Philosophy (Section III) - Text Kiri */
+  #philosophy .grid-2 {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  /* 4. Gallery & Pins (Minimalist) */
+  .photo-card { background: #fff !important; border: 1px solid #eee !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; }
+  .pin { background: #0A1545 !important; box-shadow: 0 0 10px rgba(0,0,0,0.1) !important; }
+  
+  /* 5. Typography */
+  .sec-ttl, .about-name { color: #0A1545 !important; }
+  .sec-eye { color: #C8A040 !important; }
+  p { color: #555 !important; }
+
+  /* Mobile Fix */
+  @media (max-width: 900px) {
+    #about .about-wrap, #programs .grid-2, #philosophy .grid-2 {
+      flex-direction: column !important;
+    }
+    .about-photo { height: 300px !important; }
+  }
+</style>
+
+<script>
+  // Mengubah warna kursor agar terlihat di background putih
+  document.getElementById('cDot').style.backgroundColor = '#0A1545';
+  document.getElementById('cRing').style.borderColor = 'rgba(10, 21, 69, 0.3)';
+  
+  // Mengubah filter logo agar menjadi hitam/gelap
+  document.querySelector('.brand img').style.filter = 'brightness(0.2) contrast(1.2)';
+</script>
