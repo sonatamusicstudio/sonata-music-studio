@@ -1,190 +1,289 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sonata Music Studio — Executive Cinematic</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<style>
-:root {
-  --bg: #FFFFFF;
-  --navy: #0A1545;
-  --gold: #C8A040;
-  --line: rgba(10, 21, 69, 0.07);
-  --txt: #0A1545;
-  --bask: "Libre Baskerville", serif;
-  --cinz: "Cinzel", serif;
-  --sans: "Montserrat", sans-serif;
-}
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sonata Music Studio — Executive Cinematic</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--txt); font-family: var(--bask); overflow-x: hidden; line-height: 1.7; }
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --navy: #0A1545;
+      --gold: #C8A040;
+      --line: rgba(10, 21, 69, 0.08); /* Garis Kolom Referensi */
+      --bask: "Libre Baskerville", serif;
+      --cinz: "Cinzel", serif;
+      --sans: "Montserrat", sans-serif;
+    }
 
-/* ══ BACKGROUND GRID COLUMNS ══ */
-.bg-grid {
-  position: fixed; inset: 0; z-index: -1;
-  display: flex; justify-content: space-between;
-  padding: 0 5%; pointer-events: none;
-}
-.bg-line { width: 1px; height: 100%; background: var(--line); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--navy); font-family: var(--bask); overflow-x: hidden; line-height: 1.8; }
 
-/* ══ HEADER ══ */
-header {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
-  height: 85px; display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%; background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(15px); border-bottom: 1px solid var(--line);
-}
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand img { height: 42px; filter: brightness(0.1); }
-.brand-name { font-family: var(--cinz); font-size: 0.85rem; letter-spacing: 2px; color: var(--navy); font-weight: 700; }
+    /* ══ BACKGROUND GRID (YO-YO MA VIBE) ══ */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: -1;
+      display: flex; justify-content: space-between;
+      padding: 0 5%; pointer-events: none;
+    }
+    .bg-line { width: 1px; height: 100%; background: var(--line); }
 
-nav.mn a { 
-  font-family: var(--sans); font-size: 0.6rem; letter-spacing: 2px; 
-  text-decoration: none; color: var(--navy); margin-left: 25px; 
-  text-transform: uppercase; transition: 0.3s; opacity: 0.8;
-}
-nav.mn a:hover { color: var(--gold); opacity: 1; }
+    /* ══ HEADER EXECUTIVE ══ */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      height: 85px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(15px); border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand img { height: 42px; filter: brightness(0.1); }
+    .brand-name { font-family: var(--cinz); font-size: 0.85rem; letter-spacing: 2px; color: var(--navy); font-weight: 700; text-transform: uppercase; }
 
-/* ══ HERO ══ */
-.hero { height: 90vh; display: flex; align-items: center; padding: 0 8%; position: relative; }
-.hero-content { position: relative; z-index: 10; }
-.hero-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; }
-.hero-content h2 { 
-  font-size: clamp(2.5rem, 7vw, 5rem); font-family: var(--cinz); 
-  line-height: 1.1; color: var(--navy);
-}
-.hero-content h2 span { display: block; font-family: var(--bask); font-style: italic; font-weight: 400; font-size: 0.8em; }
+    nav.mn a { 
+      font-family: var(--sans); font-size: 0.6rem; letter-spacing: 2px; 
+      text-decoration: none; color: var(--navy); margin-left: 25px; 
+      text-transform: uppercase; transition: 0.3s; opacity: 0.8;
+    }
+    nav.mn a:hover { color: var(--gold); opacity: 1; }
 
-/* ══ SECTIONS ══ */
-.section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; padding: 120px 8%; align-items: center; }
-.rev { grid-template-columns: 1fr 1.2fr; }
-.sec-label { color: var(--gold); font-family: var(--sans); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-.sec-title { font-family: var(--cinz); font-size: 2.5rem; color: var(--navy); margin-bottom: 25px; }
-.img-side img { width: 100%; border: 1px solid var(--line); filter: contrast(1.05); }
+    /* ══ HERO & SECTION DECOR ══ */
+    .hero { height: 90vh; display: flex; align-items: center; padding: 0 8%; position: relative; border-bottom: 1px solid var(--line); }
+    .hero-bg { position: absolute; inset: 0; z-index: -1; background: url('https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg') center/cover; opacity: 0.15; filter: grayscale(1); }
+    
+    .hero-content h2 { 
+      font-size: clamp(2.5rem, 7vw, 5.5rem); font-family: var(--cinz); 
+      line-height: 1; color: var(--navy); text-transform: uppercase;
+    }
+    .hero-content h2 span { display: block; font-family: var(--bask); font-style: italic; font-weight: 400; font-size: 0.75em; text-transform: none; color: var(--gold); }
 
-/* ══ MASONRY GALLERY (31 IMAGES) ══ */
-#gallery { padding: 100px 5%; background: #fdfdfd; border-top: 1px solid var(--line); }
-.gallery-title { text-align: center; margin-bottom: 60px; }
-.masonry { 
-  column-count: 4; column-gap: 15px; 
-}
-.m-item { 
-  break-inside: avoid; margin-bottom: 15px; 
-  background: #fff; border: 1px solid var(--line); padding: 8px;
-  transition: 0.4s ease;
-}
-.m-item img { width: 100%; display: block; filter: grayscale(0.1); }
-.m-item:hover { border-color: var(--gold); transform: translateY(-5px); }
+    .sec-label { color: var(--gold); font-family: var(--sans); font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+    .sec-title { font-family: var(--cinz); font-size: 2.8rem; color: var(--navy); margin-bottom: 30px; line-height: 1.1; }
 
-/* ══ FOOTER ══ */
-footer { padding: 80px 5%; text-align: center; border-top: 1px solid var(--line); font-family: var(--sans); font-size: 0.6rem; letter-spacing: 3px; color: #999; }
+    /* Lanjut ke CSS Part 2 untuk Content Layout & Gallery */
+    /* ══ CONTENT LAYOUT (YO-YO MA STYLE) ══ */
+    .section { 
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 100px; 
+      padding: 160px 8%; align-items: center; position: relative;
+    }
+    .rev { grid-template-columns: 1fr 1.2fr; }
 
-@media (max-width: 1100px) { .masonry { column-count: 3; } }
-@media (max-width: 800px) { 
-    .section { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
-    .masonry { column-count: 2; }
-    .bg-grid { display: none; }
-    .img-side { order: -1; }
-}
-</style>
+    .text-side { position: relative; z-index: 5; }
+    .text-side p { color: #555; font-size: 1.15rem; margin-bottom: 25px; max-width: 500px; }
+    
+    /* ══ IMAGE & FRAME DESIGN ══ */
+    .img-side { position: relative; overflow: hidden; }
+    .img-side img { 
+      width: 100%; display: block; 
+      filter: grayscale(0.2) contrast(1.05); 
+      border: 1px solid var(--line);
+      transition: transform 0.8s var(--ease);
+    }
+    /* Gold Accent Border on Image */
+    .img-side::after {
+      content: ''; position: absolute; top: -15px; right: -15px; 
+      width: 80px; height: 80px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold);
+    }
+
+    /* ══ MASONRY GALLERY SYSTEM ══ */
+    #gallery { padding: 120px 5%; background: #fafafa; border-top: 1px solid var(--line); }
+    .gallery-head { text-align: center; margin-bottom: 80px; }
+    
+    .masonry { 
+      column-count: 4; column-gap: 20px; 
+    }
+    .m-item { 
+      break-inside: avoid; margin-bottom: 20px; 
+      background: #fff; border: 1px solid var(--line); padding: 12px;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
+    }
+    .m-item img { width: 100%; display: block; filter: saturate(0.8); }
+    .m-item:hover { 
+      border-color: var(--gold); 
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(10, 21, 69, 0.05);
+    }
+
+    /* ══ RESPONSIVE ADAPTATION ══ */
+    @media (max-width: 1100px) { .masonry { column-count: 3; } }
+    @media (max-width: 900px) {
+      .section { grid-template-columns: 1fr !important; gap: 50px; text-align: center; padding: 100px 8%; }
+      .text-side p { margin-left: auto; margin-right: auto; }
+      .bg-grid { display: none; }
+      .img-side { order: -1; }
+      .masonry { column-count: 2; }
+      .hero-content h2 { font-size: 3.2rem; }
+    }
+
+    /* ══ UTILITIES ══ */
+    .btn-exec {
+      display: inline-flex; align-items: center; gap: 15px; padding: 20px 45px;
+      border: 1px solid var(--navy); color: var(--navy); font-family: var(--sans);
+      font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+      text-decoration: none; transition: 0.4s; margin-top: 30px;
+    }
+    .btn-exec:hover { background: var(--navy); color: #fff; }
+    .btn-exec i { font-size: 0.8rem; color: var(--gold); }
+  </style>
 </head>
 <body>
-
-<div class="bg-grid">
-  <div class="bg-line"></div><div class="bg-line"></div><div class="bg-line"></div>
-  <div class="bg-line"></div><div class="bg-line"></div><div class="bg-line"></div>
-</div>
-
-<header>
-  <a class="brand" href="#">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Logo">
-    <div class="brand-name">Sonata Music Studio</div>
-  </a>
-  <nav class="mn">
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="#gallery">Archive</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Professional Music Education</div>
-    <h2>EXCELLENCE IN<span>Classical Performance</span></h2>
-    <p style="margin-top:20px; max-width:600px; color:#555;">Transforming technique into artistry through high-standard piano education.</p>
+  <div class="bg-grid">
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
   </div>
-</section>
 
-<section class="section" id="about">
-  <div class="text-side">
-    <span class="sec-label">The Director</span>
-    <h2 class="sec-title">Felix Satia</h2>
-    <p>Sonata Music Studio dipandu oleh Felix Satia — instruktur yang menjembatani ketepatan klasik dengan seni kontemplatif.</p>
-    <p>Setiap pelajaran dirancang untuk mengeksplorasi kedalaman musik beyond the notes.</p>
-  </div>
-  <div class="img-side">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Director">
-  </div>
-</section>
+  <header>
+    <a class="brand" href="#">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+      <div class="brand-name">Sonata Music Studio</div>
+    </a>
+    <nav class="mn">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#gallery">Archive</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="section rev" id="programs">
-  <div class="img-side">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Program">
-  </div>
-  <div class="text-side">
-    <span class="sec-label">Curriculum</span>
-    <h2 class="sec-title">Core Programs</h2>
-    <p>Kurikulum komprehensif mulai dari Performance Piano hingga Teori Musik (ABRSM/Trinity).</p>
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="sec-label">Jakarta — Established 2024</span>
+      <h2>Excellence In <span>Classical Performance</span></h2>
+      <p style="margin-top: 25px; color: #555; max-width: 550px;">
+        Sebuah ruang edukasi musik kurasi yang menjembatani kecakapan teknis dengan kedalaman ekspresi artistik yang sejati.
+      </p>
+      <a href="#about" class="btn-exec">Discover More <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
 
-<section class="section" id="philosophy">
-  <div class="text-side">
-    <span class="sec-label">Vision</span>
-    <h2 class="sec-title">Philosophy</h2>
-    <p style="font-style:italic; font-size:1.4rem; color:var(--navy); border-left:3px solid var(--gold); padding-left:20px;">"To play a note beautifully is to first understand why it must be played."</p>
-  </div>
-  <div class="img-side">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philo">
-  </div>
-</section>
+  <section class="section" id="about">
+    <div class="text-side">
+      <span class="sec-label">The Director</span>
+      <h2 class="sec-title">Felix Satia</h2>
+      <p>
+        Dibimbing oleh Felix Satia, Sonata Music Studio hadir untuk mengembalikan marwah pendidikan musik klasik melalui pendekatan yang personal dan intelektual.
+      </p>
+      <p>
+        Fokus kami bukan hanya pada kecepatan jari, melainkan pada pemahaman mendalam tentang struktur dan jiwa dari setiap komposisi yang dipelajari.
+      </p>
+    </div>
+    <div class="img-side">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
+    </div>
+  </section>
 
-<section id="gallery">
-  <div class="gallery-title">
-    <span class="sec-label">Visual Journal</span>
-    <h2 class="sec-title">Archive</h2>
-  </div>
-  <div class="masonry" id="galleryGrid"></div>
-</section>
+  <section class="section rev" id="programs">
+    <div class="img-side">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Core Programs">
+    </div>
+    <div class="text-side">
+      <span class="sec-label">Education</span>
+      <h2 class="sec-title">Core Programs</h2>
+      <p>
+        Kurikulum kami dirancang secara komprehensif, mencakup Performance Piano, Teori Musik, hingga persiapan ujian internasional ABRSM & Trinity.
+      </p>
+      <p>
+        Kami menyediakan lingkungan belajar yang tenang dan eksklusif, mendukung setiap siswa untuk mencapai standar keunggulan tertinggi.
+      </p>
+      <a href="https://wa.me/6289656684852" class="btn-exec">Enquire Now <i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </section>
 
-<footer>
-  &copy; 2026 SONATA MUSIC STUDIO — JAKARTA
-</footer>
+  <section class="section" id="philosophy">
+    <div class="text-side">
+      <span class="sec-label">Vision & Values</span>
+      <h2 class="sec-title">Our Philosophy</h2>
+      <div style="font-size: 1.6rem; font-style: italic; color: var(--navy); border-left: 3px solid var(--gold); padding-left: 30px; margin: 40px 0; font-family: var(--bask);">
+        "To play a note beautifully is to first understand why it must be played."
+      </div>
+      <p>
+        Di Sonata Music Studio, kami percaya bahwa musik adalah disiplin intelektual sekaligus ekspresi spiritual. Kami membimbing siswa untuk tidak hanya menjadi pemain piano, tetapi menjadi musisi yang berpikir.
+      </p>
+    </div>
+    <div class="img-side">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philosophy">
+    </div>
+  </section>
 
-<script>
-const base = "https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
-const images = [
-  "1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg",
-  "1728278413639.jpeg","1728278498612.jpeg","1728278535664.jpeg","1728278743638.jpeg",
-  "1728278972071.jpeg","1728279819431.jpeg","1728294846403.jpeg","1728294894368.jpeg",
-  "1728295139439.jpeg","1728295173689.jpeg","1728295202953.jpeg","1728295402904.jpeg",
-  "1728295429712.jpeg","1728296617350.jpeg","1728300782229.jpeg","1728301815288.jpeg",
-  "1728302182364.jpeg","1728302212548.jpeg","1728303826998.jpeg","1728311786057.jpeg",
-  "1728349078427.jpeg","1728368821890.jpeg","1728368987536.jpeg","1728450148208.jpeg",
-  "1728450200661.jpeg","1728450222173.jpeg","1728450251141.jpeg"
-];
+  <section id="gallery">
+    <div class="gallery-head">
+      <span class="sec-label">Visual Journal</span>
+      <h2 class="sec-title">The Studio Archive</h2>
+      <p style="margin: 0 auto; max-width: 600px; color: #777;">Koleksi dokumentasi perjalanan artistik, proses belajar, dan dedikasi kami terhadap keunggulan musik klasik.</p>
+    </div>
+    
+    <div class="masonry" id="galleryGrid">
+      </div>
+  </section>
 
-const grid = document.getElementById('galleryGrid');
-images.forEach((img, index) => {
-  const div = document.createElement('div');
-  div.className = 'm-item';
-  div.innerHTML = `<img src="${base}${img}" alt="Sonata ${index+1}" loading="lazy">`;
-  grid.appendChild(div);
-});
-</script>
+  <section id="contact" style="padding: 100px 8%; text-align: center; border-top: 1px solid var(--line);">
+    <span class="sec-label">Connect</span>
+    <h2 class="sec-title">Begin Your Journey</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+      <a href="https://wa.me/6289656684852" class="btn-exec"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://instagram.com/felixsatia" class="btn-exec"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </section>
+  <footer>
+    <div style="margin-bottom: 30px;">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Logo" style="height: 30px; filter: grayscale(1); opacity: 0.5;">
+    </div>
+    <div style="font-family: var(--cinz); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 15px;">SONATA MUSIC STUDIO</div>
+    <div style="font-family: var(--sans); font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase;">
+      Tradition & Excellence &bull; Jakarta, Indonesia &bull; &copy; 2026
+    </div>
+  </footer>
 
+  <script>
+    // 1. Database Aset Gambar (Lengkap 31)
+    const base = "https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
+    const archiveImages = [
+      "1728277097784.jpeg", "1728277959315.jpeg", "1728277994217.jpeg", 
+      "1728278062357.jpeg", "1728278413639.jpeg", "1728278498612.jpeg", 
+      "1728278535664.jpeg", "1728278743638.jpeg", "1728278972071.jpeg", 
+      "1728279819431.jpeg", "1728294846403.jpeg", "1728294894368.jpeg", 
+      "1728295139439.jpeg", "1728295173689.jpeg", "1728295202953.jpeg", 
+      "1728295402904.jpeg", "1728295429712.jpeg", "1728296617350.jpeg", 
+      "1728300782229.jpeg", "1728301815288.jpeg", "1728302182364.jpeg", 
+      "1728302212548.jpeg", "1728303826998.jpeg", "1728311786057.jpeg", 
+      "1728349078427.jpeg", "1728368821890.jpeg", "1728368987536.jpeg", 
+      "1728450148208.jpeg", "1728450200661.jpeg", "1728450222173.jpeg", 
+      "1728450251141.jpeg"
+    ];
+
+    // 2. Generator Masonry
+    const grid = document.getElementById('galleryGrid');
+    
+    function loadGallery() {
+      archiveImages.forEach((imgName, index) => {
+        const item = document.createElement('div');
+        item.className = 'm-item';
+        // Menggunakan loading="lazy" agar web tetap cepat meski gambar banyak
+        item.innerHTML = `<img src="${base}${imgName}" alt="Archive Sonata ${index + 1}" loading="lazy">`;
+        grid.appendChild(item);
+      });
+    }
+
+    // 3. Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.height = '70px';
+        header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+      } else {
+        header.style.height = '85px';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Jalankan Gallery saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', loadGallery);
+  </script>
 </body>
 </html>
