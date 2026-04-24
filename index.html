@@ -1099,3 +1099,82 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   }
   .pin::before, .pin::after { display: none !important; }
 </style>
+
+<style>
+/* ══════════════════════════════════════════════════
+   SONATA ARCHIVE: THE 8-DNA EXECUTIVE REVISION
+   ══════════════════════════════════════════════════ */
+
+/* 1. DEFINISI WARNA DNA (8 Warna Paket Kamu) */
+/* Kita tembak langsung ke urutan item gallery agar tidak lari */
+.gallery-item:nth-child(8n+1) .pin { background-color: #1535A8 !important; } /* Royal Blue */
+.gallery-item:nth-child(8n+2) .pin { background-color: #2A1F9A !important; } /* Deep Indigo */
+.gallery-item:nth-child(8n+3) .pin { background-color: #5A2090 !important; } /* Violet */
+.gallery-item:nth-child(8n+4) .pin { background-color: #7A2878 !important; } /* Mauve */
+.gallery-item:nth-child(8n+5) .pin { background-color: #9A1E5A !important; } /* Deep Rose */
+.gallery-item:nth-child(8n+6) .pin { background-color: #B83828 !important; } /* Rich Crimson */
+.gallery-item:nth-child(8n+7) .pin { background-color: #0E5A9A !important; } /* Teal Blue */
+.gallery-item:nth-child(8n+8) .pin { background-color: #1060B0 !important; } /* Sky Blue */
+
+/* 2. PIN STRUCTURE: OFFICE VIBE & WEIGHTED */
+.gallery-item .pin {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 1px !important; /* Kotak administratif */
+    position: absolute !important;
+    top: -7px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border: none !important;
+    z-index: 30 !important;
+    
+    /* Efek Material Logam/Kaca (Sinematik) */
+    background-image: linear-gradient(135deg, 
+        rgba(255,255,255,0.25) 0%, 
+        rgba(0,0,0,0) 50%, 
+        rgba(0,0,0,0.3) 100%) !important;
+    
+    /* Deep Shadow (The Weight) - Bayangan nancep */
+    box-shadow: 
+        inset 1px 1px 1px rgba(255,255,255,0.2),
+        inset -1px -1px 2px rgba(0,0,0,0.5),
+        4px 5px 8px rgba(0,0,0,0.7) !important;
+    
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* Hilangkan semua sisa 'anting' */
+.pin::before, .pin::after { display: none !important; }
+
+/* 3. PHOTO CARD: CINEMATIC INTERACTION */
+.gallery-item {
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    cursor: pointer;
+}
+
+/* 4. EFFECT SAAT DI-KLIK ATAU HOVER (Highlight & Shadow) */
+.gallery-item:hover, .gallery-item:active {
+    transform: translateY(-10px) scale(1.03) !important;
+    z-index: 100 !important;
+}
+
+/* Cinematic Shadow pada foto saat interaksi */
+.gallery-item:hover .photo-card, 
+.gallery-item:active .photo-card {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.7),        /* Deep shadow */
+        0 0 15px rgba(255, 255, 255, 0.08) !important; /* Subtle Highlight/Bloom */
+}
+
+/* Reaksi Pin saat interaksi */
+.gallery-item:hover .pin {
+    transform: translateX(-50%) translateY(-2px) scale(1.1) !important;
+    filter: brightness(1.2);
+    box-shadow: 6px 12px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 5. MOBILE ADJUSTMENT */
+@media (max-width: 600px) {
+    .gallery-item .pin { width: 12px !important; height: 12px !important; }
+}
+</style>
