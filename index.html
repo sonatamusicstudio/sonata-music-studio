@@ -506,3 +506,91 @@
     </script>
 </body>
 </html>
+<style>
+    .knowledge-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .k-block {
+        padding: 10rem 10%;
+        text-align: center;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+    }
+
+    .k-quote {
+        font-family: 'Libre Baskerville', serif;
+        font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+        line-height: 1.4;
+        max-width: 1000px;
+        margin-bottom: 3rem;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+
+    .k-divider {
+        width: 60px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.5);
+        margin-bottom: 2rem;
+    }
+
+    .k-label {
+        font-family: 'Cinzel', serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    /* 4 Themes: Blue, Terracotta, Deep Navy, & Antique Gold */
+    .k-blue { background-color: #4a668a; }       /* Yo-Yo Ma Signature Blue */
+    .k-terracotta { background-color: #d15a3a; } /* Yo-Yo Ma Signature Orange */
+    .k-navy { background-color: #050a1f; }       /* Sonata Deep Blue */
+    .k-gold { background-color: #b8964d; }       /* Sonata Gold Leaf */
+
+    @media (max-width: 768px) {
+        .k-block { padding: 6rem 5%; min-height: 60vh; }
+        .k-quote { font-size: 1.6rem; }
+    }
+</style>
+
+<div class="knowledge-container">
+    <div class="k-block k-blue">
+        <blockquote class="k-quote">
+            "All the things I love about life outside music have to do with people, and the piano allows me to fulfill those interests."
+        </blockquote>
+        <div class="k-divider"></div>
+        <span class="k-label">Felix Satia &bull; Artistic Director</span>
+    </div>
+
+    <div class="k-block k-terracotta">
+        <blockquote class="k-quote">
+            "We transcend technique in order to seek out the truths in our world in a way that gives meaning to individuals."
+        </blockquote>
+        <div class="k-divider"></div>
+        <span class="k-label">The Sonata Philosophy</span>
+    </div>
+
+    <div class="k-block k-navy">
+        <blockquote class="k-quote">
+            "Culture is the foundation on which we imagine and build a world in which we reaffirm our commitment to excellence."
+        </blockquote>
+        <div class="k-divider"></div>
+        <span class="k-label">Knowledge & Growth</span>
+    </div>
+
+    <div class="k-block k-gold">
+        <blockquote class="k-quote">
+            "Music helps us to understand our environment, each other, and ourselves. It turns 'them' into 'us'."
+        </blockquote>
+        <div class="k-divider"></div>
+        <span class="k-label">A Musical Sanctuary</span>
+    </div>
+</div>
