@@ -1371,3 +1371,119 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
 }
 </style>
+<style>
+/* ══════════════════════════════════════════════════
+   REVISI: CRYSTAL EXECUTIVE + BOTANICAL ACCENT
+   ══════════════════════════════════════════════════ */
+
+/* 1. PHOTO CARD: SHARP, CLEAR, & HIGH-END */
+.photo-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: none !important; /* Hapus buram agar 'bersih' */
+    border-radius: 0 !important; /* KOTAK TAJAM: Office Vibe */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 10px !important;
+    
+    /* EFEK SHADOW & HIGHLIGHT: Tipis tapi dalam */
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.5), /* Deep Shadow */
+        inset 0 0 10px rgba(255, 255, 255, 0.03) !important; /* Subtle Internal Highlight */
+    transition: all 0.4s ease;
+}
+
+/* Hover: Highlight bertambah dikit banget biar elegan */
+.gallery-item:hover .photo-card {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.7), 
+        inset 0 0 15px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 2. KUNANG-KUNANG: SEKARANG KELIHATAN (Visible Pulse) */
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: flyVisible 12s infinite ease-in-out;
+    z-index: 1;
+    /* Efek pendaran lampu taman */
+    box-shadow: 0 0 8px currentColor; 
+}
+
+@keyframes flyVisible {
+    0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+    30% { opacity: 0.8; } /* Naikkan opacity biar kelihatan */
+    70% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) translateX(30px) scale(0.5); opacity: 0; }
+}
+
+/* 3. ANGGREK (ORCHID): VISIBLE ACCENT */
+.orchid-accent {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    width: 450px;
+    height: 450px;
+    /* Pakai siluet yang lebih tegas */
+    background: url('https://www.svgrepo.com/show/21430/orchid.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.08 !important; /* Naikkan dari 0.03 biar nampak */
+    filter: invert(1) brightness(0.8); /* Buat jadi putih keabu-abuan mewah */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 4. MUSICAL SYMBOLS: SLIGHTLY MORE VISIBLE */
+.music-note {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.1) !important; /* Naikkan opacity */
+    animation: floatNote 25s infinite linear;
+}
+</style>
+
+<div class="firefly ff-1"></div>
+<div class="firefly ff-2"></div>
+<div class="firefly ff-3"></div>
+<div class="firefly ff-4"></div>
+<div class="firefly ff-5"></div>
+
+<div class="music-note" style="left: 10%; top: 100vh;">♩</div>
+<div class="music-note" style="left: 40%; top: 110vh;">♪</div>
+<div class="music-note" style="left: 80%; top: 105vh;">♫</div>
+
+<div class="orchid-accent"></div>
+
+<style>
+/* ══ MENGHAPUS RUANG KOSONG BERLEBIH (LAYOUT COMPACTION) ══ */
+
+#archive-section {
+    padding-bottom: 40px !important; /* Kurangi spasi bawah secara drastis */
+    margin-bottom: 0 !important;
+    min-height: auto !important; /* Biar tingginya pas dengan konten */
+}
+
+.gallery-masonry {
+    margin-bottom: 20px !important; /* Jarak mading ke batas bawah section */
+}
+
+/* Pastikan anggrek tidak mendorong halaman jadi lebih panjang */
+.orchid-accent {
+    bottom: 0 !important;
+    max-height: 50% !important; 
+    pointer-events: none;
+}
+
+/* Pastikan footer atau section setelahnya nempel rapi */
+footer, .next-section {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+}
+
+/* Hilangkan scrollbar horizontal jika kunang-kunang lewat batas */
+body {
+    overflow-x: hidden;
+}
+</style>
