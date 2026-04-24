@@ -704,3 +704,81 @@
     }
   } catch(e) { console.log("Minimal override applied"); }
 </script>
+<style>
+  /* 1. Reset Dasar */
+  body, .sec-bg { background-color: #ffffff !important; }
+
+  /* 2. Style Blok Warna Utama (About, Program, Philosophy, Contact) */
+  #about .about-wrap, 
+  #programs .grid-2, 
+  #philosophy .grid-2,
+  #contact .contact-box {
+    padding: 60px !important;
+    border-radius: 0 !important; /* Kotak tegas sesuai office vibe */
+    border: none !important;
+    margin: 40px auto !important;
+    max-width: 1200px !important;
+  }
+
+  /* --- SECTION I: ABOUT (Deep Blue Block) --- */
+  #about .about-wrap {
+    background-color: #0A1545 !important; /* Deep Blue */
+    color: #ffffff !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 50px !important;
+  }
+  #about .about-txt { order: 1 !important; flex: 1.2 !important; }
+  #about .about-txt h2, #about .about-txt h3, #about .about-txt p { color: #ffffff !important; }
+  #about .about-photo { order: 2 !important; flex: 1 !important; border: 5px solid #C8A040 !important; }
+
+  /* --- SECTION II: PROGRAMS (Gold/Light Block) --- */
+  #programs .grid-2 {
+    background-color: #f9f5eb !important; /* Soft Gold Tint */
+    color: #0A1545 !important;
+    display: flex !important;
+    flex-direction: row-reverse !important; /* Teks di Kanan */
+    gap: 50px !important;
+    border-right: 8px solid #C8A040 !important; /* Aksen Emas samping */
+  }
+  #programs .text-block { order: 2 !important; flex: 1.2 !important; text-align: left !important; }
+  #programs .img-frame { order: 1 !important; flex: 1 !important; }
+  .prog-list li { background: #ffffff !important; color: #0A1545 !important; border: 1px solid #ddd !important; }
+
+  /* --- SECTION III: PHILOSOPHY (Deep Blue Block) --- */
+  #philosophy .grid-2 {
+    background-color: #0A1545 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    flex-direction: row !important; /* Teks di Kiri */
+    gap: 50px !important;
+  }
+  #philosophy .text-block { order: 1 !important; flex: 1.2 !important; }
+  #philosophy .img-frame { order: 2 !important; flex: 1 !important; border: 5px solid #C8A040 !important; }
+  #philosophy h2, #philosophy p { color: #ffffff !important; }
+
+  /* --- SECTION IV: CONTACT (Solid Navy Block) --- */
+  #contact .contact-box {
+    background-color: #0A1545 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+  }
+  .contact-box h2, .contact-box p, .contact-box label { color: #ffffff !important; }
+  .social-links a { border-color: #C8A040 !important; color: #C8A040 !important; }
+  .social-links a:hover { background: #C8A040 !important; color: #0A1545 !important; }
+
+  /* 3. Detail Typografi & Tombol */
+  .sec-ttl { text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 2px !important; }
+  .sec-eye { color: #C8A040 !important; font-weight: bold !important; }
+  .btn-apcs { background: #C8A040 !important; color: #0A1545 !important; border: none !important; font-weight: bold !important; }
+
+  /* Mobile Responsive */
+  @media (max-width: 900px) {
+    #about .about-wrap, #programs .grid-2, #philosophy .grid-2 {
+      flex-direction: column !important;
+      padding: 30px !important;
+    }
+    #about .about-photo, #programs .img-frame, #philosophy .img-frame { order: 1 !important; }
+    #about .about-txt, #programs .text-block, #philosophy .text-block { order: 2 !important; }
+  }
+</style>
