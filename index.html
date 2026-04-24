@@ -782,3 +782,64 @@
     #about .about-txt, #programs .text-block, #philosophy .text-block { order: 2 !important; }
   }
 </style>
+<style>
+  /* 1. Reset Global */
+  body, .sec-bg, .section { background-color: #ffffff !important; }
+
+  /* 2. Layout Blok Utama */
+  #about .about-wrap, 
+  #programs .grid-2, 
+  #philosophy .grid-2,
+  #contact .contact-box {
+    padding: 80px 60px !important;
+    border-radius: 0 !important;
+    margin: 40px auto !important;
+    max-width: 1200px !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  /* --- SECTION I: ABOUT (Blok Steel Blue - Teks Kiri) --- */
+  #about .about-wrap {
+    background-color: #557192 !important; /* Steel Blue dari Quote 1 */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 60px !important;
+  }
+  #about .about-txt h2, #about .about-txt .about-name, #about .about-txt p { color: #ffffff !important; }
+
+  /* --- SECTION II: CURRICULUM/PROGRAMS (Blok Terracotta - Teks Kanan) --- */
+  #programs .grid-2 {
+    background-color: #C35637 !important; /* Terracotta dari Quote 2 */
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    gap: 60px !important;
+  }
+  #programs .sec-ttl, #programs p, #programs .prog-list li { color: #ffffff !important; }
+
+  /* --- SECTION III: PHILOSOPHY (Blok Deep Navy - Teks Kiri) --- */
+  #philosophy .grid-2 {
+    background-color: #0B0E1E !important; /* Deep Navy dari Blok 3 */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 60px !important;
+  }
+  #philosophy .sec-ttl, #philosophy p, #philosophy .phil-quote p { color: #ffffff !important; }
+
+  /* --- SECTION IV: CONTACT/ARCHIVE (Blok Gold - Center) --- */
+  #contact .contact-box {
+    background-color: #B59344 !important; /* Gold/Mustard dari Quote 4 */
+    text-align: center !important;
+  }
+  #contact .sec-ttl, #contact p { color: #ffffff !important; }
+
+  /* 3. Penyesuaian Mobile */
+  @media (max-width: 900px) {
+    #about .about-wrap, #programs .grid-2, #philosophy .grid-2 {
+      flex-direction: column !important;
+      padding: 40px 25px !important;
+    }
+    .about-photo, .img-frame { width: 100% !important; order: 1 !important; }
+    .about-txt, .text-block { width: 100% !important; order: 2 !important; }
+  }
+</style>
