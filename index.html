@@ -1,274 +1,190 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sonata Music Studio — Excellence in Art &amp; Intellect</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+<title>Sonata Music Studio — Executive Cinematic</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
 :root {
-  --ink: #FFFFFF;
+  --bg: #FFFFFF;
   --navy: #0A1545;
   --gold: #C8A040;
-  --cream: #F4EDD8;
-  --txt-hi: #0A1545;
-  --txt-mid: #444444;
-  --txt-lo: #999999;
-  --line: rgba(10, 21, 69, 0.08);
-  
+  --line: rgba(10, 21, 69, 0.07);
+  --txt: #0A1545;
   --bask: "Libre Baskerville", serif;
   --cinz: "Cinzel", serif;
   --sans: "Montserrat", sans-serif;
-  --ease: cubic-bezier(.19,1,.22,1);
 }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--ink);color:var(--txt-hi);font-family:var(--bask);overflow-x:hidden;line-height:1.8;}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--txt); font-family: var(--bask); overflow-x: hidden; line-height: 1.7; }
+
+/* ══ BACKGROUND GRID COLUMNS ══ */
+.bg-grid {
+  position: fixed; inset: 0; z-index: -1;
+  display: flex; justify-content: space-between;
+  padding: 0 5%; pointer-events: none;
+}
+.bg-line { width: 1px; height: 100%; background: var(--line); }
 
 /* ══ HEADER ══ */
 header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: 80px; display: flex; align-items: center; justify-content: space-between;
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  height: 85px; display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%; background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px); border-bottom: 1px solid var(--line);
-  transition: all 0.4s var(--ease);
+  backdrop-filter: blur(15px); border-bottom: 1px solid var(--line);
 }
-header.scrolled { height: 65px; background: #fff; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand img { height: 42px; filter: brightness(0.2); }
-.brand-name { font-family: var(--cinz); font-size: 0.75rem; letter-spacing: 2px; color: var(--navy); text-transform: uppercase; font-weight: 700; }
-.brand-sub { display: block; font-family: var(--sans); font-size: 0.45rem; letter-spacing: 2px; color: var(--txt-lo); text-transform: uppercase; }
+.brand img { height: 42px; filter: brightness(0.1); }
+.brand-name { font-family: var(--cinz); font-size: 0.85rem; letter-spacing: 2px; color: var(--navy); font-weight: 700; }
 
-nav.mn { display: flex; gap: 25px; }
-nav.mn a { font-family: var(--sans); font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--txt-mid); transition: 0.3s; position: relative; }
-nav.mn a:hover { color: var(--gold); }
+nav.mn a { 
+  font-family: var(--sans); font-size: 0.6rem; letter-spacing: 2px; 
+  text-decoration: none; color: var(--navy); margin-left: 25px; 
+  text-transform: uppercase; transition: 0.3s; opacity: 0.8;
+}
+nav.mn a:hover { color: var(--gold); opacity: 1; }
 
 /* ══ HERO ══ */
-.hero { position: relative; height: 100svh; display: flex; align-items: center; overflow: hidden; background: #fff; }
-.hero-slides { position: absolute; inset: 0; z-index: 1; }
-.slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease; filter: brightness(0.9); }
-.slide.active { opacity: 1; }
-.hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%, #fff 100%); }
-#notesCanvas { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.4; }
-
-.hero-content { position: relative; z-index: 10; padding: 0 8%; width: 100%; max-width: 1200px; }
-.hero-eyebrow { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
-.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
-
+.hero { height: 90vh; display: flex; align-items: center; padding: 0 8%; position: relative; }
+.hero-content { position: relative; z-index: 10; }
+.hero-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; }
 .hero-content h2 { 
-  font-family: var(--bask); font-size: clamp(1.8rem, 7vw, 4.5rem); color: var(--navy); 
-  line-height: 1.1; font-weight: 700; white-space: nowrap; letter-spacing: -1px;
+  font-size: clamp(2.5rem, 7vw, 5rem); font-family: var(--cinz); 
+  line-height: 1.1; color: var(--navy);
 }
-.hero-content h2 em { font-style: italic; color: var(--gold); font-weight: 400; display: block; }
-.hero-content p { font-size: 1.1rem; color: var(--txt-mid); margin: 30px 0; font-style: italic; }
-
-.btn-apcs { 
-  display: inline-flex; align-items: center; gap: 15px; padding: 15px 35px; border: 1px solid var(--navy); 
-  text-decoration: none; color: var(--navy); font-family: var(--sans); font-size: 0.6rem; 
-  letter-spacing: 3px; text-transform: uppercase; transition: 0.4s;
-}
-.btn-apcs:hover { background: var(--navy); color: #fff; }
+.hero-content h2 span { display: block; font-family: var(--bask); font-style: italic; font-weight: 400; font-size: 0.8em; }
 
 /* ══ SECTIONS ══ */
-.section { padding: 120px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1500px; margin: 0 auto; }
-.sec-div { width: 100%; height: 1px; background: var(--line); margin: 0 auto; max-width: 84%; opacity: 0.5; }
+.section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; padding: 120px 8%; align-items: center; }
+.rev { grid-template-columns: 1fr 1.2fr; }
+.sec-label { color: var(--gold); font-family: var(--sans); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+.sec-title { font-family: var(--cinz); font-size: 2.5rem; color: var(--navy); margin-bottom: 25px; }
+.img-side img { width: 100%; border: 1px solid var(--line); filter: contrast(1.05); }
 
-/* About: Text Left, Photo Right */
-#about { background: #fff; }
+/* ══ MASONRY GALLERY (31 IMAGES) ══ */
+#gallery { padding: 100px 5%; background: #fdfdfd; border-top: 1px solid var(--line); }
+.gallery-title { text-align: center; margin-bottom: 60px; }
+.masonry { 
+  column-count: 4; column-gap: 15px; 
+}
+.m-item { 
+  break-inside: avoid; margin-bottom: 15px; 
+  background: #fff; border: 1px solid var(--line); padding: 8px;
+  transition: 0.4s ease;
+}
+.m-item img { width: 100%; display: block; filter: grayscale(0.1); }
+.m-item:hover { border-color: var(--gold); transform: translateY(-5px); }
 
-/* Programs: Text Right, Photo Left */
-#programs { background: #fcfcfc; grid-template-columns: 1fr 1fr; }
-#programs .text-block { order: 2; }
-#programs .img-frame { order: 1; }
+/* ══ FOOTER ══ */
+footer { padding: 80px 5%; text-align: center; border-top: 1px solid var(--line); font-family: var(--sans); font-size: 0.6rem; letter-spacing: 3px; color: #999; }
 
-/* Philosophy: Text Left, Photo Right */
-#philosophy { background: #fff; }
-
-.img-frame { position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
-.img-frame img { width: 100%; display: block; transition: 1s var(--ease); filter: saturate(0.9); }
-.img-frame:hover img { transform: scale(1.05); filter: saturate(1.1); }
-
-.sec-eye { font-family: var(--sans); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.55rem; margin-bottom: 15px; display: block; }
-.sec-ttl { font-family: var(--cinz); font-size: 2.2rem; color: var(--navy); margin-bottom: 25px; letter-spacing: 2px; }
-
-.prog-list { list-style: none; }
-.prog-list li { padding: 25px; border-bottom: 1px solid var(--line); display: flex; gap: 20px; transition: 0.3s; }
-.prog-list li:hover { background: rgba(10,21,69,0.02); }
-.prog-list i { color: var(--gold); font-size: 0.9rem; margin-top: 5px; }
-.prog-list strong { font-family: var(--cinz); display: block; font-size: 0.8rem; letter-spacing: 1px; }
-.prog-list span { color: var(--txt-mid); font-size: 0.95rem; }
-
-.phil-quote { font-size: 1.6rem; font-style: italic; color: var(--navy); border-left: 4px solid var(--gold); padding-left: 30px; margin: 40px 0; }
-
-/* ══ GALLERY ══ */
-#gallery { background: #fcfcfc; display: block; text-align: center; }
-.gallery-board { margin-top: 50px; column-count: 3; column-gap: 20px; }
-.gallery-item { break-inside: avoid; margin-bottom: 20px; background: #fff; padding: 10px; border: 1px solid var(--line); }
-.gallery-item img { width: 100%; display: block; filter: saturate(0.8); }
-
-/* ══ CONTACT ══ */
-#contact { display: block; text-align: center; background: var(--navy); color: #fff; padding: 100px 5%; }
-#contact .sec-ttl { color: #fff; }
-.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
-.social-links a { padding: 12px 25px; border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-.social-links a:hover { border-color: var(--gold); color: var(--gold); }
-
-@media (max-width: 900px) {
-  .section { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
-  #programs .text-block, #programs .img-frame { order: unset; }
-  .gallery-board { column-count: 2; }
-  .hero-content h2 { white-space: normal; font-size: 2.5rem; }
+@media (max-width: 1100px) { .masonry { column-count: 3; } }
+@media (max-width: 800px) { 
+    .section { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
+    .masonry { column-count: 2; }
+    .bg-grid { display: none; }
+    .img-side { order: -1; }
 }
 </style>
 </head>
 <body>
 
-<header id="hdr">
+<div class="bg-grid">
+  <div class="bg-line"></div><div class="bg-line"></div><div class="bg-line"></div>
+  <div class="bg-line"></div><div class="bg-line"></div><div class="bg-line"></div>
+</div>
+
+<header>
   <a class="brand" href="#">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
-    <div>
-      <div class="brand-name">Sonata Music Studio</div>
-      <span class="brand-sub">Jakarta · Est. 2024</span>
-    </div>
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Logo">
+    <div class="brand-name">Sonata Music Studio</div>
   </a>
   <nav class="mn">
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
     <a href="#philosophy">Philosophy</a>
     <a href="#gallery">Archive</a>
-    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-slides" id="heroSlides"></div>
-  <canvas id="notesCanvas"></canvas>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Jakarta · Established 2024</div>
-    <h2>EXCELLENCE IN <em>Classical Music</em></h2>
-    <p>A journey through piano performance and rigorous theory.</p>
-    <a href="#contact" class="btn-apcs">Begin Journey</a>
+    <div class="hero-eyebrow">Professional Music Education</div>
+    <h2>EXCELLENCE IN<span>Classical Performance</span></h2>
+    <p style="margin-top:20px; max-width:600px; color:#555;">Transforming technique into artistry through high-standard piano education.</p>
   </div>
 </section>
 
 <section class="section" id="about">
-  <div class="text-block">
-    <span class="sec-eye">The Director</span>
-    <h2 class="sec-ttl">Felix Satia</h2>
-    <p><strong>Sonata Music Studio</strong> dipandu oleh Felix Satia — seorang instruktur dan komposer yang menjembatani ketepatan klasik dengan seni kontemplatif.</p>
-    <p>Kami menciptakan ruang edukasi di mana teknik tinggi bertemu dengan kedalaman ekspresi yang sejati. Milestone kami berikutnya: rilis 17 karya orisinal pada 30 April 2026.</p>
+  <div class="text-side">
+    <span class="sec-label">The Director</span>
+    <h2 class="sec-title">Felix Satia</h2>
+    <p>Sonata Music Studio dipandu oleh Felix Satia — instruktur yang menjembatani ketepatan klasik dengan seni kontemplatif.</p>
+    <p>Setiap pelajaran dirancang untuk mengeksplorasi kedalaman musik beyond the notes.</p>
   </div>
-  <div class="img-frame">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
-  </div>
-</section>
-
-<div class="sec-div"></div>
-
-<section class="section" id="programs">
-  <div class="text-block">
-    <span class="sec-eye">Curriculum</span>
-    <h2 class="sec-ttl">Core Programs</h2>
-    <ul class="prog-list">
-      <li><i class="fa-solid fa-music"></i><div><strong>Piano Performance</strong><span>Comprehensive literature from Baroque to Contemporary.</span></div></li>
-      <li><i class="fa-solid fa-scroll"></i><div><strong>Theory &amp; Composition</strong><span>Following ABRSM &amp; Trinity international standards.</span></div></li>
-    </ul>
-  </div>
-  <div class="img-frame">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Piano Programs">
+  <div class="img-side">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Director">
   </div>
 </section>
 
-<div class="sec-div"></div>
+<section class="section rev" id="programs">
+  <div class="img-side">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Program">
+  </div>
+  <div class="text-side">
+    <span class="sec-label">Curriculum</span>
+    <h2 class="sec-title">Core Programs</h2>
+    <p>Kurikulum komprehensif mulai dari Performance Piano hingga Teori Musik (ABRSM/Trinity).</p>
+  </div>
+</section>
 
 <section class="section" id="philosophy">
-  <div class="text-block">
-    <span class="sec-eye">Vision</span>
-    <h2 class="sec-ttl">Our Philosophy</h2>
-    <div class="phil-quote">"To play a note beautifully is to first understand why it must be played."</div>
-    <p>Pembelajaran di Sonata Music Studio bukan sekadar masalah teknis — ini adalah perjalanan spiritual yang melampaui sekadar nada.</p>
+  <div class="text-side">
+    <span class="sec-label">Vision</span>
+    <h2 class="sec-title">Philosophy</h2>
+    <p style="font-style:italic; font-size:1.4rem; color:var(--navy); border-left:3px solid var(--gold); padding-left:20px;">"To play a note beautifully is to first understand why it must be played."</p>
   </div>
-  <div class="img-frame">
-    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philosophy">
-  </div>
-</section>
-
-<section class="section" id="gallery">
-  <span class="sec-eye">Visual Archive</span>
-  <h2 class="sec-ttl">Portfolio</h2>
-  <div class="gallery-board" id="galleryGrid"></div>
-</section>
-
-<section id="contact">
-  <h2 class="sec-ttl">Inquiries</h2>
-  <p>Hubungi kami untuk jadwal dan konsultasi eksklusif.</p>
-  <div class="social-links">
-    <a href="https://wa.me/6289656684852"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://instagram.com/felixsatia"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://youtube.com/@felixsatia"><i class="fab fa-youtube"></i> YouTube</a>
+  <div class="img-side">
+    <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277097784.jpeg" alt="Philo">
   </div>
 </section>
 
-<footer style="text-align: center; padding: 40px; font-family: var(--sans); font-size: 0.5rem; letter-spacing: 3px; color: var(--txt-lo); text-transform: uppercase;">
-  &copy; 2026 Sonata Music Studio — Tradition &amp; Excellence
+<section id="gallery">
+  <div class="gallery-title">
+    <span class="sec-label">Visual Journal</span>
+    <h2 class="sec-title">Archive</h2>
+  </div>
+  <div class="masonry" id="galleryGrid"></div>
+</section>
+
+<footer>
+  &copy; 2026 SONATA MUSIC STUDIO — JAKARTA
 </footer>
 
 <script>
-/* 1. HERO SLIDES */
-const base="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
-const heroImgs=[base+"InShot_20251105_190939933.jpg", "https://r1.ilikewallpaper.net/pic/201409/Piano_Keys_Closeup_iPhone_6_Plus_HD_Wallpaper_meitu_9_640.jpg"];
-const sc=document.getElementById('heroSlides');
-heroImgs.forEach((src,i)=>{
-  const d=document.createElement('div');
-  d.className='slide'+(i===0?' active':'');
-  d.style.backgroundImage=`url('${src}')`;
-  sc.appendChild(d);
+const base = "https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/";
+const images = [
+  "1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg",
+  "1728278413639.jpeg","1728278498612.jpeg","1728278535664.jpeg","1728278743638.jpeg",
+  "1728278972071.jpeg","1728279819431.jpeg","1728294846403.jpeg","1728294894368.jpeg",
+  "1728295139439.jpeg","1728295173689.jpeg","1728295202953.jpeg","1728295402904.jpeg",
+  "1728295429712.jpeg","1728296617350.jpeg","1728300782229.jpeg","1728301815288.jpeg",
+  "1728302182364.jpeg","1728302212548.jpeg","1728303826998.jpeg","1728311786057.jpeg",
+  "1728349078427.jpeg","1728368821890.jpeg","1728368987536.jpeg","1728450148208.jpeg",
+  "1728450200661.jpeg","1728450222173.jpeg","1728450251141.jpeg"
+];
+
+const grid = document.getElementById('galleryGrid');
+images.forEach((img, index) => {
+  const div = document.createElement('div');
+  div.className = 'm-item';
+  div.innerHTML = `<img src="${base}${img}" alt="Sonata ${index+1}" loading="lazy">`;
+  grid.appendChild(div);
 });
-let cs=0;
-setInterval(()=>{
-  const sl=document.querySelectorAll('.slide');
-  sl[cs].classList.remove('active');
-  cs=(cs+1)%sl.length;
-  sl[cs].classList.add('active');
-},5000);
-
-/* 2. FLOATING NOTES */
-(function(){
-  const canvas=document.getElementById('notesCanvas');
-  const ctx=canvas.getContext('2d');
-  const SYMS=['♩','♪','♫','♬','𝄞'];
-  let W,H,notes=[];
-  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-  resize(); window.addEventListener('resize',resize);
-  class Note{
-    constructor(){this.reset();}
-    reset(){
-      this.x=Math.random()*W; this.y=H+20;
-      this.sym=SYMS[Math.floor(Math.random()*SYMS.length)];
-      this.vy=-(0.5+Math.random()*1); this.alpha=Math.random()*0.5;
-    }
-    update(){this.y+=this.vy; if(this.y<-20)this.reset();}
-    draw(){ctx.globalAlpha=this.alpha; ctx.fillStyle='#0A1545'; ctx.fillText(this.sym,this.x,this.y); }
-  }
-  for(let i=0;i<15;i++)notes.push(new Note());
-  function loop(){ctx.clearRect(0,0,W,H); notes.forEach(n=>{n.update();n.draw();}); requestAnimationFrame(loop);}
-  loop();
-})();
-
-/* 3. GALLERY MASONRY */
-const imgs=["1728277097784.jpeg","1728277959315.jpeg","1728277994217.jpeg","1728278062357.jpeg","1728278413639.jpeg","1728278498612.jpeg"];
-const grid=document.getElementById('galleryGrid');
-imgs.forEach((img,i)=>{
-  const item=document.createElement('div');
-  item.className='gallery-item';
-  item.innerHTML=`<img src="${base}${img}" loading="lazy">`;
-  grid.appendChild(item);
-});
-
-window.addEventListener('scroll',()=>{document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>50);});
 </script>
+
 </body>
 </html>
