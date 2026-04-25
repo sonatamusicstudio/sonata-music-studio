@@ -9,60 +9,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* ════════════════════════════════════════════════════
-           DESIGN TOKENS
-           Colour palette — deliberate, not arbitrary:
-           Navy  #060c20  — authority, depth, night
-           Blue  #3a5570  — trust, education, calm
-           Terra #c44c2b  — warmth, passion, energy
-           Gold  #b8944b  — prestige, excellence
-           Grey  #d5d3ce  — breath, editorial pause
-           White #ffffff  — clarity, cleanliness
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           SONATA MUSIC STUDIO — DESIGN SYSTEM
+           ────────────────────────────────────────────────────────────────
+           COLOUR PALETTE (deliberate, no repetition in sequence):
+           ① Hero          →  Black  #000000   cinematic authority
+           ② About         →  Blue   #3a5570   trust, education, calm
+           ③ Pull Quote    →  Grey   #d5d3ce   editorial breath, pause
+           ④ Featured      →  White  #ffffff   clarity, showcase
+                              Cards: Navy + Blue (no terra here)
+           ⑤ Terra Quote   →  Terra  #c44c2b   passion, artistic fire
+           ⑥ Programs      →  Navy   #060c20   authority, depth (NOT terra)
+           ⑦ Philosophy    →  Charcoal #1c2333 gravitas, intellectual
+           ⑧ Archive       →  Off-W  #f3f2ef   light, airy, showcase
+           ⑨ Contact       →  Gold   #b8944b   prestige, invitation
+           ⑩ Footer        →  Navy   #060c20   closure, identity
+           ────────────────────────────────────────────────────────────────
+           Terra (#c44c2b) appears ONCE only — Terra Quote section.
+           Navy  (#060c20) appears in cards (dark accent) + Programs + Footer.
+           Blue  (#3a5570) appears in About + one featured card.
+        ════════════════════════════════════════════════════════════════ */
+
         :root {
-            --white       : #ffffff;
-            --off-white   : #f3f2ef;
-            --grey-section: #d5d3ce;
-            --grey-mid    : #b8b6b0;
-            --ink         : #060c20;
-            --ink-60      : rgba(6,12,32,.6);
-            --ink-40      : rgba(6,12,32,.4);
-            --ink-20      : rgba(6,12,32,.2);
-            --ink-10      : rgba(6,12,32,.1);
-            --blue        : #3a5570;
-            --blue-dark   : #2d4459;
-            --blue-80     : rgba(58,85,112,.8);
-            --terra       : #c44c2b;
-            --terra-dark  : #a83d22;
-            --navy        : #060c20;
-            --navy-light  : #0d1630;
-            --gold        : #b8944b;
-            --gold-lt     : #d4af6a;
-            --gold-pale   : rgba(184,148,75,.18);
+            /* Core colours */
+            --white        : #ffffff;
+            --off-white    : #f3f2ef;
+            --grey-sect    : #d5d3ce;
+            --ink          : #060c20;
+            --charcoal     : #1c2333;
+            --blue         : #3a5570;
+            --blue-dk      : #2d4459;
+            --terra        : #c44c2b;
+            --navy         : #060c20;
+            --gold         : #b8944b;
+            --gold-lt      : #d4af6a;
 
-            --serif   : 'Libre Baskerville', Georgia, serif;
-            --display : 'Cormorant Garamond', Georgia, serif;
-            --sans    : 'Montserrat', sans-serif;
+            /* Semantic alphas */
+            --ink-80       : rgba(6,12,32,.80);
+            --ink-60       : rgba(6,12,32,.60);
+            --ink-40       : rgba(6,12,32,.40);
+            --ink-20       : rgba(6,12,32,.20);
+            --ink-10       : rgba(6,12,32,.10);
+            --ink-06       : rgba(6,12,32,.06);
+            --white-80     : rgba(255,255,255,.80);
+            --white-60     : rgba(255,255,255,.60);
+            --white-45     : rgba(255,255,255,.45);
+            --white-30     : rgba(255,255,255,.30);
+            --white-18     : rgba(255,255,255,.18);
+            --white-10     : rgba(255,255,255,.10);
+            --gold-pale    : rgba(184,148,75,.16);
 
-            --ease    : cubic-bezier(0.19, 1, 0.22, 1);
-            --ease-in : cubic-bezier(0.4, 0, 1, 1);
+            /* Typography */
+            --serif        : 'Libre Baskerville', Georgia, serif;
+            --display      : 'Cormorant Garamond', Georgia, serif;
+            --sans         : 'Montserrat', sans-serif;
+
+            /* Motion */
+            --ease         : cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-std     : cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ════════════════════════════════════════════════════
-           RESET & BASE
-        ════════════════════════════════════════════════════ */
+        /* ────────────────────────────
+           RESET
+        ──────────────────────────── */
         *, *::before, *::after {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
             background: var(--white);
@@ -72,34 +89,32 @@
             line-height: 1.75;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
+        img { display: block; max-width: 100%; }
+        a   { text-decoration: none; }
 
-        a { text-decoration: none; }
+        /* ────────────────────────────
+           SHARED UTILITIES
+        ──────────────────────────── */
 
-        /* ════════════════════════════════════════════════════
-           UTILITY CLASSES
-        ════════════════════════════════════════════════════ */
-
-        /* Eyebrow label — universal */
-        .label {
+        /* Universal eyebrow label */
+        .lbl {
             font-family: var(--sans);
-            font-size: 0.54rem;
+            font-size: 0.53rem;
             font-weight: 300;
-            letter-spacing: 0.50em;
+            letter-spacing: 0.52em;
             text-transform: uppercase;
             display: block;
+            line-height: 1;
         }
 
-        .label-gold  { color: var(--gold); }
-        .label-goldl { color: var(--gold-lt); }
-        .label-white { color: rgba(255,255,255,.50); }
-        .label-ink   { color: var(--ink-60); }
+        .lbl-gold   { color: var(--gold); }
+        .lbl-goldl  { color: var(--gold-lt); }
+        .lbl-white  { color: var(--white-45); }
+        .lbl-ink    { color: var(--ink-60); }
+        .lbl-charcoal { color: rgba(255,255,255,.38); }
 
-        /* Section title — Cormorant Garamond display */
-        .sec-title {
+        /* Display heading — Cormorant Garamond */
+        .dh {
             font-family: var(--display);
             font-weight: 400;
             letter-spacing: 0.06em;
@@ -107,142 +122,129 @@
             line-height: 1.0;
         }
 
-        /* Thin gold rule — editorial accent */
-        .g-rule {
-            display: block;
-            width: 34px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        .g-rule-w {
-            display: block;
-            width: 34px;
-            height: 1px;
-            background: rgba(255,255,255,.45);
-        }
-
-        .g-rule-c {
-            display: block;
-            width: 44px;
-            height: 1px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Serif body paragraph */
-        .body-p {
+        /* Body paragraph — Libre Baskerville */
+        .bp {
             font-family: var(--serif);
-            font-size: 0.975rem;
+            font-size: 0.97rem;
             line-height: 1.95;
         }
 
-        /* CTA Button */
-        .cta {
+        /* Horizontal rules — editorial accent */
+        .rule {
+            display: block;
+            height: 1px;
+        }
+
+        .rule-gold   { background: var(--gold); }
+        .rule-goldl  { background: var(--gold-lt); opacity: .6; }
+        .rule-white  { background: var(--white-45); }
+        .rule-ink    { background: var(--ink); opacity: .22; }
+        .rule-sm     { width: 34px; }
+        .rule-md     { width: 44px; }
+        .rule-center { margin-left: auto; margin-right: auto; }
+
+        /* CTA button */
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 0.95rem 2.6rem;
+            padding: 0.95rem 2.7rem;
             border: 1px solid currentColor;
             font-family: var(--sans);
-            font-size: 0.58rem;
+            font-size: 0.57rem;
             font-weight: 300;
             letter-spacing: 0.32em;
             text-transform: uppercase;
-            color: inherit;
-            transition: letter-spacing .45s var(--ease), background .45s var(--ease), color .45s var(--ease);
+            transition:
+                letter-spacing .45s var(--ease),
+                background .45s var(--ease),
+                color .45s var(--ease);
         }
 
-        .cta:hover {
-            letter-spacing: 0.42em;
-        }
+        .btn:hover { letter-spacing: 0.44em; }
 
-        .cta-w {
-            color: rgba(255,255,255,.85);
-            border-color: rgba(255,255,255,.40);
+        .btn-w {
+            color: var(--white-80);
+            border-color: var(--white-45);
         }
-
-        .cta-w:hover {
-            background: rgba(255,255,255,.10);
+        .btn-w:hover {
+            background: var(--white-10);
             color: #fff;
         }
 
-        .cta-dark {
+        .btn-dark {
             color: var(--ink);
             border-color: var(--ink-40);
         }
-
-        .cta-dark:hover {
+        .btn-dark:hover {
             background: var(--ink);
             color: #fff;
         }
 
         /* Arrow text link */
-        .arrow-link {
+        .alink {
             font-family: var(--sans);
-            font-size: 0.56rem;
+            font-size: 0.55rem;
             font-weight: 400;
             letter-spacing: 0.28em;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: gap .38s var(--ease), color .35s;
+            transition: gap .38s var(--ease), color .32s;
         }
-
-        .arrow-link::after {
+        .alink::after {
             content: '→';
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             transition: transform .38s var(--ease);
         }
-
-        .arrow-link:hover { gap: 16px; }
-        .arrow-link:hover::after { transform: translateX(4px); }
-
-        .arrow-link-gold { color: var(--gold-lt); }
-        .arrow-link-gold:hover { color: #fff; }
+        .alink:hover { gap: 17px; }
+        .alink:hover::after { transform: translateX(3px); }
+        .alink-gold  { color: var(--gold-lt); }
+        .alink-gold:hover  { color: #fff; }
+        .alink-ink   { color: var(--ink-60); }
+        .alink-ink:hover   { color: var(--ink); }
 
         /* Scroll reveal */
         .rv {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .9s ease, transform .9s ease;
+            transform: translateY(22px);
+            transition: opacity .88s ease, transform .88s ease;
         }
-
-        .rv.show {
+        .rv.in {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* ════════════════════════════════════════════════════
-           HEADER
-           — transparent over hero, white when scrolled
-           — compact single-row nav with dividers
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ① HEADER
+           Transparent over hero → white glass on scroll
+           Single compact row with thin dividers between nav items
+        ════════════════════════════════════════════════════════════════ */
         #hdr {
             position: fixed;
             inset: 0 0 auto 0;
             z-index: 900;
-            height: 82px;
+            height: 84px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 4.5%;
             transition:
-                height .55s var(--ease),
-                background .55s var(--ease),
-                box-shadow .55s var(--ease);
+                height       .55s var(--ease),
+                background   .55s var(--ease),
+                box-shadow   .55s var(--ease);
         }
 
         #hdr.on {
             height: 66px;
             background: rgba(255,255,255,.97);
             box-shadow: 0 1px 0 var(--ink-10);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
         }
 
-        /* Logo group */
+        /* Logo */
         .hdr-logo {
             display: flex;
             align-items: center;
@@ -256,9 +258,7 @@
             transition: filter .5s var(--ease);
         }
 
-        #hdr.on .hdr-logo img {
-            filter: brightness(0);
-        }
+        #hdr.on .hdr-logo img { filter: brightness(0); }
 
         .hdr-name {
             font-family: var(--display);
@@ -271,53 +271,34 @@
             transition: color .5s var(--ease);
         }
 
-        #hdr.on .hdr-name {
-            color: var(--ink);
-        }
+        #hdr.on .hdr-name { color: var(--ink); }
 
-        /* Navigation */
-        .hdr-nav {
-            display: flex;
-            align-items: center;
-        }
+        /* Nav */
+        .hdr-nav { display: flex; align-items: center; }
 
         .hdr-nav a {
             font-family: var(--sans);
-            font-size: 0.54rem;
+            font-size: 0.53rem;
             font-weight: 300;
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.70);
-            padding: 0 19px;
+            color: rgba(255,255,255,.68);
+            padding: 0 18px;
             white-space: nowrap;
-            transition: color .35s;
+            transition: color .32s;
         }
 
-        .hdr-nav a:hover {
-            color: var(--gold-lt);
-        }
+        .hdr-nav a:hover                { color: var(--gold-lt); }
+        .hdr-nav a + a                  { border-left: 1px solid rgba(255,255,255,.13); }
+        #hdr.on .hdr-nav a              { color: var(--ink-60); }
+        #hdr.on .hdr-nav a:hover        { color: var(--gold); }
+        #hdr.on .hdr-nav a + a          { border-left-color: var(--ink-10); }
 
-        .hdr-nav a + a {
-            border-left: 1px solid rgba(255,255,255,.14);
-        }
-
-        #hdr.on .hdr-nav a {
-            color: var(--ink-60);
-        }
-
-        #hdr.on .hdr-nav a:hover {
-            color: var(--gold);
-        }
-
-        #hdr.on .hdr-nav a + a {
-            border-left-color: var(--ink-10);
-        }
-
-        /* ════════════════════════════════════════════════════
-           SECTION 1 — HERO
-           Colour: Black / near-black
-           Purpose: Dramatic cinematic entry
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ② HERO — full cinematic bleed
+           Black background, letterbox bars, multi-layer vignette,
+           corner micro-labels (Yo-Yo Ma detail), scroll indicator
+        ════════════════════════════════════════════════════════════════ */
         .hero {
             height: 100vh;
             min-height: 700px;
@@ -329,7 +310,6 @@
             background: #000;
         }
 
-        /* Background photo */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -341,22 +321,20 @@
             height: 100%;
             object-fit: cover;
             object-position: center center;
-            filter: brightness(.43) contrast(1.12) saturate(.88);
+            filter: brightness(.43) contrast(1.12) saturate(.86);
             display: block;
         }
 
         /* Cinematic letterbox bars */
-        .hero-lbox {
+        .lbox {
             position: absolute;
-            left: 0;
-            right: 0;
+            left: 0; right: 0;
             height: 54px;
             background: #000;
             z-index: 5;
         }
-
-        .hero-lbox.top { top: 0; }
-        .hero-lbox.bot { bottom: 0; }
+        .lbox.t { top: 0; }
+        .lbox.b { bottom: 0; }
 
         /* Multi-layer vignette */
         .hero-vig {
@@ -364,114 +342,113 @@
             inset: 0;
             z-index: 2;
             background:
-                radial-gradient(ellipse at 50% 42%, transparent 18%, rgba(6,12,32,.68) 100%),
+                radial-gradient(ellipse at 50% 42%, transparent 16%, rgba(6,12,32,.70) 100%),
                 linear-gradient(
                     180deg,
-                    rgba(6,12,32,.25) 0%,
-                    transparent 22%,
-                    transparent 52%,
-                    rgba(6,12,32,.92) 100%
+                    rgba(6,12,32,.26) 0%,
+                    transparent 20%,
+                    transparent 50%,
+                    rgba(6,12,32,.94) 100%
                 );
         }
 
-        /* Corner micro-labels — Yo-Yo Ma detail */
-        .h-corner {
+        /* Yo-Yo Ma corner micro-labels */
+        .hcn {
             position: absolute;
             z-index: 10;
             font-family: var(--sans);
-            font-size: 0.46rem;
+            font-size: 0.45rem;
             font-weight: 300;
-            letter-spacing: 0.38em;
+            letter-spacing: 0.40em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.30);
-            line-height: 1.6;
+            color: rgba(255,255,255,.28);
+            line-height: 1.7;
         }
+        .hcn.tl { top: 86px;   left: 4.5%; }
+        .hcn.tr { top: 86px;   right: 4.5%; text-align: right; }
+        .hcn.bl { bottom: 76px; left: 4.5%; }
+        .hcn.br { bottom: 76px; right: 4.5%; text-align: right; }
 
-        .h-corner.tl { top: 82px; left: 4.5%; }
-        .h-corner.tr { top: 82px; right: 4.5%; text-align: right; }
-        .h-corner.bl { bottom: 74px; left: 4.5%; }
-        .h-corner.br { bottom: 74px; right: 4.5%; text-align: right; }
-
-        /* Hero content */
+        /* Hero body */
         .hero-body {
             position: relative;
             z-index: 10;
             text-align: center;
             color: #fff;
-            max-width: 1020px;
+            max-width: 1040px;
             padding: 0 6%;
         }
 
-        .hero-eyebrow {
+        .h-eye {
             font-family: var(--sans);
-            font-size: 0.53rem;
+            font-size: 0.52rem;
             font-weight: 300;
-            letter-spacing: 0.62em;
+            letter-spacing: 0.64em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.44);
+            color: rgba(255,255,255,.42);
             display: block;
-            margin-bottom: 2.4rem;
-            animation: fadeup 1.5s var(--ease) .2s both;
+            margin-bottom: 2.5rem;
+            animation: up 1.5s var(--ease) .2s both;
         }
 
-        .hero-title {
+        .h-title {
             font-family: var(--display);
             font-weight: 300;
-            font-size: clamp(3.6rem, 9.5vw, 8.5rem);
+            font-size: clamp(3.6rem, 9.5vw, 8.8rem);
             letter-spacing: 0.07em;
             text-transform: uppercase;
             line-height: 1.0;
             color: #fff;
-            text-shadow: 0 4px 50px rgba(0,0,0,.55);
-            animation: fadeup 1.5s var(--ease) .45s both;
+            text-shadow: 0 4px 52px rgba(0,0,0,.55);
+            animation: up 1.5s var(--ease) .44s both;
         }
 
-        .hero-subtitle {
+        .h-sub {
             display: block;
             font-family: var(--serif);
             font-style: italic;
             font-weight: 400;
-            font-size: clamp(1.0rem, 2.4vw, 1.7rem);
+            font-size: clamp(1.0rem, 2.4vw, 1.72rem);
             text-transform: none;
             letter-spacing: 0.04em;
             color: var(--gold-lt);
             margin-top: 1.1rem;
-            animation: fadeup 1.5s var(--ease) .62s both;
+            animation: up 1.5s var(--ease) .60s both;
         }
 
-        .hero-vline {
+        .h-vline {
             width: 1px;
             height: 56px;
-            background: rgba(255,255,255,.26);
+            background: rgba(255,255,255,.24);
             margin: 3rem auto;
-            animation: fadeup 1.5s var(--ease) .78s both;
+            animation: up 1.5s var(--ease) .76s both;
         }
 
-        .hero-cta {
+        .h-cta {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 1.05rem 3.2rem;
-            border: 1px solid rgba(255,255,255,.40);
+            padding: 1.05rem 3.3rem;
+            border: 1px solid rgba(255,255,255,.38);
             color: #fff;
             font-family: var(--sans);
-            font-size: 0.58rem;
+            font-size: 0.57rem;
             font-weight: 300;
             letter-spacing: 0.40em;
             text-transform: uppercase;
             transition: background .48s var(--ease), letter-spacing .48s var(--ease);
-            animation: fadeup 1.5s var(--ease) .92s both;
+            animation: up 1.5s var(--ease) .90s both;
         }
 
-        .hero-cta:hover {
+        .h-cta:hover {
             background: rgba(255,255,255,.10);
             letter-spacing: 0.50em;
         }
 
         /* Scroll indicator */
-        .hero-scroll {
+        .h-scroll {
             position: absolute;
-            bottom: 74px;
+            bottom: 76px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
@@ -479,49 +456,45 @@
             flex-direction: column;
             align-items: center;
             gap: 9px;
-            animation: fadeup 1.5s var(--ease) 1.15s both;
+            animation: up 1.5s var(--ease) 1.12s both;
         }
 
-        .hero-scroll-label {
+        .h-scroll-lbl {
             font-family: var(--sans);
-            font-size: 0.46rem;
-            letter-spacing: 0.52em;
+            font-size: 0.44rem;
+            letter-spacing: 0.54em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.32);
+            color: rgba(255,255,255,.30);
         }
 
-        .scroll-bar {
+        .scrl-bar {
             width: 1px;
             height: 38px;
-            background: rgba(255,255,255,.20);
+            background: rgba(255,255,255,.18);
             position: relative;
             overflow: hidden;
         }
 
-        .scroll-bar::after {
+        .scrl-bar::after {
             content: '';
             position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,.70);
-            animation: scrolldrop 2.3s ease-in-out infinite;
+            top: -100%; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255,255,255,.68);
+            animation: sdrop 2.3s ease-in-out infinite;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 2 — ABOUT / DIRECTOR
-           Colour: BLUE (#3a5570)
-           Purpose: Introduction, identity, trust
-           Layout: Text left | Photo right (centred, no crop)
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ③ ABOUT / DIRECTOR  —  BLUE #3a5570
+           Text left | Photo right
+           Photo: centred, natural proportions, zero crop, zero distortion
+        ════════════════════════════════════════════════════════════════ */
         #about {
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: var(--blue);
             position: relative;
             z-index: 2;
-            /* Tiny negative margin eliminates sub-pixel gap */
             margin-bottom: -2px;
         }
 
@@ -529,22 +502,22 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 9rem 7% 9rem 7%;
+            padding: 9rem 7%;
         }
 
-        .about-text .label {
-            margin-bottom: 1.6rem;
-        }
+        .about-text .lbl { margin-bottom: 1.7rem; }
 
         .about-title {
             font-size: clamp(3.4rem, 5.8vw, 5.8rem);
             color: #fff;
-            margin-bottom: 0;
         }
 
         .about-rule {
-            margin: 2rem 0 2.2rem;
-            background: rgba(255,255,255,.35);
+            width: 34px;
+            height: 1px;
+            background: rgba(255,255,255,.38);
+            display: block;
+            margin: 2rem 0 2.3rem;
         }
 
         .about-p {
@@ -553,28 +526,28 @@
             margin-bottom: 1.6rem;
         }
 
-        .about-photo {
+        /* Photo column — centre, breathe, no distortion */
+        .about-img {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5rem 6% 5rem 2%;
+            padding: 5.5rem 6% 5.5rem 2%;
             background: var(--blue);
         }
 
-        .about-photo img {
+        .about-img img {
             width: 100%;
-            max-width: 510px;
+            max-width: 520px;
             height: auto;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 3 — PULL QUOTE
-           Colour: GREY (#d5d3ce)
-           Purpose: Editorial pause, breathing room, impact
-           This is the centrepiece — large bold quote
-        ════════════════════════════════════════════════════ */
-        #pull-quote {
-            background: var(--grey-section);
+        /* ════════════════════════════════════════════════════════════════
+           ④ PULL QUOTE  —  GREY #d5d3ce
+           Editorial pause — large bold Baskerville quote
+           Yo-Yo Ma centrepiece style
+        ════════════════════════════════════════════════════════════════ */
+        #pq {
+            background: var(--grey-sect);
             padding: 11rem 5%;
             text-align: center;
             position: relative;
@@ -582,49 +555,49 @@
             margin-bottom: -2px;
         }
 
-        .pq-openmark {
+        .pq-mark {
             font-family: var(--display);
             font-size: 9rem;
-            line-height: 0.45;
+            line-height: 0.44;
             color: var(--blue);
-            opacity: 0.20;
+            opacity: 0.18;
             display: block;
-            margin-bottom: 3.2rem;
+            margin-bottom: 3.4rem;
         }
 
-        .pq-body {
+        .pq-txt {
             font-family: var(--serif);
             font-weight: 700;
             font-size: clamp(1.75rem, 3.1vw, 2.9rem);
-            line-height: 1.52;
+            line-height: 1.53;
             color: var(--ink);
             max-width: 880px;
             margin: 0 auto 3.2rem;
         }
 
-        .pq-divider {
+        .pq-div {
             width: 46px;
             height: 1px;
             background: var(--ink);
-            opacity: 0.26;
+            opacity: 0.24;
             margin: 0 auto 2rem;
         }
 
-        .pq-attribution {
+        .pq-attr {
             font-family: var(--sans);
-            font-size: 0.55rem;
+            font-size: 0.54rem;
             letter-spacing: 0.46em;
             text-transform: uppercase;
             color: var(--ink);
-            opacity: 0.46;
+            opacity: 0.44;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 4 — FEATURED CONTENT GRID
-           Colour: WHITE (#ffffff)
-           Purpose: Showcase performances & news, visual variety
-           Layout: 2×2 grid — alternating photo + card
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ⑤ FEATURED GRID  —  WHITE #ffffff
+           Header row + 2×2 grid
+           Cards: Navy (left) + Blue (right) — NO terra here
+           Photos: natural size, centred, no crop, no distortion
+        ════════════════════════════════════════════════════════════════ */
         #featured {
             background: var(--white);
             position: relative;
@@ -632,15 +605,42 @@
             margin-bottom: -2px;
         }
 
+        /* Section header */
+        .feat-hdr {
+            padding: 5.5rem 7% 2.5rem;
+            border-bottom: 1px solid var(--ink-06);
+        }
+
+        .feat-hdr-inner {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .feat-hdr-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: 2.1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-top: 0.9rem;
+        }
+
+        /* 2×2 grid */
         .feat-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
 
-        /* Photo cells — natural size, no crop */
+        /* Photo cells — natural, no crop */
         .feat-photo {
             overflow: hidden;
             background: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .feat-photo img {
@@ -648,7 +648,7 @@
             height: auto;
         }
 
-        /* Text card cells */
+        /* Card cells */
         .feat-card {
             display: flex;
             flex-direction: column;
@@ -656,70 +656,39 @@
             padding: 5.5rem 7%;
         }
 
-        .feat-card-navy {
-            background: var(--navy);
-        }
+        /* Card: Navy — ABRSM Digital Exam */
+        .fc-navy { background: var(--navy); }
 
-        .feat-card-blue {
-            background: var(--blue);
-        }
+        /* Card: Blue — Recording Session */
+        .fc-blue { background: var(--blue-dk); }
 
-        .feat-card-terra {
-            background: var(--terra);
-        }
+        .feat-card .lbl { margin-bottom: 1.5rem; }
 
-        .feat-card .label {
-            margin-bottom: 1.4rem;
-        }
-
-        .feat-title {
+        .feat-card-title {
             font-family: var(--display);
             font-weight: 400;
-            font-size: clamp(1.8rem, 3.2vw, 3rem);
+            font-size: clamp(1.85rem, 3.2vw, 3.1rem);
             letter-spacing: 0.06em;
             text-transform: uppercase;
             color: #fff;
-            line-height: 1.05;
-            margin-bottom: 1.6rem;
+            line-height: 1.04;
+            margin-bottom: 1.7rem;
         }
 
-        .feat-body {
+        .feat-card-body {
             font-family: var(--serif);
-            font-size: 0.92rem;
+            font-size: 0.93rem;
             color: rgba(255,255,255,.68);
             line-height: 1.92;
-            max-width: 380px;
-            margin-bottom: 2.2rem;
+            max-width: 390px;
+            margin-bottom: 2.3rem;
         }
 
-        /* Section header for featured */
-        .feat-header {
-            padding: 5rem 7% 2rem;
-            border-bottom: 1px solid var(--ink-10);
-        }
-
-        .feat-header-inner {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-
-        .feat-header-title {
-            font-family: var(--display);
-            font-weight: 400;
-            font-size: 2rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink);
-        }
-
-        /* ════════════════════════════════════════════════════
-           SECTION 5 — TERRACOTTA QUOTE
-           Colour: TERRA (#c44c2b)
-           Purpose: Passion, energy, artistic statement
-           Full-width dramatic quote block
-        ════════════════════════════════════════════════════ */
-        #terra-quote {
+        /* ════════════════════════════════════════════════════════════════
+           ⑥ TERRA QUOTE  —  TERRACOTTA #c44c2b
+           Single use of terra — dramatic full-width statement
+        ════════════════════════════════════════════════════════════════ */
+        #tq {
             background: var(--terra);
             padding: 10rem 8%;
             text-align: center;
@@ -728,70 +697,73 @@
             margin-bottom: -2px;
         }
 
-        .tq-openmark {
+        .tq-mark {
             font-family: var(--display);
             font-size: 6rem;
-            line-height: 0.4;
+            line-height: 0.40;
             color: var(--gold-lt);
-            opacity: 0.45;
+            opacity: 0.42;
             display: block;
-            margin-bottom: 2.8rem;
+            margin-bottom: 2.9rem;
         }
 
-        .tq-body {
+        .tq-txt {
             font-family: var(--serif);
             font-weight: 700;
             font-size: clamp(1.65rem, 3.2vw, 3.1rem);
-            line-height: 1.5;
+            line-height: 1.50;
             color: #fff;
             max-width: 840px;
             margin: 0 auto 2.8rem;
         }
 
-        .tq-divider {
-            width: 44px;
+        .tq-div {
+            width: 46px;
             height: 1px;
             background: var(--gold-lt);
-            opacity: 0.55;
+            opacity: 0.52;
             margin: 0 auto 2rem;
         }
 
-        .tq-attribution {
+        .tq-attr {
             font-family: var(--sans);
-            font-size: 0.54rem;
+            font-size: 0.53rem;
             letter-spacing: 0.46em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.50);
+            color: rgba(255,255,255,.48);
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 6 — PROGRAMS / CURRICULUM
-           Colour: TERRA (#c44c2b) — continuation of energy
-           Layout: Photo left | Text right (no crop)
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ⑦ PROGRAMS / CURRICULUM  —  NAVY #060c20
+           (Previously terra — now navy to avoid triple terra)
+           Photo left | Text right
+           Photo: natural proportions, centred column, no distortion
+        ════════════════════════════════════════════════════════════════ */
         #programs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: var(--terra);
+            background: var(--navy);
             position: relative;
             z-index: 1;
             margin-bottom: -2px;
         }
 
-        .prog-photo {
+        /* Photo column */
+        .prog-img {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 5rem 2% 5rem 5%;
-            background: var(--terra-dark);
+            background: rgba(0,0,0,.18);
         }
 
-        .prog-photo img {
+        .prog-img img {
             width: 100%;
-            max-width: 510px;
+            max-width: 520px;
             height: auto;
         }
 
+        /* Text column */
         .prog-text {
             display: flex;
             flex-direction: column;
@@ -799,9 +771,7 @@
             padding: 9rem 7%;
         }
 
-        .prog-text .label {
-            margin-bottom: 1.6rem;
-        }
+        .prog-text .lbl { margin-bottom: 1.7rem; }
 
         .prog-title {
             font-size: clamp(3.2rem, 5.2vw, 5.2rem);
@@ -809,21 +779,21 @@
         }
 
         .prog-rule {
-            margin: 2rem 0 2.2rem;
-            background: rgba(255,255,255,.35);
+            display: block;
+            width: 34px;
+            height: 1px;
+            background: rgba(255,255,255,.32);
+            margin: 2rem 0 2.3rem;
         }
 
         .prog-body {
-            color: rgba(255,255,255,.72);
+            color: rgba(255,255,255,.68);
             max-width: 440px;
-            margin-bottom: 2.4rem;
+            margin-bottom: 2.5rem;
         }
 
         /* Program list */
-        .prog-list {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
+        .prog-list { list-style: none; margin-bottom: 3.2rem; }
 
         .prog-list li {
             font-family: var(--sans);
@@ -831,9 +801,9 @@
             font-weight: 300;
             letter-spacing: 0.20em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.80);
+            color: rgba(255,255,255,.78);
             padding: 1.1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,.14);
+            border-bottom: 1px solid rgba(255,255,255,.12);
             display: flex;
             align-items: center;
             gap: 14px;
@@ -841,18 +811,27 @@
 
         .prog-list li::before {
             content: '—';
-            color: rgba(255,255,255,.30);
+            color: rgba(255,255,255,.28);
             flex-shrink: 0;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 7 — PHILOSOPHY
-           Colour: NAVY (#060c20)
-           Purpose: Depth, gravitas, intellectual weight
-           Layout: Centred large italic quote
-        ════════════════════════════════════════════════════ */
+        /* Gold accent number badges */
+        .prog-list li span.badge {
+            font-family: var(--display);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--gold-lt);
+            opacity: 0.7;
+            margin-left: auto;
+        }
+
+        /* ════════════════════════════════════════════════════════════════
+           ⑧ PHILOSOPHY  —  CHARCOAL #1c2333
+           Distinct from navy — slightly lighter, more intellectual tone
+           Centred large italic quote — gravitas
+        ════════════════════════════════════════════════════════════════ */
         #philosophy {
-            background: var(--navy);
+            background: var(--charcoal);
             padding: 13rem 5%;
             text-align: center;
             position: relative;
@@ -860,43 +839,39 @@
             margin-bottom: -2px;
         }
 
-        .phil-label {
-            color: var(--gold-lt);
-            margin-bottom: 3.5rem;
-        }
+        .phil-lbl { color: var(--gold-lt); margin-bottom: 3.6rem; }
 
-        .phil-quote {
+        .phil-q {
             font-family: var(--display);
             font-style: italic;
             font-weight: 300;
-            font-size: clamp(2.3rem, 4.2vw, 4.2rem);
+            font-size: clamp(2.3rem, 4.2vw, 4.3rem);
             color: #fff;
             max-width: 940px;
-            margin: 0 auto 3.2rem;
+            margin: 0 auto 3.3rem;
             line-height: 1.42;
         }
 
         .phil-rule {
-            width: 46px;
+            width: 48px;
             height: 1px;
             background: var(--gold);
-            margin: 0 auto 3rem;
+            margin: 0 auto 3.2rem;
         }
 
         .phil-body {
             font-family: var(--serif);
             font-size: 1rem;
-            color: rgba(255,255,255,.52);
+            color: rgba(255,255,255,.50);
             max-width: 640px;
             margin: 0 auto;
             line-height: 2.05;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 8 — GALLERY / ARCHIVE
-           Colour: OFF-WHITE (#f3f2ef)
-           Purpose: Visual portfolio, lightness, showcase
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ⑨ GALLERY / ARCHIVE  —  OFF-WHITE #f3f2ef
+           Light airy palette cleanser — masonry, no crop, no zoom
+        ════════════════════════════════════════════════════════════════ */
         #archive {
             background: var(--off-white);
             padding: 9rem 4%;
@@ -905,10 +880,12 @@
             margin-bottom: -2px;
         }
 
-        .arc-header {
+        .arc-hdr {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
             margin-bottom: 5rem;
             padding-bottom: 2.5rem;
             border-bottom: 1px solid var(--ink-10);
@@ -921,9 +898,10 @@
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--ink);
+            margin-top: 0.9rem;
         }
 
-        /* Masonry — no crop, no zoom, natural sizes */
+        /* Masonry — images untouched */
         .masonry {
             columns: 4;
             column-gap: 14px;
@@ -933,7 +911,7 @@
             break-inside: avoid;
             margin-bottom: 14px;
             overflow: hidden;
-            background: var(--grey-section);
+            background: var(--grey-sect);
         }
 
         .masonry-item img {
@@ -943,15 +921,12 @@
             transition: filter .85s var(--ease);
         }
 
-        .masonry-item:hover img {
-            filter: saturate(1.06);
-        }
+        .masonry-item:hover img { filter: saturate(1.06); }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 9 — CONTACT
-           Colour: GOLD (#b8944b)
-           Purpose: Prestige, call to action, warmth
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ⑩ CONTACT  —  GOLD #b8944b
+           Prestige, warmth — invitation to act
+        ════════════════════════════════════════════════════════════════ */
         #contact {
             background: var(--gold);
             padding: 13rem 5%;
@@ -961,27 +936,24 @@
             margin-bottom: -2px;
         }
 
-        .contact-label {
-            color: rgba(255,255,255,.55);
-            margin-bottom: 1.6rem;
-        }
+        .contact-lbl { color: rgba(255,255,255,.52); margin-bottom: 1.6rem; }
 
         .contact-title {
             font-family: var(--display);
             font-weight: 400;
-            font-size: clamp(2.8rem, 5.8vw, 6rem);
+            font-size: clamp(2.8rem, 5.8vw, 6.2rem);
             letter-spacing: 0.07em;
             text-transform: uppercase;
             color: #fff;
-            margin-bottom: 1.8rem;
             line-height: 1.0;
+            margin-bottom: 1.9rem;
         }
 
         .contact-sub {
             font-family: var(--serif);
             font-style: italic;
-            font-size: 1.08rem;
-            color: rgba(255,255,255,.76);
+            font-size: 1.1rem;
+            color: rgba(255,255,255,.74);
             margin-bottom: 4.8rem;
         }
 
@@ -993,15 +965,14 @@
             flex-wrap: wrap;
         }
 
-        /* ════════════════════════════════════════════════════
-           SECTION 10 — FOOTER
-           Colour: NAVY (#060c20)
-           Purpose: Closure, navigation, identity
-           Layout: 3-column (logo+tagline | nav | contact)
-        ════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           ⑪ FOOTER  —  NAVY #060c20
+           3-column: brand | nav | connect
+           Closure, identity, navigation
+        ════════════════════════════════════════════════════════════════ */
         footer {
             background: var(--navy);
-            padding: 6rem 5% 4rem;
+            padding: 7rem 5% 4.5rem;
             position: relative;
             z-index: 1;
         }
@@ -1009,97 +980,86 @@
         .foot-top {
             display: grid;
             grid-template-columns: 1.2fr 1fr 1.2fr;
-            gap: 4rem;
-            padding-bottom: 5rem;
+            gap: 4.5rem;
+            padding-bottom: 5.5rem;
             margin-bottom: 4rem;
             border-bottom: 1px solid rgba(255,255,255,.07);
         }
 
-        /* Left: logo + tagline */
-        .foot-brand {}
-
+        /* Brand */
         .foot-logo img {
             height: 36px;
             filter: brightness(0) invert(1);
-            opacity: 0.32;
-            margin-bottom: 1.6rem;
+            opacity: 0.30;
+            margin-bottom: 1.8rem;
         }
 
         .foot-tagline {
             font-family: var(--serif);
             font-style: italic;
             font-size: 0.84rem;
-            color: rgba(255,255,255,.28);
+            color: rgba(255,255,255,.26);
             max-width: 210px;
-            line-height: 1.75;
+            line-height: 1.8;
         }
 
-        /* Centre: navigation */
+        /* Nav column */
         .foot-nav {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
         }
 
-        .foot-nav-title {
+        .foot-nav-ttl {
             font-family: var(--sans);
-            font-size: 0.50rem;
-            letter-spacing: 0.44em;
+            font-size: 0.49rem;
+            letter-spacing: 0.46em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             display: block;
         }
 
         .foot-nav a {
             font-family: var(--sans);
-            font-size: 0.54rem;
+            font-size: 0.53rem;
             font-weight: 300;
-            letter-spacing: 0.26em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.34);
-            padding: 0.55rem 0;
-            transition: color .32s;
+            color: rgba(255,255,255,.32);
+            padding: 0.52rem 0;
+            transition: color .30s;
         }
+        .foot-nav a:hover { color: rgba(255,255,255,.76); }
 
-        .foot-nav a:hover {
-            color: rgba(255,255,255,.78);
-        }
+        /* Contact column */
+        .foot-connect { text-align: right; }
 
-        /* Right: contact */
-        .foot-contact {
-            text-align: right;
-        }
-
-        .foot-contact-title {
+        .foot-connect-ttl {
             font-family: var(--sans);
-            font-size: 0.50rem;
-            letter-spacing: 0.44em;
+            font-size: 0.49rem;
+            letter-spacing: 0.46em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             display: block;
         }
 
-        .foot-contact a {
+        .foot-connect a {
             display: block;
             font-family: var(--sans);
-            font-size: 0.54rem;
+            font-size: 0.53rem;
             font-weight: 300;
-            letter-spacing: 0.24em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.34);
-            padding: 0.55rem 0;
-            transition: color .32s;
+            color: rgba(255,255,255,.32);
+            padding: 0.52rem 0;
+            transition: color .30s;
         }
+        .foot-connect a:hover { color: rgba(255,255,255,.76); }
 
-        .foot-contact a:hover {
-            color: rgba(255,255,255,.78);
-        }
-
-        /* Bottom bar */
-        .foot-bottom {
+        /* Copyright bar */
+        .foot-btm {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1107,422 +1067,394 @@
 
         .foot-copy {
             font-family: var(--sans);
-            font-size: 0.49rem;
+            font-size: 0.48rem;
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.20);
+            color: rgba(255,255,255,.18);
         }
 
-        /* ════════════════════════════════════════════════════
+        /* ════════════════════════════════════════════════════════════════
            KEYFRAMES
-        ════════════════════════════════════════════════════ */
-        @keyframes fadeup {
+        ════════════════════════════════════════════════════════════════ */
+        @keyframes up {
             from { opacity: 0; transform: translateY(22px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes scrolldrop {
+        @keyframes sdrop {
             0%   { top: -100%; }
             100% { top:  200%; }
         }
 
-        /* ════════════════════════════════════════════════════
+        /* ════════════════════════════════════════════════════════════════
            RESPONSIVE
-        ════════════════════════════════════════════════════ */
-        @media (max-width: 960px) {
-            #about, #programs {
-                grid-template-columns: 1fr;
-            }
+        ════════════════════════════════════════════════════════════════ */
+        @media (max-width: 980px) {
+            #about,
+            #programs,
+            .feat-grid    { grid-template-columns: 1fr; }
 
-            .feat-grid {
-                grid-template-columns: 1fr;
-            }
+            .about-img,
+            .prog-img     { padding: 3.5rem 5%; justify-content: flex-start; }
+            .about-img img,
+            .prog-img img { max-width: 100%; }
 
-            .about-photo, .prog-photo {
-                padding: 3rem 5%;
-                justify-content: flex-start;
-            }
-
-            .about-photo img, .prog-photo img {
-                max-width: 100%;
-            }
-
-            .masonry { columns: 2; }
-
-            .hdr-nav { display: none; }
+            .masonry      { columns: 2; }
+            .hdr-nav      { display: none; }
 
             .foot-top {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            .foot-tagline  { max-width: 100%; }
+            .foot-connect  { text-align: center; }
+            .foot-nav      { align-items: center; }
 
-            .foot-tagline { max-width: 100%; }
-            .foot-contact { text-align: center; }
-            .foot-nav { align-items: center; }
-
-            .arc-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .feat-header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
+            .arc-hdr,
+            .feat-hdr-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
         }
 
         @media (max-width: 540px) {
-            .masonry { columns: 1; }
-            .hero-lbox { height: 32px; }
-            .h-corner { display: none; }
+            .masonry    { columns: 1; }
+            .lbox       { height: 32px; }
+            .hcn        { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ══════════════════════════════════════════════
-         HEADER
-    ══════════════════════════════════════════════ -->
-    <header id="hdr">
-        <a href="#" class="hdr-logo">
-            <img
-                src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
-                alt="Sonata Music Studio Logo">
-            <span class="hdr-name">Sonata Music Studio</span>
+<!-- ══════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════ -->
+<header id="hdr">
+    <a href="#" class="hdr-logo">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
+             alt="Sonata Music Studio Logo">
+        <span class="hdr-name">Sonata Music Studio</span>
+    </a>
+    <nav class="hdr-nav">
+        <a href="#about">The Director</a>
+        <a href="#programs">Curriculum</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#archive">Archive</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════
+     ① HERO  —  BLACK / CINEMATIC
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="lbox t"></div>
+    <div class="lbox b"></div>
+
+    <div class="hero-bg">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg"
+             alt="Sonata Music Studio">
+    </div>
+    <div class="hero-vig"></div>
+
+    <!-- Yo-Yo Ma corner micro-details -->
+    <span class="hcn tl">Jakarta &nbsp;·&nbsp; Indonesia</span>
+    <span class="hcn tr">Est. 2024</span>
+    <span class="hcn bl">Excellence in Classical Performance</span>
+    <span class="hcn br">Felix Satia, Director</span>
+
+    <div class="hero-body">
+        <span class="h-eye">The Art of Musical Excellence</span>
+        <h1 class="h-title">
+            Sonata Music Studio
+            <span class="h-sub">Where Artistry Is Cultivated</span>
+        </h1>
+        <div class="h-vline"></div>
+        <a href="#about" class="h-cta">Explore the Studio</a>
+    </div>
+
+    <div class="h-scroll">
+        <span class="h-scroll-lbl">Scroll</span>
+        <div class="scrl-bar"></div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ② ABOUT / DIRECTOR  —  BLUE
+══════════════════════════════════════════════════════ -->
+<section id="about">
+    <div class="about-text">
+        <span class="lbl lbl-white rv" style="margin-bottom:1.7rem;">Artistic Vision</span>
+        <h2 class="dh about-title rv">Felix<br>Satia</h2>
+        <span class="about-rule rv"></span>
+        <p class="bp about-p rv">
+            Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu untuk menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.
+        </p>
+        <p class="bp about-p rv">
+            Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi yang sesungguhnya.
+        </p>
+        <a href="#archive" class="btn btn-w rv" style="margin-top:1rem; align-self:flex-start;">
+            View Artistic Journey
         </a>
-        <nav class="hdr-nav">
+    </div>
+    <div class="about-img">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg"
+             alt="Felix Satia — Director of Sonata Music Studio">
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ③ PULL QUOTE  —  GREY (Yo-Yo Ma centrepiece)
+══════════════════════════════════════════════════════ -->
+<div id="pq">
+    <span class="pq-mark">&ldquo;</span>
+    <p class="pq-txt rv">
+        Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us to imagine a better future. Culture helps turn &lsquo;them&rsquo; into &lsquo;us.&rsquo; And these things have never been more important.
+    </p>
+    <div class="pq-div"></div>
+    <span class="pq-attr">Felix Satia &mdash; Sonata Music Studio</span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ④ FEATURED GRID  —  WHITE
+     Cards: Navy + Blue  (terra appears ONLY in section ⑥)
+     Images: 2 best HD photos from uploaded set
+══════════════════════════════════════════════════════ -->
+<div id="featured">
+    <div class="feat-hdr">
+        <div class="feat-hdr-inner">
+            <div>
+                <span class="lbl lbl-ink rv" style="margin-bottom:0.9rem;">Studio Pathway</span>
+                <h2 class="feat-hdr-title rv">Digital Grade Examination</h2>
+            </div>
+            <a href="#contact" class="alink alink-ink rv">Inquire Now</a>
+        </div>
+    </div>
+
+    <div class="feat-grid">
+
+        <!-- Row 1 Left: Best HD photo — teacher guiding student at grand piano -->
+        <div class="feat-photo">
+            <img src="exam-piano.jpg"
+                 alt="Professional piano instruction — Sonata Music Studio">
+        </div>
+
+        <!-- Row 1 Right: Navy card — ABRSM / Trinity Digital Exam -->
+        <div class="feat-card fc-navy">
+            <span class="lbl lbl-goldl rv" style="margin-bottom:1.5rem;">ABRSM &amp; Trinity</span>
+            <h3 class="feat-card-title rv">Digital<br>Grade Exams</h3>
+            <p class="feat-card-body rv">
+                Sonata Music Studio mempersiapkan siswa untuk ABRSM Digital Piano Grade dan Trinity College London. Ujian dilakukan melalui rekaman video yang dinilai langsung oleh examiner internasional — dari studio kami atau dari rumah Anda.
+            </p>
+            <a href="#contact" class="alink alink-gold rv">Learn More</a>
+        </div>
+
+        <!-- Row 2 Left: Blue card — Studio Recording Process -->
+        <div class="feat-card fc-blue">
+            <span class="lbl lbl-goldl rv" style="margin-bottom:1.5rem;">Recording Session</span>
+            <h3 class="feat-card-title rv">Studio<br>Recording</h3>
+            <p class="feat-card-body rv">
+                Rekaman ujian dilakukan di lingkungan studio yang tenang dan profesional. Setiap detail — akustik, posisi kamera, pencahayaan — dipersiapkan untuk memastikan rekaman yang memenuhi standar internasional ABRSM dan Trinity.
+            </p>
+            <a href="https://wa.me/6289656684852" class="alink alink-gold rv">Book a Session</a>
+        </div>
+
+        <!-- Row 2 Right: Best focused solo photo — girl at piano, clean white background -->
+        <div class="feat-photo">
+            <img src="student-piano.jpg"
+                 alt="Student focused at piano — digital exam preparation">
+        </div>
+
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑤ TERRA QUOTE  —  TERRACOTTA (single use only)
+     Passionate full-width dramatic statement
+══════════════════════════════════════════════════════ -->
+<div id="tq">
+    <span class="tq-mark">&ldquo;</span>
+    <p class="tq-txt rv">
+        As musicians, we transcend technique in order to seek out the truths in our world &mdash; in a way that gives meaning and sustenance to individuals and communities. That is art for life&rsquo;s sake.
+    </p>
+    <div class="tq-div"></div>
+    <span class="tq-attr">Felix Satia &mdash; Sonata Music Studio</span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑥ PROGRAMS / CURRICULUM  —  NAVY
+     (Not terra — distributes colour more evenly)
+══════════════════════════════════════════════════════ -->
+<section id="programs">
+    <div class="prog-img">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg"
+             alt="Teaching at Sonata Music Studio">
+    </div>
+    <div class="prog-text">
+        <span class="lbl lbl-white rv" style="margin-bottom:1.7rem;">The Curriculum</span>
+        <h2 class="dh prog-title rv">Core<br>Programs</h2>
+        <span class="prog-rule rv"></span>
+        <p class="bp prog-body rv">
+            Kami menawarkan jalur pendidikan yang terstruktur namun adaptif &mdash; dirancang untuk setiap tahap perjalanan musikal, dari pemula hingga tingkat kompetisi dan ujian internasional.
+        </p>
+        <ul class="prog-list">
+            <li class="rv">
+                Piano Performance &mdash; Grade 1&ndash;8
+                <span class="badge">ABRSM</span>
+            </li>
+            <li class="rv">
+                Advanced Music Theory &amp; Harmony
+                <span class="badge">Theory</span>
+            </li>
+            <li class="rv">
+                ABRSM &amp; Trinity Exam Preparation
+                <span class="badge">Exam</span>
+            </li>
+            <li class="rv">
+                Digital Grade Recording &amp; Submission
+                <span class="badge">Digital</span>
+            </li>
+            <li class="rv">
+                Artistic Interpretation &amp; Expression
+                <span class="badge">Artistry</span>
+            </li>
+        </ul>
+        <a href="https://wa.me/6289656684852" class="btn btn-w rv" style="align-self:flex-start;">
+            Enrolment Inquiry
+        </a>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑦ PHILOSOPHY  —  CHARCOAL #1c2333
+     (Distinct from navy — intellectual, gravitas)
+══════════════════════════════════════════════════════ -->
+<section id="philosophy">
+    <span class="lbl phil-lbl rv" style="display:block; text-align:center; margin-bottom:3.6rem;">
+        Our Philosophy
+    </span>
+    <p class="phil-q rv">
+        &ldquo;Tradition, met with Modern Excellence. Every note a decision. Every silence, intentional. Every student, a world unto themselves.&rdquo;
+    </p>
+    <div class="phil-rule"></div>
+    <p class="phil-body rv">
+        Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi yang mendalam. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas &mdash; di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi, dan setiap individu diperlakukan sebagai seniman yang sedang menemukan dirinya.
+    </p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑧ GALLERY / ARCHIVE  —  OFF-WHITE
+══════════════════════════════════════════════════════ -->
+<section id="archive">
+    <div class="arc-hdr">
+        <div>
+            <span class="lbl lbl-ink rv" style="margin-bottom:0.9rem;">Visual Journey</span>
+            <h2 class="arc-title rv">The Studio Archive</h2>
+        </div>
+        <a href="#contact" class="alink alink-ink rv">Contact Us</a>
+    </div>
+    <div class="masonry" id="masonry-grid"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑨ CONTACT  —  GOLD
+══════════════════════════════════════════════════════ -->
+<section id="contact">
+    <span class="lbl contact-lbl rv">Inquiries</span>
+    <h2 class="contact-title rv">Begin Your<br>Journey</h2>
+    <p class="contact-sub rv">
+        Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.
+    </p>
+    <div class="contact-btns rv">
+        <a href="https://wa.me/6289656684852" class="btn btn-w">WhatsApp Office</a>
+        <a href="https://instagram.com/felixsatia"  class="btn btn-w">Instagram</a>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ⑩ FOOTER  —  NAVY
+══════════════════════════════════════════════════════ -->
+<footer>
+    <div class="foot-top">
+
+        <!-- Brand -->
+        <div class="foot-brand">
+            <div class="foot-logo">
+                <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
+                     alt="Sonata Music Studio">
+            </div>
+            <p class="foot-tagline">
+                Excellence in classical artistry,<br>rooted in Jakarta.
+            </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="foot-nav">
+            <span class="foot-nav-ttl">Navigate</span>
             <a href="#about">The Director</a>
             <a href="#programs">Curriculum</a>
             <a href="#philosophy">Philosophy</a>
             <a href="#archive">Archive</a>
             <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 1 — HERO (BLACK / CINEMATIC)
-    ══════════════════════════════════════════════ -->
-    <section class="hero">
-        <div class="hero-lbox top"></div>
-        <div class="hero-lbox bot"></div>
-
-        <div class="hero-bg">
-            <img
-                src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg"
-                alt="Sonata Music Studio">
         </div>
 
-        <div class="hero-vig"></div>
-
-        <!-- Yo-Yo Ma corner micro-details -->
-        <span class="h-corner tl">Jakarta &nbsp;·&nbsp; Indonesia</span>
-        <span class="h-corner tr">Est. 2024</span>
-        <span class="h-corner bl">Excellence in Classical Performance</span>
-        <span class="h-corner br">Felix Satia, Director</span>
-
-        <div class="hero-body">
-            <span class="hero-eyebrow">The Art of Musical Excellence</span>
-            <h1 class="hero-title">
-                Sonata Music Studio
-                <span class="hero-subtitle">Where Artistry Is Cultivated</span>
-            </h1>
-            <div class="hero-vline"></div>
-            <a href="#about" class="hero-cta">Explore the Studio</a>
+        <!-- Connect -->
+        <div class="foot-connect">
+            <span class="foot-connect-ttl">Connect</span>
+            <a href="https://wa.me/6289656684852">WhatsApp</a>
+            <a href="https://instagram.com/felixsatia">Instagram</a>
         </div>
 
-        <div class="hero-scroll">
-            <span class="hero-scroll-label">Scroll</span>
-            <div class="scroll-bar"></div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 2 — ABOUT / DIRECTOR (BLUE)
-    ══════════════════════════════════════════════ -->
-    <section id="about">
-        <div class="about-text">
-            <span class="label label-white rv" style="margin-bottom:1.6rem;">Artistic Vision</span>
-            <h2 class="sec-title about-title rv">Felix<br>Satia</h2>
-            <span class="g-rule-w about-rule rv" style="margin:2rem 0 2.2rem;"></span>
-            <p class="body-p about-p rv">
-                Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu untuk menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.
-            </p>
-            <p class="body-p about-p rv">
-                Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi yang sesungguhnya.
-            </p>
-            <a href="#archive" class="cta cta-w rv" style="margin-top:1rem; align-self:flex-start;">
-                View Artistic Journey
-            </a>
-        </div>
-        <div class="about-photo">
-            <img
-                src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg"
-                alt="Felix Satia">
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 3 — PULL QUOTE (GREY)
-         Breath, editorial pause — Yo-Yo Ma centrepiece
-    ══════════════════════════════════════════════ -->
-    <div id="pull-quote">
-        <span class="pq-openmark">&ldquo;</span>
-        <p class="pq-body rv">
-            Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us to imagine a better future. Culture helps turn &lsquo;them&rsquo; into &lsquo;us.&rsquo; And these things have never been more important.
-        </p>
-        <div class="pq-divider"></div>
-        <span class="pq-attribution">Felix Satia &mdash; Sonata Music Studio</span>
     </div>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 4 — FEATURED GRID (WHITE)
-         Focus: Digital Exam Grade Recording
-         2×2 blocks — alternating photo + coloured card
-    ══════════════════════════════════════════════ -->
-    <div id="featured">
-        <div class="feat-header">
-            <div class="feat-header-inner">
-                <div>
-                    <span class="label label-ink rv" style="margin-bottom:0.8rem;">Studio Pathway</span>
-                    <h2 class="feat-header-title rv">Digital Grade Examination</h2>
-                </div>
-                <a href="#contact" class="arrow-link rv" style="color:var(--ink-60);">
-                    Inquire Now
-                </a>
-            </div>
-        </div>
-
-        <div class="feat-grid">
-
-            <!-- Row 1 Left: Photo — student at piano, focused, exam ready -->
-            <div class="feat-photo">
-                <img
-                    src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278062357.jpeg"
-                    alt="Student preparing for digital grade exam">
-            </div>
-
-            <!-- Row 1 Right: Navy card — ABRSM Digital Exam -->
-            <div class="feat-card feat-card-navy">
-                <span class="label label-goldl rv" style="margin-bottom:1.4rem;">ABRSM &amp; Trinity</span>
-                <h3 class="feat-title rv">Digital<br>Grade Exams</h3>
-                <p class="feat-body rv">
-                    Sonata Music Studio adalah pusat persiapan ujian piano digital resmi. Kami mempersiapkan siswa untuk ABRSM Digital Piano Grade dan Trinity College London — dengan rekaman video yang dinilai oleh examiner internasional dari rumah atau studio kami.
-                </p>
-                <a href="#contact" class="arrow-link arrow-link-gold rv">Learn More</a>
-            </div>
-
-            <!-- Row 2 Left: Terra card — Recording Process -->
-            <div class="feat-card feat-card-terra">
-                <span class="label label-goldl rv" style="margin-bottom:1.4rem;">Exam Recording</span>
-                <h3 class="feat-title rv">Studio<br>Recording Session</h3>
-                <p class="feat-body rv">
-                    Rekaman ujian dilakukan di lingkungan studio yang tenang dan profesional. Setiap detail — pencahayaan, akustik, sudut kamera — dipersiapkan untuk memastikan hasil rekaman yang sempurna sesuai standar internasional.
-                </p>
-                <a href="https://wa.me/6289656684852" class="arrow-link arrow-link-gold rv">Book a Session</a>
-            </div>
-
-            <!-- Row 2 Right: Photo — focused studio recording moment -->
-            <div class="feat-photo">
-                <img
-                    src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278498612.jpeg"
-                    alt="Professional exam recording session at Sonata Music Studio">
-            </div>
-
-        </div>
+    <div class="foot-btm">
+        <p class="foot-copy">Sonata Music Studio &copy; 2026 &mdash; Designed for Excellence</p>
     </div>
+</footer>
 
-    <!-- ══════════════════════════════════════════════
-         SECTION 5 — TERRACOTTA QUOTE (TERRA)
-         Passion, artistic fire — full-width dramatic
-    ══════════════════════════════════════════════ -->
-    <div id="terra-quote">
-        <span class="tq-openmark">&ldquo;</span>
-        <p class="tq-body rv">
-            As musicians, we transcend technique in order to seek out the truths in our world &mdash; in a way that gives meaning and sustenance to individuals and communities. That is art for life&rsquo;s sake.
-        </p>
-        <div class="tq-divider"></div>
-        <span class="tq-attribution">Felix Satia &mdash; Sonata Music Studio</span>
-    </div>
+<script>
+    /* ── Header scroll ── */
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => {
+        hdr.classList.toggle('on', window.scrollY > 60);
+    }, { passive: true });
 
-    <!-- ══════════════════════════════════════════════
-         SECTION 6 — PROGRAMS / CURRICULUM (TERRA)
-         Continuation of terra energy — structured info
-    ══════════════════════════════════════════════ -->
-    <section id="programs">
-        <div class="prog-photo">
-            <img
-                src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg"
-                alt="Teaching at Sonata Music Studio">
-        </div>
-        <div class="prog-text">
-            <span class="label label-white rv" style="margin-bottom:1.6rem;">The Curriculum</span>
-            <h2 class="sec-title prog-title rv">Core<br>Programs</h2>
-            <span class="g-rule-w prog-rule rv" style="margin:2rem 0 2.2rem;"></span>
-            <p class="body-p prog-body rv">
-                Kami menawarkan jalur pendidikan yang terstruktur namun adaptif — dirancang untuk setiap tahap perjalanan musikal, dari pemula hingga tingkat kompetisi internasional.
-            </p>
-            <ul class="prog-list">
-                <li class="rv">Piano Performance &mdash; Grade 1&ndash;8</li>
-                <li class="rv">Advanced Music Theory &amp; Harmony</li>
-                <li class="rv">ABRSM &amp; Trinity Exam Preparation</li>
-                <li class="rv">Artistic Interpretation &amp; Expression</li>
-                <li class="rv">Competition &amp; Recital Coaching</li>
-            </ul>
-            <a href="https://wa.me/6289656684852" class="cta cta-w rv" style="align-self:flex-start;">
-                Enrolment Inquiry
-            </a>
-        </div>
-    </section>
+    /* ── Masonry gallery (GitHub images, natural sizes, no crop) ── */
+    const base = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
+    const imgs = [
+        '1728277097784.jpeg', '1728277959315.jpeg', '1728277994217.jpeg',
+        '1728278062357.jpeg', '1728278413639.jpeg', '1728278498612.jpeg',
+        '1728278535664.jpeg', '1728278743638.jpeg', '1728278972071.jpeg',
+        '1728279819431.jpeg', '1728294846403.jpeg', '1728294894368.jpeg',
+        '1728295139439.jpeg', '1728295173689.jpeg', '1728295202953.jpeg',
+        '1728295402904.jpeg', '1728295429712.jpeg', '1728296617350.jpeg',
+        '1728300782229.jpeg', '1728301815288.jpeg', '1728302182364.jpeg',
+        '1728302212548.jpeg', '1728303826998.jpeg', '1728311786057.jpeg',
+        '1728349078427.jpeg', '1728368821890.jpeg', '1728368987536.jpeg',
+        '1728450148208.jpeg', '1728450200661.jpeg', '1728450222173.jpeg',
+        '1728450251141.jpeg'
+    ];
 
-    <!-- ══════════════════════════════════════════════
-         SECTION 7 — PHILOSOPHY (NAVY)
-         Depth, gravitas, intellectual — Yo-Yo Ma centred quote
-    ══════════════════════════════════════════════ -->
-    <section id="philosophy">
-        <span class="label phil-label rv" style="display:block; text-align:center; margin-bottom:3.5rem;">
-            Our Philosophy
-        </span>
-        <p class="phil-quote rv">
-            &ldquo;Tradition, met with Modern Excellence. Every note a decision. Every silence, intentional. Every student, a world unto themselves.&rdquo;
-        </p>
-        <div class="phil-rule"></div>
-        <p class="phil-body rv">
-            Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas — di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi, dan setiap individu diperlakukan sebagai seniman yang sedang berkembang.
-        </p>
-    </section>
+    const grid = document.getElementById('masonry-grid');
+    imgs.forEach(src => {
+        const w = document.createElement('div');
+        w.className = 'masonry-item';
+        const i = document.createElement('img');
+        i.src     = base + src;
+        i.loading = 'lazy';
+        i.alt     = 'Sonata Music Studio Archive';
+        w.appendChild(i);
+        grid.appendChild(w);
+    });
 
-    <!-- ══════════════════════════════════════════════
-         SECTION 8 — GALLERY / ARCHIVE (OFF-WHITE)
-         Light, airy, visual showcase
-    ══════════════════════════════════════════════ -->
-    <section id="archive">
-        <div class="arc-header">
-            <div>
-                <span class="label label-ink rv" style="margin-bottom:0.8rem;">Visual Journey</span>
-                <h2 class="arc-title rv">The Studio Archive</h2>
-            </div>
-            <a href="#contact" class="arrow-link rv" style="color:var(--ink-60);">
-                Contact Us
-            </a>
-        </div>
-        <div class="masonry" id="masonry-grid"></div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 9 — CONTACT (GOLD)
-         Prestige, warmth, invitation
-    ══════════════════════════════════════════════ -->
-    <section id="contact">
-        <span class="label contact-label rv">Inquiries</span>
-        <h2 class="contact-title rv">Begin Your<br>Journey</h2>
-        <p class="contact-sub rv">
-            Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.
-        </p>
-        <div class="contact-btns rv">
-            <a href="https://wa.me/6289656684852" class="cta cta-w">
-                WhatsApp Office
-            </a>
-            <a href="https://instagram.com/felixsatia" class="cta cta-w">
-                Instagram
-            </a>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         SECTION 10 — FOOTER (NAVY)
-         Closure, identity, navigation
-    ══════════════════════════════════════════════ -->
-    <footer>
-        <div class="foot-top">
-            <!-- Brand -->
-            <div class="foot-brand">
-                <div class="foot-logo">
-                    <img
-                        src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
-                        alt="Sonata Music Studio">
-                </div>
-                <p class="foot-tagline">
-                    Excellence in classical artistry,<br>rooted in Jakarta.
-                </p>
-            </div>
-
-            <!-- Navigation -->
-            <div class="foot-nav">
-                <span class="foot-nav-title">Navigate</span>
-                <a href="#about">The Director</a>
-                <a href="#programs">Curriculum</a>
-                <a href="#philosophy">Philosophy</a>
-                <a href="#archive">Archive</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <!-- Contact -->
-            <div class="foot-contact">
-                <span class="foot-contact-title">Connect</span>
-                <a href="https://wa.me/6289656684852">WhatsApp</a>
-                <a href="https://instagram.com/felixsatia">Instagram</a>
-            </div>
-        </div>
-
-        <div class="foot-bottom">
-            <p class="foot-copy">
-                Sonata Music Studio &copy; 2026 &mdash; Designed for Excellence
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        /* ── Header scroll ── */
-        const hdr = document.getElementById('hdr');
-        window.addEventListener('scroll', () => {
-            hdr.classList.toggle('on', window.scrollY > 60);
-        }, { passive: true });
-
-        /* ── Masonry gallery — natural image sizes, no crop ── */
-        const base = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
-        const imgs = [
-            '1728277097784.jpeg', '1728277959315.jpeg', '1728277994217.jpeg',
-            '1728278062357.jpeg', '1728278413639.jpeg', '1728278498612.jpeg',
-            '1728278535664.jpeg', '1728278743638.jpeg', '1728278972071.jpeg',
-            '1728279819431.jpeg', '1728294846403.jpeg', '1728294894368.jpeg',
-            '1728295139439.jpeg', '1728295173689.jpeg', '1728295202953.jpeg',
-            '1728295402904.jpeg', '1728295429712.jpeg', '1728296617350.jpeg',
-            '1728300782229.jpeg', '1728301815288.jpeg', '1728302182364.jpeg',
-            '1728302212548.jpeg', '1728303826998.jpeg', '1728311786057.jpeg',
-            '1728349078427.jpeg', '1728368821890.jpeg', '1728368987536.jpeg',
-            '1728450148208.jpeg', '1728450200661.jpeg', '1728450222173.jpeg',
-            '1728450251141.jpeg'
-        ];
-
-        const grid = document.getElementById('masonry-grid');
-        imgs.forEach(src => {
-            const wrap = document.createElement('div');
-            wrap.className = 'masonry-item';
-            const img = document.createElement('img');
-            img.src = base + src;
-            img.loading = 'lazy';
-            img.alt = 'Sonata Music Studio Archive';
-            wrap.appendChild(img);
-            grid.appendChild(wrap);
+    /* ── Scroll reveal — staggered per batch ── */
+    const ro = new IntersectionObserver((entries) => {
+        entries.forEach((e, idx) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('in'), (idx % 6) * 72);
+                ro.unobserve(e.target);
+            }
         });
+    }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
 
-        /* ── Scroll reveal — staggered ── */
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    const delay = (i % 6) * 75;
-                    setTimeout(() => {
-                        entry.target.classList.add('show');
-                    }, delay);
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-        document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
-    </script>
+    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+</script>
 
 </body>
 </html>
