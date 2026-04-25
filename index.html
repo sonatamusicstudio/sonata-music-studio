@@ -318,6 +318,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: var(--blue);
+            position: relative;
+            z-index: 1;
+            margin-bottom: -2px;
         }
 
         .about-text {
@@ -372,6 +375,8 @@
             background: var(--grey-block);
             padding: 10rem 5%;
             text-align: center;
+            position: relative;
+            z-index: 0;
         }
 
         .pq-mark {
@@ -418,6 +423,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: var(--terra);
+            position: relative;
+            z-index: 1;
+            margin-bottom: -2px;
         }
 
         /* Photo column — centred, natural proportions */
@@ -493,6 +501,8 @@
             background: var(--navy);
             padding: 12rem 5%;
             text-align: center;
+            position: relative;
+            z-index: 0;
         }
 
         #philosophy .eye { color: var(--gold-light); margin-bottom: 3rem; }
