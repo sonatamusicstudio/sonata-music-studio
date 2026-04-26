@@ -5,303 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonata Music Studio | Excellence in Artistry</title>
 
+    <!-- Fonts: Libre Baskerville (body/quotes, condensed feel), Cormorant Garamond (display — more condensed than Cinzel), Montserrat (sans nav/labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* ════════════════════════════════════════════════════════════════
-           SONATA MUSIC STUDIO — DESIGN SYSTEM
-           ────────────────────────────────────────────────────────────────
-           COLOUR PALETTE (deliberate, no repetition in sequence):
-           ① Hero          →  Black  #000000   cinematic authority
-           ② About         →  Blue   #3a5570   trust, education, calm
-           ③ Pull Quote    →  Grey   #d5d3ce   editorial breath, pause
-           ④ Featured      →  White  #ffffff   clarity, showcase
-                              Cards: Navy + Blue (no terra here)
-           ⑤ Terra Quote   →  Terra  #c44c2b   passion, artistic fire
-           ⑥ Programs      →  Navy   #060c20   authority, depth (NOT terra)
-           ⑦ Philosophy    →  Charcoal #1c2333 gravitas, intellectual
-           ⑧ Archive       →  Off-W  #f3f2ef   light, airy, showcase
-           ⑨ Contact       →  Gold   #b8944b   prestige, invitation
-           ⑩ Footer        →  Navy   #060c20   closure, identity
-           ────────────────────────────────────────────────────────────────
-           Terra (#c44c2b) appears ONCE only — Terra Quote section.
-           Navy  (#060c20) appears in cards (dark accent) + Programs + Footer.
-           Blue  (#3a5570) appears in About + one featured card.
-        ════════════════════════════════════════════════════════════════ */
-
+        /* ══════════════════════════════════════
+           TOKENS
+        ══════════════════════════════════════ */
         :root {
-            /* Core colours */
-            --white        : #ffffff;
-            --off-white    : #f3f2ef;
-            --grey-sect    : #d5d3ce;
-            --ink          : #060c20;
-            --charcoal     : #1c2333;
-            --blue         : #3a5570;
-            --blue-dk      : #2d4459;
-            --terra        : #c44c2b;
-            --navy         : #060c20;
-            --gold         : #b8944b;
-            --gold-lt      : #d4af6a;
+            --white:      #ffffff;
+            --off-white:  #f2f1ee;
+            --ink:        #060c20;
+            --gold:       #b8944b;
+            --gold-light: #d4af6a;
+            --blue:       #3b566f;
+            --terra:      #c44d2c;
+            --navy:       #060c20;
+            --grey-block: #d6d4cf;
+            --gold-block: #b8944b;
 
-            /* Semantic alphas */
-            --ink-80       : rgba(6,12,32,.80);
-            --ink-60       : rgba(6,12,32,.60);
-            --ink-40       : rgba(6,12,32,.40);
-            --ink-20       : rgba(6,12,32,.20);
-            --ink-10       : rgba(6,12,32,.10);
-            --ink-06       : rgba(6,12,32,.06);
-            --white-80     : rgba(255,255,255,.80);
-            --white-60     : rgba(255,255,255,.60);
-            --white-45     : rgba(255,255,255,.45);
-            --white-30     : rgba(255,255,255,.30);
-            --white-18     : rgba(255,255,255,.18);
-            --white-10     : rgba(255,255,255,.10);
-            --gold-pale    : rgba(184,148,75,.16);
-
-            /* Typography */
-            --serif        : 'Libre Baskerville', Georgia, serif;
-            --display      : 'Cormorant Garamond', Georgia, serif;
-            --sans         : 'Montserrat', sans-serif;
-
-            /* Motion */
-            --ease         : cubic-bezier(0.19, 1, 0.22, 1);
-            --ease-std     : cubic-bezier(0.4, 0, 0.2, 1);
+            --serif:      'Libre Baskerville', Georgia, serif;
+            --display:    'Cormorant Garamond', Georgia, serif;
+            --sans:       'Montserrat', sans-serif;
+            --ease:       cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* ────────────────────────────
-           RESET
-        ──────────────────────────── */
-        *, *::before, *::after {
-            margin: 0; padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--white); color: var(--ink); font-family: var(--serif); overflow-x: hidden; line-height: 1.75; }
 
-        html { scroll-behavior: smooth; font-size: 16px; }
-
-        body {
-            background: var(--white);
-            color: var(--ink);
-            font-family: var(--serif);
-            overflow-x: hidden;
-            line-height: 1.75;
-        }
-
-        img { display: block; max-width: 100%; }
-        a   { text-decoration: none; }
-
-        /* ────────────────────────────
-           SHARED UTILITIES
-        ──────────────────────────── */
-
-        /* Universal eyebrow label */
-        .lbl {
-            font-family: var(--sans);
-            font-size: 0.53rem;
-            font-weight: 300;
-            letter-spacing: 0.52em;
-            text-transform: uppercase;
-            display: block;
-            line-height: 1;
-        }
-
-        .lbl-gold   { color: var(--gold); }
-        .lbl-goldl  { color: var(--gold-lt); }
-        .lbl-white  { color: var(--white-45); }
-        .lbl-ink    { color: var(--ink-60); }
-        .lbl-charcoal { color: rgba(255,255,255,.38); }
-
-        /* Display heading — Cormorant Garamond */
-        .dh {
-            font-family: var(--display);
-            font-weight: 400;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            line-height: 1.0;
-        }
-
-        /* Body paragraph — Libre Baskerville */
-        .bp {
-            font-family: var(--serif);
-            font-size: 0.97rem;
-            line-height: 1.95;
-        }
-
-        /* Horizontal rules — editorial accent */
-        .rule {
-            display: block;
-            height: 1px;
-        }
-
-        .rule-gold   { background: var(--gold); }
-        .rule-goldl  { background: var(--gold-lt); opacity: .6; }
-        .rule-white  { background: var(--white-45); }
-        .rule-ink    { background: var(--ink); opacity: .22; }
-        .rule-sm     { width: 34px; }
-        .rule-md     { width: 44px; }
-        .rule-center { margin-left: auto; margin-right: auto; }
-
-        /* CTA button */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0.95rem 2.7rem;
-            border: 1px solid currentColor;
-            font-family: var(--sans);
-            font-size: 0.57rem;
-            font-weight: 300;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            transition:
-                letter-spacing .45s var(--ease),
-                background .45s var(--ease),
-                color .45s var(--ease);
-        }
-
-        .btn:hover { letter-spacing: 0.44em; }
-
-        .btn-w {
-            color: var(--white-80);
-            border-color: var(--white-45);
-        }
-        .btn-w:hover {
-            background: var(--white-10);
-            color: #fff;
-        }
-
-        .btn-dark {
-            color: var(--ink);
-            border-color: var(--ink-40);
-        }
-        .btn-dark:hover {
-            background: var(--ink);
-            color: #fff;
-        }
-
-        /* Arrow text link */
-        .alink {
-            font-family: var(--sans);
-            font-size: 0.55rem;
-            font-weight: 400;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: gap .38s var(--ease), color .32s;
-        }
-        .alink::after {
-            content: '→';
-            font-size: 0.88rem;
-            transition: transform .38s var(--ease);
-        }
-        .alink:hover { gap: 17px; }
-        .alink:hover::after { transform: translateX(3px); }
-        .alink-gold  { color: var(--gold-lt); }
-        .alink-gold:hover  { color: #fff; }
-        .alink-ink   { color: var(--ink-60); }
-        .alink-ink:hover   { color: var(--ink); }
-
-        /* Scroll reveal */
-        .rv {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity .88s ease, transform .88s ease;
-        }
-        .rv.in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ════════════════════════════════════════════════════════════════
-           ① HEADER
-           Transparent over hero → white glass on scroll
-           Single compact row with thin dividers between nav items
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           HEADER  — single tight row
+        ══════════════════════════════════════ */
         #hdr {
             position: fixed;
             inset: 0 0 auto 0;
             z-index: 900;
-            height: 84px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 4.5%;
-            transition:
-                height       .55s var(--ease),
-                background   .55s var(--ease),
-                box-shadow   .55s var(--ease);
+            transition: height .55s var(--ease), background .55s var(--ease), box-shadow .55s var(--ease);
         }
 
         #hdr.on {
-            height: 66px;
+            height: 64px;
             background: rgba(255,255,255,.97);
-            box-shadow: 0 1px 0 var(--ink-10);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
+            box-shadow: 0 1px 0 rgba(6,12,32,.07);
+            backdrop-filter: blur(20px);
         }
 
         /* Logo */
-        .hdr-logo {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 12px;
+            text-decoration: none;
             flex-shrink: 0;
         }
 
-        .hdr-logo img {
-            height: 40px;
+        .logo img {
+            height: 38px;
             filter: brightness(0) invert(1);
             transition: filter .5s var(--ease);
         }
 
-        #hdr.on .hdr-logo img { filter: brightness(0); }
+        #hdr.on .logo img { filter: brightness(0); }
 
-        .hdr-name {
+        .logo-text {
             font-family: var(--display);
             font-weight: 500;
-            font-size: 1.05rem;
-            letter-spacing: 0.20em;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: #fff;
-            white-space: nowrap;
             transition: color .5s var(--ease);
+            white-space: nowrap;
         }
 
-        #hdr.on .hdr-name { color: var(--ink); }
+        #hdr.on .logo-text { color: var(--ink); }
 
-        /* Nav */
-        .hdr-nav { display: flex; align-items: center; }
+        /* Nav — compact, all on one line */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
 
-        .hdr-nav a {
+        .nav a {
             font-family: var(--sans);
-            font-size: 0.53rem;
+            font-size: 0.56rem;
             font-weight: 300;
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.68);
+            text-decoration: none;
+            color: rgba(255,255,255,.72);
             padding: 0 18px;
+            transition: color .35s;
             white-space: nowrap;
-            transition: color .32s;
         }
 
-        .hdr-nav a:hover                { color: var(--gold-lt); }
-        .hdr-nav a + a                  { border-left: 1px solid rgba(255,255,255,.13); }
-        #hdr.on .hdr-nav a              { color: var(--ink-60); }
-        #hdr.on .hdr-nav a:hover        { color: var(--gold); }
-        #hdr.on .hdr-nav a + a          { border-left-color: var(--ink-10); }
+        .nav a:hover { color: var(--gold-light); }
+        #hdr.on .nav a { color: rgba(6,12,32,.5); }
+        #hdr.on .nav a:hover { color: var(--gold); }
 
-        /* ════════════════════════════════════════════════════════════════
-           ② HERO — full cinematic bleed
-           Black background, letterbox bars, multi-layer vignette,
-           corner micro-labels (Yo-Yo Ma detail), scroll indicator
-        ════════════════════════════════════════════════════════════════ */
+        /* Thin vertical dividers between nav items */
+        .nav a + a { border-left: 1px solid rgba(255,255,255,.15); }
+        #hdr.on .nav a + a { border-left-color: rgba(6,12,32,.1); }
+
+        /* ══════════════════════════════════════
+           HERO — full cinematic
+        ══════════════════════════════════════ */
         .hero {
             height: 100vh;
-            min-height: 700px;
+            min-height: 680px;
             position: relative;
             display: flex;
             align-items: center;
@@ -320,87 +139,62 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
-            filter: brightness(.43) contrast(1.12) saturate(.86);
+            object-position: center;
+            filter: brightness(.44) contrast(1.1);
             display: block;
         }
 
-        /* Cinematic letterbox bars */
+        /* Letterbox */
         .lbox {
             position: absolute;
             left: 0; right: 0;
-            height: 54px;
+            height: 52px;
             background: #000;
-            z-index: 5;
+            z-index: 4;
         }
         .lbox.t { top: 0; }
         .lbox.b { bottom: 0; }
 
-        /* Multi-layer vignette */
         .hero-vig {
             position: absolute;
             inset: 0;
             z-index: 2;
             background:
-                radial-gradient(ellipse at 50% 42%, transparent 16%, rgba(6,12,32,.70) 100%),
-                linear-gradient(
-                    180deg,
-                    rgba(6,12,32,.26) 0%,
-                    transparent 20%,
-                    transparent 50%,
-                    rgba(6,12,32,.94) 100%
-                );
+                radial-gradient(ellipse at 50% 45%, transparent 20%, rgba(6,12,32,.7) 100%),
+                linear-gradient(180deg, rgba(6,12,32,.2) 0%, transparent 28%, transparent 55%, rgba(6,12,32,.9) 100%);
         }
 
-        /* Yo-Yo Ma corner micro-labels */
-        .hcn {
-            position: absolute;
-            z-index: 10;
-            font-family: var(--sans);
-            font-size: 0.45rem;
-            font-weight: 300;
-            letter-spacing: 0.40em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.28);
-            line-height: 1.7;
-        }
-        .hcn.tl { top: 86px;   left: 4.5%; }
-        .hcn.tr { top: 86px;   right: 4.5%; text-align: right; }
-        .hcn.bl { bottom: 76px; left: 4.5%; }
-        .hcn.br { bottom: 76px; right: 4.5%; text-align: right; }
-
-        /* Hero body */
         .hero-body {
             position: relative;
             z-index: 10;
             text-align: center;
             color: #fff;
-            max-width: 1040px;
+            max-width: 1000px;
             padding: 0 6%;
         }
 
         .h-eye {
             font-family: var(--sans);
-            font-size: 0.52rem;
+            font-size: 0.55rem;
             font-weight: 300;
-            letter-spacing: 0.64em;
+            letter-spacing: 0.6em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.42);
+            color: rgba(255,255,255,.48);
             display: block;
-            margin-bottom: 2.5rem;
-            animation: up 1.5s var(--ease) .2s both;
+            margin-bottom: 2.2rem;
+            animation: up 1.4s var(--ease) .2s both;
         }
 
         .h-title {
             font-family: var(--display);
             font-weight: 300;
-            font-size: clamp(3.6rem, 9.5vw, 8.8rem);
-            letter-spacing: 0.07em;
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            line-height: 1.0;
+            line-height: 1;
             color: #fff;
-            text-shadow: 0 4px 52px rgba(0,0,0,.55);
-            animation: up 1.5s var(--ease) .44s both;
+            text-shadow: 0 4px 40px rgba(0,0,0,.5);
+            animation: up 1.4s var(--ease) .45s both;
         }
 
         .h-sub {
@@ -408,93 +202,124 @@
             font-family: var(--serif);
             font-style: italic;
             font-weight: 400;
-            font-size: clamp(1.0rem, 2.4vw, 1.72rem);
             text-transform: none;
+            font-size: clamp(1rem, 2.2vw, 1.6rem);
             letter-spacing: 0.04em;
-            color: var(--gold-lt);
-            margin-top: 1.1rem;
-            animation: up 1.5s var(--ease) .60s both;
+            color: var(--gold-light);
+            margin-top: 1rem;
+            animation: up 1.4s var(--ease) .6s both;
         }
 
-        .h-vline {
+        .h-rule {
             width: 1px;
-            height: 56px;
-            background: rgba(255,255,255,.24);
-            margin: 3rem auto;
-            animation: up 1.5s var(--ease) .76s both;
+            height: 52px;
+            background: rgba(255,255,255,.28);
+            margin: 2.8rem auto;
+            animation: up 1.4s var(--ease) .75s both;
         }
 
         .h-cta {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 1.05rem 3.3rem;
-            border: 1px solid rgba(255,255,255,.38);
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255,255,255,.45);
             color: #fff;
             font-family: var(--sans);
-            font-size: 0.57rem;
+            font-size: 0.6rem;
             font-weight: 300;
-            letter-spacing: 0.40em;
+            letter-spacing: 0.38em;
             text-transform: uppercase;
-            transition: background .48s var(--ease), letter-spacing .48s var(--ease);
-            animation: up 1.5s var(--ease) .90s both;
+            text-decoration: none;
+            transition: background .45s var(--ease), letter-spacing .45s var(--ease);
+            animation: up 1.4s var(--ease) .9s both;
         }
 
-        .h-cta:hover {
-            background: rgba(255,255,255,.10);
-            letter-spacing: 0.50em;
-        }
+        .h-cta:hover { background: rgba(255,255,255,.1); letter-spacing: .48em; }
 
-        /* Scroll indicator */
-        .h-scroll {
+        .hero-scroll {
             position: absolute;
-            bottom: 76px;
+            bottom: 72px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 9px;
-            animation: up 1.5s var(--ease) 1.12s both;
+            gap: 8px;
+            animation: up 1.4s var(--ease) 1.1s both;
         }
 
-        .h-scroll-lbl {
+        .hero-scroll span {
             font-family: var(--sans);
-            font-size: 0.44rem;
-            letter-spacing: 0.54em;
+            font-size: 0.48rem;
+            letter-spacing: .5em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.30);
+            color: rgba(255,255,255,.35);
         }
 
-        .scrl-bar {
+        .s-line {
             width: 1px;
-            height: 38px;
-            background: rgba(255,255,255,.18);
+            height: 36px;
+            background: rgba(255,255,255,.22);
             position: relative;
             overflow: hidden;
         }
 
-        .scrl-bar::after {
+        .s-line::after {
             content: '';
             position: absolute;
             top: -100%; left: 0;
             width: 100%; height: 100%;
-            background: rgba(255,255,255,.68);
-            animation: sdrop 2.3s ease-in-out infinite;
+            background: rgba(255,255,255,.7);
+            animation: drop 2.2s ease-in-out infinite;
         }
 
-        /* ════════════════════════════════════════════════════════════════
-           ③ ABOUT / DIRECTOR  —  BLUE #3a5570
-           Text left | Photo right
-           Photo: centred, natural proportions, zero crop, zero distortion
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           SECTION LABEL (eyebrow)
+        ══════════════════════════════════════ */
+        .eye {
+            font-family: var(--sans);
+            font-size: 0.56rem;
+            font-weight: 300;
+            letter-spacing: 0.48em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1.4rem;
+            color: var(--gold);
+        }
+
+        /* ══════════════════════════════════════
+           BUTTON
+        ══════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.6rem;
+            border: 1px solid currentColor;
+            font-family: var(--sans);
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all .45s var(--ease);
+        }
+
+        .btn:hover { letter-spacing: .4em; }
+        .btn-w { color: #fff; border-color: rgba(255,255,255,.45); }
+        .btn-w:hover { background: rgba(255,255,255,.1); }
+
+        /* ══════════════════════════════════════
+           ABOUT — BLUE  |  two-column: text | photo
+           Photo: natural size, vertically centred, NO crop
+        ══════════════════════════════════════ */
         #about {
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: var(--blue);
             position: relative;
-            z-index: 2;
+            z-index: 1;
             margin-bottom: -2px;
         }
 
@@ -502,677 +327,366 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 9rem 7%;
+            padding: 8rem 7%;
         }
 
-        .about-text .lbl { margin-bottom: 1.7rem; }
+        .about-text .eye { color: rgba(255,255,255,.45); }
 
-        .about-title {
-            font-size: clamp(3.4rem, 5.8vw, 5.8rem);
+        .a-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             color: #fff;
+            line-height: 1;
+            margin-bottom: 2.4rem;
         }
 
-        .about-rule {
-            width: 34px;
-            height: 1px;
-            background: rgba(255,255,255,.38);
-            display: block;
-            margin: 2rem 0 2.3rem;
-        }
-
-        .about-p {
+        .a-p {
+            font-family: var(--serif);
+            font-size: 0.96rem;
             color: rgba(255,255,255,.72);
-            max-width: 490px;
             margin-bottom: 1.6rem;
+            max-width: 480px;
+            line-height: 1.95;
         }
 
-        /* Photo column — centre, breathe, no distortion */
-        .about-img {
+        /* Photo column — centred, natural proportions, zero distortion */
+        .about-photo {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5.5rem 6% 5.5rem 2%;
+            padding: 4rem 5% 4rem 2%;
             background: var(--blue);
         }
 
-        .about-img img {
+        .about-photo img {
             width: 100%;
             max-width: 520px;
             height: auto;
+            display: block;
         }
 
-        /* ════════════════════════════════════════════════════════════════
-           ④ PULL QUOTE  —  GREY #d5d3ce
-           Editorial pause — large bold Baskerville quote
-           Yo-Yo Ma centrepiece style
-        ════════════════════════════════════════════════════════════════ */
-        #pq {
-            background: var(--grey-sect);
-            padding: 11rem 5%;
+        /* ══════════════════════════════════════
+           PULL-QUOTE — GREY BLOCK (Yo-Yo Ma style)
+        ══════════════════════════════════════ */
+        .pq {
+            background: var(--grey-block);
+            padding: 10rem 5%;
             text-align: center;
             position: relative;
-            z-index: 1;
-            margin-bottom: -2px;
+            z-index: 0;
         }
 
         .pq-mark {
             font-family: var(--display);
-            font-size: 9rem;
-            line-height: 0.44;
+            font-size: 8rem;
+            line-height: .5;
             color: var(--blue);
-            opacity: 0.18;
+            opacity: .22;
             display: block;
-            margin-bottom: 3.4rem;
+            margin-bottom: 3rem;
         }
 
-        .pq-txt {
+        .pq-text {
             font-family: var(--serif);
             font-weight: 700;
-            font-size: clamp(1.75rem, 3.1vw, 2.9rem);
-            line-height: 1.53;
+            font-size: clamp(1.7rem, 3vw, 2.8rem);
+            line-height: 1.5;
             color: var(--ink);
-            max-width: 880px;
-            margin: 0 auto 3.2rem;
+            max-width: 860px;
+            margin: 0 auto 3rem;
         }
 
-        .pq-div {
-            width: 46px;
+        .pq-rule {
+            width: 44px;
             height: 1px;
             background: var(--ink);
-            opacity: 0.24;
-            margin: 0 auto 2rem;
+            opacity: .28;
+            margin: 0 auto 1.8rem;
         }
 
         .pq-attr {
             font-family: var(--sans);
-            font-size: 0.54rem;
-            letter-spacing: 0.46em;
+            font-size: 0.57rem;
+            letter-spacing: .44em;
             text-transform: uppercase;
             color: var(--ink);
-            opacity: 0.44;
+            opacity: .48;
         }
 
-        /* ════════════════════════════════════════════════════════════════
-           ⑤ FEATURED GRID  —  WHITE #ffffff
-           Header row + 2×2 grid
-           Cards: Navy (left) + Blue (right) — NO terra here
-           Photos: natural size, centred, no crop, no distortion
-        ════════════════════════════════════════════════════════════════ */
-        #featured {
-            background: var(--white);
-            position: relative;
-            z-index: 1;
-            margin-bottom: -2px;
-        }
-
-        /* Section header */
-        .feat-hdr {
-            padding: 5.5rem 7% 2.5rem;
-            border-bottom: 1px solid var(--ink-06);
-        }
-
-        .feat-hdr-inner {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .feat-hdr-title {
-            font-family: var(--display);
-            font-weight: 400;
-            font-size: 2.1rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink);
-            margin-top: 0.9rem;
-        }
-
-        /* 2×2 grid */
-        .feat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        /* Photo cells — natural, no crop */
-        .feat-photo {
-            overflow: hidden;
-            background: var(--off-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .feat-photo img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Card cells */
-        .feat-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 5.5rem 7%;
-        }
-
-        /* Card: Navy — ABRSM Digital Exam */
-        .fc-navy { background: var(--navy); }
-
-        /* Card: Blue — Recording Session */
-        .fc-blue { background: var(--blue-dk); }
-
-        .feat-card .lbl { margin-bottom: 1.5rem; }
-
-        .feat-card-title {
-            font-family: var(--display);
-            font-weight: 400;
-            font-size: clamp(1.85rem, 3.2vw, 3.1rem);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #fff;
-            line-height: 1.04;
-            margin-bottom: 1.7rem;
-        }
-
-        .feat-card-body {
-            font-family: var(--serif);
-            font-size: 0.93rem;
-            color: rgba(255,255,255,.68);
-            line-height: 1.92;
-            max-width: 390px;
-            margin-bottom: 2.3rem;
-        }
-
-        /* ════════════════════════════════════════════════════════════════
-           ⑥ TERRA QUOTE  —  TERRACOTTA #c44c2b
-           Single use of terra — dramatic full-width statement
-        ════════════════════════════════════════════════════════════════ */
-        #tq {
-            background: var(--terra);
-            padding: 10rem 8%;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            margin-bottom: -2px;
-        }
-
-        .tq-mark {
-            font-family: var(--display);
-            font-size: 6rem;
-            line-height: 0.40;
-            color: var(--gold-lt);
-            opacity: 0.42;
-            display: block;
-            margin-bottom: 2.9rem;
-        }
-
-        .tq-txt {
-            font-family: var(--serif);
-            font-weight: 700;
-            font-size: clamp(1.65rem, 3.2vw, 3.1rem);
-            line-height: 1.50;
-            color: #fff;
-            max-width: 840px;
-            margin: 0 auto 2.8rem;
-        }
-
-        .tq-div {
-            width: 46px;
-            height: 1px;
-            background: var(--gold-lt);
-            opacity: 0.52;
-            margin: 0 auto 2rem;
-        }
-
-        .tq-attr {
-            font-family: var(--sans);
-            font-size: 0.53rem;
-            letter-spacing: 0.46em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.48);
-        }
-
-        /* ════════════════════════════════════════════════════════════════
-           ⑦ PROGRAMS / CURRICULUM  —  NAVY #060c20
-           (Previously terra — now navy to avoid triple terra)
-           Photo left | Text right
-           Photo: natural proportions, centred column, no distortion
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           PROGRAMS — TERRACOTTA  |  photo | text
+        ══════════════════════════════════════ */
         #programs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: var(--navy);
+            background: var(--terra);
             position: relative;
             z-index: 1;
             margin-bottom: -2px;
         }
 
-        /* Photo column */
-        .prog-img {
+        /* Photo column — centred, natural proportions */
+        .prog-photo {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5rem 2% 5rem 5%;
-            background: rgba(0,0,0,.18);
+            padding: 4rem 2% 4rem 5%;
+            background: var(--terra);
         }
 
-        .prog-img img {
+        .prog-photo img {
             width: 100%;
             max-width: 520px;
             height: auto;
+            display: block;
         }
 
-        /* Text column */
         .prog-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 9rem 7%;
+            padding: 8rem 7%;
         }
 
-        .prog-text .lbl { margin-bottom: 1.7rem; }
+        .prog-text .eye { color: rgba(255,255,255,.45); }
 
-        .prog-title {
-            font-size: clamp(3.2rem, 5.2vw, 5.2rem);
-            color: #fff;
-        }
-
-        .prog-rule {
-            display: block;
-            width: 34px;
-            height: 1px;
-            background: rgba(255,255,255,.32);
-            margin: 2rem 0 2.3rem;
-        }
-
-        .prog-body {
-            color: rgba(255,255,255,.68);
-            max-width: 440px;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Program list */
-        .prog-list { list-style: none; margin-bottom: 3.2rem; }
-
-        .prog-list li {
-            font-family: var(--sans);
-            font-size: 0.63rem;
-            font-weight: 300;
-            letter-spacing: 0.20em;
+        .p-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(3rem, 5vw, 5rem);
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.78);
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .p-body {
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            color: rgba(255,255,255,.72);
+            max-width: 440px;
+            line-height: 1.95;
+            margin-bottom: 2.2rem;
+        }
+
+        .p-list {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .p-list li {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.8);
             padding: 1.1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,.12);
+            border-bottom: 1px solid rgba(255,255,255,.15);
             display: flex;
             align-items: center;
             gap: 14px;
         }
 
-        .prog-list li::before {
-            content: '—';
-            color: rgba(255,255,255,.28);
-            flex-shrink: 0;
-        }
+        .p-list li::before { content: '—'; color: rgba(255,255,255,.32); }
 
-        /* Gold accent number badges */
-        .prog-list li span.badge {
-            font-family: var(--display);
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--gold-lt);
-            opacity: 0.7;
-            margin-left: auto;
-        }
-
-        /* ════════════════════════════════════════════════════════════════
-           ⑧ PHILOSOPHY  —  CHARCOAL #1c2333
-           Distinct from navy — slightly lighter, more intellectual tone
-           Centred large italic quote — gravitas
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           PHILOSOPHY — NAVY QUOTE BLOCK
+        ══════════════════════════════════════ */
         #philosophy {
-            background: var(--charcoal);
-            padding: 13rem 5%;
+            background: var(--navy);
+            padding: 12rem 5%;
             text-align: center;
             position: relative;
-            z-index: 1;
-            margin-bottom: -2px;
+            z-index: 0;
         }
 
-        .phil-lbl { color: var(--gold-lt); margin-bottom: 3.6rem; }
+        #philosophy .eye { color: var(--gold-light); margin-bottom: 3rem; }
 
         .phil-q {
             font-family: var(--display);
             font-style: italic;
             font-weight: 300;
-            font-size: clamp(2.3rem, 4.2vw, 4.3rem);
+            font-size: clamp(2.2rem, 4vw, 4rem);
             color: #fff;
-            max-width: 940px;
-            margin: 0 auto 3.3rem;
-            line-height: 1.42;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.45;
         }
 
         .phil-rule {
-            width: 48px;
+            width: 46px;
             height: 1px;
             background: var(--gold);
-            margin: 0 auto 3.2rem;
+            margin: 0 auto 2.8rem;
         }
 
         .phil-body {
             font-family: var(--serif);
             font-size: 1rem;
-            color: rgba(255,255,255,.50);
+            color: rgba(255,255,255,.55);
             max-width: 640px;
             margin: 0 auto;
-            line-height: 2.05;
+            line-height: 2;
         }
 
-        /* ════════════════════════════════════════════════════════════════
-           ⑨ GALLERY / ARCHIVE  —  NAVY background
-           Mading / mood-board — overview vibe, sense of scale
-           Dense 6-col uniform grid — cinematic, not detail-first
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           GALLERY — masonry, no crop, no zoom
+        ══════════════════════════════════════ */
         #archive {
-            background: var(--navy);
-            padding: 9rem 3.5% 10rem;
-            position: relative;
-            z-index: 1;
-            margin-bottom: -2px;
+            background: var(--off-white);
+            padding: 9rem 4%;
         }
 
-        .arc-hdr {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid rgba(255,255,255,.08);
+        .arc-head {
+            text-align: center;
+            margin-bottom: 5rem;
         }
 
-        .arc-title {
+        .arc-head h2 {
             font-family: var(--display);
             font-weight: 400;
             font-size: 2.2rem;
-            letter-spacing: 0.18em;
+            letter-spacing: .22em;
             text-transform: uppercase;
-            color: #fff;
-            margin-top: 0.9rem;
+            color: var(--ink);
         }
 
-        .arc-hdr .lbl  { color: rgba(255,255,255,.38); }
-        .arc-hdr .alink { color: rgba(255,255,255,.42); }
-        .arc-hdr .alink:hover { color: var(--gold-lt); }
-
-        /* Mood-board grid: 6 cols, fixed row height */
         .masonry {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-auto-rows: 155px;
-            gap: 5px;
+            columns: 4;
+            column-gap: 14px;
         }
 
-        /* Rhythm: every 7th+1 and 7th+5 span 2 cols */
-        .masonry-item { overflow: hidden; background: #0b1120; position: relative; }
-        .masonry-item:nth-child(7n+1) { grid-column: span 2; }
-        .masonry-item:nth-child(7n+5) { grid-column: span 2; }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
 
         .masonry-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: saturate(.75) brightness(.90);
-            transition: filter .7s var(--ease);
+            height: auto;
             display: block;
+            filter: saturate(.88);
+            transition: filter .8s var(--ease);
         }
 
-        .masonry-item:hover img {
-            filter: saturate(1.02) brightness(1.08);
-        }
+        .masonry-item:hover img { filter: saturate(1.06); }
 
-        /* Gold border flash on hover */
-        .masonry-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid var(--gold);
-            opacity: 0;
-            transition: opacity .45s var(--ease);
-            pointer-events: none;
-        }
-        .masonry-item:hover::after { opacity: 0.30; }
-
-        /* ════════════════════════════════════════════════════════════════
-           ⑩ CONTACT  —  GOLD #b8944b
-           Prestige, warmth — invitation to act
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           CONTACT — GOLD BLOCK
+        ══════════════════════════════════════ */
         #contact {
-            background: var(--gold);
+            background: var(--gold-block);
             padding: 13rem 5%;
             text-align: center;
-            position: relative;
-            z-index: 2;
-            margin-bottom: -2px;
         }
 
-        .contact-lbl { color: rgba(255,255,255,.52); margin-bottom: 1.6rem; }
+        #contact .eye { color: rgba(255,255,255,.6); }
 
-        .contact-title {
+        .c-title {
             font-family: var(--display);
             font-weight: 400;
-            font-size: clamp(2.8rem, 5.8vw, 6.2rem);
-            letter-spacing: 0.07em;
+            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            letter-spacing: .08em;
             text-transform: uppercase;
             color: #fff;
-            line-height: 1.0;
-            margin-bottom: 1.9rem;
+            margin-bottom: 1.8rem;
         }
 
-        .contact-sub {
+        .c-sub {
             font-family: var(--serif);
             font-style: italic;
-            font-size: 1.1rem;
-            color: rgba(255,255,255,.74);
-            margin-bottom: 4.8rem;
+            font-size: 1.08rem;
+            color: rgba(255,255,255,.78);
+            margin-bottom: 4.5rem;
         }
 
-        .contact-btns {
+        .c-btns {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        /* ════════════════════════════════════════════════════════════════
-           ⑪ FOOTER  —  NAVY #060c20
-           3-column: brand | nav | connect
-           Closure, identity, navigation
-        ════════════════════════════════════════════════════════════════ */
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
         footer {
             background: var(--navy);
-            padding: 7rem 5% 4.5rem;
-            position: relative;
-            z-index: 1;
+            padding: 4rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        .foot-top {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr;
-            gap: 4.5rem;
-            padding-bottom: 5.5rem;
-            margin-bottom: 4rem;
-            border-bottom: 1px solid rgba(255,255,255,.07);
-        }
-
-        /* Brand */
-        .foot-logo img {
-            height: 36px;
+        .f-logo img {
+            height: 32px;
             filter: brightness(0) invert(1);
-            opacity: 0.30;
-            margin-bottom: 1.8rem;
+            opacity: .32;
         }
 
-        .foot-tagline {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 0.84rem;
-            color: rgba(255,255,255,.26);
-            max-width: 210px;
-            line-height: 1.8;
-        }
-
-        /* Nav column */
-        .foot-nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .foot-nav-ttl {
+        .f-copy {
             font-family: var(--sans);
-            font-size: 0.49rem;
-            letter-spacing: 0.46em;
+            font-size: 0.52rem;
+            letter-spacing: .28em;
             text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            display: block;
+            color: rgba(255,255,255,.28);
         }
 
-        .foot-nav a {
-            font-family: var(--sans);
-            font-size: 0.53rem;
-            font-weight: 300;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.32);
-            padding: 0.52rem 0;
-            transition: color .30s;
-        }
-        .foot-nav a:hover { color: rgba(255,255,255,.76); }
-
-        /* Contact column */
-        .foot-connect { text-align: right; }
-
-        .foot-connect-ttl {
-            font-family: var(--sans);
-            font-size: 0.49rem;
-            letter-spacing: 0.46em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            display: block;
+        /* ══════════════════════════════════════
+           SCROLL REVEAL
+        ══════════════════════════════════════ */
+        .rv {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .9s ease, transform .9s ease;
         }
 
-        .foot-connect a {
-            display: block;
-            font-family: var(--sans);
-            font-size: 0.53rem;
-            font-weight: 300;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.32);
-            padding: 0.52rem 0;
-            transition: color .30s;
-        }
-        .foot-connect a:hover { color: rgba(255,255,255,.76); }
-
-        /* Copyright bar */
-        .foot-btm {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .rv.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .foot-copy {
-            font-family: var(--sans);
-            font-size: 0.48rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.18);
-        }
-
-        /* ════════════════════════════════════════════════════════════════
+        /* ══════════════════════════════════════
            KEYFRAMES
-        ════════════════════════════════════════════════════════════════ */
-        @keyframes up {
-            from { opacity: 0; transform: translateY(22px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+        ══════════════════════════════════════ */
+        @keyframes up   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes drop { 0% { top: -100%; } 100% { top: 200%; } }
 
-        @keyframes sdrop {
-            0%   { top: -100%; }
-            100% { top:  200%; }
-        }
-
-        /* ════════════════════════════════════════════════════════════════
+        /* ══════════════════════════════════════
            RESPONSIVE
-        ════════════════════════════════════════════════════════════════ */
-        @media (max-width: 980px) {
-            #about,
-            #programs,
-            .feat-grid    { grid-template-columns: 1fr; }
-
-            .about-img,
-            .prog-img     { padding: 3.5rem 5%; justify-content: flex-start; }
-            .about-img img,
-            .prog-img img { max-width: 100%; }
-
-            /* Gallery: 3 cols on tablet, comfortable */
-            .masonry {
-                grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: 140px;
-                gap: 4px;
-            }
-            .masonry-item:nth-child(7n+1),
-            .masonry-item:nth-child(7n+5) { grid-column: span 1; }
-
-            .hdr-nav      { display: none; }
-
-            .foot-top {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .foot-tagline  { max-width: 100%; }
-            .foot-connect  { text-align: center; }
-            .foot-nav      { align-items: center; }
-
-            .arc-hdr,
-            .feat-hdr-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+        ══════════════════════════════════════ */
+        @media (max-width: 900px) {
+            #about, #programs { grid-template-columns: 1fr; }
+            .about-photo, .prog-photo { padding: 3rem 5%; }
+            .about-photo img, .prog-photo img { max-width: 100%; }
+            .masonry { columns: 2; }
+            .nav { display: none; }
+            footer { flex-direction: column; text-align: center; }
         }
 
-        @media (max-width: 640px) {
-            /* Gallery: 2 cols on mobile — spacious, elegant */
-            .masonry {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 120px;
-                gap: 4px;
-            }
-            .masonry-item:nth-child(7n+1),
-            .masonry-item:nth-child(7n+5) { grid-column: span 1; }
-        }
-
-        @media (max-width: 540px) {
-            .lbox { height: 32px; }
-            .hcn  { display: none; }
+        @media (max-width: 480px) {
+            .masonry { columns: 1; }
+            .lbox { height: 30px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════
-     HEADER
-══════════════════════════════════════════════════════ -->
+<!-- ══ HEADER ══ -->
 <header id="hdr">
-    <a href="#" class="hdr-logo">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
-             alt="Sonata Music Studio Logo">
-        <span class="hdr-name">Sonata Music Studio</span>
+    <a href="#" class="logo">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
+        <span class="logo-text">Sonata Music Studio</span>
     </a>
-    <nav class="hdr-nav">
+    <nav class="nav">
         <a href="#about">The Director</a>
         <a href="#programs">Curriculum</a>
         <a href="#philosophy">Philosophy</a>
@@ -1181,322 +695,155 @@
     </nav>
 </header>
 
-<!-- ══════════════════════════════════════════════════════
-     ① HERO  —  BLACK / CINEMATIC
-══════════════════════════════════════════════════════ -->
+<!-- ══ HERO ══ -->
 <section class="hero">
     <div class="lbox t"></div>
     <div class="lbox b"></div>
-
     <div class="hero-bg">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg"
-             alt="Sonata Music Studio">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt="Sonata Music Studio">
     </div>
     <div class="hero-vig"></div>
-
-    <!-- Yo-Yo Ma corner micro-details -->
-    <span class="hcn tl">Jakarta &nbsp;·&nbsp; Indonesia</span>
-    <span class="hcn tr">Est. 2024</span>
-    <span class="hcn bl">Excellence in Classical Performance</span>
-    <span class="hcn br">Felix Satia, Director</span>
-
     <div class="hero-body">
-        <span class="h-eye">The Art of Musical Excellence</span>
+        <span class="h-eye">Jakarta &nbsp;&middot;&nbsp; Indonesia &nbsp;&middot;&nbsp; Est. 2024</span>
         <h1 class="h-title">
             Sonata Music Studio
             <span class="h-sub">Where Artistry Is Cultivated</span>
         </h1>
-        <div class="h-vline"></div>
+        <div class="h-rule"></div>
         <a href="#about" class="h-cta">Explore the Studio</a>
     </div>
-
-    <div class="h-scroll">
-        <span class="h-scroll-lbl">Scroll</span>
-        <div class="scrl-bar"></div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="s-line"></div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ② ABOUT / DIRECTOR  —  BLUE
-══════════════════════════════════════════════════════ -->
+<!-- ══ ABOUT — BLUE ══ -->
 <section id="about">
     <div class="about-text">
-        <span class="lbl lbl-white rv" style="margin-bottom:1.7rem;">Artistic Vision</span>
-        <h2 class="dh about-title rv">Felix<br>Satia</h2>
-        <span class="about-rule rv"></span>
-        <p class="bp about-p rv">
+        <span class="eye">Artistic Vision</span>
+        <h2 class="a-title rv">Felix<br>Satia</h2>
+        <p class="a-p rv">
             Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu untuk menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.
         </p>
-        <p class="bp about-p rv">
-            Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi yang sesungguhnya.
+        <p class="a-p rv">
+            Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi.
         </p>
-        <a href="#archive" class="btn btn-w rv" style="margin-top:1rem; align-self:flex-start;">
-            View Artistic Journey
-        </a>
+        <a href="#archive" class="btn btn-w rv" style="margin-top:.8rem; align-self:flex-start;">View Artistic Journey</a>
     </div>
-    <div class="about-img">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg"
-             alt="Felix Satia — Director of Sonata Music Studio">
+    <div class="about-photo">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ③ PULL QUOTE  —  GREY (Yo-Yo Ma centrepiece)
-══════════════════════════════════════════════════════ -->
-<div id="pq">
+<!-- ══ PULL QUOTE — GREY ══ -->
+<div class="pq">
     <span class="pq-mark">&ldquo;</span>
-    <p class="pq-txt rv">
-        Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us to imagine a better future. Culture helps turn &lsquo;them&rsquo; into &lsquo;us.&rsquo; And these things have never been more important.
+    <p class="pq-text rv">
+        Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.
     </p>
-    <div class="pq-div"></div>
+    <div class="pq-rule"></div>
     <span class="pq-attr">Felix Satia &mdash; Sonata Music Studio</span>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     ④ FEATURED GRID  —  WHITE
-     Cards: Navy + Blue  (terra appears ONLY in section ⑥)
-     Images: 2 best HD photos from uploaded set
-══════════════════════════════════════════════════════ -->
-<div id="featured">
-    <div class="feat-hdr">
-        <div class="feat-hdr-inner">
-            <div>
-                <span class="lbl lbl-ink rv" style="margin-bottom:0.9rem;">Studio Pathway</span>
-                <h2 class="feat-hdr-title rv">Digital Grade Examination</h2>
-            </div>
-            <a href="#contact" class="alink alink-ink rv">Inquire Now</a>
-        </div>
-    </div>
-
-    <div class="feat-grid">
-
-        <!-- Row 1 Left: Best HD photo — teacher guiding student at grand piano -->
-        <div class="feat-photo">
-            <img src="studio-recording.png"
-                 alt="Professional piano instruction — Sonata Music Studio">
-        </div>
-
-        <!-- Row 1 Right: Navy card — ABRSM / Trinity Digital Exam -->
-        <div class="feat-card fc-navy">
-            <span class="lbl lbl-goldl rv" style="margin-bottom:1.5rem;">ABRSM &amp; Trinity</span>
-            <h3 class="feat-card-title rv">Digital<br>Grade Exams</h3>
-            <p class="feat-card-body rv">
-                Sonata Music Studio mempersiapkan siswa untuk ABRSM Digital Piano Grade dan Trinity College London. Ujian dilakukan melalui rekaman video yang dinilai langsung oleh examiner internasional — dari studio kami atau dari rumah Anda.
-            </p>
-            <a href="#contact" class="alink alink-gold rv">Learn More</a>
-        </div>
-
-        <!-- Row 2 Left: Blue card — Studio Recording Process -->
-        <div class="feat-card fc-blue">
-            <span class="lbl lbl-goldl rv" style="margin-bottom:1.5rem;">Recording Session</span>
-            <h3 class="feat-card-title rv">Studio<br>Recording</h3>
-            <p class="feat-card-body rv">
-                Rekaman ujian dilakukan di lingkungan studio yang tenang dan profesional. Setiap detail — akustik, posisi kamera, pencahayaan — dipersiapkan untuk memastikan rekaman yang memenuhi standar internasional ABRSM dan Trinity.
-            </p>
-            <a href="https://wa.me/6289656684852" class="alink alink-gold rv">Book a Session</a>
-        </div>
-
-        <!-- Row 2 Right: Best focused solo photo — girl at piano, clean white background -->
-        <div class="feat-photo">
-            <img src="digital-exam.jpg"
-                 alt="Student focused at piano — digital exam preparation">
-        </div>
-
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════
-     ⑤ TERRA QUOTE  —  TERRACOTTA (single use only)
-     Passionate full-width dramatic statement
-══════════════════════════════════════════════════════ -->
-<div id="tq">
-    <span class="tq-mark">&ldquo;</span>
-    <p class="tq-txt rv">
-        As musicians, we transcend technique in order to seek out the truths in our world &mdash; in a way that gives meaning and sustenance to individuals and communities. That is art for life&rsquo;s sake.
-    </p>
-    <div class="tq-div"></div>
-    <span class="tq-attr">Felix Satia &mdash; Sonata Music Studio</span>
-</div>
-
-<!-- ══════════════════════════════════════════════════════
-     ⑥ PROGRAMS / CURRICULUM  —  NAVY
-     (Not terra — distributes colour more evenly)
-══════════════════════════════════════════════════════ -->
+<!-- ══ PROGRAMS — TERRACOTTA ══ -->
 <section id="programs">
-    <div class="prog-img">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg"
-             alt="Teaching at Sonata Music Studio">
+    <div class="prog-photo">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching">
     </div>
     <div class="prog-text">
-        <span class="lbl lbl-white rv" style="margin-bottom:1.7rem;">The Curriculum</span>
-        <h2 class="dh prog-title rv">Core<br>Programs</h2>
-        <span class="prog-rule rv"></span>
-        <p class="bp prog-body rv">
-            Kami menawarkan jalur pendidikan yang terstruktur namun adaptif &mdash; dirancang untuk setiap tahap perjalanan musikal, dari pemula hingga tingkat kompetisi dan ujian internasional.
+        <span class="eye">The Curriculum</span>
+        <h2 class="p-title rv">Core<br>Programs</h2>
+        <p class="p-body rv">
+            Kami menawarkan jalur pendidikan yang terstruktur namun adaptif, dirancang untuk setiap tahap perjalanan musikal.
         </p>
-        <ul class="prog-list">
-            <li class="rv">
-                Piano Performance &mdash; Grade 1&ndash;8
-                <span class="badge">ABRSM</span>
-            </li>
-            <li class="rv">
-                Advanced Music Theory &amp; Harmony
-                <span class="badge">Theory</span>
-            </li>
-            <li class="rv">
-                ABRSM &amp; Trinity Exam Preparation
-                <span class="badge">Exam</span>
-            </li>
-            <li class="rv">
-                Digital Grade Recording &amp; Submission
-                <span class="badge">Digital</span>
-            </li>
-            <li class="rv">
-                Artistic Interpretation &amp; Expression
-                <span class="badge">Artistry</span>
-            </li>
+        <ul class="p-list">
+            <li class="rv">Piano Performance &mdash; Grade 1&ndash;8</li>
+            <li class="rv">Advanced Music Theory</li>
+            <li class="rv">ABRSM &amp; Trinity Exam Preparation</li>
+            <li class="rv">Artistic Interpretation</li>
         </ul>
-        <a href="https://wa.me/6289656684852" class="btn btn-w rv" style="align-self:flex-start;">
-            Enrolment Inquiry
-        </a>
+        <a href="https://wa.me/6289656684852" class="btn btn-w rv" style="align-self:flex-start;">Enrolment Inquiry</a>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ⑦ PHILOSOPHY  —  CHARCOAL #1c2333
-     (Distinct from navy — intellectual, gravitas)
-══════════════════════════════════════════════════════ -->
+<!-- ══ PHILOSOPHY — NAVY ══ -->
 <section id="philosophy">
-    <span class="lbl phil-lbl rv" style="display:block; text-align:center; margin-bottom:3.6rem;">
-        Our Philosophy
-    </span>
+    <span class="eye">Our Philosophy</span>
     <p class="phil-q rv">
-        &ldquo;Tradition, met with Modern Excellence. Every note a decision. Every silence, intentional. Every student, a world unto themselves.&rdquo;
+        &ldquo;Tradition, met with Modern Excellence. Every note a decision. Every silence, intentional.&rdquo;
     </p>
     <div class="phil-rule"></div>
     <p class="phil-body rv">
-        Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi yang mendalam. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas &mdash; di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi, dan setiap individu diperlakukan sebagai seniman yang sedang menemukan dirinya.
+        Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas — di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi.
     </p>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ⑧ GALLERY / ARCHIVE  —  NAVY (mading vibe)
-══════════════════════════════════════════════════════ -->
+<!-- ══ GALLERY ══ -->
 <section id="archive">
-    <div class="arc-hdr">
-        <div>
-            <span class="lbl rv" style="margin-bottom:0.9rem;">Visual Journey</span>
-            <h2 class="arc-title rv">The Studio Archive</h2>
-        </div>
-        <a href="#contact" class="alink rv" style="color:rgba(255,255,255,.42);">Contact Us</a>
+    <div class="arc-head">
+        <span class="eye">Visual Journey</span>
+        <h2>The Studio Archive</h2>
     </div>
-    <div class="masonry" id="masonry-grid"></div>
+    <div class="masonry" id="mg"></div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ⑨ CONTACT  —  GOLD
-══════════════════════════════════════════════════════ -->
+<!-- ══ CONTACT — GOLD ══ -->
 <section id="contact">
-    <span class="lbl contact-lbl rv">Inquiries</span>
-    <h2 class="contact-title rv">Begin Your<br>Journey</h2>
-    <p class="contact-sub rv">
-        Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.
-    </p>
-    <div class="contact-btns rv">
+    <span class="eye">Inquiries</span>
+    <h2 class="c-title rv">Begin Your Journey</h2>
+    <p class="c-sub rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
+    <div class="c-btns rv">
         <a href="https://wa.me/6289656684852" class="btn btn-w">WhatsApp Office</a>
-        <a href="https://instagram.com/felixsatia"  class="btn btn-w">Instagram</a>
+        <a href="https://instagram.com/felixsatia" class="btn btn-w">Instagram</a>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
-     ⑩ FOOTER  —  NAVY
-══════════════════════════════════════════════════════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
-    <div class="foot-top">
-
-        <!-- Brand -->
-        <div class="foot-brand">
-            <div class="foot-logo">
-                <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png"
-                     alt="Sonata Music Studio">
-            </div>
-            <p class="foot-tagline">
-                Excellence in classical artistry,<br>rooted in Jakarta.
-            </p>
-        </div>
-
-        <!-- Navigation -->
-        <div class="foot-nav">
-            <span class="foot-nav-ttl">Navigate</span>
-            <a href="#about">The Director</a>
-            <a href="#programs">Curriculum</a>
-            <a href="#philosophy">Philosophy</a>
-            <a href="#archive">Archive</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-        <!-- Connect -->
-        <div class="foot-connect">
-            <span class="foot-connect-ttl">Connect</span>
-            <a href="https://wa.me/6289656684852">WhatsApp</a>
-            <a href="https://instagram.com/felixsatia">Instagram</a>
-        </div>
-
+    <div class="f-logo">
+        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Logo">
     </div>
-    <div class="foot-btm">
-        <p class="foot-copy">Sonata Music Studio &copy; 2026 &mdash; Designed for Excellence</p>
-    </div>
+    <p class="f-copy">Sonata Music Studio &copy; 2026 &mdash; Designed for Excellence</p>
 </footer>
 
 <script>
-    /* ── Header scroll ── */
-    const hdr = document.getElementById('hdr');
-    window.addEventListener('scroll', () => {
-        hdr.classList.toggle('on', window.scrollY > 60);
-    }, { passive: true });
+/* ── Header scroll ── */
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 60), { passive: true });
 
-    /* ── Masonry gallery — mood-board grid, shuffled for visual variety ── */
-    const base = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
-    const imgs = [
-        '1728277097784.jpeg', '1728277959315.jpeg', '1728277994217.jpeg',
-        '1728278062357.jpeg', '1728278413639.jpeg', '1728278498612.jpeg',
-        '1728278535664.jpeg', '1728278743638.jpeg', '1728278972071.jpeg',
-        '1728279819431.jpeg', '1728294846403.jpeg', '1728294894368.jpeg',
-        '1728295139439.jpeg', '1728295173689.jpeg', '1728295202953.jpeg',
-        '1728295402904.jpeg', '1728295429712.jpeg', '1728296617350.jpeg',
-        '1728300782229.jpeg', '1728301815288.jpeg', '1728302182364.jpeg',
-        '1728302212548.jpeg', '1728303826998.jpeg', '1728311786057.jpeg',
-        '1728349078427.jpeg', '1728368821890.jpeg', '1728368987536.jpeg',
-        '1728450148208.jpeg', '1728450200661.jpeg', '1728450222173.jpeg',
-        '1728450251141.jpeg'
-    ];
+/* ── Gallery ── */
+const base = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
+const imgs = [
+    '1728277097784.jpeg','1728277959315.jpeg','1728277994217.jpeg','1728278062357.jpeg',
+    '1728278413639.jpeg','1728278498612.jpeg','1728278535664.jpeg','1728278743638.jpeg',
+    '1728278972071.jpeg','1728279819431.jpeg','1728294846403.jpeg','1728294894368.jpeg',
+    '1728295139439.jpeg','1728295173689.jpeg','1728295202953.jpeg','1728295402904.jpeg',
+    '1728295429712.jpeg','1728296617350.jpeg','1728300782229.jpeg','1728301815288.jpeg',
+    '1728302182364.jpeg','1728302212548.jpeg','1728303826998.jpeg','1728311786057.jpeg',
+    '1728349078427.jpeg','1728368821890.jpeg','1728368987536.jpeg','1728450148208.jpeg',
+    '1728450200661.jpeg','1728450222173.jpeg','1728450251141.jpeg'
+];
 
-    /* Shuffle for natural visual rhythm */
-    const shuffled = [...imgs].sort(() => Math.random() - 0.5);
+const mg = document.getElementById('mg');
+imgs.forEach(src => {
+    const d = document.createElement('div');
+    d.className = 'masonry-item';
+    d.innerHTML = `<img src="${base}${src}" loading="lazy" alt="Archive">`;
+    mg.appendChild(d);
+});
 
-    const grid = document.getElementById('masonry-grid');
-    shuffled.forEach(src => {
-        const w = document.createElement('div');
-        w.className = 'masonry-item';
-        const i = document.createElement('img');
-        i.src     = base + src;
-        i.loading = 'lazy';
-        i.alt     = 'Sonata Music Studio Archive';
-        w.appendChild(i);
-        grid.appendChild(w);
+/* ── Scroll reveal ── */
+const ro = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('show'), (i % 5) * 80);
+            ro.unobserve(e.target);
+        }
     });
+}, { threshold: 0.1 });
 
-    /* ── Scroll reveal — staggered per batch ── */
-    const ro = new IntersectionObserver((entries) => {
-        entries.forEach((e, idx) => {
-            if (e.isIntersecting) {
-                setTimeout(() => e.target.classList.add('in'), (idx % 6) * 72);
-                ro.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
-
-    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 </script>
 
 </body>
