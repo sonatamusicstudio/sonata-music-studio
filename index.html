@@ -9,34 +9,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* ══════════════════════════════════════
-           TOKENS
-        ══════════════════════════════════════ */
         :root {
-            --white:      #ffffff;
-            --off-white:  #f2f1ee;
-            --ink:        #060c20;
-            --gold:       #b8944b;
-            --gold-light: #d4af6a;
-            --blue:       #3b566f;
-            --terra:      #c44d2c;
-            --navy:       #060c20;
-            --grey-block: #d6d4cf;
-            --gold-block: #b8944b;
+            /* === PALETTE (from Andi Rianto / Magenta Orchestra poster) === */
+            --bg-void:      #08060f;   /* near-black with purple tint */
+            --bg-deep:      #100c1e;   /* deep purple-black */
+            --bg-mid:       #1a1230;   /* rich purple-navy */
+            --bg-panel:     #140f26;   /* section panels */
+            --bg-accent:    #1f1838;   /* lighter panel */
 
-            --serif:      'Libre Baskerville', Georgia, serif;
-            --display:    'Cormorant Garamond', Georgia, serif;
-            --sans:       'Montserrat', sans-serif;
-            --ease:       cubic-bezier(0.19, 1, 0.22, 1);
+            --magenta:      #c0286a;   /* hot magenta / hero accent */
+            --magenta-glow: #d93f80;   /* lighter magenta */
+            --magenta-soft: #e8729a;   /* muted magenta */
+            --magenta-dim:  rgba(192,40,106,.18);
+
+            --gold:         #c8a84b;   /* warm gold */
+            --gold-light:   #e2c878;   /* light gold */
+            --gold-dim:     rgba(200,168,75,.22);
+
+            --purple-hi:    #8b5cf6;   /* violet highlight */
+            --purple-mid:   #6d42c0;
+
+            --white:        #ffffff;
+            --off-white:    #f0ecf5;   /* warm white with purple tint */
+            --text-pri:     #f0ecf5;
+            --text-sec:     rgba(240,236,245,.65);
+            --text-dim:     rgba(240,236,245,.38);
+            --border-dim:   rgba(192,40,106,.22);
+            --border-gold:  rgba(200,168,75,.3);
+
+            --serif:   'Libre Baskerville', Georgia, serif;
+            --display: 'Cormorant Garamond', Georgia, serif;
+            --sans:    'Montserrat', sans-serif;
+            --ease:    cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        html { scroll-behavior: smooth; }
-        body { background: var(--white); color: var(--ink); font-family: var(--serif); overflow-x: hidden; line-height: 1.75; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+        html { scroll-behavior:smooth; }
+        body {
+            background: var(--bg-void);
+            color: var(--text-pri);
+            font-family: var(--serif);
+            overflow-x: hidden;
+            line-height: 1.75;
+        }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            HEADER
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         #hdr {
             position: fixed;
             inset: 0 0 auto 0;
@@ -51,9 +70,9 @@
 
         #hdr.on {
             height: 64px;
-            background: rgba(255,255,255,.97);
-            box-shadow: 0 1px 0 rgba(6,12,32,.07);
-            backdrop-filter: blur(20px);
+            background: rgba(8,6,15,.92);
+            box-shadow: 0 1px 0 rgba(192,40,106,.25);
+            backdrop-filter: blur(24px);
         }
 
         .logo {
@@ -70,8 +89,6 @@
             transition: filter .5s var(--ease);
         }
 
-        #hdr.on .logo img { filter: brightness(0); }
-
         .logo-text {
             font-family: var(--display);
             font-weight: 500;
@@ -83,12 +100,9 @@
             white-space: nowrap;
         }
 
-        #hdr.on .logo-text { color: var(--ink); }
-
         .nav {
             display: flex;
             align-items: center;
-            gap: 0;
         }
 
         .nav a {
@@ -98,22 +112,18 @@
             letter-spacing: 0.28em;
             text-transform: uppercase;
             text-decoration: none;
-            color: rgba(255,255,255,.72);
+            color: var(--text-dim);
             padding: 0 18px;
             transition: color .35s;
             white-space: nowrap;
         }
 
-        .nav a:hover { color: var(--gold-light); }
-        #hdr.on .nav a { color: rgba(6,12,32,.5); }
-        #hdr.on .nav a:hover { color: var(--gold); }
+        .nav a:hover { color: var(--magenta-soft); }
+        .nav a + a { border-left: 1px solid rgba(192,40,106,.18); }
 
-        .nav a + a { border-left: 1px solid rgba(255,255,255,.15); }
-        #hdr.on .nav a + a { border-left-color: rgba(6,12,32,.1); }
-
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            HERO
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         .hero {
             height: 100svh;
             min-height: 680px;
@@ -122,7 +132,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000;
+            background: var(--bg-void);
         }
 
         .hero-bg {
@@ -131,14 +141,13 @@
             z-index: 1;
         }
 
-        /* KEY FIX: object-position center top ensures face/subject is not cropped on mobile.
-           On mobile portrait the image is taller than wide so centering horizontally + top anchors subject. */
         .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 30%;
-            filter: brightness(.44) contrast(1.1);
+            /* desaturate then tint purple-magenta */
+            filter: brightness(.35) saturate(.6) hue-rotate(270deg) contrast(1.05);
             display: block;
         }
 
@@ -146,22 +155,49 @@
             position: absolute;
             left: 0; right: 0;
             height: 52px;
-            background: #000;
+            background: var(--bg-void);
             z-index: 4;
         }
         .lbox.t { top: 0; }
         .lbox.b { bottom: 0; }
 
+        /* Multi-layer vignette — concert stage lights */
         .hero-vig {
             position: absolute;
             inset: 0;
             z-index: 2;
             background:
-                radial-gradient(ellipse at 50% 45%, transparent 20%, rgba(6,12,32,.7) 100%),
-                linear-gradient(180deg, rgba(6,12,32,.2) 0%, transparent 28%, transparent 55%, rgba(6,12,32,.9) 100%);
+                radial-gradient(ellipse 120% 70% at 50% 55%, transparent 0%, rgba(8,6,15,.55) 60%, rgba(8,6,15,.92) 100%),
+                linear-gradient(180deg, rgba(8,6,15,.5) 0%, transparent 22%, transparent 52%, rgba(8,6,15,.95) 100%);
         }
 
-        /* Grand decorative frame lines — orchestra programme feel */
+        /* Magenta spotlight from top */
+        .hero-spot {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 700px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(192,40,106,.28) 0%, transparent 62%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Gold spotlight from bottom */
+        .hero-spot2 {
+            position: absolute;
+            bottom: -5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 400px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(200,168,75,.14) 0%, transparent 60%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Decorative corner brackets */
         .hero-frame {
             position: absolute;
             inset: 52px;
@@ -169,23 +205,13 @@
             pointer-events: none;
         }
 
-        .hero-frame::before,
-        .hero-frame::after {
+        .hero-frame::before {
             content: '';
             position: absolute;
-            border: 1px solid rgba(184,148,75,.28);
+            inset: 20px;
+            border: 1px solid rgba(192,40,106,.3);
         }
 
-        .hero-frame::before {
-            inset: 18px;
-        }
-
-        .hero-frame::after {
-            inset: 28px;
-            border-color: rgba(184,148,75,.12);
-        }
-
-        /* Corner ornaments */
         .hero-corners {
             position: absolute;
             inset: 52px;
@@ -197,15 +223,15 @@
             position: absolute;
             width: 32px;
             height: 32px;
-            border-color: var(--gold);
+            border-color: var(--magenta);
             border-style: solid;
-            opacity: .55;
+            opacity: .5;
         }
 
-        .hero-corners span:nth-child(1) { top: 22px; left: 22px; border-width: 1px 0 0 1px; }
-        .hero-corners span:nth-child(2) { top: 22px; right: 22px; border-width: 1px 1px 0 0; }
-        .hero-corners span:nth-child(3) { bottom: 22px; left: 22px; border-width: 0 0 1px 1px; }
-        .hero-corners span:nth-child(4) { bottom: 22px; right: 22px; border-width: 0 1px 1px 0; }
+        .hero-corners span:nth-child(1) { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+        .hero-corners span:nth-child(2) { top: 24px; right: 24px; border-width: 1px 1px 0 0; }
+        .hero-corners span:nth-child(3) { bottom: 24px; left: 24px; border-width: 0 0 1px 1px; }
+        .hero-corners span:nth-child(4) { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
 
         .hero-body {
             position: relative;
@@ -222,7 +248,7 @@
             font-weight: 300;
             letter-spacing: 0.6em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.48);
+            color: var(--text-dim);
             display: block;
             margin-bottom: 2.2rem;
             animation: up 1.4s var(--ease) .2s both;
@@ -236,7 +262,6 @@
             text-transform: uppercase;
             line-height: 1;
             color: #fff;
-            text-shadow: 0 4px 40px rgba(0,0,0,.5);
             animation: up 1.4s var(--ease) .45s both;
         }
 
@@ -248,12 +273,11 @@
             text-transform: none;
             font-size: clamp(1rem, 2.2vw, 1.6rem);
             letter-spacing: 0.04em;
-            color: var(--gold-light);
+            color: var(--magenta-soft);
             margin-top: 1rem;
             animation: up 1.4s var(--ease) .6s both;
         }
 
-        /* Ornamental rule — wider, with flanking lines */
         .h-rule {
             display: flex;
             align-items: center;
@@ -263,20 +287,18 @@
             animation: up 1.4s var(--ease) .75s both;
         }
 
-        .h-rule::before,
-        .h-rule::after {
+        .h-rule::before, .h-rule::after {
             content: '';
             width: 80px;
             height: 1px;
-            background: rgba(184,148,75,.4);
+            background: linear-gradient(90deg, transparent, rgba(192,40,106,.6), transparent);
         }
 
         .h-rule-diamond {
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
+            width: 6px; height: 6px;
+            background: var(--magenta);
             transform: rotate(45deg);
-            opacity: .7;
+            opacity: .9;
         }
 
         .h-cta {
@@ -284,7 +306,7 @@
             align-items: center;
             gap: 12px;
             padding: 1rem 3rem;
-            border: 1px solid rgba(255,255,255,.45);
+            border: 1px solid rgba(192,40,106,.55);
             color: #fff;
             font-family: var(--sans);
             font-size: 0.6rem;
@@ -292,11 +314,16 @@
             letter-spacing: 0.38em;
             text-transform: uppercase;
             text-decoration: none;
-            transition: background .45s var(--ease), letter-spacing .45s var(--ease);
+            background: rgba(192,40,106,.08);
+            transition: background .45s var(--ease), letter-spacing .45s var(--ease), border-color .45s;
             animation: up 1.4s var(--ease) .9s both;
         }
 
-        .h-cta:hover { background: rgba(255,255,255,.1); letter-spacing: .48em; }
+        .h-cta:hover {
+            background: rgba(192,40,106,.2);
+            border-color: rgba(192,40,106,.85);
+            letter-spacing: .48em;
+        }
 
         .hero-scroll {
             position: absolute;
@@ -316,13 +343,12 @@
             font-size: 0.48rem;
             letter-spacing: .5em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.35);
+            color: var(--text-dim);
         }
 
         .s-line {
-            width: 1px;
-            height: 36px;
-            background: rgba(255,255,255,.22);
+            width: 1px; height: 36px;
+            background: rgba(192,40,106,.22);
             position: relative;
             overflow: hidden;
         }
@@ -332,13 +358,13 @@
             position: absolute;
             top: -100%; left: 0;
             width: 100%; height: 100%;
-            background: rgba(255,255,255,.7);
+            background: var(--magenta-soft);
             animation: drop 2.2s ease-in-out infinite;
         }
 
-        /* ══════════════════════════════════════
-           SECTION LABEL
-        ══════════════════════════════════════ */
+        /* ═══════════════════════════════
+           EYEBROW
+        ═══════════════════════════════ */
         .eye {
             font-family: var(--sans);
             font-size: 0.56rem;
@@ -347,17 +373,17 @@
             text-transform: uppercase;
             display: block;
             margin-bottom: 1.4rem;
-            color: var(--gold);
+            color: var(--magenta-soft);
         }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            BUTTON
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         .btn {
             display: inline-flex;
             align-items: center;
             padding: 1rem 2.6rem;
-            border: 1px solid currentColor;
+            border: 1px solid;
             font-family: var(--sans);
             font-size: 0.6rem;
             font-weight: 300;
@@ -368,30 +394,50 @@
         }
 
         .btn:hover { letter-spacing: .4em; }
-        .btn-w { color: #fff; border-color: rgba(255,255,255,.45); }
-        .btn-w:hover { background: rgba(255,255,255,.1); }
 
-        /* ══════════════════════════════════════
-           ABOUT — BLUE
-        ══════════════════════════════════════ */
+        .btn-mg {
+            color: #fff;
+            border-color: rgba(192,40,106,.55);
+            background: rgba(192,40,106,.08);
+        }
+
+        .btn-mg:hover {
+            background: rgba(192,40,106,.22);
+            border-color: var(--magenta);
+        }
+
+        .btn-gold {
+            color: var(--gold-light);
+            border-color: rgba(200,168,75,.4);
+            background: rgba(200,168,75,.06);
+        }
+
+        .btn-gold:hover {
+            background: rgba(200,168,75,.15);
+            border-color: var(--gold);
+        }
+
+        /* ═══════════════════════════════
+           ABOUT — DEEP PURPLE / NAVY
+        ═══════════════════════════════ */
         #about {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: var(--blue);
+            background: var(--bg-deep);
             position: relative;
             z-index: 1;
             margin-bottom: -2px;
+            overflow: hidden;
         }
 
-        /* Subtle vertical score lines — orchestral manuscript feel */
+        /* Gradient band — like stage left lighting */
         #about::before {
             content: '';
             position: absolute;
-            top: 0; bottom: 0;
-            left: 50%;
-            width: 1px;
-            background: rgba(255,255,255,.07);
-            z-index: 0;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 100% at 100% 50%, rgba(192,40,106,.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 0% 100%, rgba(109,66,192,.1) 0%, transparent 55%);
             pointer-events: none;
         }
 
@@ -404,7 +450,7 @@
             z-index: 1;
         }
 
-        .about-text .eye { color: rgba(255,255,255,.45); }
+        .about-text .eye { color: var(--magenta-soft); }
 
         .a-title {
             font-family: var(--display);
@@ -420,7 +466,7 @@
         .a-p {
             font-family: var(--serif);
             font-size: 0.96rem;
-            color: rgba(255,255,255,.72);
+            color: var(--text-sec);
             margin-bottom: 1.6rem;
             max-width: 480px;
             line-height: 1.95;
@@ -431,7 +477,6 @@
             align-items: center;
             justify-content: center;
             padding: 4rem 5% 4rem 2%;
-            background: var(--blue);
             position: relative;
             z-index: 1;
         }
@@ -443,19 +488,21 @@
             display: block;
         }
 
-        /* ══════════════════════════════════════
-           PULL-QUOTE — GREY BLOCK  (Yo-Yo Ma)
-        ══════════════════════════════════════ */
+        /* ═══════════════════════════════
+           PULL-QUOTE — DARK MAGENTA PANEL
+        ═══════════════════════════════ */
         .pq {
-            background: var(--grey-block);
+            background: var(--bg-panel);
             padding: 10rem 5%;
             text-align: center;
             position: relative;
             z-index: 0;
             overflow: hidden;
+            border-top: 1px solid rgba(192,40,106,.2);
+            border-bottom: 1px solid rgba(192,40,106,.2);
         }
 
-        /* Large decorative staff lines — grand orchestral reference */
+        /* Staff lines */
         .pq::before {
             content: '';
             position: absolute;
@@ -465,9 +512,22 @@
                     180deg,
                     transparent,
                     transparent 28px,
-                    rgba(6,12,32,.045) 28px,
-                    rgba(6,12,32,.045) 29px
+                    rgba(192,40,106,.04) 28px,
+                    rgba(192,40,106,.04) 29px
                 );
+            pointer-events: none;
+        }
+
+        /* Glow orb behind quote */
+        .pq::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(192,40,106,.1) 0%, transparent 65%);
             pointer-events: none;
         }
 
@@ -475,10 +535,12 @@
             font-family: var(--display);
             font-size: 8rem;
             line-height: .5;
-            color: var(--blue);
-            opacity: .22;
+            color: var(--magenta);
+            opacity: .3;
             display: block;
             margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
         }
 
         .pq-text {
@@ -486,40 +548,53 @@
             font-weight: 700;
             font-size: clamp(1.7rem, 3vw, 2.8rem);
             line-height: 1.5;
-            color: var(--ink);
+            color: var(--text-pri);
             max-width: 860px;
             margin: 0 auto 3rem;
             position: relative;
+            z-index: 1;
         }
 
         .pq-rule {
-            width: 44px;
-            height: 1px;
-            background: var(--ink);
-            opacity: .28;
+            width: 44px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--magenta), transparent);
             margin: 0 auto 1.8rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Attribution — name + source clearly separated */
         .pq-attr {
             font-family: var(--sans);
             font-size: 0.57rem;
             letter-spacing: .44em;
             text-transform: uppercase;
-            color: var(--ink);
-            opacity: .48;
+            color: var(--text-sec);
+            position: relative;
+            z-index: 1;
         }
 
-        /* ══════════════════════════════════════
-           PROGRAMS — TERRACOTTA
-        ══════════════════════════════════════ */
+        /* ═══════════════════════════════
+           PROGRAMS — GRADIENT PANEL
+        ═══════════════════════════════ */
         #programs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: var(--terra);
             position: relative;
             z-index: 1;
             margin-bottom: -2px;
+            overflow: hidden;
+            /* gradient: deep to mid-purple */
+            background: linear-gradient(135deg, #0d0920 0%, #1a103a 50%, #0f0c22 100%);
+        }
+
+        #programs::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 0% 40%, rgba(192,40,106,.15) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 50% at 100% 10%, rgba(139,92,246,.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .prog-photo {
@@ -527,7 +602,8 @@
             align-items: center;
             justify-content: center;
             padding: 4rem 2% 4rem 5%;
-            background: var(--terra);
+            position: relative;
+            z-index: 1;
         }
 
         .prog-photo img {
@@ -542,9 +618,11 @@
             flex-direction: column;
             justify-content: center;
             padding: 8rem 7%;
+            position: relative;
+            z-index: 1;
         }
 
-        .prog-text .eye { color: rgba(255,255,255,.45); }
+        .prog-text .eye { color: var(--magenta-soft); }
 
         .p-title {
             font-family: var(--display);
@@ -560,7 +638,7 @@
         .p-body {
             font-family: var(--serif);
             font-size: 0.96rem;
-            color: rgba(255,255,255,.72);
+            color: var(--text-sec);
             max-width: 440px;
             line-height: 1.95;
             margin-bottom: 2.2rem;
@@ -577,29 +655,31 @@
             font-weight: 300;
             letter-spacing: .2em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.8);
+            color: var(--text-sec);
             padding: 1.1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,.15);
+            border-bottom: 1px solid rgba(192,40,106,.15);
             display: flex;
             align-items: center;
             gap: 14px;
+            transition: color .35s;
         }
 
-        .p-list li::before { content: '—'; color: rgba(255,255,255,.32); }
+        .p-list li:hover { color: var(--magenta-soft); }
+        .p-list li::before { content: '—'; color: var(--magenta); opacity: .55; }
 
-        /* ══════════════════════════════════════
-           PHILOSOPHY — NAVY
-        ══════════════════════════════════════ */
+        /* ═══════════════════════════════
+           PHILOSOPHY — NEAR-BLACK + GOLD
+        ═══════════════════════════════ */
         #philosophy {
-            background: var(--navy);
+            background: var(--bg-void);
             padding: 12rem 5%;
             text-align: center;
             position: relative;
             z-index: 0;
             overflow: hidden;
+            border-top: 1px solid var(--border-gold);
         }
 
-        /* Dramatic radial spotlight — grand concert hall feel */
         #philosophy::before {
             content: '';
             position: absolute;
@@ -607,8 +687,8 @@
             left: 50%;
             transform: translateX(-50%);
             width: 800px;
-            height: 800px;
-            background: radial-gradient(ellipse at center, rgba(184,148,75,.09) 0%, transparent 65%);
+            height: 700px;
+            background: radial-gradient(ellipse at center, rgba(200,168,75,.1) 0%, transparent 62%);
             pointer-events: none;
         }
 
@@ -619,7 +699,7 @@
             font-style: italic;
             font-weight: 300;
             font-size: clamp(2.2rem, 4vw, 4rem);
-            color: #fff;
+            color: var(--text-pri);
             max-width: 900px;
             margin: 0 auto 3rem;
             line-height: 1.45;
@@ -627,27 +707,27 @@
         }
 
         .phil-rule {
-            width: 46px;
-            height: 1px;
-            background: var(--gold);
+            width: 46px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin: 0 auto 2.8rem;
         }
 
         .phil-body {
             font-family: var(--serif);
             font-size: 1rem;
-            color: rgba(255,255,255,.55);
+            color: var(--text-sec);
             max-width: 640px;
             margin: 0 auto;
             line-height: 2;
         }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            GALLERY
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         #archive {
-            background: var(--off-white);
+            background: var(--bg-deep);
             padding: 9rem 4%;
+            border-top: 1px solid rgba(192,40,106,.2);
         }
 
         .arc-head {
@@ -661,7 +741,7 @@
             font-size: 2.2rem;
             letter-spacing: .22em;
             text-transform: uppercase;
-            color: var(--ink);
+            color: var(--text-pri);
         }
 
         .masonry {
@@ -673,39 +753,59 @@
             break-inside: avoid;
             margin-bottom: 14px;
             overflow: hidden;
+            position: relative;
         }
 
         .masonry-item img {
             width: 100%;
             height: auto;
             display: block;
-            filter: saturate(.88);
+            filter: saturate(.7) brightness(.85);
             transition: filter .8s var(--ease);
         }
 
-        .masonry-item:hover img { filter: saturate(1.06); }
+        .masonry-item:hover img {
+            filter: saturate(1) brightness(1);
+        }
 
-        /* ══════════════════════════════════════
-           CONTACT — GOLD
-        ══════════════════════════════════════ */
+        /* ═══════════════════════════════
+           CONTACT — GRADIENT MAGENTA-GOLD
+        ═══════════════════════════════ */
         #contact {
-            background: var(--gold-block);
+            background: linear-gradient(135deg, #1a0826 0%, #2d0d3f 35%, #1f0a2a 65%, #180820 100%);
             padding: 13rem 5%;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-top: 1px solid rgba(192,40,106,.3);
         }
 
-        /* Inner border frame — executive, like a concert programme cover */
+        /* Dual spotlight */
         #contact::before {
             content: '';
             position: absolute;
-            inset: 36px;
-            border: 1px solid rgba(255,255,255,.22);
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 800px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(192,40,106,.3) 0%, transparent 55%);
             pointer-events: none;
         }
 
-        #contact .eye { color: rgba(255,255,255,.6); }
+        #contact::after {
+            content: '';
+            position: absolute;
+            inset: 32px;
+            border: 1px solid rgba(192,40,106,.22);
+            pointer-events: none;
+        }
+
+        #contact .eye {
+            color: var(--magenta-soft);
+            position: relative;
+            z-index: 1;
+        }
 
         .c-title {
             font-family: var(--display);
@@ -716,15 +816,17 @@
             color: #fff;
             margin-bottom: 1.8rem;
             position: relative;
+            z-index: 1;
         }
 
         .c-sub {
             font-family: var(--serif);
             font-style: italic;
             font-size: 1.08rem;
-            color: rgba(255,255,255,.78);
+            color: var(--text-sec);
             margin-bottom: 4.5rem;
             position: relative;
+            z-index: 1;
         }
 
         .c-btns {
@@ -733,25 +835,27 @@
             gap: 20px;
             flex-wrap: wrap;
             position: relative;
+            z-index: 1;
         }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            FOOTER
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         footer {
-            background: var(--navy);
+            background: var(--bg-void);
             padding: 4rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1.5rem;
+            border-top: 1px solid rgba(192,40,106,.15);
         }
 
         .f-logo img {
             height: 32px;
             filter: brightness(0) invert(1);
-            opacity: .32;
+            opacity: .25;
         }
 
         .f-copy {
@@ -759,32 +863,29 @@
             font-size: 0.52rem;
             letter-spacing: .28em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.28);
+            color: var(--text-dim);
         }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            SCROLL REVEAL
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         .rv {
             opacity: 0;
             transform: translateY(26px);
             transition: opacity .9s ease, transform .9s ease;
         }
 
-        .rv.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .rv.show { opacity: 1; transform: translateY(0); }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            KEYFRAMES
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         @keyframes up   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes drop { 0% { top: -100%; } 100% { top: 200%; } }
 
-        /* ══════════════════════════════════════
+        /* ═══════════════════════════════
            RESPONSIVE
-        ══════════════════════════════════════ */
+        ═══════════════════════════════ */
         @media (max-width: 900px) {
             #about, #programs { grid-template-columns: 1fr; }
             .about-photo, .prog-photo { padding: 3rem 5%; }
@@ -792,16 +893,14 @@
             .masonry { columns: 2; }
             .nav { display: none; }
             footer { flex-direction: column; text-align: center; }
-            /* Corner ornaments smaller on mobile */
             .hero-corners span { width: 20px; height: 20px; }
-            #contact::before { inset: 16px; }
+            #contact::after { inset: 14px; }
         }
 
         @media (max-width: 480px) {
             .masonry { columns: 1; }
             .lbox { height: 30px; }
             .hero-frame::before { inset: 10px; }
-            .hero-frame::after { display: none; }
         }
     </style>
 </head>
@@ -830,7 +929,8 @@
         <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt="Sonata Music Studio">
     </div>
     <div class="hero-vig"></div>
-    <!-- Decorative frame -->
+    <div class="hero-spot"></div>
+    <div class="hero-spot2"></div>
     <div class="hero-frame"></div>
     <div class="hero-corners">
         <span></span><span></span><span></span><span></span>
@@ -850,7 +950,7 @@
     </div>
 </section>
 
-<!-- ══ ABOUT — BLUE ══ -->
+<!-- ══ ABOUT ══ -->
 <section id="about">
     <div class="about-text">
         <span class="eye">Artistic Vision</span>
@@ -861,25 +961,24 @@
         <p class="a-p rv">
             Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi.
         </p>
-        <a href="#archive" class="btn btn-w rv" style="margin-top:.8rem; align-self:flex-start;">View Artistic Journey</a>
+        <a href="#archive" class="btn btn-mg rv" style="margin-top:.8rem; align-self:flex-start;">View Artistic Journey</a>
     </div>
     <div class="about-photo">
         <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia">
     </div>
 </section>
 
-<!-- ══ PULL QUOTE — GREY  (Yo-Yo Ma) ══ -->
+<!-- ══ PULL QUOTE — Yo-Yo Ma ══ -->
 <div class="pq">
     <span class="pq-mark">&ldquo;</span>
     <p class="pq-text rv">
         Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.
     </p>
     <div class="pq-rule"></div>
-    <!-- FIXED: correctly attributed to Yo-Yo Ma -->
     <span class="pq-attr">Yo&#8209;Yo Ma &nbsp;&mdash;&nbsp; Cellist &amp; Cultural Ambassador</span>
 </div>
 
-<!-- ══ PROGRAMS — TERRACOTTA ══ -->
+<!-- ══ PROGRAMS ══ -->
 <section id="programs">
     <div class="prog-photo">
         <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Teaching">
@@ -896,11 +995,11 @@
             <li class="rv">ABRSM &amp; Trinity Exam Preparation</li>
             <li class="rv">Artistic Interpretation</li>
         </ul>
-        <a href="https://wa.me/6289656684852" class="btn btn-w rv" style="align-self:flex-start;">Enrolment Inquiry</a>
+        <a href="https://wa.me/6289656684852" class="btn btn-mg rv" style="align-self:flex-start;">Enrolment Inquiry</a>
     </div>
 </section>
 
-<!-- ══ PHILOSOPHY — NAVY ══ -->
+<!-- ══ PHILOSOPHY ══ -->
 <section id="philosophy">
     <span class="eye">Our Philosophy</span>
     <p class="phil-q rv">
@@ -921,14 +1020,14 @@
     <div class="masonry" id="mg"></div>
 </section>
 
-<!-- ══ CONTACT — GOLD ══ -->
+<!-- ══ CONTACT ══ -->
 <section id="contact">
     <span class="eye">Inquiries</span>
     <h2 class="c-title rv">Begin Your Journey</h2>
     <p class="c-sub rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
     <div class="c-btns rv">
-        <a href="https://wa.me/6289656684852" class="btn btn-w">WhatsApp Office</a>
-        <a href="https://instagram.com/felixsatia" class="btn btn-w">Instagram</a>
+        <a href="https://wa.me/6289656684852" class="btn btn-mg">WhatsApp Office</a>
+        <a href="https://instagram.com/felixsatia" class="btn btn-gold">Instagram</a>
     </div>
 </section>
 
@@ -941,11 +1040,9 @@
 </footer>
 
 <script>
-/* ── Header scroll ── */
 const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 60), { passive: true });
 
-/* ── Gallery ── */
 const base = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
 const imgs = [
     '1728277097784.jpeg','1728277959315.jpeg','1728277994217.jpeg','1728278062357.jpeg',
@@ -966,7 +1063,6 @@ imgs.forEach(src => {
     mg.appendChild(d);
 });
 
-/* ── Scroll reveal ── */
 const ro = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
         if (e.isIntersecting) {
