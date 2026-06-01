@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonata Music Studio | Excellence in Artistry</title>
 
-    <!-- Fonts: Libre Baskerville (body/quotes, condensed feel), Cormorant Garamond (display — more condensed than Cinzel), Montserrat (sans nav/labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 
@@ -36,7 +35,7 @@
         body { background: var(--white); color: var(--ink); font-family: var(--serif); overflow-x: hidden; line-height: 1.75; }
 
         /* ══════════════════════════════════════
-           HEADER  — single tight row
+           HEADER
         ══════════════════════════════════════ */
         #hdr {
             position: fixed;
@@ -57,7 +56,6 @@
             backdrop-filter: blur(20px);
         }
 
-        /* Logo */
         .logo {
             display: flex;
             align-items: center;
@@ -87,7 +85,6 @@
 
         #hdr.on .logo-text { color: var(--ink); }
 
-        /* Nav — compact, all on one line */
         .nav {
             display: flex;
             align-items: center;
@@ -111,15 +108,14 @@
         #hdr.on .nav a { color: rgba(6,12,32,.5); }
         #hdr.on .nav a:hover { color: var(--gold); }
 
-        /* Thin vertical dividers between nav items */
         .nav a + a { border-left: 1px solid rgba(255,255,255,.15); }
         #hdr.on .nav a + a { border-left-color: rgba(6,12,32,.1); }
 
         /* ══════════════════════════════════════
-           HERO — full cinematic
+           HERO
         ══════════════════════════════════════ */
         .hero {
-            height: 100vh;
+            height: 100svh;
             min-height: 680px;
             position: relative;
             display: flex;
@@ -135,16 +131,17 @@
             z-index: 1;
         }
 
+        /* KEY FIX: object-position center top ensures face/subject is not cropped on mobile.
+           On mobile portrait the image is taller than wide so centering horizontally + top anchors subject. */
         .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center 30%;
             filter: brightness(.44) contrast(1.1);
             display: block;
         }
 
-        /* Letterbox */
         .lbox {
             position: absolute;
             left: 0; right: 0;
@@ -163,6 +160,52 @@
                 radial-gradient(ellipse at 50% 45%, transparent 20%, rgba(6,12,32,.7) 100%),
                 linear-gradient(180deg, rgba(6,12,32,.2) 0%, transparent 28%, transparent 55%, rgba(6,12,32,.9) 100%);
         }
+
+        /* Grand decorative frame lines — orchestra programme feel */
+        .hero-frame {
+            position: absolute;
+            inset: 52px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .hero-frame::before,
+        .hero-frame::after {
+            content: '';
+            position: absolute;
+            border: 1px solid rgba(184,148,75,.28);
+        }
+
+        .hero-frame::before {
+            inset: 18px;
+        }
+
+        .hero-frame::after {
+            inset: 28px;
+            border-color: rgba(184,148,75,.12);
+        }
+
+        /* Corner ornaments */
+        .hero-corners {
+            position: absolute;
+            inset: 52px;
+            z-index: 6;
+            pointer-events: none;
+        }
+
+        .hero-corners span {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-color: var(--gold);
+            border-style: solid;
+            opacity: .55;
+        }
+
+        .hero-corners span:nth-child(1) { top: 22px; left: 22px; border-width: 1px 0 0 1px; }
+        .hero-corners span:nth-child(2) { top: 22px; right: 22px; border-width: 1px 1px 0 0; }
+        .hero-corners span:nth-child(3) { bottom: 22px; left: 22px; border-width: 0 0 1px 1px; }
+        .hero-corners span:nth-child(4) { bottom: 22px; right: 22px; border-width: 0 1px 1px 0; }
 
         .hero-body {
             position: relative;
@@ -210,12 +253,30 @@
             animation: up 1.4s var(--ease) .6s both;
         }
 
+        /* Ornamental rule — wider, with flanking lines */
         .h-rule {
-            width: 1px;
-            height: 52px;
-            background: rgba(255,255,255,.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
             margin: 2.8rem auto;
             animation: up 1.4s var(--ease) .75s both;
+        }
+
+        .h-rule::before,
+        .h-rule::after {
+            content: '';
+            width: 80px;
+            height: 1px;
+            background: rgba(184,148,75,.4);
+        }
+
+        .h-rule-diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            opacity: .7;
         }
 
         .h-cta {
@@ -276,7 +337,7 @@
         }
 
         /* ══════════════════════════════════════
-           SECTION LABEL (eyebrow)
+           SECTION LABEL
         ══════════════════════════════════════ */
         .eye {
             font-family: var(--sans);
@@ -311,8 +372,7 @@
         .btn-w:hover { background: rgba(255,255,255,.1); }
 
         /* ══════════════════════════════════════
-           ABOUT — BLUE  |  two-column: text | photo
-           Photo: natural size, vertically centred, NO crop
+           ABOUT — BLUE
         ══════════════════════════════════════ */
         #about {
             display: grid;
@@ -323,11 +383,25 @@
             margin-bottom: -2px;
         }
 
+        /* Subtle vertical score lines — orchestral manuscript feel */
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: rgba(255,255,255,.07);
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .about-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 8rem 7%;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text .eye { color: rgba(255,255,255,.45); }
@@ -352,13 +426,14 @@
             line-height: 1.95;
         }
 
-        /* Photo column — centred, natural proportions, zero distortion */
         .about-photo {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 4rem 5% 4rem 2%;
             background: var(--blue);
+            position: relative;
+            z-index: 1;
         }
 
         .about-photo img {
@@ -369,7 +444,7 @@
         }
 
         /* ══════════════════════════════════════
-           PULL-QUOTE — GREY BLOCK (Yo-Yo Ma style)
+           PULL-QUOTE — GREY BLOCK  (Yo-Yo Ma)
         ══════════════════════════════════════ */
         .pq {
             background: var(--grey-block);
@@ -377,6 +452,23 @@
             text-align: center;
             position: relative;
             z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Large decorative staff lines — grand orchestral reference */
+        .pq::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(
+                    180deg,
+                    transparent,
+                    transparent 28px,
+                    rgba(6,12,32,.045) 28px,
+                    rgba(6,12,32,.045) 29px
+                );
+            pointer-events: none;
         }
 
         .pq-mark {
@@ -397,6 +489,7 @@
             color: var(--ink);
             max-width: 860px;
             margin: 0 auto 3rem;
+            position: relative;
         }
 
         .pq-rule {
@@ -407,6 +500,7 @@
             margin: 0 auto 1.8rem;
         }
 
+        /* Attribution — name + source clearly separated */
         .pq-attr {
             font-family: var(--sans);
             font-size: 0.57rem;
@@ -417,7 +511,7 @@
         }
 
         /* ══════════════════════════════════════
-           PROGRAMS — TERRACOTTA  |  photo | text
+           PROGRAMS — TERRACOTTA
         ══════════════════════════════════════ */
         #programs {
             display: grid;
@@ -428,7 +522,6 @@
             margin-bottom: -2px;
         }
 
-        /* Photo column — centred, natural proportions */
         .prog-photo {
             display: flex;
             align-items: center;
@@ -495,7 +588,7 @@
         .p-list li::before { content: '—'; color: rgba(255,255,255,.32); }
 
         /* ══════════════════════════════════════
-           PHILOSOPHY — NAVY QUOTE BLOCK
+           PHILOSOPHY — NAVY
         ══════════════════════════════════════ */
         #philosophy {
             background: var(--navy);
@@ -503,6 +596,20 @@
             text-align: center;
             position: relative;
             z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Dramatic radial spotlight — grand concert hall feel */
+        #philosophy::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse at center, rgba(184,148,75,.09) 0%, transparent 65%);
+            pointer-events: none;
         }
 
         #philosophy .eye { color: var(--gold-light); margin-bottom: 3rem; }
@@ -516,6 +623,7 @@
             max-width: 900px;
             margin: 0 auto 3rem;
             line-height: 1.45;
+            position: relative;
         }
 
         .phil-rule {
@@ -535,7 +643,7 @@
         }
 
         /* ══════════════════════════════════════
-           GALLERY — masonry, no crop, no zoom
+           GALLERY
         ══════════════════════════════════════ */
         #archive {
             background: var(--off-white);
@@ -578,12 +686,23 @@
         .masonry-item:hover img { filter: saturate(1.06); }
 
         /* ══════════════════════════════════════
-           CONTACT — GOLD BLOCK
+           CONTACT — GOLD
         ══════════════════════════════════════ */
         #contact {
             background: var(--gold-block);
             padding: 13rem 5%;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Inner border frame — executive, like a concert programme cover */
+        #contact::before {
+            content: '';
+            position: absolute;
+            inset: 36px;
+            border: 1px solid rgba(255,255,255,.22);
+            pointer-events: none;
         }
 
         #contact .eye { color: rgba(255,255,255,.6); }
@@ -596,6 +715,7 @@
             text-transform: uppercase;
             color: #fff;
             margin-bottom: 1.8rem;
+            position: relative;
         }
 
         .c-sub {
@@ -604,6 +724,7 @@
             font-size: 1.08rem;
             color: rgba(255,255,255,.78);
             margin-bottom: 4.5rem;
+            position: relative;
         }
 
         .c-btns {
@@ -611,6 +732,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            position: relative;
         }
 
         /* ══════════════════════════════════════
@@ -670,11 +792,16 @@
             .masonry { columns: 2; }
             .nav { display: none; }
             footer { flex-direction: column; text-align: center; }
+            /* Corner ornaments smaller on mobile */
+            .hero-corners span { width: 20px; height: 20px; }
+            #contact::before { inset: 16px; }
         }
 
         @media (max-width: 480px) {
             .masonry { columns: 1; }
             .lbox { height: 30px; }
+            .hero-frame::before { inset: 10px; }
+            .hero-frame::after { display: none; }
         }
     </style>
 </head>
@@ -703,13 +830,18 @@
         <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt="Sonata Music Studio">
     </div>
     <div class="hero-vig"></div>
+    <!-- Decorative frame -->
+    <div class="hero-frame"></div>
+    <div class="hero-corners">
+        <span></span><span></span><span></span><span></span>
+    </div>
     <div class="hero-body">
         <span class="h-eye">Jakarta &nbsp;&middot;&nbsp; Indonesia &nbsp;&middot;&nbsp; Est. 2024</span>
         <h1 class="h-title">
             Sonata Music Studio
             <span class="h-sub">Where Artistry Is Cultivated</span>
         </h1>
-        <div class="h-rule"></div>
+        <div class="h-rule"><div class="h-rule-diamond"></div></div>
         <a href="#about" class="h-cta">Explore the Studio</a>
     </div>
     <div class="hero-scroll">
@@ -736,14 +868,15 @@
     </div>
 </section>
 
-<!-- ══ PULL QUOTE — GREY ══ -->
+<!-- ══ PULL QUOTE — GREY  (Yo-Yo Ma) ══ -->
 <div class="pq">
     <span class="pq-mark">&ldquo;</span>
     <p class="pq-text rv">
         Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.
     </p>
     <div class="pq-rule"></div>
-    <span class="pq-attr">Felix Satia &mdash; Sonata Music Studio</span>
+    <!-- FIXED: correctly attributed to Yo-Yo Ma -->
+    <span class="pq-attr">Yo&#8209;Yo Ma &nbsp;&mdash;&nbsp; Cellist &amp; Cultural Ambassador</span>
 </div>
 
 <!-- ══ PROGRAMS — TERRACOTTA ══ -->
