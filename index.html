@@ -3,264 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonata Music Studio | Excellence in Artistry</title>
+<title>Sonata Music Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--obs:#04081A;--navy:#0E1B4A;--peri:#D4DEF5;--ivory:#ECE9E1;--gold:#CFB17F;--gold-h:#E4CE97;--bronze:#9C7F52;
---serif:'Libre Baskerville',Georgia,serif;--ui:'Montserrat',Arial,sans-serif;--ease:cubic-bezier(.19,1,.22,1)}
+/* Ma + Rasio Emas (1 : 1.618). Skala ruang: 1 / 1.618 / 2.618 / 4.236 / 6.854 / 11.09 rem */
+:root{
+--bone:#EAE3D5;--alabaster:#F2EDE2;--paper:#E3DBCA;
+--umber:#4B3B2C;--umber-2:#6E5A46;--umber-3:#9A8670;--line:rgba(75,59,44,.2);
+--gold:#C9A24B;
+--s1:1rem;--s2:1.618rem;--s3:2.618rem;--s4:4.236rem;--s5:6.854rem;--s6:11.09rem;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter','Helvetica Neue',Arial,sans-serif;
+--ease:cubic-bezier(.19,1,.22,1)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
-html{scroll-behavior:smooth}
-body{background:var(--obs);color:var(--ivory);font-family:var(--serif);line-height:1.9;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--bone);color:var(--umber);font:300 1rem/1.85 var(--sans);overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+/* tekstur kertas: butiran halus + serat lembut */
+body::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .36 0 0 0 0 .26 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 90% 70% at 30% 20%,var(--alabaster),var(--bone) 70%)}
 
-/* ===== LATAR TETAP: sutera, anggrek, kabut hutan, kunang-kunang ===== */
-#world{position:fixed;inset:0;z-index:-1;background:var(--obs);overflow:hidden}
-.silk{position:absolute;inset:-8%;background:url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/6e4b6c91-16e3-4c17-bd58-c32bdd9b2cdc%20(2).png') center/cover;filter:brightness(.8) saturate(.95);animation:drift 46s ease-in-out infinite alternate;will-change:transform}
-.silk.b{background-image:url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/InShot_20250926_190853439.jpg');mix-blend-mode:screen;opacity:.5;animation:drift2 62s ease-in-out infinite alternate}
-@keyframes drift{from{transform:translate3d(-2.5%,1%,0) scale(1.06) rotate(-.4deg)}to{transform:translate3d(2.5%,-1.5%,0) scale(1.14) rotate(.4deg)}}
-@keyframes drift2{from{transform:translate3d(3%,-1%,0) scale(1.14) scaleX(-1)}to{transform:translate3d(-3%,2%,0) scale(1.06) scaleX(-1)}}
-.sheen{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(150,170,255,.10) 48%,rgba(228,206,151,.07) 52%,transparent 65%);background-size:260% 100%;animation:sheen 28s linear infinite;mix-blend-mode:screen}
-@keyframes sheen{from{background-position:120% 0}to{background-position:-120% 0}}
-.mist{position:absolute;inset:0;background:
- radial-gradient(ellipse 80% 40% at 50% 108%,rgba(20,70,70,.5),transparent 70%),
- radial-gradient(ellipse 50% 50% at 8% 90%,rgba(16,60,52,.35),transparent 70%),
- radial-gradient(ellipse 120% 90% at 50% 45%,transparent 45%,rgba(2,4,14,.88) 100%)}
-.orc{position:absolute;height:92vh;opacity:0;mix-blend-mode:screen;transition:opacity 2.4s ease;pointer-events:none}
-.orc.on{opacity:.5}
-.orc img{height:100%;width:auto;filter:saturate(.7) brightness(.78) contrast(1.08);-webkit-mask-image:radial-gradient(ellipse 58% 56% at 50% 50%,#000 38%,transparent 78%);mask-image:radial-gradient(ellipse 58% 56% at 50% 50%,#000 38%,transparent 78%);animation:float 24s ease-in-out infinite alternate}
-.orc.r{right:-6%;top:6vh}.orc.l{left:-6%;top:6vh}
-@keyframes float{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-18px) rotate(1deg)}}
-#ff{position:absolute;inset:0;width:100%;height:100%}
-.grain{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{padding-inline:clamp(1.5rem,8.5vw,var(--s5))}
+.serif{font-family:var(--serif)}
+.label{font:400 .7rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--umber-2)}
+.gold-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:.9rem;vertical-align:middle}
+.hair{height:1px;background:var(--line);border:0}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease)}
+.rv.in{opacity:1;transform:none}
 
-/* ===== HEADER ===== */
-#hdr{position:fixed;inset:0 0 auto;z-index:60;height:80px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;transition:height .5s var(--ease),background .5s,box-shadow .5s}
-#hdr.scrolled{height:64px;background:rgba(4,8,26,.78);box-shadow:0 1px 0 rgba(207,177,127,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.logo-img{height:36px;filter:brightness(0) invert(1)}
-.logo-name{display:block;font:600 .8rem/1 var(--ui);letter-spacing:.26em;text-transform:uppercase}
-.logo-sub{display:block;margin-top:5px;font:400 .6rem/1 var(--ui);letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
-.nav{display:flex;gap:34px}
-.nav a{font:400 .72rem var(--ui);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:rgba(236,233,225,.78);transition:color .3s}
-.nav a:hover{color:var(--gold)}
-.burger{display:none;position:relative;z-index:70;width:44px;height:44px;background:none;border:0;cursor:pointer}
-.burger span{display:block;width:24px;height:1px;background:var(--ivory);margin:7px auto}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;height:4.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .6s,box-shadow .6s}
+header.s{background:rgba(234,227,213,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+.brand img{height:26px;filter:brightness(0) opacity(.7)}
+.brand span{font:500 .68rem var(--sans);letter-spacing:.3em;text-transform:uppercase}
+nav{display:flex;gap:var(--s3)}
+nav a{font:400 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--umber-2);position:relative;padding:.4rem 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .7s var(--ease)}
+nav a:hover{color:var(--umber)}nav a:hover::after{width:100%}
+.burger{display:none;width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative;z-index:60}
+.burger i{display:block;width:22px;height:1px;background:var(--umber);margin:6px auto}
 
-.btn{display:inline-flex;align-items:center;padding:1.15rem 2.5rem;font:600 .72rem var(--ui);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .3s,transform .3s,border-color .3s}
-.btn-gold{background:var(--gold);color:var(--obs)}.btn-gold:hover{background:var(--gold-h);transform:translateY(-2px)}
-.btn-ghost{border:1px solid rgba(236,233,225,.45);color:var(--ivory)}.btn-ghost:hover{border-color:var(--ivory);background:rgba(236,233,225,.08)}
+/* tombol: umber pekat, emas hanya garis kecil */
+.btn{display:inline-block;font:500 .7rem var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:1.1rem 2.4rem;background:var(--umber);color:var(--alabaster);position:relative;transition:background .5s}
+.btn::after{content:"";position:absolute;left:2.4rem;right:2.4rem;bottom:.7rem;height:1px;background:var(--gold);transform:scaleX(.18);transform-origin:left;transition:transform .8s var(--ease)}
+.btn:hover{background:#3a2d21}.btn:hover::after{transform:none}
+.link{font:400 .7rem var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.4rem;transition:border-color .5s}
+.link:hover{border-color:var(--gold)}
 
-/* ===== HERO: satu momen pembuka ===== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 7% 110px;overflow:hidden}
-.hero-photo{position:absolute;inset:0;-webkit-mask-image:linear-gradient(90deg,transparent 28%,#000 72%);mask-image:linear-gradient(90deg,transparent 28%,#000 72%)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:68% 24%;filter:brightness(.78) saturate(.8) contrast(1.06)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,8,26,.5),transparent 28%,transparent 70%,rgba(4,8,26,.85))}
-.hero-content{position:relative;z-index:3;max-width:660px;animation:rise 2s var(--ease) both}
-@keyframes rise{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.hero-tag{display:block;font:400 .72rem var(--ui);letter-spacing:.38em;text-transform:uppercase;color:rgba(236,233,225,.78);margin-bottom:1.8rem}
-.hero-title{font-weight:400;font-size:clamp(2.6rem,5.6vw,5.2rem);line-height:1.1;letter-spacing:.02em;color:#fff;text-shadow:0 4px 40px rgba(4,8,26,.8)}
-.hero-subtitle{display:block;margin-top:1.1rem;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.5rem);color:var(--peri)}
-.hero-rule{width:48px;height:1px;background:var(--gold);margin:2.2rem 0}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+/* hero: 61.8 / 38.2 */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s4);align-items:end;padding-top:7rem;padding-bottom:var(--s4)}
+.hero-copy{padding-bottom:var(--s3)}
+.hero h1{font:300 clamp(3.4rem,9.2vw,9rem)/.95 var(--serif);letter-spacing:-.015em;margin:var(--s3) 0 var(--s2)}
+.hero h1 em{display:block;font-style:italic;font-weight:300;color:var(--umber-2);font-size:.4em;letter-spacing:0;margin-top:var(--s2);line-height:1.2}
+.hero-meta{display:flex;gap:var(--s3);align-items:center;margin-top:var(--s4)}
+.plate{position:relative;aspect-ratio:1/1.618;overflow:hidden;background:var(--paper)}
+.plate img{width:100%;height:100%;object-fit:cover;object-position:60% 25%;filter:sepia(.2) saturate(.8) contrast(.94) brightness(.97)}
+.hero .plate{margin-bottom:var(--s2);clip-path:inset(0 0 100% 0);animation:unveil 2.2s var(--ease) .3s forwards}
+.hero .plate img{transform:scale(1.12);animation:settle 3.2s var(--ease) .3s forwards}
+@keyframes unveil{to{clip-path:inset(0)}}@keyframes settle{to{transform:scale(1)}}
+.cap{display:block;margin-top:var(--s1);font:400 .66rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--umber-3)}
 
-/* ===== SEKSI: semuanya tembus pandang di atas latar ===== */
-section,.pq{position:relative;padding:clamp(6rem,12vw,11rem) 7%}
-.fade-top{background:linear-gradient(180deg,rgba(4,8,26,.55),rgba(4,8,26,.25))}
-.eyebrow{display:block;font:500 .72rem var(--ui);letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
-.rule{display:block;width:0;height:1px;background:var(--gold);margin-bottom:1.8rem;transition:width 1.2s var(--ease)}
-.rule.visible{width:48px}.rule.c{margin-left:auto;margin-right:auto}
-h2{font-weight:400;line-height:1.1;letter-spacing:.025em;color:#fff;text-shadow:0 3px 30px rgba(4,8,26,.8)}
-.xl{font-size:clamp(3.2rem,6.6vw,5.8rem);margin-bottom:2rem}.lg{font-size:clamp(2.4rem,4.4vw,3.8rem);margin-bottom:1.8rem}.md{font-size:clamp(1.9rem,3.2vw,2.8rem)}
-.body-p{max-width:500px;margin-bottom:1.4rem;color:rgba(236,233,225,.86);text-shadow:0 2px 20px rgba(4,8,26,.9)}
-.rv{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.rv.visible{opacity:1;transform:none}
-.split{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:clamp(2rem,6vw,6rem)}
-.split.rev{grid-template-columns:1.15fr 1fr}
-.col{display:flex;flex-direction:column;align-items:flex-start}
-.ph{display:flex;justify-content:center}
-.frame{position:relative;width:100%;max-width:500px}
-.frame::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid rgba(207,177,127,.55)}
-.frame img{position:relative;width:100%;box-shadow:0 40px 90px -30px #000;filter:brightness(.92) saturate(.9)}
+/* seksi */
+.sec{padding-block:var(--s6)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--s2)}
+h2{font:300 clamp(2.6rem,5.2vw,4.236rem)/1.05 var(--serif);letter-spacing:-.01em;margin:var(--s2) 0 var(--s3)}
+p.b{max-width:34rem;color:var(--umber-2);margin-bottom:var(--s2)}
 
-.pq{text-align:center;background:linear-gradient(180deg,transparent,rgba(4,8,26,.5) 30%,rgba(4,8,26,.5) 70%,transparent)}
-.pq-mark{display:block;font-size:6rem;line-height:.5;color:var(--gold);margin-bottom:2.6rem}
-.pq-text{max-width:820px;margin:0 auto 2.4rem;font-style:italic;font-size:clamp(1.3rem,2.5vw,2.1rem);line-height:1.7;text-shadow:0 2px 28px #000}
-.pq-by{font:500 .72rem var(--ui);letter-spacing:.3em;text-transform:uppercase;color:rgba(212,222,245,.85)}
-.pq-div{width:48px;height:1px;background:var(--gold);margin:0 auto 1.6rem}
+#about .txt{grid-column:6/13;grid-row:1}
+#about .plate{grid-column:2/6;grid-row:1;align-self:start}
+#about .btnrow{margin-top:var(--s3)}
 
-.prog{list-style:none;margin:.6rem 0 2.8rem;width:100%;max-width:520px}
-.prog li{padding:1.05rem 0 1.05rem 18px;border-top:1px solid rgba(236,233,225,.2);font:400 .76rem var(--ui);letter-spacing:.16em;text-transform:uppercase;position:relative;transition:color .3s,padding-left .4s var(--ease)}
-.prog li:last-child{border-bottom:1px solid rgba(236,233,225,.2)}
-.prog li::before{content:"";position:absolute;left:0;top:50%;width:3px;height:14px;margin-top:-7px;background:var(--gold)}
-.prog li:hover{padding-left:28px;color:var(--gold-h)}
+.pq{padding-block:var(--s5)}
+.pq blockquote{grid-column:3/12;font:300 italic clamp(1.7rem,3.6vw,3rem)/1.4 var(--serif);letter-spacing:-.005em}
+.pq cite{grid-column:3/12;display:block;margin-top:var(--s3);font-style:normal}
 
-#philosophy{text-align:center;padding-block:clamp(9rem,17vw,15rem)}
-.phil-quote{max-width:860px;margin:0 auto 2.6rem;font-style:italic;font-size:clamp(1.7rem,3.4vw,3rem);line-height:1.5;text-shadow:0 2px 34px #000}
-.phil-body{max-width:580px;margin:0 auto;line-height:2;color:rgba(236,233,225,.85);text-shadow:0 2px 24px #000}
+#programs .txt{grid-column:1/8;grid-row:1}
+#programs .plate{grid-column:9/13;grid-row:1;align-self:start;margin-top:var(--s5)}
+.idx{list-style:none;margin:var(--s3) 0 var(--s3);max-width:36rem}
+.idx li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.2rem 0;border-top:1px solid var(--line);font:400 1.5rem/1.2 var(--serif);transition:padding-left .7s var(--ease),color .5s}
+.idx li:last-child{border-bottom:1px solid var(--line)}
+.idx li small{font:400 .66rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--umber-3)}
+.idx li:hover{padding-left:var(--s1);color:#2f241a}
 
-#archive{background:linear-gradient(180deg,transparent,rgba(4,8,26,.62) 18%,rgba(4,8,26,.62) 85%,transparent);padding-inline:5%}
-.ahead{text-align:center;margin-bottom:4rem}
-.masonry{columns:3;column-gap:16px;max-width:1320px;margin:0 auto}
-.mi{break-inside:avoid;margin-bottom:16px;overflow:hidden}
-.mi img{width:100%;height:auto;filter:saturate(.75) brightness(.82);transition:filter .8s var(--ease),transform 1.4s var(--ease)}
-.mi:hover img{filter:saturate(1) brightness(1);transform:scale(1.04)}
+#philosophy .plate{grid-column:1/5;grid-row:1;aspect-ratio:1/1.618}
+#philosophy .plate img{filter:grayscale(.55) sepia(.55) contrast(.95) brightness(.9);object-position:50% 40%}
+#philosophy .txt{grid-column:6/13;grid-row:1;align-self:center}
+#philosophy blockquote{font:300 italic clamp(1.9rem,3.8vw,3.2rem)/1.35 var(--serif);margin:var(--s2) 0 var(--s3)}
 
-#contact{text-align:center;padding-block:clamp(9rem,16vw,14rem)}
-.ctitle{font-size:clamp(2.6rem,5.4vw,4.8rem);margin-bottom:1.4rem}
-.csub{font-style:italic;font-size:1.08rem;color:rgba(236,233,225,.85);margin-bottom:3.4rem}
-.cbtns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:2.8rem 7%;border-top:1px solid rgba(207,177,127,.3);background:rgba(4,8,26,.8)}
-footer img{height:28px;filter:brightness(0) invert(1);opacity:.45}
-.fc{font:400 .68rem var(--ui);letter-spacing:.22em;text-transform:uppercase;color:rgba(236,233,225,.55)}
-.bar{display:none}
+/* arsip */
+.ahead{display:flex;justify-content:space-between;align-items:end;margin-bottom:var(--s4);gap:var(--s3);flex-wrap:wrap}
+.ahead h2{margin:var(--s2) 0 0}
+.masonry{columns:3;column-gap:var(--s3)}
+.mi{break-inside:avoid;margin-bottom:var(--s3);overflow:hidden;background:var(--paper)}
+.mi:nth-child(3n+2){margin-top:var(--s4)}
+.mi img{width:100%;height:auto;filter:sepia(.25) saturate(.7) brightness(.97);transition:filter 1.2s var(--ease),transform 2s var(--ease)}
+.mi:hover img{filter:none;transform:scale(1.03)}
+.mi.more{display:none}.masonry.open .mi.more{display:block}
+.morewrap{text-align:center;margin-top:var(--s4)}
+.morewrap button{background:none;border:0;cursor:pointer;color:var(--umber)}
 
-@media(max-width:960px){
-.nav{position:fixed;inset:0;background:rgba(4,8,26,.97);flex-direction:column;justify-content:center;align-items:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .4s}
-.nav.open{opacity:1;pointer-events:auto}.nav a{font-size:.9rem}.burger{display:block}
-.split,.split.rev{grid-template-columns:1fr}.split.rev .ph{order:-1}
-.frame{margin:0 18px 18px 0;width:calc(100% - 18px)}
-.masonry{columns:2}
-.silk{background-image:url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1d608d23-7e42-4dd3-970e-47fb67276b99.png')}
-.silk.b{background-image:url('https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20251104_193728.png')}
-.orc{height:70vh}.orc.on{opacity:.34}.orc.r{right:-30%}.orc.l{left:-30%}
-.hero-photo{-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent);opacity:.7}
-.bar{display:block;position:fixed;inset:auto 0 0;z-index:50;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(4,8,26,.95);border-top:1px solid rgba(207,177,127,.4);transform:translateY(110%);transition:transform .5s var(--ease)}
-.bar.on{transform:none}.bar .btn{display:flex;justify-content:center}
-footer{flex-direction:column;text-align:center;padding-bottom:6rem}}
-@media(max-width:540px){.masonry{columns:1}.btn-ghost.hs{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rule{width:48px}#ff{display:none}}
+#contact{padding-block:var(--s6) var(--s5)}
+#contact .big{grid-column:2/11}
+#contact h2{font-size:clamp(3.4rem,8.2vw,8rem);line-height:.95;margin-bottom:var(--s3)}
+#contact h2 em{color:var(--umber-2)}
+.cbtn{display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;margin-top:var(--s3)}
+footer{padding-block:var(--s3);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line);color:var(--umber-3)}
+
+@media(max-width:900px){
+header .wrap{padding:0}
+nav{position:fixed;inset:0;background:var(--bone);flex-direction:column;justify-content:center;align-items:center;gap:var(--s3);opacity:0;pointer-events:none;transition:opacity .5s}
+nav.open{opacity:1;pointer-events:auto}nav a{font-size:.85rem}.burger{display:block}
+.hero{grid-template-columns:1fr;gap:var(--s3);align-items:start;padding-top:6rem}
+.hero .plate{max-width:20rem;order:2}
+.sec{padding-block:var(--s5)}
+.grid{display:block}
+.plate{margin-bottom:var(--s3);max-width:22rem}
+#programs .plate{margin-top:var(--s3)}
+.pq blockquote{font-size:1.8rem}
+.masonry{columns:2;column-gap:var(--s2)}.mi{margin-bottom:var(--s2)}.mi:nth-child(3n+2){margin-top:0}}
+@media(max-width:520px){.masonry{columns:1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero .plate{clip-path:none}.hero .plate img{transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div id="world" aria-hidden="true">
-  <div class="silk"></div><div class="silk b"></div><div class="sheen"></div>
-  <div class="orc r on" data-s="hero"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250820_134241.png" alt=""></div>
-  <div class="orc l" data-s="about programs"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250819_214938.jpg" alt=""></div>
-  <div class="orc r" data-s="quote philosophy"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Phalenopsisorchidwhite.png" alt=""></div>
-  <div class="orc l" data-s="archive contact"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/20250820_142858.png" alt=""></div>
-  <div class="mist"></div><canvas id="ff"></canvas><div class="grain"></div>
-</div>
 
-<header id="hdr">
-  <a href="#" class="logo">
-    <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Music Studio" class="logo-img">
-    <div><span class="logo-name">Sonata Music Studio</span><span class="logo-sub">Excellence in Artistry</span></div>
-  </a>
-  <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
-  <nav class="nav" id="nav" aria-label="Navigasi utama">
-    <a href="#about">The Director</a><a href="#programs">Curriculum</a><a href="#philosophy">Philosophy</a><a href="#archive">Archive</a><a href="#contact">Contact</a>
-  </nav>
-</header>
+<header id="hdr"><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+  <a href="#" class="brand"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt=""><span>Sonata</span></a>
+  <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><i></i><i></i></button>
+  <nav id="nav" aria-label="Navigasi utama"><a href="#about">Director</a><a href="#programs">Curriculum</a><a href="#philosophy">Philosophy</a><a href="#archive">Archive</a><a href="#contact">Contact</a></nav>
+</div></header>
 
-<section class="hero" data-sec="hero">
-  <div class="hero-photo"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/InShot_20251105_190939933.jpg" alt="Felix Satia"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Jakarta &middot; Indonesia &middot; Est. 2024</span>
-    <h1 class="hero-title">Sonata Music Studio<span class="hero-subtitle">Where Artistry Is Cultivated</span></h1>
-    <div class="hero-rule"></div>
-    <div class="hero-cta"><a href="#about" class="btn btn-gold">Explore the Studio</a><a href="#contact" class="btn btn-ghost hs">Get in Touch</a></div>
+<main>
+<section class="hero wrap">
+  <div class="hero-copy">
+    <span class="label"><i class="gold-dot"></i>Jakarta &middot; Est. 2024</span>
+    <h1>Sonata<br>Music Studio<em>Where artistry is cultivated.</em></h1>
+    <div class="hero-meta"><a href="#about" class="btn">Explore the studio</a><a href="#contact" class="link">Get in touch</a></div>
   </div>
+  <figure><div class="plate"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/InShot_20251105_190939933.jpg" alt="Felix Satia di Sonata Music Studio"></div><figcaption class="cap">Felix Satia, Founder &amp; Director</figcaption></figure>
 </section>
 
-<section id="about" data-sec="about" class="split fade-top">
-  <div class="col">
-    <span class="eyebrow">Artistic Vision</span><span class="rule rv"></span>
-    <h2 class="xl rv">Felix<br>Satia</h2>
-    <p class="body-p rv">Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu untuk menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.</p>
-    <p class="body-p rv">Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi.</p>
-    <a href="#archive" class="btn btn-gold rv">View Artistic Journey</a>
+<section id="about" class="sec wrap"><div class="grid">
+  <div class="plate rv"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1728278677799.jpeg" alt="Felix Satia" loading="lazy"></div>
+  <div class="txt">
+    <span class="label rv"><i class="gold-dot"></i>Artistic vision</span>
+    <h2 class="rv">Felix Satia</h2>
+    <p class="b rv">Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.</p>
+    <p class="b rv">Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk musisi yang mampu menghargai kompleksitas harmoni dan keindahan interpretasi.</p>
+    <div class="btnrow rv"><a href="#archive" class="link">View the archive</a></div>
   </div>
-  <div class="ph rv"><div class="frame"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1728278677799.jpeg" alt="Felix Satia — Founder & Director"></div></div>
-</section>
+</div></section>
 
-<div class="pq" data-sec="quote">
-  <span class="pq-mark">&ldquo;</span>
-  <p class="pq-text rv">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.</p>
-  <div class="pq-div"></div>
-  <span class="pq-by">Yo&#8209;Yo Ma &mdash; Cellist &amp; Cultural Ambassador</span>
-</div>
+<section class="pq wrap"><div class="grid">
+  <blockquote class="rv">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future.</blockquote>
+  <cite class="label rv">Yo&#8209;Yo Ma &middot; Cellist &amp; cultural ambassador</cite>
+</div></section>
 
-<section id="programs" data-sec="programs" class="split rev">
-  <div class="ph rv"><div class="frame"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1728277959315.jpeg" alt="Felix Satia — Teaching"></div></div>
-  <div class="col">
-    <span class="eyebrow">The Curriculum</span><span class="rule rv"></span>
-    <h2 class="lg rv">Core<br>Programs</h2>
-    <p class="body-p rv">Kami menawarkan jalur pendidikan yang terstruktur namun adaptif, dirancang untuk setiap tahap perjalanan musikal.</p>
-    <ul class="prog">
-      <li class="rv">Piano Performance &mdash; Grade 1&ndash;8</li><li class="rv">Advanced Music Theory</li>
-      <li class="rv">ABRSM &amp; Trinity Exam Preparation</li><li class="rv">Artistic Interpretation</li>
+<section id="programs" class="sec wrap"><div class="grid">
+  <div class="txt">
+    <span class="label rv"><i class="gold-dot"></i>The curriculum</span>
+    <h2 class="rv">Core programs</h2>
+    <p class="b rv">Jalur pendidikan yang terstruktur namun adaptif, dirancang untuk setiap tahap perjalanan musikal.</p>
+    <ul class="idx rv">
+      <li>Piano Performance <small>Grade 1&ndash;8</small></li>
+      <li>Advanced Music Theory</li>
+      <li>Exam Preparation <small>ABRSM &amp; Trinity</small></li>
+      <li>Artistic Interpretation</li>
     </ul>
-    <a href="https://wa.me/6289656684852" class="btn btn-gold rv">Enrolment Inquiry</a>
+    <a href="https://wa.me/6289656684852" class="btn rv">Enrolment inquiry</a>
   </div>
-</section>
+  <div class="plate rv"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/1728277959315.jpeg" alt="Felix Satia mengajar" loading="lazy"></div>
+</div></section>
 
-<section id="philosophy" data-sec="philosophy">
-  <span class="eyebrow">Our Philosophy</span><span class="rule c rv"></span>
-  <p class="phil-quote rv">&ldquo;Tradition, met with Modern Excellence.<br>Every note a decision. Every silence, intentional.&rdquo;</p>
-  <p class="phil-body rv">Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang menjadi <em>sanctuary</em> bagi kreativitas — di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi.</p>
-</section>
+<section id="philosophy" class="sec wrap"><div class="grid">
+  <figure class="rv"><div class="plate"><img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/photo-1534885320675-b08aa131cc5e.jpeg" alt="Anggrek Phalaenopsis" loading="lazy"></div><figcaption class="cap">Plate I &mdash; Phalaenopsis</figcaption></figure>
+  <div class="txt">
+    <span class="label rv"><i class="gold-dot"></i>Our philosophy</span>
+    <blockquote class="rv">Tradition, met with modern excellence. Every note a decision. Every silence, intentional.</blockquote>
+    <p class="b rv">Pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang sebagai ruang hening bagi kreativitas, tempat tradisi musik klasik dirawat dengan standar kualitas modern tanpa kompromi.</p>
+  </div>
+</div></section>
 
-<section id="archive" data-sec="archive">
-  <div class="ahead"><span class="eyebrow">Visual Journey</span><span class="rule c rv"></span><h2 class="md">The Studio Archive</h2></div>
+<section id="archive" class="sec wrap">
+  <div class="ahead"><div><span class="label"><i class="gold-dot"></i>Visual journey</span><h2>The studio archive</h2></div></div>
   <div class="masonry" id="grid"></div>
+  <div class="morewrap"><button class="link" id="more">View all</button></div>
 </section>
 
-<section id="contact" data-sec="contact">
-  <span class="eyebrow">Inquiries</span><span class="rule c rv"></span>
-  <h2 class="ctitle rv">Begin Your Journey</h2>
-  <p class="csub rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
-  <div class="cbtns rv"><a href="https://wa.me/6289656684852" class="btn btn-gold">WhatsApp Office</a><a href="https://instagram.com/felixsatia" class="btn btn-ghost">Instagram</a></div>
-</section>
+<section id="contact" class="wrap"><div class="grid"><div class="big">
+  <span class="label rv"><i class="gold-dot"></i>Inquiries</span>
+  <h2 class="rv" style="margin-top:var(--s3)">Begin your <em>journey.</em></h2>
+  <p class="b rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
+  <div class="cbtn rv"><a href="https://wa.me/6289656684852" class="btn">WhatsApp office</a><a href="https://instagram.com/felixsatia" class="link">Instagram</a></div>
+</div></div></section>
+</main>
 
-<footer>
-  <img src="https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Music Studio">
-  <p class="fc">Sonata Music Studio &copy; 2026 &mdash; Designed for Excellence</p>
-</footer>
-<div class="bar" id="bar"><a href="https://wa.me/6289656684852" class="btn btn-gold">Enrolment Inquiry</a></div>
+<footer class="wrap label"><span>Sonata Music Studio &copy; 2026</span><span>Designed for excellence</span></footer>
 
 <script>
 (function(){'use strict';
-var $=function(i){return document.getElementById(i)},hdr=$('hdr'),bar=$('bar'),nav=$('nav'),bur=$('burger');
-function sc(){var y=scrollY;hdr.classList.toggle('scrolled',y>55);bar.classList.toggle('on',y>innerHeight*.8)}
-addEventListener('scroll',sc,{passive:true});sc();
+var hdr=document.getElementById('hdr'),nav=document.getElementById('nav'),bur=document.getElementById('burger');
+function sc(){hdr.classList.toggle('s',scrollY>40)}addEventListener('scroll',sc,{passive:true});sc();
 bur.onclick=function(){bur.setAttribute('aria-expanded',nav.classList.toggle('open'))};
 nav.querySelectorAll('a').forEach(function(a){a.onclick=function(){nav.classList.remove('open');bur.setAttribute('aria-expanded','false')}});
-
-var B='https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/',g=$('grid');
+var B='https://raw.githubusercontent.com/sonatamusicstudio/sonata-music-studio/main/',g=document.getElementById('grid');
 ['1728277097784','1728277959315','1728277994217','1728278062357','1728278413639','1728278498612','1728278535664','1728278743638','1728278972071','1728279819431','1728294846403','1728294894368','1728295139439','1728295173689','1728295202953','1728295402904','1728295429712','1728296617350','1728300782229','1728301815288','1728302182364','1728302212548','1728303826998','1728311786057','1728349078427','1728368821890','1728368987536','1728450148208','1728450200661','1728450222173','1728450251141'].forEach(function(n,k){
-var w=document.createElement('div');w.className='mi rv';w.style.transitionDelay=(k%3)*90+'ms';
-var i=new Image();i.src=B+n+'.jpeg';i.loading='lazy';i.alt='Sonata Music Studio Archive';w.appendChild(i);g.appendChild(w)});
-
-/* reveal */
-var rv=document.querySelectorAll('.rv,.rule');
-if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(e){io.observe(e)})}
-else rv.forEach(function(e){e.classList.add('visible')});
-
-/* anggrek latar berganti halus mengikuti seksi */
-var orcs=[].slice.call(document.querySelectorAll('.orc'));
-if('IntersectionObserver'in window){var cur={};var so=new IntersectionObserver(function(es){es.forEach(function(e){cur[e.target.dataset.sec]=e.isIntersecting});
-orcs.forEach(function(o){o.classList.toggle('on',o.dataset.s.split(' ').some(function(s){return cur[s]}))})},{rootMargin:'-35% 0px -35% 0px'});
-document.querySelectorAll('[data-sec]').forEach(function(s){so.observe(s)})}
-
-/* kunang-kunang */
-var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,cv=$('ff'),cx=cv.getContext('2d'),W,H,P=[],run=true;
-function rs(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
-rs();addEventListener('resize',rs);
-var N=W<700?22:42;
-for(var i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*1.8,a:Math.random()*6.28,s:.1+Math.random()*.25,p:Math.random()*6.28,f:.4+Math.random()*.8,h:Math.random()<.7?52:150});
-function draw(t){if(!run)return;cx.clearRect(0,0,W,H);t*=.001;
-P.forEach(function(f){f.a+=Math.sin(t*.3+f.p)*.02;f.x+=Math.cos(f.a)*f.s;f.y+=Math.sin(f.a)*f.s-.04;
-if(f.y<-20){f.y=H+20;f.x=Math.random()*W}if(f.x<-20)f.x=W+20;if(f.x>W+20)f.x=-20;if(f.y>H+30)f.y=-10;
-var o=Math.pow((Math.sin(t*f.f+f.p)+1)/2,2.2),R=f.r*9;
-var gr=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,R);
-gr.addColorStop(0,'hsla('+f.h+',90%,75%,'+(.9*o)+')');gr.addColorStop(.25,'hsla('+f.h+',85%,62%,'+(.28*o)+')');gr.addColorStop(1,'hsla('+f.h+',80%,55%,0)');
-cx.fillStyle=gr;cx.beginPath();cx.arc(f.x,f.y,R,0,6.28);cx.fill()});
-requestAnimationFrame(draw)}
-if(!reduce)requestAnimationFrame(draw);
-document.addEventListener('visibilitychange',function(){run=!document.hidden;if(run&&!reduce)requestAnimationFrame(draw)});
+var w=document.createElement('div');w.className='mi rv'+(k>=9?' more':'');var i=new Image();i.src=B+n+'.jpeg';i.loading='lazy';i.alt='Arsip Sonata Music Studio';w.appendChild(i);g.appendChild(w)});
+var mb=document.getElementById('more');mb.onclick=function(){var o=g.classList.toggle('open');mb.textContent=o?'Show less':'View all';observe()};
+var io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1}):null;
+function observe(){document.querySelectorAll('.rv:not(.in)').forEach(function(e){io?io.observe(e):e.classList.add('in')})}observe();
 })();
 </script>
 </body>
