@@ -6,7 +6,7 @@
 <title>Sonata Music Studio | Excellence in Artistry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 /* PALET (dari referensi): Imperial Blue 142565 / Deep Navy 15275E / Silver AAA59E / Pale Oak C7C1B3 /
    Dusty Taupe 9E8B70 / Champagne E4CE97 / Soft Fawn C8AD7C / Camel BFA16C / Faded Copper 927A51 / Olive Wood 897249 / Mist D5DEF5
@@ -17,13 +17,13 @@
   --champ:#E4CE97; --fawn:#C8AD7C; --camel:#BFA16C; --copper:#927A51; --olive:#897249;
   --gold-grad:linear-gradient(135deg,#E4CE97 0%,#CFB17F 38%,#BFA16C 62%,#927A51 100%);
   --hair:linear-gradient(90deg,transparent,#BFA16C 50%,transparent);
-  --serif:'Cormorant Garamond','Times New Roman',Georgia,serif;
+  --serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
   --ui:'Montserrat','Helvetica Neue',Arial,sans-serif;
   --ease:cubic-bezier(.19,1,.22,1);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{background:var(--night);color:var(--oak);font-family:var(--serif);font-size:1.2rem;line-height:1.8;overflow-x:hidden}
+body{background:var(--night);color:var(--oak);font-family:var(--serif);font-size:1rem;line-height:1.85;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--champ);outline-offset:3px}
@@ -42,9 +42,9 @@ a{color:inherit}
 .burger span{display:block;width:24px;height:1px;background:var(--champ);margin:7px auto}
 
 /* TICKER: seberkas cahaya emas */
-#ticker{position:fixed;top:84px;left:0;right:0;z-index:55;height:1px;background:rgba(213,222,245,.08);overflow:hidden;transition:top .5s var(--ease)}
+#ticker{position:fixed;top:84px;left:0;right:0;z-index:65;height:2px;background:rgba(191,161,108,.38);overflow:hidden;transition:top .5s var(--ease)}
 #ticker.scrolled{top:66px}
-.beam{position:absolute;top:0;height:100%;width:26%;background:linear-gradient(90deg,transparent,rgba(228,206,151,.95) 50%,transparent);animation:run 3.6s cubic-bezier(.45,0,.55,1) infinite}
+.beam{position:absolute;top:0;height:100%;width:26%;background:linear-gradient(90deg,transparent,#F3E3B4 50%,transparent);box-shadow:0 0 12px 1px rgba(228,206,151,.75);animation:run 3.6s cubic-bezier(.45,0,.55,1) infinite}
 @keyframes run{from{left:-30%}to{left:115%}}
 
 /* BUTTONS */
@@ -65,8 +65,8 @@ a{color:inherit}
 .hero::before{content:"";position:absolute;inset:22px;z-index:4;border:1px solid rgba(191,161,108,.3);pointer-events:none}
 .hero-content{position:relative;z-index:3;max-width:680px;animation:rise 1.6s var(--ease) both}
 .hero-tag{display:block;font:500 .72rem var(--ui);letter-spacing:.38em;text-transform:uppercase;color:var(--fawn);margin-bottom:1.8rem}
-.hero-title{font-weight:500;font-size:clamp(3rem,7vw,6.2rem);line-height:1.02;letter-spacing:-.01em;color:var(--ivory);text-shadow:0 8px 40px rgba(0,0,0,.55)}
-.hero-subtitle{display:block;margin-top:1.2rem;font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:.01em;color:var(--champ)}
+.hero-title{font-weight:400;font-size:clamp(2.5rem,5.8vw,5rem);line-height:1.1;letter-spacing:-.012em;color:var(--ivory);text-shadow:0 8px 40px rgba(0,0,0,.55)}
+.hero-subtitle{display:block;margin-top:1.2rem;font-style:italic;font-weight:400;font-size:clamp(1.05rem,1.8vw,1.45rem);letter-spacing:.02em;color:var(--champ)}
 .hero-rule{width:96px;height:1px;background:var(--gold-grad);margin:2.4rem 0}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .scroll-hint{position:absolute;z-index:5;right:7%;bottom:44px;display:flex;align-items:center;gap:14px;font:500 .68rem var(--ui);letter-spacing:.4em;text-transform:uppercase;color:rgba(246,243,236,.75)}
@@ -81,11 +81,11 @@ a{color:inherit}
 .accent-rule{display:block;width:0;height:2px;background:var(--gold-grad);margin-bottom:1.8rem;transition:width 1.1s var(--ease)}
 .accent-rule.visible{width:72px}
 .accent-rule.centered{margin-left:auto;margin-right:auto}
-.sec-heading{font-weight:500;line-height:1.02;letter-spacing:-.008em}
-.sec-heading.xl{font-size:clamp(3.6rem,6.6vw,6rem);margin-bottom:2rem}
-.sec-heading.lg{font-size:clamp(3rem,5.2vw,4.6rem);margin-bottom:1.8rem}
-.sec-heading.md{font-size:clamp(2.4rem,4vw,3.4rem)}
-.body-p{max-width:520px;font-size:1.22rem;line-height:1.85;margin-bottom:1.4rem}
+.sec-heading{font-weight:400;line-height:1.1;letter-spacing:-.008em}
+.sec-heading.xl{font-size:clamp(2.8rem,5.2vw,4.6rem);margin-bottom:2rem}
+.sec-heading.lg{font-size:clamp(2.4rem,4.2vw,3.7rem);margin-bottom:1.8rem}
+.sec-heading.md{font-size:clamp(1.9rem,3.2vw,2.7rem)}
+.body-p{max-width:500px;font-size:1rem;line-height:1.95;margin-bottom:1.4rem}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.visible{opacity:1;transform:none}
 .sec-div{height:1px;background:var(--hair);opacity:.7}
@@ -111,8 +111,8 @@ a{color:inherit}
 /* PULL QUOTE (imperial blue, sfumato) */
 .pq-section{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--imperial) 55%,var(--navy-d));padding:clamp(7rem,13vw,12rem) 7%;text-align:center;overflow:hidden}
 .pq-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(228,206,151,.2),transparent 70%),radial-gradient(ellipse 80% 50% at 50% 110%,rgba(6,10,24,.7),transparent 70%)}
-.pq-mark{position:relative;display:block;font-size:8rem;line-height:.55;color:var(--camel);margin-bottom:2.4rem}
-.pq-text{position:relative;max-width:860px;margin:0 auto 2.4rem;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.55;color:var(--ivory)}
+.pq-mark{position:relative;display:block;font-size:6rem;line-height:.5;color:var(--camel);margin-bottom:2.4rem}
+.pq-text{position:relative;max-width:860px;margin:0 auto 2.4rem;font-style:italic;font-weight:400;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.7;color:var(--ivory)}
 .pq-divider{position:relative;width:72px;height:2px;background:var(--gold-grad);margin:0 auto 1.6rem}
 .pq-attribution{position:relative;font:500 .72rem var(--ui);letter-spacing:.3em;text-transform:uppercase;color:var(--champ)}
 
@@ -128,9 +128,9 @@ a{color:inherit}
 #philosophy{position:relative;background:var(--night);padding:clamp(8rem,15vw,13rem) 7%;text-align:center;overflow:hidden}
 #philosophy::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(191,161,108,.26),transparent 70%),radial-gradient(ellipse 90% 50% at 50% 120%,rgba(20,37,101,.7),transparent 70%)}
 #philosophy>*{position:relative}
-.phil-quote{max-width:900px;margin:0 auto 2.6rem;font-style:italic;font-weight:400;font-size:clamp(2rem,4vw,3.4rem);line-height:1.4;color:var(--ivory)}
+.phil-quote{max-width:900px;margin:0 auto 2.6rem;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3.2vw,2.8rem);line-height:1.5;color:var(--ivory)}
 .phil-divider{width:72px;height:2px;background:var(--gold-grad);margin:0 auto 2.6rem}
-.phil-body{max-width:620px;margin:0 auto;font-size:1.25rem;line-height:1.9;color:var(--oak)}
+.phil-body{max-width:580px;margin:0 auto;font-size:1rem;line-height:2;color:var(--oak)}
 
 /* ARCHIVE (dinding galeri terang) */
 #archive{background:linear-gradient(180deg,var(--ivory),var(--oak));color:var(--ink);padding:clamp(6rem,11vw,10rem) 5%}
@@ -145,8 +145,8 @@ a{color:inherit}
 #contact{position:relative;background:linear-gradient(180deg,var(--imperial),var(--navy-d) 60%,var(--night));padding:clamp(8rem,15vw,13rem) 7%;text-align:center;overflow:hidden}
 #contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(228,206,151,.24),transparent 70%)}
 #contact>*{position:relative}
-.contact-title{font-weight:500;font-size:clamp(3rem,6vw,5.4rem);line-height:1.04;color:var(--ivory);margin:0 0 1.4rem}
-.contact-sub{font-style:italic;font-size:1.35rem;color:var(--mist);margin-bottom:3.4rem}
+.contact-title{font-weight:400;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.1;color:var(--ivory);margin:0 0 1.4rem}
+.contact-sub{font-style:italic;font-size:1.08rem;color:var(--mist);margin-bottom:3.4rem}
 .contact-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 
 footer{background:#04060F;padding:2.8rem 7%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(191,161,108,.45)}
