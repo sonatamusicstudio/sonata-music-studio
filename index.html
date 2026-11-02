@@ -51,16 +51,18 @@ a{color:inherit}
 .btn-ghost:hover{border-color:var(--ivory);background:rgba(237,230,214,.07)}
 
 /* HERO: Pola Z, subjek di sepertiga kanan */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 7% 110px;overflow:hidden;background:var(--obs)}
-.hero-photo{position:absolute;inset:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:68% 24%;filter:brightness(.72) saturate(.82) contrast(1.06)}
-.hero::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(90deg,rgba(7,10,18,.95) 0%,rgba(7,10,18,.74) 36%,rgba(7,10,18,.06) 68%),
-  linear-gradient(180deg,rgba(7,10,18,.6),transparent 24%,transparent 62%,var(--obs) 100%),
-  radial-gradient(ellipse 70% 40% at 20% -8%,rgba(143,118,72,.2),transparent 65%)}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1.18fr;align-items:center;gap:clamp(2rem,5vw,5rem);padding:130px 7% 110px;overflow:hidden;background:var(--obs)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:blur(32px) brightness(.36) saturate(.8);transform:scale(1.12)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg,rgba(7,10,18,.6),transparent 28%,transparent 64%,var(--obs) 100%),
+  radial-gradient(ellipse 70% 45% at 18% -8%,rgba(143,118,72,.2),transparent 65%)}
 .hero-content{position:relative;z-index:3;max-width:660px;animation:rise 1.5s var(--ease) both}
+.hero-photo{position:relative;z-index:3;display:flex;justify-content:center;align-items:center;animation:rise 1.8s var(--ease) both}
+.hero .frame{width:fit-content;max-width:min(100%,540px)}
+.hero .frame img{width:auto;max-width:100%;max-height:70vh}
 .hero-tag{display:block;font:400 .72rem var(--ui);letter-spacing:.38em;text-transform:uppercase;color:rgba(237,230,214,.75);margin-bottom:1.8rem}
-.hero-title{font-weight:400;font-size:clamp(2.6rem,6vw,5.4rem);line-height:1.08;letter-spacing:-.012em;color:#fff}
+.hero-title{font-weight:400;font-size:clamp(2.6rem,5.4vw,5rem);line-height:1.1;letter-spacing:.02em;color:#fff}
 .hero-subtitle{display:block;margin-top:1.1rem;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.5rem);letter-spacing:.02em;color:var(--ivory);opacity:.9}
 .hero-rule{width:48px;height:1px;background:var(--bronze);margin:2.2rem 0}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
@@ -76,14 +78,14 @@ a{color:inherit}
 .accent-rule{display:block;width:0;height:1px;background:var(--bronze);margin-bottom:1.8rem;transition:width 1.1s var(--ease)}
 .accent-rule.visible{width:48px}
 .accent-rule.centered{margin-left:auto;margin-right:auto}
-.sec-heading{font-weight:400;line-height:1.1;letter-spacing:-.005em}
-.sec-heading.xl{font-size:clamp(3rem,5.6vw,5rem);margin-bottom:2rem}
+.sec-heading{font-weight:400;line-height:1.1;letter-spacing:.025em}
+.sec-heading.xl{font-size:clamp(3.2rem,6.6vw,5.8rem);margin-bottom:2rem}
 .sec-heading.lg{font-size:clamp(2.4rem,4.4vw,3.8rem);margin-bottom:1.8rem}
 .sec-heading.md{font-size:clamp(1.9rem,3.2vw,2.8rem)}
 .body-p{max-width:500px;font-size:1rem;line-height:1.95;margin-bottom:1.4rem}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.visible{opacity:1;transform:none}
-.sec-div{height:1px;background:rgba(143,118,72,.35)}
+.sec-div{height:1px;background:linear-gradient(90deg,transparent,rgba(143,118,72,.5),transparent)}
 
 /* CHIAROSCURO: gelap dan terang bergantian */
 .light{background:var(--ala);color:var(--ink)}
@@ -95,10 +97,12 @@ a{color:inherit}
 /* Foto berbingkai ala galeri: garis tipis + offset */
 .frame{position:relative;width:100%;max-width:500px}
 .frame::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--bronze);z-index:0}
-.frame img{position:relative;z-index:1;width:100%;height:auto;box-shadow:0 30px 70px -30px rgba(7,10,18,.55)}
+.frame img{position:relative;z-index:1;width:100%;height:auto;box-shadow:0 40px 80px -36px rgba(7,10,18,.6)}
 
 /* ABOUT (terang) */
-#about,#programs{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(2rem,6vw,6rem);padding:clamp(6rem,11vw,10rem) 7%}
+#about{grid-template-columns:1fr 1.25fr}
+#programs{grid-template-columns:1.25fr 1fr}
+#about,#programs{display:grid;align-items:center;gap:clamp(2rem,6vw,6rem);padding:clamp(7rem,13vw,12rem) 7%}
 #about .btn-gold{align-self:flex-start;margin-top:1rem}
 .col{display:flex;flex-direction:column}
 .about-photo{display:flex;justify-content:center}
@@ -139,7 +143,7 @@ a{color:inherit}
 #contact{position:relative;background:var(--navy);padding:clamp(8rem,15vw,13rem) 7%;text-align:center;overflow:hidden}
 #contact::before{content:"";position:absolute;inset:0 0 auto;height:60%;background:linear-gradient(180deg,rgba(143,118,72,.2),transparent)}
 #contact>*{position:relative}
-.contact-title{font-weight:400;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:1.08;color:#fff;margin:0 0 1.4rem}
+.contact-title{font-weight:400;letter-spacing:.02em;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:1.08;color:#fff;margin:0 0 1.4rem}
 .contact-sub{font-style:italic;font-size:1.08rem;color:rgba(237,230,214,.82);margin-bottom:3.4rem}
 .contact-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 
@@ -159,7 +163,9 @@ footer{background:var(--obs);padding:2.8rem 7%;display:flex;align-items:center;j
   .frame{margin:0 18px 18px 0;width:calc(100% - 18px)}
   .masonry{columns:2}
   .scroll-hint{display:none}
-  .hero::after{background:linear-gradient(180deg,rgba(7,10,18,.62),rgba(7,10,18,.8) 55%,var(--obs))}
+  .hero{grid-template-columns:1fr;padding-top:120px}
+  .hero .frame{margin:0 18px 18px 0}
+  .hero::after{background:linear-gradient(180deg,rgba(7,10,18,.55),rgba(7,10,18,.2) 50%,var(--obs))}
   .bar{display:block;position:fixed;inset:auto 0 0;z-index:50;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(7,10,18,.96);border-top:1px solid rgba(143,118,72,.5);transform:translateY(110%);transition:transform .5s var(--ease)}
   .bar.on{transform:none}
   .bar .btn{display:flex;justify-content:center;width:100%}
@@ -192,9 +198,7 @@ footer{background:var(--obs);padding:2.8rem 7%;display:flex;align-items:center;j
 <div id="ticker"><div class="beam"></div><div class="beam" style="animation-delay:1.4s;width:13%;opacity:.5"></div></div>
 
 <section class="hero">
-    <div class="hero-photo">
-        <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt="Sonata Music Studio — Felix Satia">
-    </div>
+    <div class="hero-bg"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt=""></div>
     <div class="hero-content">
         <span class="hero-tag">Jakarta &nbsp;&middot;&nbsp; Indonesia &nbsp;&middot;&nbsp; Est. 2024</span>
         <h1 class="hero-title">
@@ -206,6 +210,9 @@ footer{background:var(--obs);padding:2.8rem 7%;display:flex;align-items:center;j
             <a href="#about" class="btn btn-gold">Explore the Studio</a>
             <a href="#contact" class="btn btn-ghost hide-sm">Get in Touch</a>
         </div>
+    </div>
+    <div class="hero-photo">
+        <div class="frame"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/InShot_20251105_190939933.jpg" alt="Sonata Music Studio — Felix Satia"></div>
     </div>
     <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
