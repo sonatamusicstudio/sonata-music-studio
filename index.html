@@ -163,8 +163,8 @@ a{color:inherit}
 .video{position:relative;z-index:1;aspect-ratio:16/9;background:#000;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.85),0 0 140px -30px rgba(228,206,151,.2),0 0 0 1px rgba(228,206,151,.4)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .poster{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#000;display:block;overflow:hidden}
-.poster img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(.85) contrast(1.1) sepia(.1);transition:filter .7s var(--ease),transform .9s var(--ease)}
-.poster:hover img,.poster:focus-visible img{filter:brightness(.92) saturate(.95) contrast(1.08) sepia(.06);transform:scale(1.03)}
+.poster img{width:100%;height:100%;object-fit:cover;object-position:38% 50%;filter:brightness(.86) saturate(.9) contrast(1.06) sepia(.06);transition:filter .7s var(--ease),transform .9s var(--ease)}
+.poster:hover img,.poster:focus-visible img{filter:brightness(1) saturate(1) contrast(1.04) sepia(.03);transform:scale(1.03)}
 .poster::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,10,24,.4) 0%,transparent 32%,transparent 52%,rgba(6,10,24,.82) 100%),linear-gradient(135deg,rgba(20,37,101,.28),rgba(146,122,81,.1))}
 .play{position:absolute;z-index:2;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;border:1px solid rgba(228,206,151,.8);background:rgba(6,10,24,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:background .4s,border-color .4s,transform .5s var(--ease)}
 .play::before{content:"";margin-left:6px;border-left:22px solid var(--champ);border-top:14px solid transparent;border-bottom:14px solid transparent;transition:border-left-color .4s}
@@ -387,7 +387,7 @@ footer{background:#04060F;padding:2.8rem 7%;display:flex;align-items:center;just
     <div class="stage rv">
         <div class="video" id="perfVideo">
             <button class="poster" id="perfPoster" type="button" aria-label="Putar video: Chopin Étude Op. 25 No. 1">
-                <img src="https://i.ytimg.com/vi/fVnfH2ow5bM/maxresdefault.jpg" alt="Felix Satia memainkan Chopin Étude Op. 25 No. 1" loading="lazy">
+                <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/performance-poster.jpg" alt="Felix Satia memainkan Chopin Étude Op. 25 No. 1" loading="lazy">
                 <span class="play" aria-hidden="true"></span>
                 <span class="poster-label">Watch the Performance</span>
             </button>
