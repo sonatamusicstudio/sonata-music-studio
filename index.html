@@ -626,8 +626,12 @@ footer{background:#04060F;padding:2.8rem 7%;display:flex;align-items:center;just
         [['img_8_1791283419704.jpg'], 'Tampil di Bali, 2011'],
         [['img_9_1791283432702.jpg'], 'Bali In&rsquo;t Music Camp, 2011'],
         [['1728302182364.jpeg'], 'Bali In&rsquo;t Music Camp, bersama peserta'],
+        [['img_1_1793793014516.jpg'], 'Resital piano'],
         [['1728278413639.jpeg'], 'Home Concert Yayasan Musik Jakarta, 2012'],
+        [['1728278362077.jpeg'], 'Home Concert Yayasan Musik Jakarta, 2012'],
+        [['img_9_1793793228435.jpg'], 'Paduan suara JISMF 2014'],
         [['1728368821890.jpeg'], 'STIKMI Concert, 12 April 2014'],
+        [['1728368987536.jpeg'], 'STIKMI Concert, April 2014'],
         [['1728277994217.jpeg'], 'Cantata Christmas Choir'],
         [['1728311786057.jpeg'], 'Paduan suara anak'],
         [['1728450251141.jpeg'], 'Hari Guru, auditorium'],
@@ -671,8 +675,10 @@ footer{background:#04060F;padding:2.8rem 7%;display:flex;align-items:center;just
             }, function () { c.remove(); });
         });
 
+        var seen = {};
         GAL.forEach(function (g) {
-            var u = find(g[0]); if (!u) return;
+            var u = find(g[0]); if (!u || seen[u]) return;
+            seen[u] = 1;
             var f = document.createElement('figure');
             f.className = 'rv' + (g[2] ? ' star' : ''); f.hidden = true;
             gal.appendChild(f);
