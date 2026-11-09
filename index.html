@@ -2,839 +2,426 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050816">
-<title>Sonata Music Studio | Excellence in Artistry</title>
-<meta name="description" content="Sonata Music Studio — pendidikan piano klasik dengan standar kualitas modern. Jakarta, Indonesia. Dipimpin Felix Satia.">
+<title>Sonata Music Studio | Felix Satia — Excellence in Artistry</title>
+<meta name="description" content="Sonata Music Studio — pendidikan piano klasik berstandar tinggi di Jakarta. Dipimpin Felix Satia. Persiapan ABRSM & Trinity.">
 <meta property="og:title" content="Sonata Music Studio — Excellence in Artistry">
-<meta property="og:description" content="Piano performance, teori musik lanjutan, persiapan ABRSM & Trinity. Jakarta.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicSchool","name":"Sonata Music Studio","slogan":"Excellence in Artistry","telephone":"+6289656684852","address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressCountry":"ID"},"founder":{"@type":"Person","name":"Felix Satia"},"foundingDate":"2024"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicSchool","name":"Sonata Music Studio","telephone":"+6289656684852","address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressCountry":"ID"},"founder":{"@type":"Person","name":"Felix Satia"}}</script>
 <style>
-/* =====================================================================
-   SONATA MUSIC STUDIO — DESIGN SYSTEM v2
-   60 / 30 / 10 :  60% Midnight Navy (latar) · 30% Ivory (teks & struktur) · 10% Champagne Gold (aksen & CTA)
-   Golden ratio φ = 1.618: grid 1.618fr : 1fr, skala spasi & tipografi
-   Prinsip: Gestalt (proximity/closure), Von Restorff (satu CTA emas), Hick's law (pilihan sedikit),
-   authority & social proof di 0,5 detik pertama, peak-end (finale Contact), F-pattern (kiri-atas = informasi utama)
-   ===================================================================== */
-:root{
---night:#050816;--ink:#0A1230;--navy:#101E4F;--navy-d:#0B1538;--imperial:#142565;
---ivory:#F6F3EC;--paper:#EFEADD;--mist:#D5DEF5;--oak:#C9C4B8;--silver:#A7A39B;
---champ:#E4CE97;--camel:#BFA16C;--copper:#927A51;--gold-ink:#7A6640;
---gold:linear-gradient(135deg,#F1E2B5 0%,#E4CE97 24%,#BFA16C 58%,#927A51 82%,#C8AD7C 100%);
---hair:linear-gradient(90deg,transparent,rgba(191,161,108,.8) 50%,transparent);
---display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
---sans:'Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif;
---phi:1.618;--s1:1rem;--s2:1.618rem;--s3:2.618rem;--s4:4.236rem;--s5:6.854rem;--s6:11.09rem;
---ease:cubic-bezier(.19,1,.22,1);--io:cubic-bezier(.65,0,.35,1);
---pad:clamp(1.25rem,6vw,6.854rem);--maxw:1400px;
---grade:saturate(.9) contrast(1.06) brightness(.95) sepia(.06);
---grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
-html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
-body{background:var(--night);color:var(--oak);font:400 1rem/1.618 var(--sans);letter-spacing:.005em;overflow-x:hidden;text-rendering:optimizeLegibility;font-kerning:normal;font-feature-settings:"kern","liga"}
-body::after{content:"";position:fixed;inset:0;z-index:95;pointer-events:none;background:var(--grain);opacity:.045;mix-blend-mode:overlay}
-img{display:block;max-width:100%}a{color:inherit}
-h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
-::selection{background:var(--champ);color:var(--night)}
-:focus-visible{outline:2px solid var(--champ);outline-offset:3px}
-[hidden]{display:none!important}
-.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.skip{position:fixed;left:12px;top:-60px;z-index:300;background:var(--champ);color:var(--night);padding:.7rem 1.2rem;font:600 .75rem var(--sans);text-decoration:none;transition:top .3s}
-.skip:focus{top:12px}
+/* 60% Midnight Navy · 30% Ivory · 10% Champagne Gold · φ=1.618 */
+:root{--night:#050816;--navy:#0A1230;--royal:#142565;--ivory:#F6F3EC;--oak:#C9C4B8;--silver:#A7A39B;--champ:#E4CE97;--camel:#BFA16C;--ink:#0A1230;--gi:#7A6640;
+--gold:linear-gradient(135deg,#F1E2B5,#E4CE97 28%,#BFA16C 62%,#927A51 85%,#C8AD7C);
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Plus Jakarta Sans',Arial,sans-serif;
+--e:cubic-bezier(.19,1,.22,1);--pad:clamp(1.25rem,6vw,6.854rem);--s2:1.618rem;--s3:2.618rem;--s4:4.236rem}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--night);color:var(--oak);font:400 1rem/1.618 var(--sans);overflow-x:hidden;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}a{color:inherit}h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+::selection{background:var(--champ);color:var(--night)}:focus-visible{outline:2px solid var(--champ);outline-offset:3px}[hidden]{display:none!important}
+body::after{content:"";position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.04;mix-blend-mode:overlay;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+#bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:80;background:var(--gold);transform:scaleX(0);transform-origin:left}
 
-/* ---------- Intro curtain ---------- */
-.curtain{position:fixed;inset:0;z-index:200;background:var(--night);display:grid;place-items:center;animation:curtainOut 1.3s var(--io) 1.5s forwards}
-.curtain-in{display:flex;flex-direction:column;align-items:center;gap:1.618rem;opacity:0;animation:fadeUp 1.1s var(--ease) .2s forwards,fadeOut .5s ease 1.3s forwards}
-.curtain-in img{height:76px;width:auto;filter:brightness(0) invert(1) sepia(.35) saturate(1.2)}
-.curtain-in span{font:500 .7rem var(--sans);letter-spacing:.5em;text-transform:uppercase;color:var(--champ);padding-left:.5em}
-.curtain::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold)}
-@keyframes curtainOut{to{transform:translateY(-101%);visibility:hidden;pointer-events:none}}
-@keyframes fadeOut{to{opacity:0}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-#progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
+/* header */
+#hd{position:fixed;inset:0 0 auto;z-index:70;height:92px;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(5,8,22,.85),transparent);transition:height .6s var(--e),background .6s,transform .7s var(--e)}
+#hd.s{height:70px;background:rgba(5,8,22,.82);box-shadow:0 1px 0 rgba(191,161,108,.4);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+#hd.h{transform:translateY(-101%)}
+.logo{display:flex;align-items:center;gap:1rem;text-decoration:none}
+.logo img{height:48px;filter:brightness(0) invert(1) sepia(.35) saturate(1.2)}
+.logo b{display:block;font:700 .9rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ivory)}
+.logo small{display:block;margin-top:7px;font:500 .56rem/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--champ)}
+nav{display:flex;align-items:center;gap:clamp(1rem,2vw,2.2rem)}
+nav a{position:relative;padding:8px 0;font:600 .64rem var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:rgba(246,243,236,.82);transition:color .3s}
+nav a::after{content:"";position:absolute;left:50%;right:50%;bottom:0;height:1px;background:var(--gold);transition:.6s var(--e)}
+nav a:hover,nav a.on{color:var(--champ)}nav a:hover::after,nav a.on::after{left:0;right:0}
+nav a.cta{padding:.8rem 1.4rem;border:1px solid rgba(228,206,151,.55)}nav a.cta::after{display:none}
+.bg{display:none;width:44px;height:44px;background:none;border:0;cursor:pointer;z-index:80}
+.bg i{display:block;width:24px;height:1px;background:var(--champ);margin:7px auto;transition:transform .5s var(--e)}
+.bg[aria-expanded=true] i:first-child{transform:translateY(4px) rotate(45deg)}.bg[aria-expanded=true] i:last-child{transform:translateY(-4px) rotate(-45deg)}
 
-/* ---------- Cursor (mouse only) ---------- */
-.cur{display:none;position:fixed;top:0;left:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(228,206,151,.7);border-radius:50%;pointer-events:none;z-index:100;opacity:0;mix-blend-mode:difference;transition:width .5s var(--ease),height .5s var(--ease),margin .5s var(--ease),background .4s,opacity .4s}
-html.has-cursor .cur{display:block}.cur.on{opacity:1}
-.cur.hov{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(228,206,151,.16)}
-
-/* ---------- Header (glass, hides on scroll-down) ---------- */
-#hdr{position:fixed;inset:0 0 auto;z-index:60;height:104px;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(5,8,22,.8),transparent);transition:height .6s var(--ease),background .6s,box-shadow .6s,transform .7s var(--ease)}
-#hdr.scrolled{height:78px;background:rgba(5,8,22,.78);box-shadow:0 1px 0 rgba(191,161,108,.4),0 24px 50px -26px rgba(0,0,0,.9);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4)}
-#hdr.hide{transform:translateY(-101%)}
-.logo{display:flex;align-items:center;gap:1.1rem;text-decoration:none}
-.logo-img{height:60px;width:auto;transition:height .6s var(--ease),transform .7s var(--ease);filter:brightness(0) invert(1) sepia(.35) saturate(1.2)}
-#hdr.scrolled .logo-img{height:46px}.logo:hover .logo-img{transform:scale(1.06)}
-.logo-name{display:block;font:700 1rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ivory)}
-.logo-sub{display:block;margin-top:8px;font:500 .62rem/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
-.nav{display:flex;align-items:center;gap:clamp(1.2rem,2.2vw,2.4rem)}
-.nav a{position:relative;padding:8px 0;font:600 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:rgba(246,243,236,.82);transition:color .3s}
-.nav a::after{content:"";position:absolute;left:50%;right:50%;bottom:0;height:1px;background:var(--gold);transition:left .6s var(--ease),right .6s var(--ease)}
-.nav a:hover,.nav a.act{color:var(--champ)}.nav a:hover::after,.nav a.act::after{left:0;right:0}
-.nav a.cta{padding:.8rem 1.5rem;border:1px solid rgba(228,206,151,.55)}
-.nav a.cta::after{display:none}.nav a.cta:hover{background:rgba(228,206,151,.12);border-color:var(--champ)}
-.burger{display:none;position:relative;z-index:70;width:44px;height:44px;background:none;border:0;cursor:pointer}
-.burger span{display:block;width:24px;height:1px;background:var(--champ);margin:7px auto;transition:transform .5s var(--ease)}
-.burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
-.burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
-
-/* ---------- Chapter dots (wayfinding, desktop) ---------- */
-.dots{position:fixed;right:clamp(14px,1.8vw,30px);top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;gap:14px}
-.dots a{position:relative;width:9px;height:9px;border-radius:50%;border:1px solid rgba(228,206,151,.7);background:transparent;transition:background .4s,transform .5s var(--ease)}
-.dots a::before{content:attr(data-l);position:absolute;right:22px;top:50%;transform:translateY(-50%) translateX(8px);white-space:nowrap;font:600 .56rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--champ);opacity:0;pointer-events:none;transition:opacity .4s,transform .5s var(--ease);text-shadow:0 2px 10px #000}
-.dots a:hover::before{opacity:1;transform:translateY(-50%)}
-.dots a.act{background:var(--champ);transform:scale(1.4)}
-@media(min-width:1280px){.dots{display:flex}}
-
-/* ---------- Buttons ---------- */
-.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.8rem;padding:1.15rem 2.618rem;font:600 .68rem var(--sans);letter-spacing:.26em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:filter .3s,transform .6s var(--ease),border-color .3s,background .3s,box-shadow .6s}
-.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left 1s var(--ease)}
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;padding:1.1rem 2.4rem;font:600 .66rem var(--sans);letter-spacing:.26em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:filter .3s,transform .6s var(--e),background .3s,box-shadow .6s}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left 1s var(--e)}
 .btn:hover::after{left:130%}
-.btn-gold{background:var(--gold);color:var(--night);box-shadow:0 18px 36px -16px rgba(191,161,108,.75),inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(146,122,81,.6)}
-.btn-gold:hover{filter:brightness(1.07);box-shadow:0 28px 46px -16px rgba(191,161,108,.9),inset 0 1px 0 rgba(255,255,255,.5)}
-.btn-ghost{border:1px solid rgba(228,206,151,.5);color:var(--ivory)}
-.btn-ghost:hover{border-color:var(--champ);background:rgba(228,206,151,.1)}
-.btn:active{transform:scale(.97)!important}
+.gold{background:var(--gold);color:var(--night);box-shadow:0 18px 36px -16px rgba(191,161,108,.8),inset 0 1px 0 rgba(255,255,255,.45)}
+.gold:hover{filter:brightness(1.07);transform:translateY(-2px)}
+.ghost{border-color:rgba(228,206,151,.5);color:var(--ivory)}.ghost:hover{background:rgba(228,206,151,.1);border-color:var(--champ)}
 
-/* ---------- Hero ---------- */
-.hero{--gut:max(7vw,calc((100vw - 1400px)/2));position:relative;height:100vh;height:100svh;min-height:660px;display:flex;align-items:center;padding:124px var(--gut) 90px;overflow:hidden;background:radial-gradient(ellipse 50% 70% at 92% 4%,rgba(201,168,110,.3),transparent 65%),radial-gradient(ellipse 60% 80% at 4% 0%,rgba(20,37,101,.9),transparent 70%),linear-gradient(180deg,#0A1230 0%,var(--night) 100%)}
-.hero-bg{position:absolute;inset:-10% 0;z-index:0;overflow:hidden;will-change:transform}
-.hero-bg picture{display:block;width:100%;height:100%}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:72% 50%;filter:brightness(.86) saturate(.88) contrast(1.12) sepia(.1);animation:photoIn 2.8s var(--ease) 1.3s both,drift 30s ease-in-out 4.1s infinite alternate}
-@keyframes drift{from{transform:scale(1)}to{transform:scale(1.05)}}
-@keyframes photoIn{from{opacity:0;transform:scale(1.07)}to{opacity:1;transform:none}}
-.hero-photo{display:none;--iw:min(80svh,58vw);--ih:calc(var(--iw)/.5287);position:absolute;z-index:1;right:max(2vw,calc(var(--gut) - 3vw));bottom:calc(var(--ih)*-.05);width:var(--iw);height:var(--ih);-webkit-mask-image:radial-gradient(ellipse 72% 56% at 50% 60%,#000 60%,rgba(0,0,0,0) 100%);mask-image:radial-gradient(ellipse 72% 56% at 50% 60%,#000 60%,rgba(0,0,0,0) 100%)}
-.hero-photo picture{display:block;width:100%;height:100%}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:brightness(.82) saturate(.82) contrast(1.14) sepia(.1);animation:photoIn 2.4s var(--ease) 1.3s both}
-.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 50% 62%,rgba(5,8,22,0) 40%,rgba(5,8,22,.55) 100%),linear-gradient(135deg,rgba(20,37,101,.25),rgba(146,122,81,.1))}
-.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,22,.9) 0%,rgba(5,8,22,.52) 34%,rgba(5,8,22,0) 62%),radial-gradient(ellipse 75% 95% at 72% 45%,rgba(5,8,22,0) 50%,rgba(5,8,22,.62) 100%),linear-gradient(180deg,rgba(5,8,22,.8) 0%,transparent 22%,transparent 80%,rgba(5,8,22,.7) 92%,var(--night) 100%)}
-.hero::before{content:"";position:absolute;inset:22px;z-index:4;border:1px solid rgba(191,161,108,.32);pointer-events:none;box-shadow:inset 0 0 0 7px rgba(191,161,108,.1)}
-#dust{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:.9}
-.letterbox{position:absolute;left:0;right:0;z-index:6;height:12svh;background:#000;pointer-events:none;animation:lbOut 2.2s var(--io) 1.7s forwards}
-.letterbox.t{top:0;transform-origin:top}.letterbox.b{bottom:0;transform-origin:bottom}
-@keyframes lbOut{to{transform:scaleY(0)}}
-.hero-content{position:relative;z-index:3;max-width:min(960px,62vw);will-change:transform,opacity}
-.hero-tag{display:flex;align-items:center;gap:1rem;font:500 .66rem var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--champ);margin-bottom:var(--s3)}
-.hero-tag::before{content:"";width:var(--s4);height:1px;background:var(--gold)}
-.hero-title{font-family:var(--display);font-weight:500;font-size:clamp(3.2rem,8.6vw,9.4rem);line-height:.94;letter-spacing:-.035em;color:var(--ivory)}
-.hero-title .ln{display:block;overflow:hidden;padding:.04em .12em .16em 0;margin-bottom:-.12em}
-.hero-title .ln>span{display:block;transform:translateY(112%);animation:lineUp 1.7s var(--ease) calc(1.9s + var(--i)*.16s) forwards;text-shadow:0 10px 50px rgba(0,0,0,.6)}
-.hero-title em{font-style:italic;font-weight:400;color:var(--champ)}
-.hero-title .gold>span{background:var(--gold);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;animation:lineUp 1.7s var(--ease) calc(1.9s + var(--i)*.16s) forwards,foil 8s ease-in-out 4s infinite alternate}
-@keyframes lineUp{to{transform:none}}@keyframes foil{from{background-position:0 0}to{background-position:100% 0}}
-.fi{opacity:0;animation:fadeUp 1.5s var(--ease) calc(2.2s + var(--d,0s)) forwards}
-.hero-sub{max-width:34rem;margin-top:var(--s2);font-size:1rem;line-height:1.9;color:rgba(246,243,236,.8)}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:var(--s3)}
-.hero-proof{display:flex;flex-wrap:wrap;gap:.6rem 1.618rem;margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid rgba(191,161,108,.28);max-width:34rem;font:600 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(246,243,236,.72)}
-.hero-proof b{color:var(--champ);font-weight:600}
-.scroll-hint{position:absolute;z-index:5;left:var(--gut);bottom:46px;display:flex;align-items:center;gap:14px;font:500 .6rem var(--sans);letter-spacing:.44em;text-transform:uppercase;color:rgba(246,243,236,.72)}
-.scroll-line{width:1px;height:48px;background:rgba(213,222,245,.22);position:relative;overflow:hidden}
-.scroll-line::after{content:"";position:absolute;left:0;width:100%;height:100%;background:var(--champ);animation:drop 2.4s cubic-bezier(.4,0,1,1) infinite}
-@keyframes drop{from{top:-100%}to{top:200%}}
-.hero-meta{position:absolute;z-index:5;right:var(--gut);bottom:50px;font:italic 400 1.05rem var(--display);letter-spacing:.08em;color:rgba(228,206,151,.8)}
-.hero-meta b{font:600 .58rem var(--sans);letter-spacing:.38em;text-transform:uppercase;font-style:normal;color:rgba(246,243,236,.6);margin-right:12px}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:120px max(7vw,calc((100vw - 1400px)/2)) 90px;overflow:hidden;background:radial-gradient(ellipse 50% 70% at 92% 4%,rgba(201,168,110,.3),transparent 65%),radial-gradient(ellipse 60% 80% at 4% 0%,rgba(20,37,101,.9),transparent 70%),var(--navy)}
+.hbg{position:absolute;inset:-8% 0;background:url(https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/image.jpg) 50% 30%/cover;filter:brightness(.8) saturate(.85) contrast(1.1) sepia(.1);animation:pin 2.6s var(--e) .9s both}
+@media(min-width:821px) and (min-aspect-ratio:1/1){.hbg{background-image:url(https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/hero-landscape.jpg);background-position:72% 50%}}
+@keyframes pin{from{opacity:0;transform:scale(1.07)}to{opacity:1}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,22,.92),rgba(5,8,22,.5) 36%,transparent 64%),linear-gradient(180deg,rgba(5,8,22,.8),transparent 24%,transparent 78%,var(--night))}
+.hero::before{content:"";position:absolute;inset:20px;z-index:3;border:1px solid rgba(191,161,108,.32);box-shadow:inset 0 0 0 7px rgba(191,161,108,.08);pointer-events:none}
+.hc{position:relative;z-index:2;max-width:min(900px,62vw)}
+.tag{display:flex;align-items:center;gap:1rem;font:500 .64rem var(--sans);letter-spacing:.4em;text-transform:uppercase;color:var(--champ);margin-bottom:var(--s3)}
+.tag::before{content:"";width:var(--s4);height:1px;background:var(--gold)}
+h1{font:500 clamp(3.2rem,8.4vw,9rem)/.95 var(--serif);letter-spacing:-.035em;color:var(--ivory)}
+h1 span{display:block;overflow:hidden;padding:0 .1em .14em 0;margin-bottom:-.1em}
+h1 span>b{display:block;font-weight:inherit;transform:translateY(112%);animation:up 1.6s var(--e) calc(.9s + var(--i)*.15s) forwards}
+h1 em{font-style:italic;font-weight:400;background:var(--gold);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em;animation:foil 8s ease-in-out infinite alternate}
+@keyframes up{to{transform:none}}@keyframes foil{to{background-position:100% 0}}
+.fi{opacity:0;animation:fu 1.4s var(--e) calc(1.5s + var(--d,0s)) forwards}@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hsub{max-width:33rem;margin-top:var(--s2);line-height:1.9;color:rgba(246,243,236,.8)}
+.hcta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:var(--s3)}
+.proof{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid rgba(191,161,108,.28);max-width:34rem;font:600 .58rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(246,243,236,.72)}
+.proof b{color:var(--champ)}
+.cred{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid rgba(191,161,108,.3);background:var(--night)}
+.cred div{padding:1.6rem 1rem;text-align:center;font:italic 400 clamp(1.05rem,1.8vw,1.55rem)/1.2 var(--serif);color:rgba(228,206,151,.92);border-right:1px solid rgba(191,161,108,.2)}.cred div:last-child{border:0}
 
-/* ---------- Credentials strip ---------- */
-.cred{position:relative;z-index:3;background:var(--night);border-block:1px solid rgba(191,161,108,.3);display:grid;grid-template-columns:repeat(4,1fr)}
-.cred div{padding:1.618rem 1rem;text-align:center;font:italic 400 clamp(1.1rem,1.9vw,1.6rem)/1.2 var(--display);color:rgba(228,206,151,.9);border-right:1px solid rgba(191,161,108,.2)}
-.cred div:last-child{border:0}
+/* primitives */
+section{position:relative}
+.ey{display:flex;align-items:center;gap:1rem;font:600 .64rem var(--sans);letter-spacing:.38em;text-transform:uppercase;color:var(--gi);margin-bottom:1rem}
+.dk .ey{color:var(--champ)}.c{text-align:center}.c .ey{justify-content:center}
+.rule{width:0;height:2px;background:var(--gold);margin-bottom:var(--s2);transition:width 1.3s var(--e)}.rule.v{width:84px}.c .rule{margin-inline:auto}
+.dis{font:500 clamp(3rem,7vw,7.6rem)/.95 var(--serif);letter-spacing:-.035em;color:var(--ink);margin-bottom:var(--s3)}
+.dis em{font-style:italic;font-weight:400;color:var(--gi)}
+.dk .dis{color:var(--ivory)}.dk .dis em{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.bp{max-width:30rem;line-height:2;font-size:.95rem;margin-bottom:var(--s2)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.2s var(--e),transform 1.2s var(--e);transition-delay:var(--rd,0s)}.rv.v{opacity:1;transform:none}
+.sd{height:1px;background:linear-gradient(90deg,transparent,rgba(191,161,108,.8) 50%,transparent)}
+.light{background:radial-gradient(ellipse 80% 70% at 100% 0,rgba(213,222,245,.7),transparent 60%),linear-gradient(180deg,var(--ivory),#EAE4D6);color:var(--ink)}
+.light .bp{color:rgba(10,18,48,.86)}
+.dkbg{background:linear-gradient(180deg,var(--night),var(--navy) 55%,var(--night))}
+.dkbg::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 40% at 50% 0,rgba(228,206,151,.15),transparent 70%)}
+.dkbg>*{position:relative}
 
-/* ---------- Primitives ---------- */
-.eyebrow{display:flex;align-items:center;gap:1rem;font:600 .66rem var(--sans);letter-spacing:.4em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:1rem}
-.eyebrow i{font:italic 500 1.1rem var(--display);letter-spacing:.06em;text-transform:none;color:var(--camel)}
-.dk .eyebrow{color:var(--champ)}
-.ctr .eyebrow{justify-content:center}
-.rule{display:block;width:0;height:2px;background:var(--gold);margin-bottom:var(--s2);transition:width 1.3s var(--ease)}
-.rule.visible{width:84px}.rule.centered{margin-left:auto;margin-right:auto}
-.display{font-family:var(--display);font-weight:500;font-size:clamp(3.2rem,7.6vw,8.2rem);line-height:.94;letter-spacing:-.035em;color:var(--ink);margin-bottom:var(--s3)}
-.display em{font-style:italic;font-weight:400;color:var(--gold-ink)}
-.dk .display{color:var(--ivory)}
-.dk .display em{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.display.center{text-align:center}
-.body-p{max-width:30rem;font-size:.95rem;line-height:2;margin-bottom:var(--s2)}
-.rv{opacity:0;transform:translateY(24px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease);transition-delay:var(--rd,0s)}
-.rv.visible{opacity:1;transform:none}
-.sec-div{position:relative;z-index:3;height:1px;background:var(--hair)}
-.w{opacity:.2;transition:opacity .6s ease}.w.on{opacity:1}
+/* about — golden ratio */
+#about{display:grid;grid-template-columns:1.618fr 1fr;align-items:center;gap:clamp(2rem,6vw,6.854rem);padding:clamp(6rem,13vw,12rem) var(--pad)}
+#about .btn{margin-top:1rem}
+.fr{position:relative;max-width:480px;margin-inline:auto;transition:transform 1s var(--e)}
+.fr::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--camel)}
+.fr::after{content:"";position:absolute;top:-10px;left:-10px;width:70px;height:70px;border-top:2px solid var(--camel);border-left:2px solid var(--camel);z-index:2}
+.fr img{position:relative;z-index:1;width:100%;filter:saturate(.9) contrast(1.06) brightness(.96) sepia(.06);box-shadow:0 50px 90px -30px rgba(5,8,22,.75),0 0 0 7px rgba(255,255,255,.6),0 0 0 8px rgba(191,161,108,.45)}
 
-.light{position:relative;background:radial-gradient(ellipse 80% 70% at 100% 0,rgba(213,222,245,.7),transparent 60%),linear-gradient(180deg,var(--ivory),#EAE4D6);color:var(--ink)}
-.light::before{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;mix-blend-mode:multiply;pointer-events:none}
-.light>*{position:relative}.light .body-p{color:rgba(10,18,48,.86)}
+/* quote */
+.pq{padding:clamp(6rem,12vw,11rem) var(--pad);text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(228,206,151,.2),transparent 70%),linear-gradient(180deg,var(--navy),var(--royal) 55%,var(--navy))}
+.pq p{max-width:60rem;margin:0 auto var(--s3);font:italic 400 clamp(1.7rem,3.2vw,3.2rem)/1.32 var(--serif);color:var(--ivory)}
+.pq span{font:500 .64rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--champ)}
+.w{opacity:.22;transition:opacity .6s}.w.on{opacity:1}
 
-/* spotlight mengikuti kursor di section gelap */
-.spot::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .8s;background:radial-gradient(560px circle at var(--sx,50%) var(--sy,50%),rgba(228,206,151,.09),transparent 62%)}
-.spot.lit::after{opacity:1}
+/* programs */
+.pw{max-width:1400px;margin:0 auto;padding:clamp(6rem,13vw,12rem) 6%}
+.ph{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end;margin-bottom:var(--s4)}.ph .dis,.ph .bp{margin:0}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.4vw,22px)}
+.bt{position:relative;overflow:hidden;border:1px solid rgba(146,122,81,.35);background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(255,255,255,.3));box-shadow:0 30px 60px -34px rgba(10,18,48,.38),inset 0 1px 0 #fff;transition:transform .8s var(--e),border-color .4s,box-shadow .8s,opacity 1.2s var(--e)}
+.bt:hover{transform:translateY(-6px);border-color:var(--camel)}
+.b0{grid-column:1/6;grid-row:1/4;border:0;box-shadow:0 50px 90px -30px rgba(5,8,22,.7),0 0 0 1px rgba(191,161,108,.5)}
+.b0 img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06) brightness(.95)}
+.bp1{padding:2rem;display:flex;flex-direction:column;justify-content:space-between;gap:2.2rem;min-height:210px}
+.bp1 i{font:italic 500 3.4rem/1 var(--serif);color:#9a8250}
+.bp1 h3{font:600 .72rem/1.8 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.bp1 h3 small{display:block;font:italic 400 1.05rem var(--serif);letter-spacing:.04em;text-transform:none;color:var(--gi)}
+.b1{grid-column:6/10}.b2{grid-column:10/13}.b3{grid-column:6/9}.b4{grid-column:9/13}
+.bcta{grid-column:6/13;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding:2.4rem 2.8rem;background:linear-gradient(135deg,var(--navy),var(--royal));border-color:rgba(191,161,108,.5)}
+.bcta p{max-width:21rem;font:italic 400 1.5rem/1.35 var(--serif);color:var(--champ)}
 
-/* ---------- About ---------- */
-#about{display:grid;grid-template-columns:1.618fr 1fr;align-items:center;gap:clamp(2rem,6vw,6.854rem);padding:clamp(7rem,14vw,13rem) var(--pad)}
-.col{display:flex;flex-direction:column}.col .btn{align-self:flex-start;margin-top:1rem}
-.about-photo{display:flex;justify-content:center}
-.frame{position:relative;width:100%;max-width:500px;transition:transform 1s var(--ease);will-change:transform}
-.frame::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--camel);z-index:0}
-.frame::after{content:"";position:absolute;top:-10px;left:-10px;width:72px;height:72px;border-top:2px solid var(--camel);border-left:2px solid var(--camel);z-index:2}
-.frame img{position:relative;z-index:1;width:100%;height:auto;filter:var(--grade);box-shadow:0 50px 90px -30px rgba(5,8,22,.75),0 0 0 7px rgba(255,255,255,.6),0 0 0 8px rgba(191,161,108,.45)}
-
-/* ---------- Pull quote (cahaya kata-per-kata saat scroll) ---------- */
-.pq-section{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--imperial) 55%,var(--navy-d));padding:clamp(7rem,13vw,12rem) var(--pad);text-align:center;overflow:hidden}
-.pq-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(228,206,151,.22),transparent 70%),radial-gradient(ellipse 80% 50% at 50% 110%,rgba(5,8,22,.8),transparent 70%)}
-.pq-mark{position:relative;display:block;font-family:var(--display);font-size:9rem;line-height:1;height:.7em;padding:.12em .15em 0;margin-bottom:var(--s3);background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
-.pq-text{position:relative;max-width:62rem;margin:0 auto var(--s3);font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1.8rem,3.4vw,3.236rem);line-height:1.3;color:var(--ivory);text-shadow:0 6px 30px rgba(0,0,0,.4)}
-.pq-divider{position:relative;width:84px;height:2px;background:var(--gold);margin:0 auto 1.6rem}
-.pq-attr{position:relative;font:500 .66rem var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
-
-/* ---------- Programs ---------- */
-.prog-wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(7rem,14vw,13rem) 6%}
-.prog-head{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end;margin-bottom:clamp(3rem,6vw,5.5rem)}
-.prog-head .display,.prog-head .body-p{margin-bottom:0}
-.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(150px,auto);gap:clamp(12px,1.4vw,22px)}
-.bt{position:relative;overflow:hidden;isolation:isolate;border:1px solid rgba(146,122,81,.35);background:linear-gradient(160deg,rgba(255,255,255,.74),rgba(255,255,255,.3));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 30px 60px -34px rgba(10,18,48,.38),inset 0 1px 0 rgba(255,255,255,.95);transition:opacity 1.2s var(--ease),transform .8s var(--ease),box-shadow .8s var(--ease),border-color .4s}
-.bt::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .5s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(228,206,151,.45),transparent 60%)}
-.bt:hover{transform:translateY(-6px);border-color:var(--camel);box-shadow:0 50px 80px -34px rgba(10,18,48,.5),inset 0 1px 0 #fff}.bt:hover::before{opacity:1}
-.bt-photo{grid-column:1/6;grid-row:1/4;align-self:start;padding:0;border:0;box-shadow:0 50px 90px -30px rgba(5,8,22,.7),0 0 0 1px rgba(191,161,108,.5)}
-.bt-photo img{display:block;width:100%;height:auto;filter:var(--grade)}
-.bt-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(5,8,22,.4)),linear-gradient(135deg,rgba(20,37,101,.18),rgba(146,122,81,.08))}
-.bt-a{grid-column:6/10;grid-row:1}.bt-b{grid-column:10/13;grid-row:1}.bt-c{grid-column:6/9;grid-row:2}.bt-d{grid-column:9/13;grid-row:2}
-.bt-prog{padding:2rem 2rem 1.8rem;display:flex;flex-direction:column;justify-content:space-between;gap:2.4rem;min-height:220px}
-.bt-n{font:italic 500 3.6rem/1 var(--display);color:#9a8250}
-.bt-t{font:600 .72rem/1.8 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-.bt-t small{display:block;margin-top:.3rem;font:italic 400 1.05rem var(--display);letter-spacing:.04em;text-transform:none;color:var(--gold-ink)}
-.bt-cta{grid-column:6/13;grid-row:3;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding:2.4rem 2.8rem;border-color:rgba(191,161,108,.5);background:linear-gradient(135deg,var(--navy-d),var(--imperial))}
-.bt-cta p{max-width:21rem;font:italic 400 1.5rem/1.35 var(--display);color:var(--champ)}
-
-/* ---------- Achievements ---------- */
-#achievements{position:relative;background:linear-gradient(180deg,var(--night),var(--navy-d));padding:clamp(7rem,13vw,12rem) var(--pad) clamp(3rem,6vw,5rem);overflow:hidden}
-#achievements::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0,rgba(228,206,151,.18),transparent 70%)}
-#achievements>*{position:relative;z-index:1}
-.sec-head{text-align:center;max-width:62rem;margin:0 auto var(--s4)}
-.sec-head .sub{font-size:1rem;line-height:1.8;color:var(--oak);margin-top:1rem;max-width:36rem;margin-inline:auto}
-.ach-stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:1100px;margin:0 auto var(--s5);border-block:1px solid rgba(191,161,108,.5);background:linear-gradient(180deg,rgba(228,206,151,.05),transparent)}
-.ach-stat{padding:2.618rem 1rem;text-align:center;border-right:1px solid rgba(191,161,108,.3)}
-.ach-stat:last-child{border:0}
-.ach-stat b{display:block;font:500 clamp(3rem,6vw,5.2rem)/1 var(--display);background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.8rem}
-.ach-stat span{font:600 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--silver)}
+/* achievements */
+#achievements{padding:clamp(6rem,12vw,11rem) var(--pad) clamp(3rem,6vw,5rem)}
+.sh{max-width:60rem;margin:0 auto var(--s4)}.sh .sub{margin:1rem auto 0;max-width:36rem;line-height:1.8}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:1100px;margin:0 auto var(--s4);border-block:1px solid rgba(191,161,108,.5)}
+.stats div{padding:2.4rem 1rem;text-align:center;border-right:1px solid rgba(191,161,108,.3)}.stats div:last-child{border:0}
+.stats b{display:block;font:500 clamp(3rem,6vw,5rem)/1 var(--serif);background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.7rem}
+.stats span{font:600 .58rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}
 .tl{max-width:1100px;margin:0 auto;border-top:1px solid rgba(191,161,108,.5)}
-.row{display:grid;grid-template-columns:120px 1fr auto;gap:30px;align-items:center;padding:1.8rem 0;border-bottom:1px solid rgba(191,161,108,.26);transition:padding-left .6s var(--ease),background .6s,opacity 1.2s var(--ease),transform 1.2s var(--ease)}
-.row:hover,.row:focus-visible{padding-left:22px;background:linear-gradient(90deg,rgba(228,206,151,.13),transparent)}
-.row .y{font:500 2rem var(--display);color:var(--champ)}
-.row h3{font:600 1.15rem/1.4 var(--sans);color:var(--ivory);margin-bottom:.3rem}
-.row p{font-size:.85rem;line-height:1.7;color:var(--silver)}
-.row small{font:600 .58rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--champ);border:1px solid rgba(228,206,151,.5);padding:.6rem 1.2rem;white-space:nowrap;transition:background .4s,color .4s}
+.row{display:grid;grid-template-columns:110px 1fr auto;gap:28px;align-items:center;padding:1.7rem 0;border-bottom:1px solid rgba(191,161,108,.26);transition:padding-left .6s var(--e),background .6s,opacity 1.2s var(--e),transform 1.2s var(--e)}
+.row:hover{padding-left:20px;background:linear-gradient(90deg,rgba(228,206,151,.13),transparent)}
+.row .y{font:500 2rem var(--serif);color:var(--champ)}
+.row h3{font:600 1.1rem/1.4 var(--sans);color:var(--ivory);margin-bottom:.3rem}.row p{font-size:.84rem;line-height:1.7;color:var(--silver)}
+.row small{font:600 .56rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--champ);border:1px solid rgba(228,206,151,.5);padding:.6rem 1.1rem;white-space:nowrap;transition:.4s}
 .row:hover small{background:var(--gold);color:var(--night);border-color:transparent}
-.hint{text-align:center;margin-top:2rem;font:500 .58rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:#9E8B70}
+.hint{text-align:center;margin-top:2rem;font:500 .56rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#9E8B70}
 
-/* ---------- Students (CROP DIKUNCI sesuai screenshot) ---------- */
-#students{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--night) 60%,var(--ink));padding:clamp(3rem,6vw,5rem) 5% clamp(7rem,12vw,11rem);overflow:hidden}
-#students::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(228,206,151,.12),transparent 70%);pointer-events:none}
-#students>*{position:relative;z-index:1}
-#students .sec-head{margin-bottom:var(--s4);max-width:1360px;display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s3);align-items:end;text-align:left}
-#students .sec-head .eyebrow,#students .sec-head .rule{grid-column:1/-1}
-#students .sec-head .rule.centered{margin-left:0}
-#students .sec-head .sec-h{margin-bottom:0}
-#students .sec-head .sub{margin:0}
-.sec-h{font:700 clamp(2.2rem,4.236vw,4.236rem)/1.1 var(--sans);letter-spacing:-.025em;color:var(--ivory)}
-.sg{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,1.6vw,26px);max-width:1360px;margin:0 auto}
-.sc{position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#0E1C4A,var(--night));overflow:hidden;cursor:pointer;box-shadow:0 34px 64px -30px rgba(0,0,0,.85),0 0 0 1px rgba(191,161,108,.38);transition:transform .8s var(--ease),box-shadow .8s var(--ease),opacity 1.2s var(--ease)}
-.sc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
-.sc:hover,.sc:focus-visible{transform:translateY(-10px);box-shadow:0 50px 90px -30px rgba(5,8,22,.9),0 0 0 1px var(--camel)}
-.sc:hover::after,.sc:focus-visible::after{transform:scaleX(1)}
-.sc::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(228,206,151,.16),transparent 62%)}
-.sc:hover::before{opacity:1}
-.sc .pw{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--navy-d);margin:10px 10px 0;box-shadow:0 0 0 1px rgba(228,206,151,.3)}
-.sc .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--fx,50%) var(--fy,30%);transform:scale(var(--z,1));transform-origin:var(--fx,50%) var(--fy,30%);filter:saturate(.94) contrast(1.04) brightness(.97);transition:transform 1.6s var(--ease)}
-.sc:hover .ph{transform:scale(calc(var(--z,1) + .04))}
-.sc .pw::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 65%,rgba(5,8,22,.3) 100%);box-shadow:inset 0 0 0 1px rgba(228,206,151,.2)}
-.sc .tx{flex:1;display:flex;flex-direction:column;align-items:flex-start;padding:1.3rem 1.2rem 1.6rem}
-.sc b{align-self:flex-start;font:600 .54rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:.4rem .85rem;margin-bottom:1rem}
-.sc h3{font:600 1.05rem/1.3 var(--sans);color:var(--ivory);margin-bottom:.5rem}
-.sc p{font-size:.76rem;line-height:1.7;color:var(--silver);margin-top:auto}
+/* students — 3 kolom + baris ke-2 terpusat, crop 100% mengikuti screenshot (rasio foto 198:262) */
+#students{padding:clamp(3rem,6vw,5rem) 5% clamp(6rem,11vw,10rem);background:linear-gradient(180deg,var(--navy),var(--night) 60%,var(--navy))}
+#students .sh{text-align:center}
+.sec-h{font:700 clamp(2rem,4.236vw,4.236rem)/1.1 var(--sans);letter-spacing:-.025em;color:var(--ivory)}
+.sg{--g:clamp(10px,1.6vw,26px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g);max-width:min(1040px,100%);margin:0 auto}
+.sc{position:relative;flex:0 0 calc((100% - 2*var(--g))/3);min-width:0;display:flex;flex-direction:column;background:linear-gradient(180deg,#0E1C4A,var(--night));cursor:pointer;overflow:hidden;box-shadow:0 34px 64px -30px rgba(0,0,0,.85),0 0 0 1px rgba(191,161,108,.4);transition:transform .8s var(--e),box-shadow .8s var(--e),opacity 1.2s var(--e)}
+.sc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--e)}
+.sc:hover,.sc:focus-visible{transform:translateY(-8px);box-shadow:0 50px 90px -30px #050816,0 0 0 1px var(--camel)}.sc:hover::after{transform:scaleX(1)}
+.sc .pf{position:relative;overflow:hidden;aspect-ratio:198/262;margin:clamp(5px,1.2vw,10px) clamp(5px,1.2vw,10px) 0;background:var(--navy);box-shadow:0 0 0 1px rgba(228,206,151,.3)}
+.sc .pf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--fx) var(--fy);transform:scale(var(--z));transform-origin:var(--fx) var(--fy);transition:transform 1.6s var(--e)}
+.sc:hover .pf img{transform:scale(calc(var(--z) + .04))}
+.sc .tx{flex:1;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(.7rem,1.6vw,1.3rem) clamp(.6rem,1.5vw,1.2rem) clamp(.9rem,2vw,1.5rem)}
+.sc em{font:600 clamp(.4rem,.9vw,.54rem) var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:.4rem .8rem;margin-bottom:.9rem;font-style:normal}
+.sc h3{font:600 clamp(.72rem,1.5vw,1.05rem)/1.3 var(--sans);color:var(--ivory);margin-bottom:.45rem}
+.sc p{font-size:clamp(.54rem,1.1vw,.76rem);line-height:1.65;color:var(--silver)}
 
-/* ---------- Performance ---------- */
-#performance{position:relative;background:radial-gradient(ellipse 70% 50% at 50% 0,rgba(213,222,245,.75),transparent 65%),linear-gradient(180deg,var(--ivory),#E4DDCB);padding:clamp(7rem,14vw,13rem) var(--pad);text-align:center;overflow:hidden}
-#performance::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 30% at 50% 100%,rgba(191,161,108,.2),transparent 70%)}
-#performance::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.05;mix-blend-mode:multiply;pointer-events:none}
-#performance>*{position:relative;z-index:1}#performance .display{margin-bottom:0}
-.stage{position:relative;max-width:1060px;margin:var(--s4) auto 0}
-.stage::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--camel);z-index:0}
-.stage::after{content:"";position:absolute;top:-10px;left:-10px;width:72px;height:72px;border-top:2px solid var(--camel);border-left:2px solid var(--camel);z-index:2;pointer-events:none}
-.video{position:relative;z-index:1;aspect-ratio:16/9;background:#000;overflow:hidden;box-shadow:0 60px 110px -30px rgba(0,0,0,.9),0 0 160px -30px rgba(228,206,151,.28),0 0 0 1px rgba(228,206,151,.5),0 0 0 8px #0A1230,0 0 0 9px rgba(191,161,108,.5)}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.poster{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#000;display:block;overflow:hidden}
-.poster img{width:100%;height:100%;object-fit:cover;object-position:38% 50%;filter:brightness(.84) saturate(.9) contrast(1.08) sepia(.06);transition:filter .8s var(--ease),transform 1.2s var(--ease)}
-.poster:hover img,.poster:focus-visible img{filter:brightness(1) saturate(1) contrast(1.05);transform:scale(1.035)}
-.poster::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#000 0,#000 7%,transparent 7%,transparent 93%,#000 93%),radial-gradient(ellipse 85% 85% at 50% 50%,transparent 45%,rgba(5,8,22,.6) 100%),linear-gradient(180deg,rgba(5,8,22,.35) 0%,transparent 32%,transparent 50%,rgba(5,8,22,.8) 100%),linear-gradient(135deg,rgba(20,37,101,.3),rgba(146,122,81,.1))}
-.play{position:absolute;z-index:2;left:50%;top:50%;width:100px;height:100px;margin:-50px 0 0 -50px;border-radius:50%;border:1px solid rgba(228,206,151,.85);background:rgba(5,8,22,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;transition:background .4s,border-color .4s,transform .7s var(--ease)}
-.play::before{content:"";margin-left:6px;border-left:24px solid var(--champ);border-top:15px solid transparent;border-bottom:15px solid transparent;transition:border-left-color .4s}
-.play::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(228,206,151,.6);animation:ring 3s cubic-bezier(.2,.6,.3,1) infinite}
-@keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.8);opacity:0}}
-.poster:hover .play,.poster:focus-visible .play{background:var(--gold);border-color:transparent;transform:scale(1.08)}
-.poster:hover .play::before,.poster:focus-visible .play::before{border-left-color:var(--night)}
-.poster-label{position:absolute;z-index:2;left:0;right:0;bottom:11%;font:500 .62rem var(--sans);letter-spacing:.44em;text-transform:uppercase;color:rgba(246,243,236,.92)}
-.perf-meta{margin:var(--s5) auto 0;max-width:42rem}
-.perf-comp{display:block;font:600 .66rem var(--sans);letter-spacing:.4em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:1.2rem}
-.perf-title{font:500 clamp(2rem,3.6vw,3.236rem)/1.1 var(--display);letter-spacing:-.015em;color:var(--ink);margin-bottom:.8rem}
-.perf-nick{display:block;font:italic 400 1.5rem var(--display);color:var(--gold-ink);margin-bottom:2rem}
-.perf-divider{width:84px;height:2px;background:var(--gold);margin:0 auto 2rem}
-.perf-body{font-size:.95rem;line-height:2;color:rgba(10,18,48,.84);margin-bottom:1.8rem}
-.perf-by{display:block;font:600 .66rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:2.6rem}
-#performance .btn-ghost{border-color:rgba(10,18,48,.5);color:var(--ink)}
-#performance .btn-ghost:hover{border-color:var(--copper);background:rgba(146,122,81,.12)}
+/* performance */
+#performance{padding:clamp(6rem,13vw,12rem) var(--pad);text-align:center;overflow:hidden}.light .dis{margin-bottom:0}
+.stage{position:relative;max-width:1040px;margin:var(--s4) auto 0}
+.stage::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--camel)}
+.vid{position:relative;z-index:1;aspect-ratio:16/9;background:#000;overflow:hidden;box-shadow:0 60px 110px -30px rgba(0,0,0,.9),0 0 0 1px rgba(228,206,151,.5),0 0 0 8px var(--navy),0 0 0 9px rgba(191,161,108,.5)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pst{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000}
+.pst img{width:100%;height:100%;object-fit:cover;object-position:38% 50%;filter:brightness(.84) saturate(.9) contrast(1.08);transition:filter .8s,transform 1.2s var(--e)}
+.pst:hover img{filter:brightness(1);transform:scale(1.035)}
+.pst::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#000 0,#000 7%,transparent 7%,transparent 93%,#000 93%),radial-gradient(ellipse 85% 85% at 50% 50%,transparent 45%,rgba(5,8,22,.6))}
+.play{position:absolute;z-index:2;left:50%;top:50%;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;border:1px solid rgba(228,206,151,.85);background:rgba(5,8,22,.55);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;transition:.5s var(--e)}
+.play::before{content:"";margin-left:6px;border-left:23px solid var(--champ);border-block:14px solid transparent}
+.play::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(228,206,151,.6);animation:ring 3s infinite}@keyframes ring{to{transform:scale(1.8);opacity:0}}
+.pst:hover .play{background:var(--gold);border-color:transparent;transform:scale(1.08)}.pst:hover .play::before{border-left-color:var(--night)}
+.meta{margin:var(--s4) auto 0;max-width:42rem}
+.meta .k{display:block;font:600 .64rem var(--sans);letter-spacing:.38em;text-transform:uppercase;color:var(--gi);margin-bottom:1.1rem}
+.meta h3{font:500 clamp(2rem,3.6vw,3.2rem)/1.1 var(--serif);color:var(--ink);margin-bottom:.8rem}
+.meta .n{display:block;font:italic 400 1.5rem var(--serif);color:var(--gi);margin-bottom:1.6rem}
+.meta p{font-size:.95rem;line-height:2;color:rgba(10,18,48,.84);margin-bottom:1.6rem}
+.meta .by{display:block;font:600 .64rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gi);margin-bottom:2.2rem}
+.light .ghost{border-color:rgba(10,18,48,.5);color:var(--ink)}.light .ghost:hover{background:rgba(146,122,81,.12);border-color:#927A51}
 
-/* ---------- Archive ---------- */
-#archive{position:relative;background:linear-gradient(180deg,var(--night),var(--navy-d) 50%,var(--night));padding:clamp(7rem,13vw,12rem) 5%;overflow:hidden}
-#archive::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0,rgba(228,206,151,.15),transparent 70%)}
-#archive>*{position:relative;z-index:1}.archive-head{text-align:center;margin-bottom:var(--s4)}.archive-head .display{margin-bottom:0}
-.gal{columns:3 290px;column-gap:30px;max-width:1320px;margin:0 auto}
-.gal figure{break-inside:avoid;margin-bottom:30px;padding:11px 11px 0;background:linear-gradient(150deg,var(--navy),var(--night));border:1px solid rgba(191,161,108,.4);box-shadow:0 34px 64px -28px rgba(5,8,22,.85);cursor:zoom-in;transition:transform .8s var(--ease),border-color .4s,box-shadow .8s,opacity 1.2s var(--ease)}
-.gal figure:nth-child(3n+2){margin-top:42px}
-.gal figure:hover{transform:translateY(-10px);border-color:var(--champ);box-shadow:0 50px 90px -30px rgba(5,8,22,.95)}
-.gal .im{position:relative;overflow:hidden}
-.gal .im::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(4,6,12,.4);pointer-events:none}
-.gal img{width:100%;height:auto;filter:saturate(.92) contrast(1.04);transition:transform 1.5s var(--ease),filter .6s}
-.gal figure:hover img{transform:scale(1.05);filter:saturate(1.08) contrast(1.05)}
-.gal figcaption{display:flex;gap:12px;align-items:baseline;padding:.95rem 4px 1.05rem;font:italic 400 1.02rem/1.5 var(--display);color:var(--champ)}
-.gal figcaption i{font:600 .58rem var(--sans);letter-spacing:.22em;color:var(--camel);font-style:normal}
-.gal figure.star{border-color:var(--champ)}
-.gal figure.star figcaption::after{content:"Solo";margin-left:auto;font:600 .52rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:.28rem .65rem}
-.lb{position:fixed;inset:0;background:rgba(3,5,12,.97);z-index:90;display:none;place-items:center;padding:30px}
-.lb.on{display:grid;animation:fadeIn .4s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* archive */
+#archive{padding:clamp(6rem,12vw,11rem) 5%}
+.gal{columns:3 290px;column-gap:28px;max-width:1320px;margin:0 auto}
+.gal figure{break-inside:avoid;margin-bottom:28px;padding:11px 11px 0;background:linear-gradient(150deg,#101E4F,var(--night));border:1px solid rgba(191,161,108,.4);box-shadow:0 34px 64px -28px rgba(5,8,22,.85);cursor:zoom-in;transition:transform .8s var(--e),border-color .4s,opacity 1.2s var(--e)}
+.gal figure:nth-child(3n+2){margin-top:40px}.gal figure:hover{transform:translateY(-8px);border-color:var(--champ)}
+.gal .im{overflow:hidden}.gal img{width:100%;height:auto;filter:saturate(.92) contrast(1.04);transition:transform 1.5s var(--e)}.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{display:flex;gap:12px;align-items:baseline;padding:.9rem 4px 1rem;font:italic 400 1.02rem/1.5 var(--serif);color:var(--champ)}
+.gal figcaption i{font:600 .56rem var(--sans);letter-spacing:.2em;color:var(--camel)}
+.gal .star{border-color:var(--champ)}.gal .star figcaption::after{content:"Solo";margin-left:auto;font:600 .5rem var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:.28rem .65rem}
+.lb{position:fixed;inset:0;background:rgba(3,5,12,.97);z-index:90;display:none;place-items:center;padding:30px}.lb.on{display:grid}
 .lb img{max-height:84vh;max-width:94vw;object-fit:contain;box-shadow:0 30px 100px #000,0 0 0 1px rgba(191,161,108,.4)}
-.lb p{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:italic 1.05rem var(--display);color:var(--champ);padding:0 60px}
-.lb button{position:absolute;background:none;border:0;color:var(--ivory);font-size:2.4rem;cursor:pointer;padding:14px;opacity:.7;transition:opacity .3s,color .3s}
-.lb button:hover{opacity:1;color:var(--champ)}.lb .x{top:10px;right:14px}.lb .p{left:8px}.lb .n{right:8px}
+.lb p{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:italic 1.05rem var(--serif);color:var(--champ);padding:0 60px}
+.lb button{position:absolute;background:none;border:0;color:var(--ivory);font-size:2.4rem;cursor:pointer;padding:14px;opacity:.7}.lb button:hover{opacity:1;color:var(--champ)}.lb .x{top:10px;right:14px}.lb .p{left:8px}.lb .n{right:8px}
 
-/* ---------- Philosophy ---------- */
-#philosophy{position:relative;background:radial-gradient(ellipse 70% 60% at 50% 0,rgba(213,222,245,.8),transparent 65%),linear-gradient(180deg,var(--ivory),#E7E0D0);padding:clamp(8rem,17vw,16rem) var(--pad);text-align:center;overflow:hidden}
-#philosophy::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(191,161,108,.2),transparent 70%)}
-#philosophy::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.05;mix-blend-mode:multiply;pointer-events:none}
-#philosophy>*{position:relative;z-index:1}
-.phil-quote{max-width:70rem;margin:0 auto var(--s3);font:italic 400 clamp(2.2rem,5.4vw,5.236rem)/1.08 var(--display);letter-spacing:-.02em;color:var(--ink)}
-.phil-divider{width:84px;height:2px;background:var(--gold);margin:0 auto var(--s3)}
-.phil-body{max-width:35rem;margin:0 auto;font-size:.95rem;line-height:2.1;color:rgba(10,18,48,.84)}
-
-/* ---------- Contact (peak-end) ---------- */
-#contact{position:relative;background:linear-gradient(180deg,var(--imperial),var(--navy-d) 60%,var(--night));padding:clamp(8rem,17vw,16rem) var(--pad) clamp(5rem,9vw,8rem);text-align:center;overflow:hidden}
-#contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(228,206,151,.26),transparent 70%)}
-#contact>*{position:relative;z-index:1}
-.contact-title{font:500 clamp(3.4rem,9vw,9.6rem)/.92 var(--display);letter-spacing:-.035em;color:var(--ivory);margin:0 0 1.6rem;text-shadow:0 8px 40px rgba(0,0,0,.5)}
-.contact-title em{font-style:italic;font-weight:400;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;padding-right:.06em}
-.contact-sub{font:italic 400 1.5rem var(--display);color:var(--mist);margin-bottom:var(--s4)}
-.contact-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:var(--s5) auto 0;border-top:1px solid rgba(191,161,108,.4)}
-.facts div{padding:var(--s2) 1rem 0;text-align:center}
-.facts small{display:block;font:600 .56rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--champ);margin-bottom:.6rem}
-.facts span{font:italic 400 1.3rem/1.3 var(--display);color:var(--ivory)}
+/* philosophy & contact */
+#philosophy{padding:clamp(7rem,16vw,15rem) var(--pad);text-align:center}
+.pqt{max-width:68rem;margin:0 auto var(--s3);font:italic 400 clamp(2.1rem,5.2vw,5rem)/1.1 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+.pb{max-width:35rem;margin:var(--s3) auto 0;line-height:2.1;font-size:.95rem;color:rgba(10,18,48,.84)}
+#contact{padding:clamp(7rem,16vw,15rem) var(--pad) clamp(4rem,8vw,7rem);text-align:center;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(228,206,151,.26),transparent 70%),linear-gradient(180deg,var(--royal),var(--navy) 60%,var(--night))}
+.ct{font:500 clamp(3.3rem,9vw,9.4rem)/.93 var(--serif);letter-spacing:-.035em;color:var(--ivory);margin-bottom:1.6rem}
+.ct em{font-style:italic;font-weight:400;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.cs{font:italic 400 1.5rem var(--serif);color:#D5DEF5;margin-bottom:var(--s4)}
+.cb{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:var(--s4) auto 0;border-top:1px solid rgba(191,161,108,.4)}
+.facts div{padding:var(--s2) 1rem 0}.facts small{display:block;font:600 .54rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin-bottom:.6rem}
+.facts span{font:italic 400 1.3rem/1.3 var(--serif);color:var(--ivory)}
 footer{background:#03050C;padding:var(--s3) var(--pad);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(191,161,108,.5)}
-.footer-logo img{height:30px;filter:brightness(0) invert(1) sepia(.35);opacity:.55}
-.footer-copy{font:500 .62rem var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(201,196,184,.7)}
-.bar{display:none}
+footer img{height:30px;filter:brightness(0) invert(1) sepia(.35);opacity:.55}footer p{font:500 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(201,196,184,.7)}
+.mb{display:none}
 
-/* ---------- Responsive ---------- */
-@media(max-width:1480px){
-.nav{position:fixed;inset:0;background:var(--night);flex-direction:column;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .5s}
-.nav.open{opacity:1;pointer-events:auto}.nav a{font-size:.85rem}.burger{display:block}}
-@media(max-width:1100px){
-#students .sec-head{grid-template-columns:1fr;text-align:center}
-#students .sec-head .eyebrow{justify-content:center}#students .sec-head .rule.centered{margin-left:auto}
-.sg{grid-template-columns:repeat(6,1fr);max-width:900px}
-.sc{grid-column:span 2}.sc:nth-child(4){grid-column:2/span 2}.sc:nth-child(5){grid-column:4/span 2}}
+@media(max-width:1380px){nav{position:fixed;inset:0;background:var(--night);flex-direction:column;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .5s}nav.o{opacity:1;pointer-events:auto}nav a{font-size:.85rem}.bg{display:block}}
 @media(max-width:960px){
-#about{grid-template-columns:1fr}
-.frame{margin:0 22px 22px 0;width:calc(100% - 22px)}
-.prog-head{grid-template-columns:1fr;align-items:start}
-.bento{grid-template-columns:1fr;grid-auto-rows:auto}
-.bt-photo,.bt-a,.bt-b,.bt-c,.bt-d,.bt-cta{grid-column:1/-1;grid-row:auto}
-.bt-photo{order:-1}.bt-prog{min-height:170px}
-.hero::before{inset:12px}
+#about,.ph{grid-template-columns:1fr}.fr{margin:0 22px 22px 0;width:calc(100% - 22px)}
+.bento{grid-template-columns:1fr}.b0,.b1,.b2,.b3,.b4,.bcta{grid-column:1/-1;grid-row:auto}.b0{order:-1}.bp1{min-height:160px}
 .cred{grid-template-columns:1fr 1fr}.cred div:nth-child(2){border-right:0}.cred div:nth-child(-n+2){border-bottom:1px solid rgba(191,161,108,.2)}
 .facts{grid-template-columns:1fr;gap:1.2rem}
-.bar{display:block;position:fixed;inset:auto 0 0;z-index:50;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,8,22,.94);border-top:1px solid rgba(191,161,108,.5);transform:translateY(110%);transition:transform .6s var(--ease);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.bar.on{transform:none}.bar .btn{display:flex;width:100%}
+.mb{display:block;position:fixed;inset:auto 0 0;z-index:60;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,8,22,.94);border-top:1px solid rgba(191,161,108,.5);transform:translateY(110%);transition:transform .6s var(--e);backdrop-filter:blur(14px)}.mb.on{transform:none}.mb .btn{display:flex}
 footer{flex-direction:column;text-align:center;padding-bottom:6rem}}
-@media(max-width:820px),(max-aspect-ratio:1/1){
-.hero{--gut:7vw;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:max(124px,11svh) 7vw 0}
-.hero-bg{display:none}.hero-photo{display:block}
-.hero-content{width:100%;max-width:min(900px,100%)}
-.hero-title{font-size:clamp(2.8rem,12.4vw,6.4rem)}
-.hero-tag{justify-content:center;margin-bottom:1.1rem}.hero-tag::before{display:none}
-.hero-sub,.hero-proof{display:none}.hero-cta{justify-content:center;margin-top:1.3rem}
-.hero-photo{--iw:min(100vw,calc((100svh - 440px)*1.017));--fade:clamp(0px,calc((100vw - var(--iw))*2),90px);right:auto;left:50%;margin-left:calc(var(--iw)/-2);
--webkit-mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100%),linear-gradient(90deg,rgba(0,0,0,0) 0,#000 var(--fade),#000 calc(100% - var(--fade)),rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in;
-mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100%),linear-gradient(90deg,rgba(0,0,0,0) 0,#000 var(--fade),#000 calc(100% - var(--fade)),rgba(0,0,0,0) 100%);mask-composite:intersect}
-.hero::after{background:radial-gradient(ellipse 90% 30% at 50% 24%,rgba(5,8,22,.55),transparent 70%),linear-gradient(180deg,rgba(5,8,22,.75),transparent 22%,transparent 88%,var(--night) 100%)}
-.scroll-hint,.hero-meta{display:none}}
-@media(max-width:860px){
-.row{grid-template-columns:76px 1fr;gap:16px}.row .y{font-size:1.5rem}.row h3{font-size:1.02rem}.row small{grid-column:2;justify-self:start}
-.ach-stats{grid-template-columns:1fr 1fr}.ach-stat:nth-child(2){border-right:0}.ach-stat:nth-child(-n+2){border-bottom:1px solid rgba(191,161,108,.3)}}
-@media(max-width:700px){
-.gal{columns:2;column-gap:12px}.gal figure{padding:6px 6px 0;margin-bottom:12px}
-.gal figure:nth-child(3n+2){margin-top:0}.gal figure:nth-child(even){margin-top:22px}
-.gal figcaption{flex-direction:column;gap:6px;font-size:.84rem;padding:.6rem 2px .8rem}
-.gal figure.star figcaption::after{margin-left:0;align-self:flex-start}
-.sg{grid-template-columns:repeat(2,1fr);gap:12px}
-.sc,.sc:nth-child(4),.sc:nth-child(5){grid-column:auto}
-.sc:nth-child(5){grid-column:1/-1;width:calc(50% - 6px);justify-self:center}
-.sc .pw{margin:6px 6px 0}.sc .tx{padding:1rem .8rem 1.2rem}.sc h3{font-size:.95rem}.sc p{font-size:.68rem}
-.bt-cta{padding:2rem 1.6rem}}
-@media(max-width:540px){
-.play{width:70px;height:70px;margin:-35px 0 0 -35px}
-.play::before{margin-left:4px;border-left-width:17px;border-top-width:11px;border-bottom-width:11px}
-.poster-label{font-size:.54rem;letter-spacing:.28em}
-.hero-tag{letter-spacing:.22em;font-size:.58rem}.btn-ghost.hide-sm{display:none}
-#hdr{height:88px;padding:0 4%}#hdr.scrolled{height:72px}
-.logo{gap:12px}.logo-img,#hdr.scrolled .logo-img{height:46px}
-.logo-name{font-size:.82rem;letter-spacing:.17em}.logo-sub{font-size:.54rem;letter-spacing:.26em;margin-top:7px}
-.hero{padding-top:max(112px,11svh)}.pq-mark{font-size:6rem}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rule{width:84px}html{scroll-behavior:auto}.hero-title .ln>span{transform:none}.fi{opacity:1}.curtain,.letterbox,#dust{display:none}.w{opacity:1}}
+@media(max-width:820px),(max-aspect-ratio:1/1){.hero{align-items:flex-end;text-align:center;padding:110px 7vw 70px}.hc{max-width:100%}.tag{justify-content:center}.tag::before,.hsub,.proof{display:none}.hcta{justify-content:center}.hero::after{background:linear-gradient(180deg,rgba(5,8,22,.75),transparent 26%,rgba(5,8,22,.2) 50%,rgba(5,8,22,.95) 100%)}}
+@media(max-width:860px){.row{grid-template-columns:72px 1fr;gap:14px}.row .y{font-size:1.5rem}.row small{grid-column:2;justify-self:start}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid rgba(191,161,108,.3)}}
+@media(max-width:700px){.gal{columns:2;column-gap:12px}.gal figure{padding:6px 6px 0;margin-bottom:12px}.gal figure:nth-child(3n+2){margin-top:0}.gal figure:nth-child(even){margin-top:22px}.gal figcaption{flex-direction:column;gap:6px;font-size:.84rem}}
+@media(max-width:540px){.logo img{height:42px}.logo b{font-size:.74rem;letter-spacing:.16em}.logo small{font-size:.5rem}#hd{height:80px;padding:0 4%}.play{width:68px;height:68px;margin:-34px 0 0 -34px}.play::before{border-left-width:16px;border-block-width:10px;margin-left:4px}.tag{letter-spacing:.2em}.btn.hs{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rule{width:84px}h1 span>b{transform:none}.fi{opacity:1}.w{opacity:1}}
 </style>
 </head>
 <body>
-<a class="skip" href="#about">Lewati ke konten</a>
-
-<div class="curtain" aria-hidden="true"><div class="curtain-in"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt=""><span>Sonata Music Studio</span></div></div>
-<div id="progress"></div>
-
-<header id="hdr">
-<a href="#" class="logo" aria-label="Sonata Music Studio — ke atas">
-<img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="" class="logo-img">
-<div><span class="logo-name">Sonata Music Studio</span><span class="logo-sub">Excellence in Artistry</span></div>
-</a>
-<button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
-<nav class="nav" id="nav" aria-label="Navigasi utama">
-<a href="#about">The Director</a><a href="#programs">Curriculum</a><a href="#achievements">Achievements</a><a href="#students">Students</a><a href="#performance">Performance</a><a href="#archive">Archive</a><a href="#contact" class="cta">Enrol</a>
-</nav>
+<div id="bar"></div>
+<header id="hd">
+<a href="#" class="logo" aria-label="Sonata Music Studio"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt=""><div><b>Sonata Music Studio</b><small>Excellence in Artistry</small></div></a>
+<button class="bg" id="bg" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+<nav id="nav" aria-label="Navigasi utama"><a href="#about">Direktur</a><a href="#programs">Kurikulum</a><a href="#achievements">Prestasi</a><a href="#students">Murid</a><a href="#performance">Performance</a><a href="#archive">Galeri</a><a href="#contact" class="cta">Daftar</a></nav>
 </header>
 
-<nav class="dots" id="dots" aria-label="Penanda bab">
-<a href="#about" data-l="Director" aria-label="Director"></a><a href="#programs" data-l="Curriculum" aria-label="Curriculum"></a><a href="#achievements" data-l="Achievements" aria-label="Achievements"></a><a href="#students" data-l="Students" aria-label="Students"></a><a href="#performance" data-l="Performance" aria-label="Performance"></a><a href="#archive" data-l="Archive" aria-label="Archive"></a><a href="#philosophy" data-l="Philosophy" aria-label="Philosophy"></a><a href="#contact" data-l="Contact" aria-label="Contact"></a>
-</nav>
-
 <main>
-<section class="hero" aria-label="Sonata Music Studio">
-<div class="hero-bg"><picture>
-<source media="(min-width:821px) and (min-aspect-ratio:1/1)" srcset="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/hero-landscape.jpg">
-<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sonata Music Studio — pengajar dan siswa belajar musik bersama">
-</picture></div>
-<div class="hero-photo"><picture>
-<source media="(max-width:820px),(max-aspect-ratio:1/1)" srcset="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/image.jpg">
-<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sonata Music Studio — pengajar dan siswa belajar musik bersama">
-</picture></div>
-<canvas id="dust" aria-hidden="true"></canvas>
-<div class="letterbox t" aria-hidden="true"></div><div class="letterbox b" aria-hidden="true"></div>
-<div class="hero-content">
-<span class="hero-tag fi">Jakarta &nbsp;&middot;&nbsp; Indonesia &nbsp;&middot;&nbsp; Est. 2024</span>
-<h1 class="hero-title"><span class="sr-only">Sonata Music Studio &mdash; </span>
-<span class="ln" style="--i:0"><span>Where</span></span>
-<span class="ln" style="--i:1"><span>Artistry <em>Is</em></span></span>
-<span class="ln gold" style="--i:2"><span>Cultivated</span></span></h1>
-<p class="hero-sub fi" style="--d:.4s">Pendidikan piano klasik dengan disiplin teknik yang ketat, interpretasi yang jujur, dan standar kualitas modern.</p>
-<div class="hero-cta fi" style="--d:.6s"><a href="#contact" class="btn btn-gold">Enrolment Inquiry</a><a href="#about" class="btn btn-ghost hide-sm">Explore the Studio</a></div>
-<div class="hero-proof fi" style="--d:.8s"><span><b>Gold Award</b> IOMF 2025</span><span><b>Best Teacher</b> 2022</span><span><b>ABRSM</b> &amp; Trinity</span></div>
+<section class="hero">
+<div class="hbg" id="hbg" role="img" aria-label="Sonata Music Studio"></div>
+<div class="hc" id="hc">
+<span class="tag fi">Jakarta · Indonesia · Est. 2024</span>
+<h1><span class="sr"><b style="--i:0">Where</b></span><span><b style="--i:1">Artistry <em>Is</em></b></span><span><b style="--i:2"><em>Cultivated</em></b></span></h1>
+<p class="hsub fi" style="--d:.3s">Pendidikan piano klasik dengan disiplin teknik yang ketat, interpretasi yang jujur, dan standar kualitas modern.</p>
+<div class="hcta fi" style="--d:.5s"><a href="#contact" class="btn gold">Konsultasi Pendaftaran</a><a href="#about" class="btn ghost hs">Kenali Studio</a></div>
+<div class="proof fi" style="--d:.7s"><span><b>Gold Award</b> IOMF 2025</span><span><b>Best Teacher</b> 2022</span><span><b>ABRSM</b> &amp; Trinity</span></div>
 </div>
-<div class="scroll-hint fi" style="--d:.9s"><span>Scroll</span><div class="scroll-line"></div></div>
-<div class="hero-meta fi" style="--d:1s"><b>Scene I</b>Overture</div>
 </section>
-
-<div class="cred" aria-label="Program utama">
-<div>Piano Performance</div><div>Advanced Music Theory</div><div>ABRSM &amp; Trinity</div><div>Artistic Interpretation</div>
-</div>
+<div class="cred"><div>Piano Performance</div><div>Advanced Music Theory</div><div>ABRSM &amp; Trinity</div><div>Artistic Interpretation</div></div>
 
 <section id="about" class="light">
-<div class="col">
-<span class="eyebrow"><i>I</i>Artistic Vision</span><span class="rule rv"></span>
-<h2 class="display rv">Felix<br><em>Satia</em></h2>
-<p class="body-p rv" style="--rd:.1s">Sebagai seorang pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap individu untuk menemukan suara autentik mereka melalui disiplin teknik klasik yang ketat namun penuh imajinasi.</p>
-<p class="body-p rv" style="--rd:.2s">Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu mengapresiasi kompleksitas harmoni dan keindahan interpretasi.</p>
-<a href="#achievements" class="btn btn-gold rv" style="--rd:.3s">View Artistic Journey</a>
-</div>
-<div class="about-photo rv"><div class="frame" id="tiltFrame"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia — Founder &amp; Director"></div></div>
-</section>
-
-<div class="sec-div"></div>
-
-<div class="pq-section">
-<span class="pq-mark" aria-hidden="true">&ldquo;</span>
-<p class="pq-text lit">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.</p>
-<div class="pq-divider"></div>
-<span class="pq-attr">Yo&#8209;Yo Ma &nbsp;&mdash;&nbsp; Cellist &amp; Cultural Ambassador</span>
-</div>
-
-<div class="sec-div"></div>
-
-<section id="programs" class="light">
-<div class="prog-wrap">
-<div class="prog-head">
 <div>
-<span class="eyebrow"><i>II</i>The Curriculum</span><span class="rule rv"></span>
-<h2 class="display rv">Core<br><em>Programs</em></h2>
+<span class="ey">Artistic Vision</span><div class="rule rv"></div>
+<h2 class="dis rv">Felix<br><em>Satia</em></h2>
+<p class="bp rv">Sebagai pendidik dan musisi, Felix Satia percaya bahwa setiap tuts piano yang ditekan harus membawa pesan. Di Sonata Music Studio, beliau memandu setiap murid menemukan suara autentiknya melalui disiplin teknik klasik yang ketat namun penuh imajinasi.</p>
+<p class="bp rv">Visi beliau bukan sekadar mengajarkan lagu, melainkan membentuk karakter musisi yang mampu menghargai kompleksitas harmoni dan keindahan interpretasi.</p>
+<a href="#achievements" class="btn gold rv">Lihat Perjalanan Artistik</a>
 </div>
-<p class="body-p rv">Kami menawarkan jalur pendidikan yang terstruktur namun adaptif, dirancang untuk setiap tahap perjalanan musikal.</p>
-</div>
+<div class="rv"><div class="fr" id="fr"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728278677799.jpeg" alt="Felix Satia, Founder &amp; Director"></div></div>
+</section>
+<div class="sd"></div>
+
+<div class="pq"><p class="lit">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future.</p><span>Yo‑Yo Ma — Cellist &amp; Cultural Ambassador</span></div>
+<div class="sd"></div>
+
+<section id="programs" class="light"><div class="pw">
+<div class="ph"><div><span class="ey">Kurikulum</span><div class="rule rv"></div><h2 class="dis rv">Core<br><em>Programs</em></h2></div><p class="bp rv">Jalur pendidikan yang terstruktur namun adaptif, dirancang untuk setiap tahap perjalanan musikal.</p></div>
 <div class="bento">
-<div class="bt bt-photo rv"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Felix Satia — mengajar" loading="lazy"></div>
-<div class="bt bt-prog bt-a rv" style="--rd:.05s"><span class="bt-n">01</span><div class="bt-t">Piano Performance<small>Grade 1&ndash;8</small></div></div>
-<div class="bt bt-prog bt-b rv" style="--rd:.12s"><span class="bt-n">02</span><div class="bt-t">Advanced Music Theory</div></div>
-<div class="bt bt-prog bt-c rv" style="--rd:.19s"><span class="bt-n">03</span><div class="bt-t">ABRSM &amp; Trinity Exam Preparation</div></div>
-<div class="bt bt-prog bt-d rv" style="--rd:.26s"><span class="bt-n">04</span><div class="bt-t">Artistic Interpretation</div></div>
-<div class="bt bt-cta rv"><p>Slot terbatas untuk konsultasi dan audisi siswa baru.</p><a href="https://wa.me/6289656684852" class="btn btn-gold">Enrolment Inquiry</a></div>
-</div>
-</div>
+<div class="bt b0 rv"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/1728277959315.jpeg" alt="Felix Satia mengajar" loading="lazy"></div>
+<div class="bt bp1 b1 rv"><i>I</i><h3>Piano Performance<small>Grade 1–8</small></h3></div>
+<div class="bt bp1 b2 rv" style="--rd:.08s"><i>II</i><h3>Advanced Music Theory</h3></div>
+<div class="bt bp1 b3 rv" style="--rd:.14s"><i>III</i><h3>ABRSM &amp; Trinity Exam Preparation</h3></div>
+<div class="bt bp1 b4 rv" style="--rd:.2s"><i>IV</i><h3>Artistic Interpretation</h3></div>
+<div class="bt bcta rv"><p>Slot terbatas untuk konsultasi dan audisi murid baru.</p><a href="https://wa.me/6289656684852" class="btn gold">Konsultasi via WhatsApp</a></div>
+</div></div></section>
+<div class="sd"></div>
+
+<section id="achievements" class="dk dkbg">
+<div class="sh c"><span class="ey">Recognition</span><div class="rule rv"></div><h2 class="dis rv">Jejak <em>Prestasi</em></h2><p class="sub rv">Penghargaan atas dedikasi dalam mengajar, menggubah, dan memimpin ansambel.</p></div>
+<div class="stats rv"><div><b data-n="13">13</b><span>Penghargaan &amp; Juara</span></div><div><b data-n="2" data-s="×">2×</b><span>Gold Award</span></div><div><b data-n="5">5</b><span>Prestasi Murid Terbaru</span></div><div><b>2011</b><span>Mulai di Panggung</span></div></div>
+<div class="tl" id="tl"></div><p class="hint">Klik baris untuk melihat sertifikat asli</p>
 </section>
 
-<div class="sec-div"></div>
-
-<section id="achievements" class="dk spot">
-<div class="sec-head ctr">
-<span class="eyebrow"><i>III</i>Recognition</span><span class="rule centered rv"></span>
-<h2 class="display center rv">Jejak <em>Prestasi</em></h2>
-<p class="sub rv">Penghargaan atas dedikasi dalam mengajar, menggubah, dan memimpin ansambel.</p>
-</div>
-<div class="ach-stats rv">
-<div class="ach-stat"><b data-count="13">13</b><span>Penghargaan &amp; Juara</span></div>
-<div class="ach-stat"><b data-count="2" data-suffix="&times;">2&times;</b><span>Gold Award</span></div>
-<div class="ach-stat"><b data-count="5">5</b><span>Prestasi Murid Terbaru</span></div>
-<div class="ach-stat"><b>2011</b><span>Mulai di Panggung</span></div>
-</div>
-<div class="tl" id="tl"></div>
-<p class="hint">Klik baris untuk melihat sertifikat asli</p>
-</section>
-
-<section id="students" class="dk spot">
-<div class="sec-head">
-<span class="eyebrow"><i>IV</i>Our Students</span><span class="rule centered rv"></span>
-<h2 class="sec-h rv">Murid yang Tumbuh Bersama Kami</h2>
-<p class="sub rv">Bukti dari latihan yang terarah: dari ujian internasional hingga festival piano nasional.</p>
-</div>
+<section id="students" class="dk">
+<div class="sh c"><span class="ey">Our Students</span><div class="rule rv"></div><h2 class="sec-h rv">Murid yang Tumbuh Bersama Kami</h2><p class="sub rv" style="font-family:var(--serif);font-style:italic;font-size:1.1rem">Bukti dari latihan yang terarah: dari ujian internasional hingga festival piano nasional.</p></div>
 <div class="sg" id="sg"></div>
 </section>
+<div class="sd"></div>
 
-<div class="sec-div"></div>
-
-<section id="performance">
-<div class="ctr"><span class="eyebrow"><i>V</i>Recital</span></div><span class="rule centered rv"></span>
-<h2 class="display center rv">In <em>Performance</em></h2>
-<div class="stage rv"><div class="video" id="perfVideo">
-<button class="poster" id="perfPoster" type="button" aria-label="Putar video: Chopin Étude Op. 25 No. 1">
-<img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/preview.webp" alt="Felix Satia memainkan Chopin Étude Op. 25 No. 1" loading="lazy">
-<span class="play" aria-hidden="true"></span><span class="poster-label">Watch the Performance</span>
-</button></div></div>
-<div class="perf-meta">
-<span class="perf-comp rv">Fr&eacute;d&eacute;ric Chopin</span>
-<h3 class="perf-title rv">&Eacute;tude in A&#8209;flat major, Op.&nbsp;25, No.&nbsp;1</h3>
-<span class="perf-nick rv">&ldquo;Aeolian Harp&rdquo;</span>
-<div class="perf-divider"></div>
-<p class="perf-body rv">Etude yang dijuluki &ldquo;Aeolian Harp&rdquo; ini menuntut kelembutan sentuhan dan kejernihan arpeggio &mdash; tempat teknik tidak lagi terdengar sebagai teknik, melainkan sebagai suara. Wujud nyata dari filosofi yang kami pegang di Sonata Music Studio.</p>
-<span class="perf-by rv">Felix Satia &nbsp;&mdash;&nbsp; Piano</span>
-<a href="https://youtu.be/fVnfH2ow5bM" class="btn btn-ghost rv" target="_blank" rel="noopener">Watch on YouTube</a>
+<section id="performance" class="light">
+<span class="ey" style="justify-content:center">Recital</span><div class="rule c rv" style="margin-inline:auto"></div>
+<h2 class="dis rv">In <em>Performance</em></h2>
+<div class="stage rv"><div class="vid" id="vid"><button class="pst" id="pst" aria-label="Putar video Chopin Étude Op. 25 No. 1"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/preview.webp" alt="Felix Satia memainkan Chopin Étude Op. 25 No. 1" loading="lazy"><span class="play"></span></button></div></div>
+<div class="meta">
+<span class="k rv">Frédéric Chopin</span><h3 class="rv">Étude in A‑flat major, Op. 25, No. 1</h3><span class="n rv">“Aeolian Harp”</span>
+<p class="rv">Etude ini menuntut kelembutan sentuhan dan kejernihan arpeggio, tempat teknik tidak lagi terdengar sebagai teknik, melainkan sebagai suara. Wujud nyata dari filosofi Sonata Music Studio.</p>
+<span class="by rv">Felix Satia — Piano</span>
+<a href="https://youtu.be/fVnfH2ow5bM" class="btn ghost rv" target="_blank" rel="noopener">Tonton di YouTube</a>
 </div>
 </section>
+<div class="sd"></div>
 
-<div class="sec-div"></div>
-
-<section id="archive" class="dk spot">
-<div class="archive-head ctr">
-<span class="eyebrow"><i>VI</i>Visual Journey</span><span class="rule centered rv"></span>
-<h2 class="display center rv">The Studio <em>Archive</em></h2>
-</div>
+<section id="archive" class="dk dkbg">
+<div class="sh c"><span class="ey">Visual Journey</span><div class="rule rv"></div><h2 class="dis rv">The Studio <em>Archive</em></h2></div>
 <div class="gal" id="gal"></div>
 </section>
+<div class="sd"></div>
 
-<div class="sec-div"></div>
-
-<section id="philosophy">
-<div class="ctr"><span class="eyebrow"><i>VII</i>Our Philosophy</span></div><span class="rule centered rv"></span>
-<p class="phil-quote lit">&ldquo;Tradition, met with Modern Excellence.<br>Every note a decision. Every silence, intentional.&rdquo;</p>
-<div class="phil-divider"></div>
-<p class="phil-body rv">Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas — di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi.</p>
+<section id="philosophy" class="light">
+<span class="ey" style="justify-content:center">Our Philosophy</span><div class="rule rv" style="margin-inline:auto"></div>
+<p class="pqt lit">“Tradition, met with Modern Excellence. Every note a decision. Every silence, intentional.”</p>
+<p class="pb rv">Pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang menjadi <em>sanctuary</em> bagi kreativitas, tempat tradisi musik klasik dirawat dengan standar modern tanpa kompromi.</p>
 </section>
+<div class="sd"></div>
 
-<div class="sec-div"></div>
-
-<section id="contact" class="dk spot">
-<div class="ctr"><span class="eyebrow"><i>VIII</i>Inquiries</span></div><span class="rule centered rv"></span>
-<h2 class="contact-title rv">Begin Your<br><em>Journey</em></h2>
-<p class="contact-sub rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
-<div class="contact-btns rv"><a href="https://wa.me/6289656684852" class="btn btn-gold">WhatsApp Office</a><a href="https://instagram.com/felixsatia" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a></div>
-<div class="facts rv">
-<div><small>Lokasi</small><span>Jakarta, Indonesia</span></div>
-<div><small>Program</small><span>Piano &middot; Teori &middot; ABRSM &amp; Trinity</span></div>
-<div><small>WhatsApp</small><span>+62 896-5668-4852</span></div>
-</div>
+<section id="contact" class="dk">
+<span class="ey" style="justify-content:center">Inquiries</span><div class="rule rv" style="margin-inline:auto"></div>
+<h2 class="ct rv">Begin Your<br><em>Journey</em></h2>
+<p class="cs rv">Slot terbatas untuk konsultasi dan audisi murid baru.</p>
+<div class="cb rv"><a href="https://wa.me/6289656684852" class="btn gold">WhatsApp Office</a><a href="https://instagram.com/felixsatia" class="btn ghost" target="_blank" rel="noopener">Instagram</a></div>
+<div class="facts rv"><div><small>Lokasi</small><span>Jakarta, Indonesia</span></div><div><small>Program</small><span>Piano · Teori · ABRSM &amp; Trinity</span></div><div><small>WhatsApp</small><span>+62 896-5668-4852</span></div></div>
 </section>
 </main>
 
-<footer>
-<div class="footer-logo"><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Music Studio"></div>
-<p class="footer-copy">Sonata Music Studio &copy; 2026 &mdash; Jakarta &middot; Designed for Excellence</p>
-</footer>
-
-<div class="bar" id="bar"><a href="https://wa.me/6289656684852" class="btn btn-gold">Enrolment Inquiry</a></div>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Pratinjau gambar">
-<button class="x" aria-label="Tutup">&times;</button><button class="p" aria-label="Sebelumnya">&lsaquo;</button>
-<img id="lbi" alt=""><p id="lbc"></p>
-<button class="n" aria-label="Berikutnya">&rsaquo;</button>
-</div>
+<footer><img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Music Studio"><p>Sonata Music Studio © 2026 — Jakarta</p></footer>
+<div class="mb" id="mb"><a href="https://wa.me/6289656684852" class="btn gold">Konsultasi Pendaftaran</a></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Pratinjau gambar"><button class="x" aria-label="Tutup">×</button><button class="p" aria-label="Sebelumnya">‹</button><img id="li" alt=""><p id="lc"></p><button class="n" aria-label="Berikutnya">›</button></div>
 
 <script>
 (function(){
 'use strict';
-var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var $=function(id){return document.getElementById(id)};
-var hdr=$('hdr'),bar=$('bar'),nav=$('nav'),burger=$('burger'),prog=$('progress');
-var heroBg=document.querySelector('.hero-bg'),heroC=document.querySelector('.hero-content'),raf=false,ys=0,lastY=0;
+var $=function(i){return document.getElementById(i)},R=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var BASE='https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/',U=function(n){return BASE+encodeURIComponent(n)};
+var hd=$('hd'),mb=$('mb'),nav=$('nav'),bg=$('bg'),bar=$('bar'),hbg=$('hbg'),hc=$('hc'),last=0,tk=false;
 
-/* ---------- Kata-per-kata: cahaya menyala mengikuti scroll ---------- */
+/* kata menyala saat scroll */
 var LIT=[];
-function splitWords(el){
-var words=[];
-(function walk(n){
-Array.prototype.slice.call(n.childNodes).forEach(function(c){
-if(c.nodeType===3){
-var parts=c.nodeValue.split(/(\s+)/),f=document.createDocumentFragment();
-parts.forEach(function(p){
-if(!p)return;
-if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}
-var s=document.createElement('span');s.className='w';s.textContent=p;f.appendChild(s);words.push(s)});
-c.parentNode.replaceChild(f,c)
-}else if(c.nodeType===1&&c.nodeName!=='BR'){walk(c)}})})(el);
-return words}
-document.querySelectorAll('.lit').forEach(function(el){LIT.push({el:el,w:splitWords(el)})});
-function updateLit(){
-var vh=window.innerHeight;
-LIT.forEach(function(o){
-var r=o.el.getBoundingClientRect();
-var p=reduce?1:Math.max(0,Math.min(1,(vh*.82-r.top)/(r.height+vh*.3)));
-var n=Math.round(p*o.w.length*1.04);
-o.w.forEach(function(s,i){s.classList.toggle('on',i<n)})})}
+document.querySelectorAll('.lit').forEach(function(el){
+var ws=[];el.childNodes.forEach(function(c){});
+var t=el.textContent.split(/\s+/).filter(Boolean);el.textContent='';
+t.forEach(function(x,i){var s=document.createElement('span');s.className='w';s.textContent=x;el.appendChild(s);ws.push(s);if(i<t.length-1)el.appendChild(document.createTextNode(' '))});
+LIT.push({el:el,w:ws})});
+function lit(){var vh=innerHeight;LIT.forEach(function(o){var r=o.el.getBoundingClientRect(),p=R?1:Math.max(0,Math.min(1,(vh*.85-r.top)/(r.height+vh*.3))),n=Math.round(p*o.w.length*1.05);o.w.forEach(function(s,i){s.classList.toggle('on',i<n)})})}
 
-/* ---------- Scroll: header, progress, parallax berinersia ---------- */
-function frame(){
-raf=false;
-var y=window.scrollY,h=window.innerHeight,max=document.documentElement.scrollHeight-h;
-ys=reduce?y:ys+(y-ys)*.1;
-hdr.classList.toggle('scrolled',y>55);
-if(!nav.classList.contains('open')){
-if(y>600&&y>lastY+6)hdr.classList.add('hide');else if(y<lastY-6||y<600)hdr.classList.remove('hide')}
-lastY=y;
-bar.classList.toggle('on',y>h*.8);
-prog.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
-if(!reduce&&ys<h*1.3){
-heroBg.style.transform='translate3d(0,'+(ys*.16).toFixed(1)+'px,0)';
-heroC.style.transform='translate3d(0,'+(ys*-.08).toFixed(1)+'px,0)';
-heroC.style.opacity=Math.max(0,1-ys/(h*.85)).toFixed(3)}
-updateLit();
-if(Math.abs(y-ys)>.4){raf=true;requestAnimationFrame(frame)}}
-function onScroll(){if(!raf){raf=true;requestAnimationFrame(frame)}}
-window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);frame();
+function frame(){tk=false;var y=scrollY,h=innerHeight,m=document.documentElement.scrollHeight-h;
+hd.classList.toggle('s',y>50);
+if(!nav.classList.contains('o')){if(y>600&&y>last+6)hd.classList.add('h');else if(y<last-6||y<600)hd.classList.remove('h')}
+last=y;mb.classList.toggle('on',y>h*.8);bar.style.transform='scaleX('+(m>0?Math.min(1,y/m):0)+')';
+if(!R&&y<h*1.3){hbg.style.transform='translate3d(0,'+(y*.16).toFixed(1)+'px,0)';hc.style.transform='translate3d(0,'+(y*-.07).toFixed(1)+'px,0)';hc.style.opacity=Math.max(0,1-y/(h*.85)).toFixed(2)}
+lit()}
+addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(frame)}},{passive:true});addEventListener('resize',frame);frame();
 
-burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';hdr.classList.remove('hide')});
-nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow=''})});
+bg.onclick=function(){var o=nav.classList.toggle('o');bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+nav.querySelectorAll('a').forEach(function(a){a.onclick=function(){nav.classList.remove('o');bg.setAttribute('aria-expanded','false');document.body.style.overflow=''}});
 
-/* ---------- Navigasi aktif (menu + dots) ---------- */
-var links={};
-document.querySelectorAll('#nav a[href^="#"],#dots a[href^="#"]').forEach(function(a){var k=a.getAttribute('href').slice(1);if(!k)return;(links[k]=links[k]||[]).push(a)});
-if('IntersectionObserver' in window){
-var so=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].forEach(function(a){a.classList.toggle('act',k===e.target.id)})})}})},{rootMargin:'-45% 0px -50% 0px'});
-Object.keys(links).forEach(function(k){var s=$(k);if(s)so.observe(s)})}
+/* menu aktif */
+var L={};nav.querySelectorAll('a[href^="#"]').forEach(function(a){L[a.getAttribute('href').slice(1)]=a});
+if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)Object.keys(L).forEach(function(k){L[k].classList.toggle('on',k===e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});Object.keys(L).forEach(function(k){var s=$(k);if(s)so.observe(s)})}
 
-/* ---------- Debu emas sinematik di hero ---------- */
-(function(){
-var cv=$('dust');if(!cv||reduce||!cv.getContext)return;
-var ctx=cv.getContext('2d'),W=0,H=0,P=[],on=true,dpr=Math.min(2,window.devicePixelRatio||1);
-function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
-function mk(init){return{x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*1.5+.4,vy:-(Math.random()*.22+.06),vx:(Math.random()-.5)*.12,a:Math.random()*.5+.15,ph:Math.random()*6.28}}
-size();var N=W<820?20:42;for(var i=0;i<N;i++)P.push(mk(true));
-window.addEventListener('resize',size);
-if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;if(on)tick()}).observe(cv);
-var run=false;
-function tick(){
-if(run&&!on)return;run=on;if(!on)return;
-ctx.clearRect(0,0,W,H);
-P.forEach(function(p,i){
-p.ph+=.012;p.x+=p.vx+Math.sin(p.ph)*.1;p.y+=p.vy;
-if(p.y<-10)P[i]=mk(false);
-var tw=.55+.45*Math.sin(p.ph*2);
-ctx.beginPath();ctx.fillStyle='rgba(228,206,151,'+(p.a*tw).toFixed(3)+')';ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill()});
-requestAnimationFrame(tick)}
-tick()})();
+/* reveal */
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}})},{threshold:.12}):null;
+function watch(){document.querySelectorAll('.rv,.rule').forEach(function(el){if(el.__w)return;el.__w=1;io?io.observe(el):el.classList.add('v')})}
 
-/* ---------- Gambar dari GitHub ---------- */
-var BASE='https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/',FILES=null,PIC=[];
-function norm(s){return s.toLowerCase().replace(/\.[a-z0-9]+$/,'').replace(/[\s_\-]+/g,'')}
-function find(specs){
-for(var i=0;i<specs.length;i++){
-var sp=specs[i];
-if(typeof sp==='string'&&/^(data:|https?:)/.test(sp))return sp;
-if(FILES){for(var j=0;j<FILES.length;j++){var f=FILES[j];if(f===sp||norm(f)===norm(sp))return BASE+encodeURIComponent(f)}}
-else if(typeof sp==='string'){return BASE+encodeURIComponent(/\.[a-z0-9]+$/i.test(sp)?sp:sp+'.jpg')}}
-return null}
-function load(url,ok,fail){var im=new Image();im.onload=function(){ok(url)};im.onerror=function(){if(fail)fail()};im.src=url}
-function reg(url,cap){PIC.push([url,cap.replace(/<[^>]+>/g,'')]);return PIC.length-1}
-
+/* data */
 var ACH=[
 ['2025','Gold Award, Piano Classic F','International Online Music Festival (IOMF) 2025','Gold','20250905_123538.png'],
-['2022','Best Teacher Award','National Cantata Excellence Award, atas capaian ujian murid 2018&ndash;2021','Pengajar Terbaik','1728303826998.jpeg'],
-['2020','Gold Award, Kategori B','Yayasan Musik Jakarta, Persahabatan RI&ndash;RRT','Gold','1728301815288.jpeg'],
+['2022','Best Teacher Award','National Cantata Excellence Award, atas capaian ujian murid 2018–2021','Pengajar Terbaik','1728303826998.jpeg'],
+['2020','Gold Award, Kategori B','Yayasan Musik Jakarta, Persahabatan RI–RRT','Gold','1728301815288.jpeg'],
 ['2019','Juara II, Lomba Cipta Lagu Gerejani','LP3KD DKI Jakarta, paduan suara SSA','Juara II','1728295139439.jpeg'],
-['2019','Juara IV dan Juara V, Cipta Lagu Gerejani','LP3KD DKI Jakarta, SSA dan SATB','Juara IV &middot; V','1728295173689.jpeg'],
-['2019','Silver Medal, Satya Dharma Gita Choir Festival','Semarang, karya <em>Ave Verum</em> (78.00) dan <em>Kyrie</em> (73.33)','Silver A &middot; B','1728295402904.jpeg'],
+['2019','Juara IV dan V, Cipta Lagu Gerejani','LP3KD DKI Jakarta, SSA dan SATB','Juara IV · V','1728295173689.jpeg'],
+['2019','Silver Medal, Satya Dharma Gita Choir Festival','Semarang, karya <em>Ave Verum</em> (78.00) dan <em>Kyrie</em> (73.33)','Silver A · B','1728295402904.jpeg'],
 ['2019','Rangking 4 dan 5, Cipta Nyanyian Liturgi','Komisi Liturgi Keuskupan Agung Jakarta','Pencipta Lagu','1728294846403.jpeg'],
 ['2018','Pemenang Lomba Cipta Lagu Arwah Komlit','KAJ 2018, <em>Hanya PadaMu Tuhan</em>','Pemenang','1728300782229.jpeg'],
 ['','Karya terpilih, Lomba Cipta Melodi Mazmur','LP3KN','Karya Terpilih','1728296617350.jpeg']];
 
-/* ====== KARTU MURID — CROP DIKUNCI SESUAI SCREENSHOT ======
-   [nama, badge, judul, keterangan, foto, zoom, fokus-x, fokus-y]
-   Julian/Jaden: zoom 1 (Distinction fokus atas 0%, Gold & Platinum 30%).
-   Claire: zoom 1.45 @ 58% dan zoom 1.3 @ 62% — wajah, badan, dan piala terlihat. */
-var IMG=['images (1) (67).jpeg','20250706_144605.jpg','IMG_20250707_114841_711.jpg','IMG-20251115-WA0007.jpg','20261106_111113.jpg'].map(function(n){return BASE+encodeURIComponent(n)});
+/* MURID — crop identik screenshot: [nama,badge,judul,ket,file,zoom,fokusX,fokusY] */
 var STU=[
-['Julian Ayden L.','Distinction','ABRSM Piano Grade 1','Ujian digital, Januari 2026',IMG[0],1,'50%','0%'],
-['Julian Ayden L.','Gold Award','Free Selection B10','INPF Jabodetabek 2025, ICE BSD',IMG[1],1,'50%','30%'],
-['Jaden Alaric L.','Platinum Award','Kinder A1','INPF Jabodetabek 2025, ICE BSD',IMG[2],1,'50%','30%'],
-['Claire Deitra H.','1st Commendation','Kompetisi Piano','Rhapsodie.co',IMG[3],1.45,'50%','58%'],
-['Claire Deitra H.','3rd Commendation','Rhapsodie','NICE PIK 2',IMG[4],1.3,'50%','62%']];
+['Julian Ayden L.','Distinction','ABRSM Piano Grade 1','Ujian digital, Januari 2026','images (1) (67).jpeg',1,'50%','0%'],
+['Julian Ayden L.','Gold Award','Free Selection B10','INPF Jabodetabek 2025, ICE BSD','20250706_144605.jpg',1,'50%','30%'],
+['Jaden Alaric L.','Platinum Award','Kinder A1','INPF Jabodetabek 2025, ICE BSD','IMG_20250707_114841_711.jpg',1,'50%','30%'],
+['Claire Deitra H.','1st Commendation','Kompetisi Piano','Rhapsodie.co','IMG-20251115-WA0007.jpg',1.45,'50%','58%'],
+['Claire Deitra H.','3rd Commendation','Rhapsodie','NICE PIK 2','20261106_111113.jpg',1.3,'50%','62%']];
 
-var GAL=[
-[['Bali 2011'],'Solo Performance, Bali 2011',1],
-[['Bali 2011 2'],'Solo Performance, Bali 2011 (II)',1],
-[['img_8_1791283419704.jpg'],'Tampil di Bali, 2011'],
-[['img_9_1791283432702.jpg'],'Bali In&rsquo;t Music Camp, 2011'],
-[['1728302182364.jpeg'],'Bali In&rsquo;t Music Camp, bersama peserta'],
-[['img_1_1793793014516.jpg'],'Resital piano'],
-[['1728278413639.jpeg'],'Home Concert Yayasan Musik Jakarta, 2012'],
-[['1728278362077.jpeg'],'Home Concert Yayasan Musik Jakarta, 2012'],
-[['img_9_1793793228435.jpg'],'Paduan suara JISMF 2014'],
-[['1728368821890.jpeg'],'STIKMI Concert, 12 April 2014'],
-[['1728368987536.jpeg'],'STIKMI Concert, April 2014'],
-[['1728277994217.jpeg'],'Cantata Christmas Choir'],
-[['1728311786057.jpeg'],'Paduan suara anak'],
-[['1728450251141.jpeg'],'Hari Guru, auditorium'],
-[['1728279819431.jpeg'],'Kelas di perpustakaan'],
-[['1728349078427.jpeg'],'Mengiringi misa']];
+var GAL=[['Bali 2011.jpg','Solo Performance, Bali 2011',1],['Bali 2011 2.jpg','Solo Performance, Bali 2011 (II)',1],['img_8_1791283419704.jpg','Tampil di Bali, 2011'],['img_9_1791283432702.jpg','Bali In’t Music Camp, 2011'],['1728302182364.jpeg','Bali In’t Music Camp, bersama peserta'],['img_1_1793793014516.jpg','Resital piano'],['1728278413639.jpeg','Home Concert Yayasan Musik Jakarta, 2012'],['1728278362077.jpeg','Home Concert Yayasan Musik Jakarta, 2012'],['img_9_1793793228435.jpg','Paduan suara JISMF 2014'],['1728368821890.jpeg','STIKMI Concert, 12 April 2014'],['1728368987536.jpeg','STIKMI Concert, April 2014'],['1728277994217.jpeg','Cantata Christmas Choir'],['1728311786057.jpeg','Paduan suara anak'],['1728450251141.jpeg','Hari Guru, auditorium'],['1728279819431.jpeg','Kelas di perpustakaan'],['1728349078427.jpeg','Mengiringi misa']];
 
+var PIC=[];
+function load(u,ok,no){var i=new Image();i.onload=function(){ok(u)};i.onerror=no||function(){};i.src=u}
+function reg(u,c){PIC.push([u,c.replace(/<[^>]+>/g,'')]);return PIC.length-1}
 var tl=$('tl'),sg=$('sg'),gal=$('gal');
-function renum(){var n=0;gal.querySelectorAll('figure:not([hidden]) figcaption i').forEach(function(i){i.textContent=String(++n).padStart(2,'0')})}
-function glow(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')})}
+function renum(){var n=0;gal.querySelectorAll('figure:not([hidden]) i').forEach(function(i){i.textContent=String(++n).padStart(2,'0')})}
 
-function build(){
 ACH.forEach(function(a,i){
 var d=document.createElement('div');d.className='row rv';d.style.setProperty('--rd',(i%3*.06)+'s');
-d.innerHTML='<div class="y">'+(a[0]||'&mdash;')+'</div><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div><small>'+a[3]+'</small>';
-tl.appendChild(d);
-var u=find([a[4]]);
-if(u)load(u,function(url){var k=reg(url,a[1]);d.style.cursor='pointer';d.tabIndex=0;d.setAttribute('role','button');d.onclick=function(){openLb(k)};d.onkeydown=function(e){if(e.key==='Enter')d.onclick()}});
-});
+d.innerHTML='<div class="y">'+(a[0]||'—')+'</div><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div><small>'+a[3]+'</small>';tl.appendChild(d);
+load(U(a[4]),function(u){var k=reg(u,a[1]);d.style.cursor='pointer';d.tabIndex=0;d.onclick=function(){openLb(k)};d.onkeydown=function(e){if(e.key==='Enter')d.onclick()}})});
 
 STU.forEach(function(s,i){
 var c=document.createElement('div');c.className='sc rv';c.style.setProperty('--rd',(i*.08)+'s');c.hidden=true;c.tabIndex=0;sg.appendChild(c);
-load(s[4],function(url){
-var k=reg(url,s[0]+' · '+s[1]+' · '+s[2]);
-c.innerHTML='<div class="pw"><img class="ph" src="'+url+'" alt="'+s[0]+' — '+s[1]+'" style="--z:'+s[5]+';--fx:'+s[6]+';--fy:'+s[7]+'" decoding="async"></div><div class="tx"><b>'+s[1]+'</b><h3>'+s[0]+'</h3><p>'+s[2]+'<br>'+s[3]+'</p></div>';
-c.onclick=function(){openLb(k)};c.onkeydown=function(e){if(e.key==='Enter')c.onclick()};
-c.hidden=false;glow(c);watch();
-},function(){c.remove()});
-});
+load(U(s[4]),function(u){var k=reg(u,s[0]+' · '+s[1]+' · '+s[2]);
+c.innerHTML='<div class="pf"><img src="'+u+'" alt="'+s[0]+' — '+s[1]+'" style="--z:'+s[5]+';--fx:'+s[6]+';--fy:'+s[7]+'"></div><div class="tx"><em>'+s[1]+'</em><h3>'+s[0]+'</h3><p>'+s[2]+'<br>'+s[3]+'</p></div>';
+c.onclick=function(){openLb(k)};c.onkeydown=function(e){if(e.key==='Enter')c.onclick()};c.hidden=false;watch()},function(){c.remove()})});
 
-var seen={};
 GAL.forEach(function(g){
-var u=find(g[0]);if(!u||seen[u])return;seen[u]=1;
 var f=document.createElement('figure');f.className='rv'+(g[2]?' star':'');f.hidden=true;gal.appendChild(f);
-load(u,function(url){
-var k=reg(url,g[1]);
-f.innerHTML='<div class="im"><img src="'+url+'" alt="'+g[1].replace(/<[^>]+>/g,'')+'" decoding="async" loading="lazy"></div><figcaption><i></i>'+g[1]+'</figcaption>';
-f.onclick=function(){openLb(k)};f.hidden=false;renum();watch();
-},function(){f.remove();renum()});
-});
-watch();
-}
-fetch('https://api.github.com/repos/sonatamusicstudio/sonata-music-studio/contents/?ref=main')
-.then(function(r){return r.ok?r.json():Promise.reject()})
-.then(function(a){FILES=a.filter(function(x){return x.type==='file'&&/\.(jpe?g|png|webp|gif)$/i.test(x.name)}).map(function(x){return x.name})})
-.catch(function(){FILES=null})
-.then(build);
-
-/* ---------- Lightbox (dengan swipe) ---------- */
-var lb=$('lb'),lbi=$('lbi'),lbc=$('lbc'),cur=0,tx0=null;
-function showLb(){lbi.src=PIC[cur][0];lbi.alt=PIC[cur][1];lbc.textContent=PIC[cur][1]}
-function openLb(i){if(i<0)return;cur=i;showLb();lb.classList.add('on');document.body.style.overflow='hidden'}
-function stepLb(d){cur=(cur+d+PIC.length)%PIC.length;showLb()}
-function closeLb(){lb.classList.remove('on');document.body.style.overflow=''}
-lb.querySelector('.x').onclick=closeLb;
-lb.querySelector('.p').onclick=function(){stepLb(-1)};
-lb.querySelector('.n').onclick=function(){stepLb(1)};
-lb.onclick=function(e){if(e.target===lb)closeLb()};
-lb.addEventListener('touchstart',function(e){tx0=e.touches[0].clientX},{passive:true});
-lb.addEventListener('touchend',function(e){if(tx0===null)return;var dx=e.changedTouches[0].clientX-tx0;if(Math.abs(dx)>50)stepLb(dx<0?1:-1);tx0=null});
-document.addEventListener('keydown',function(e){
-if(!lb.classList.contains('on'))return;
-if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')stepLb(-1);if(e.key==='ArrowRight')stepLb(1)});
-
-/* ---------- Video ---------- */
-var VID='fVnfH2ow5bM',poster=$('perfPoster'),vbox=$('perfVideo');
-if(poster&&vbox){
-var thumb=poster.querySelector('img');
-var fallback=function(){if(thumb.src.indexOf('hqdefault')===-1)thumb.src='https://i.ytimg.com/vi/'+VID+'/hqdefault.jpg'};
-thumb.addEventListener('error',fallback);
-thumb.addEventListener('load',function(){if(thumb.naturalWidth&&thumb.naturalWidth<=120)fallback()});
-poster.addEventListener('click',function(){
-var f=document.createElement('iframe');
-f.src='https://www.youtube-nocookie.com/embed/'+VID+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-f.title='Felix Satia — Chopin Étude Op. 25 No. 1';
-f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-f.referrerPolicy='strict-origin-when-cross-origin';f.setAttribute('allowfullscreen','');
-vbox.appendChild(f);poster.remove()});
-}
-
-/* ---------- Reveal on scroll ---------- */
-var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12}):null;
-function watch(){document.querySelectorAll('.rv, .rule').forEach(function(el){if(el.classList.contains('visible')||el.__w)return;el.__w=1;if(io)io.observe(el);else el.classList.add('visible')})}
+load(U(g[0]),function(u){var k=reg(u,g[1]);f.innerHTML='<div class="im"><img src="'+u+'" alt="'+g[1]+'" loading="lazy"></div><figcaption><i></i>'+g[1]+'</figcaption>';f.onclick=function(){openLb(k)};f.hidden=false;renum();watch()},function(){f.remove();renum()})});
 watch();
 
-/* ---------- Counter ---------- */
-var counters=document.querySelectorAll('.ach-stat b[data-count]');
-function suf(c){return(c.getAttribute('data-suffix')||'').replace('&times;','\u00D7')}
-function runCount(el){
-var to=parseInt(el.getAttribute('data-count'),10),s=suf(el),t0=null,dur=1800;
-function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,4);el.textContent=Math.round(to*e)+s;if(p<1)requestAnimationFrame(step)}
-requestAnimationFrame(step)}
-if(counters.length&&io&&!reduce){
-var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);cio.unobserve(e.target)}})},{threshold:.6});
-counters.forEach(function(c){c.textContent='0'+suf(c);cio.observe(c)})}
+/* lightbox */
+var lb=$('lb'),li=$('li'),lc=$('lc'),cur=0,x0=null;
+function show(){li.src=PIC[cur][0];lc.textContent=PIC[cur][1]}
+function openLb(i){cur=i;show();lb.classList.add('on');document.body.style.overflow='hidden'}
+function step(d){cur=(cur+d+PIC.length)%PIC.length;show()}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=function(){step(-1)};lb.querySelector('.n').onclick=function(){step(1)};
+lb.onclick=function(e){if(e.target===lb)close()};
+lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)step(d<0?1:-1);x0=null});
+addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
 
-/* ---------- Mikro-interaksi (perangkat mouse saja) ---------- */
-var fine=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches&&!reduce;
-if(fine){
-document.documentElement.classList.add('has-cursor');
-var ring=document.createElement('div');ring.className='cur';document.body.appendChild(ring);
-var tx=0,ty=0,rx=0,ry=0,started=false;
-window.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!started){started=true;rx=tx;ry=ty;ring.classList.add('on');loop()}},{passive:true});
-document.addEventListener('mouseleave',function(){ring.classList.remove('on')});
-document.addEventListener('mouseenter',function(){if(started)ring.classList.add('on')});
-function loop(){rx+=(tx-rx)*.16;ry+=(ty-ry)*.16;ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';requestAnimationFrame(loop)}
-var HOV='a,button,.row,.sc,.gal figure,.poster,.bt-prog';
-document.addEventListener('mouseover',function(e){ring.classList.toggle('hov',!!(e.target.closest&&e.target.closest(HOV)))});
+/* video */
+var pst=$('pst'),vid=$('vid');
+pst.onclick=function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/fVnfH2ow5bM?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title='Felix Satia — Chopin Étude Op. 25 No. 1';f.allow='autoplay; encrypted-media; picture-in-picture';f.setAttribute('allowfullscreen','');vid.appendChild(f);pst.remove()};
 
-document.querySelectorAll('.btn').forEach(function(b){
-b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2).toFixed(1)+'px,'+((e.clientY-r.top-r.height/2)*.32).toFixed(1)+'px)'});
-b.addEventListener('mouseleave',function(){b.style.transform=''})});
-document.querySelectorAll('.bt').forEach(glow);
+/* counter */
+var cs=document.querySelectorAll('.stats b[data-n]');
+if(cs.length&&io&&!R){var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var el=e.target,to=+el.dataset.n,s=el.dataset.s||'',t0=null;(function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1800);el.textContent=Math.round(to*(1-Math.pow(1-p,4)))+s;if(p<1)requestAnimationFrame(st)})(performance.now())})},{threshold:.6});cs.forEach(function(c){co.observe(c)})}
 
-/* spotlight lembut di section gelap */
-document.querySelectorAll('.spot').forEach(function(s){
-s.addEventListener('mousemove',function(e){var r=s.getBoundingClientRect();s.style.setProperty('--sx',(e.clientX-r.left)+'px');s.style.setProperty('--sy',(e.clientY-r.top)+'px');s.classList.add('lit')});
-s.addEventListener('mouseleave',function(){s.classList.remove('lit')})});
-
-var fr=$('tiltFrame');
-if(fr){
-fr.addEventListener('mousemove',function(e){var r=fr.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;fr.style.transform='perspective(1100px) rotateY('+(px*7).toFixed(2)+'deg) rotateX('+(py*-6).toFixed(2)+'deg)'});
-fr.addEventListener('mouseleave',function(){fr.style.transform=''})}
-}
+/* tilt foto direktur (mouse saja) */
+var fr=$('fr');
+if(fr&&matchMedia('(hover:hover) and (pointer:fine)').matches&&!R){
+fr.onmousemove=function(e){var r=fr.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;fr.style.transform='perspective(1100px) rotateY('+(x*7).toFixed(2)+'deg) rotateX('+(y*-6).toFixed(2)+'deg)'};
+fr.onmouseleave=function(){fr.style.transform=''}}
 })();
 </script>
 </body>
