@@ -15,9 +15,11 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicSchool","name":"Sonata Music Studio","slogan":"Excellence in Artistry","telephone":"+6289656684852","address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressCountry":"ID"},"founder":{"@type":"Person","name":"Felix Satia"},"foundingDate":"2024"}</script>
 <style>
 /* =====================================================================
-   SONATA MUSIC STUDIO — DESIGN SYSTEM
-   60 / 30 / 10 :  60% Midnight Navy (latar)  ·  30% Ivory (teks & struktur)  ·  10% Champagne Gold (aksen & CTA)
-   Skala golden ratio φ = 1.618 untuk tipografi, spasi, dan grid (1.618fr : 1fr)
+   SONATA MUSIC STUDIO — DESIGN SYSTEM v2
+   60 / 30 / 10 :  60% Midnight Navy (latar) · 30% Ivory (teks & struktur) · 10% Champagne Gold (aksen & CTA)
+   Golden ratio φ = 1.618: grid 1.618fr : 1fr, skala spasi & tipografi
+   Prinsip: Gestalt (proximity/closure), Von Restorff (satu CTA emas), Hick's law (pilihan sedikit),
+   authority & social proof di 0,5 detik pertama, peak-end (finale Contact), F-pattern (kiri-atas = informasi utama)
    ===================================================================== */
 :root{
 --night:#050816;--ink:#0A1230;--navy:#101E4F;--navy-d:#0B1538;--imperial:#142565;
@@ -34,9 +36,10 @@
 --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
 html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
-body{background:var(--night);color:var(--oak);font:400 1rem/1.618 var(--sans);letter-spacing:.005em;overflow-x:hidden;text-rendering:optimizeLegibility}
+body{background:var(--night);color:var(--oak);font:400 1rem/1.618 var(--sans);letter-spacing:.005em;overflow-x:hidden;text-rendering:optimizeLegibility;font-kerning:normal;font-feature-settings:"kern","liga"}
 body::after{content:"";position:fixed;inset:0;z-index:95;pointer-events:none;background:var(--grain);opacity:.045;mix-blend-mode:overlay}
 img{display:block;max-width:100%}a{color:inherit}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 ::selection{background:var(--champ);color:var(--night)}
 :focus-visible{outline:2px solid var(--champ);outline-offset:3px}
 [hidden]{display:none!important}
@@ -60,9 +63,10 @@ img{display:block;max-width:100%}a{color:inherit}
 html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .cur.hov{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(228,206,151,.16)}
 
-/* ---------- Header (glass) ---------- */
-#hdr{position:fixed;inset:0 0 auto;z-index:60;height:104px;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(5,8,22,.8),transparent);transition:height .6s var(--ease),background .6s,box-shadow .6s}
+/* ---------- Header (glass, hides on scroll-down) ---------- */
+#hdr{position:fixed;inset:0 0 auto;z-index:60;height:104px;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(5,8,22,.8),transparent);transition:height .6s var(--ease),background .6s,box-shadow .6s,transform .7s var(--ease)}
 #hdr.scrolled{height:78px;background:rgba(5,8,22,.78);box-shadow:0 1px 0 rgba(191,161,108,.4),0 24px 50px -26px rgba(0,0,0,.9);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4)}
+#hdr.hide{transform:translateY(-101%)}
 .logo{display:flex;align-items:center;gap:1.1rem;text-decoration:none}
 .logo-img{height:60px;width:auto;transition:height .6s var(--ease),transform .7s var(--ease);filter:brightness(0) invert(1) sepia(.35) saturate(1.2)}
 #hdr.scrolled .logo-img{height:46px}.logo:hover .logo-img{transform:scale(1.06)}
@@ -75,9 +79,17 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .nav a.cta{padding:.8rem 1.5rem;border:1px solid rgba(228,206,151,.55)}
 .nav a.cta::after{display:none}.nav a.cta:hover{background:rgba(228,206,151,.12);border-color:var(--champ)}
 .burger{display:none;position:relative;z-index:70;width:44px;height:44px;background:none;border:0;cursor:pointer}
-.burger span{display:block;width:24px;height:1px;background:var(--champ);margin:7px auto;transition:transform .5s var(--ease),opacity .3s}
+.burger span{display:block;width:24px;height:1px;background:var(--champ);margin:7px auto;transition:transform .5s var(--ease)}
 .burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
 .burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+
+/* ---------- Chapter dots (wayfinding, desktop) ---------- */
+.dots{position:fixed;right:clamp(14px,1.8vw,30px);top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;gap:14px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;border:1px solid rgba(228,206,151,.7);background:transparent;transition:background .4s,transform .5s var(--ease)}
+.dots a::before{content:attr(data-l);position:absolute;right:22px;top:50%;transform:translateY(-50%) translateX(8px);white-space:nowrap;font:600 .56rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--champ);opacity:0;pointer-events:none;transition:opacity .4s,transform .5s var(--ease);text-shadow:0 2px 10px #000}
+.dots a:hover::before{opacity:1;transform:translateY(-50%)}
+.dots a.act{background:var(--champ);transform:scale(1.4)}
+@media(min-width:1280px){.dots{display:flex}}
 
 /* ---------- Buttons ---------- */
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.8rem;padding:1.15rem 2.618rem;font:600 .68rem var(--sans);letter-spacing:.26em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:filter .3s,transform .6s var(--ease),border-color .3s,background .3s,box-shadow .6s}
@@ -100,20 +112,26 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .hero-photo picture{display:block;width:100%;height:100%}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:brightness(.82) saturate(.82) contrast(1.14) sepia(.1);animation:photoIn 2.4s var(--ease) 1.3s both}
 .hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 50% 62%,rgba(5,8,22,0) 40%,rgba(5,8,22,.55) 100%),linear-gradient(135deg,rgba(20,37,101,.25),rgba(146,122,81,.1))}
-.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,22,.88) 0%,rgba(5,8,22,.5) 34%,rgba(5,8,22,0) 62%),radial-gradient(ellipse 75% 95% at 72% 45%,rgba(5,8,22,0) 50%,rgba(5,8,22,.6) 100%),linear-gradient(180deg,rgba(5,8,22,.8) 0%,transparent 22%,transparent 80%,rgba(5,8,22,.7) 92%,var(--night) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,22,.9) 0%,rgba(5,8,22,.52) 34%,rgba(5,8,22,0) 62%),radial-gradient(ellipse 75% 95% at 72% 45%,rgba(5,8,22,0) 50%,rgba(5,8,22,.62) 100%),linear-gradient(180deg,rgba(5,8,22,.8) 0%,transparent 22%,transparent 80%,rgba(5,8,22,.7) 92%,var(--night) 100%)}
 .hero::before{content:"";position:absolute;inset:22px;z-index:4;border:1px solid rgba(191,161,108,.32);pointer-events:none;box-shadow:inset 0 0 0 7px rgba(191,161,108,.1)}
+#dust{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:.9}
+.letterbox{position:absolute;left:0;right:0;z-index:6;height:12svh;background:#000;pointer-events:none;animation:lbOut 2.2s var(--io) 1.7s forwards}
+.letterbox.t{top:0;transform-origin:top}.letterbox.b{bottom:0;transform-origin:bottom}
+@keyframes lbOut{to{transform:scaleY(0)}}
 .hero-content{position:relative;z-index:3;max-width:min(960px,62vw);will-change:transform,opacity}
 .hero-tag{display:flex;align-items:center;gap:1rem;font:500 .66rem var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--champ);margin-bottom:var(--s3)}
 .hero-tag::before{content:"";width:var(--s4);height:1px;background:var(--gold)}
 .hero-title{font-family:var(--display);font-weight:500;font-size:clamp(3.2rem,8.6vw,9.4rem);line-height:.94;letter-spacing:-.035em;color:var(--ivory)}
 .hero-title .ln{display:block;overflow:hidden;padding:.04em .12em .16em 0;margin-bottom:-.12em}
-.hero-title .ln>span{display:block;transform:translateY(112%);animation:lineUp 1.7s var(--ease) calc(1.7s + var(--i)*.16s) forwards;text-shadow:0 10px 50px rgba(0,0,0,.6)}
+.hero-title .ln>span{display:block;transform:translateY(112%);animation:lineUp 1.7s var(--ease) calc(1.9s + var(--i)*.16s) forwards;text-shadow:0 10px 50px rgba(0,0,0,.6)}
 .hero-title em{font-style:italic;font-weight:400;color:var(--champ)}
-.hero-title .gold>span{background:var(--gold);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;animation:lineUp 1.7s var(--ease) calc(1.7s + var(--i)*.16s) forwards,foil 8s ease-in-out 4s infinite alternate}
+.hero-title .gold>span{background:var(--gold);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;animation:lineUp 1.7s var(--ease) calc(1.9s + var(--i)*.16s) forwards,foil 8s ease-in-out 4s infinite alternate}
 @keyframes lineUp{to{transform:none}}@keyframes foil{from{background-position:0 0}to{background-position:100% 0}}
-.fi{opacity:0;animation:fadeUp 1.5s var(--ease) calc(2s + var(--d,0s)) forwards}
-.hero-sub{max-width:34rem;margin-top:var(--s2);font-size:1rem;line-height:1.9;color:rgba(246,243,236,.78)}
+.fi{opacity:0;animation:fadeUp 1.5s var(--ease) calc(2.2s + var(--d,0s)) forwards}
+.hero-sub{max-width:34rem;margin-top:var(--s2);font-size:1rem;line-height:1.9;color:rgba(246,243,236,.8)}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:var(--s3)}
+.hero-proof{display:flex;flex-wrap:wrap;gap:.6rem 1.618rem;margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid rgba(191,161,108,.28);max-width:34rem;font:600 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(246,243,236,.72)}
+.hero-proof b{color:var(--champ);font-weight:600}
 .scroll-hint{position:absolute;z-index:5;left:var(--gut);bottom:46px;display:flex;align-items:center;gap:14px;font:500 .6rem var(--sans);letter-spacing:.44em;text-transform:uppercase;color:rgba(246,243,236,.72)}
 .scroll-line{width:1px;height:48px;background:rgba(213,222,245,.22);position:relative;overflow:hidden}
 .scroll-line::after{content:"";position:absolute;left:0;width:100%;height:100%;background:var(--champ);animation:drop 2.4s cubic-bezier(.4,0,1,1) infinite}
@@ -121,31 +139,36 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .hero-meta{position:absolute;z-index:5;right:var(--gut);bottom:50px;font:italic 400 1.05rem var(--display);letter-spacing:.08em;color:rgba(228,206,151,.8)}
 .hero-meta b{font:600 .58rem var(--sans);letter-spacing:.38em;text-transform:uppercase;font-style:normal;color:rgba(246,243,236,.6);margin-right:12px}
 
-/* ---------- Credentials strip (functional, replaces marquee) ---------- */
+/* ---------- Credentials strip ---------- */
 .cred{position:relative;z-index:3;background:var(--night);border-block:1px solid rgba(191,161,108,.3);display:grid;grid-template-columns:repeat(4,1fr)}
 .cred div{padding:1.618rem 1rem;text-align:center;font:italic 400 clamp(1.1rem,1.9vw,1.6rem)/1.2 var(--display);color:rgba(228,206,151,.9);border-right:1px solid rgba(191,161,108,.2)}
 .cred div:last-child{border:0}
 
-/* ---------- Typography primitives ---------- */
+/* ---------- Primitives ---------- */
 .eyebrow{display:flex;align-items:center;gap:1rem;font:600 .66rem var(--sans);letter-spacing:.4em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:1rem}
 .eyebrow i{font:italic 500 1.1rem var(--display);letter-spacing:.06em;text-transform:none;color:var(--camel)}
-.on-dark .eyebrow,.dark .eyebrow{color:var(--champ)}
-.center .eyebrow{justify-content:center}
+.dk .eyebrow{color:var(--champ)}
+.ctr .eyebrow{justify-content:center}
 .rule{display:block;width:0;height:2px;background:var(--gold);margin-bottom:var(--s2);transition:width 1.3s var(--ease)}
 .rule.visible{width:84px}.rule.centered{margin-left:auto;margin-right:auto}
 .display{font-family:var(--display);font-weight:500;font-size:clamp(3.2rem,7.6vw,8.2rem);line-height:.94;letter-spacing:-.035em;color:var(--ink);margin-bottom:var(--s3)}
 .display em{font-style:italic;font-weight:400;color:var(--gold-ink)}
-.dark .display,.display.on-dark{color:var(--ivory)}
-.dark .display em,.display.on-dark em{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.dk .display{color:var(--ivory)}
+.dk .display em{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
 .display.center{text-align:center}
 .body-p{max-width:30rem;font-size:.95rem;line-height:2;margin-bottom:var(--s2)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease);transition-delay:var(--rd,0s)}
 .rv.visible{opacity:1;transform:none}
 .sec-div{position:relative;z-index:3;height:1px;background:var(--hair)}
+.w{opacity:.2;transition:opacity .6s ease}.w.on{opacity:1}
 
 .light{position:relative;background:radial-gradient(ellipse 80% 70% at 100% 0,rgba(213,222,245,.7),transparent 60%),linear-gradient(180deg,var(--ivory),#EAE4D6);color:var(--ink)}
 .light::before{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;mix-blend-mode:multiply;pointer-events:none}
 .light>*{position:relative}.light .body-p{color:rgba(10,18,48,.86)}
+
+/* spotlight mengikuti kursor di section gelap */
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .8s;background:radial-gradient(560px circle at var(--sx,50%) var(--sy,50%),rgba(228,206,151,.09),transparent 62%)}
+.spot.lit::after{opacity:1}
 
 /* ---------- About ---------- */
 #about{display:grid;grid-template-columns:1.618fr 1fr;align-items:center;gap:clamp(2rem,6vw,6.854rem);padding:clamp(7rem,14vw,13rem) var(--pad)}
@@ -156,7 +179,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .frame::after{content:"";position:absolute;top:-10px;left:-10px;width:72px;height:72px;border-top:2px solid var(--camel);border-left:2px solid var(--camel);z-index:2}
 .frame img{position:relative;z-index:1;width:100%;height:auto;filter:var(--grade);box-shadow:0 50px 90px -30px rgba(5,8,22,.75),0 0 0 7px rgba(255,255,255,.6),0 0 0 8px rgba(191,161,108,.45)}
 
-/* ---------- Pull quote ---------- */
+/* ---------- Pull quote (cahaya kata-per-kata saat scroll) ---------- */
 .pq-section{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--imperial) 55%,var(--navy-d));padding:clamp(7rem,13vw,12rem) var(--pad);text-align:center;overflow:hidden}
 .pq-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(228,206,151,.22),transparent 70%),radial-gradient(ellipse 80% 50% at 50% 110%,rgba(5,8,22,.8),transparent 70%)}
 .pq-mark{position:relative;display:block;font-family:var(--display);font-size:9rem;line-height:1;height:.7em;padding:.12em .15em 0;margin-bottom:var(--s3);background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -164,7 +187,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .pq-divider{position:relative;width:84px;height:2px;background:var(--gold);margin:0 auto 1.6rem}
 .pq-attr{position:relative;font:500 .66rem var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
 
-/* ---------- Programs: bento ---------- */
+/* ---------- Programs ---------- */
 .prog-wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(7rem,14vw,13rem) 6%}
 .prog-head{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end;margin-bottom:clamp(3rem,6vw,5.5rem)}
 .prog-head .display,.prog-head .body-p{margin-bottom:0}
@@ -186,7 +209,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 /* ---------- Achievements ---------- */
 #achievements{position:relative;background:linear-gradient(180deg,var(--night),var(--navy-d));padding:clamp(7rem,13vw,12rem) var(--pad) clamp(3rem,6vw,5rem);overflow:hidden}
 #achievements::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0,rgba(228,206,151,.18),transparent 70%)}
-#achievements>*{position:relative}
+#achievements>*{position:relative;z-index:1}
 .sec-head{text-align:center;max-width:62rem;margin:0 auto var(--s4)}
 .sec-head .sub{font-size:1rem;line-height:1.8;color:var(--oak);margin-top:1rem;max-width:36rem;margin-inline:auto}
 .ach-stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:1100px;margin:0 auto var(--s5);border-block:1px solid rgba(191,161,108,.5);background:linear-gradient(180deg,rgba(228,206,151,.05),transparent)}
@@ -207,7 +230,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 /* ---------- Students (CROP DIKUNCI sesuai screenshot) ---------- */
 #students{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--night) 60%,var(--ink));padding:clamp(3rem,6vw,5rem) 5% clamp(7rem,12vw,11rem);overflow:hidden}
 #students::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(228,206,151,.12),transparent 70%);pointer-events:none}
-#students>*{position:relative}
+#students>*{position:relative;z-index:1}
 #students .sec-head{margin-bottom:var(--s4);max-width:1360px;display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s3);align-items:end;text-align:left}
 #students .sec-head .eyebrow,#students .sec-head .rule{grid-column:1/-1}
 #students .sec-head .rule.centered{margin-left:0}
@@ -264,7 +287,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 /* ---------- Archive ---------- */
 #archive{position:relative;background:linear-gradient(180deg,var(--night),var(--navy-d) 50%,var(--night));padding:clamp(7rem,13vw,12rem) 5%;overflow:hidden}
 #archive::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0,rgba(228,206,151,.15),transparent 70%)}
-#archive>*{position:relative}.archive-head{text-align:center;margin-bottom:var(--s4)}.archive-head .display{margin-bottom:0}
+#archive>*{position:relative;z-index:1}.archive-head{text-align:center;margin-bottom:var(--s4)}.archive-head .display{margin-bottom:0}
 .gal{columns:3 290px;column-gap:30px;max-width:1320px;margin:0 auto}
 .gal figure{break-inside:avoid;margin-bottom:30px;padding:11px 11px 0;background:linear-gradient(150deg,var(--navy),var(--night));border:1px solid rgba(191,161,108,.4);box-shadow:0 34px 64px -28px rgba(5,8,22,.85);cursor:zoom-in;transition:transform .8s var(--ease),border-color .4s,box-shadow .8s,opacity 1.2s var(--ease)}
 .gal figure:nth-child(3n+2){margin-top:42px}
@@ -273,7 +296,7 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .gal .im::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(4,6,12,.4);pointer-events:none}
 .gal img{width:100%;height:auto;filter:saturate(.92) contrast(1.04);transition:transform 1.5s var(--ease),filter .6s}
 .gal figure:hover img{transform:scale(1.05);filter:saturate(1.08) contrast(1.05)}
-.gal figcaption{display:flex;gap:12px;align-items:baseline;padding:.95rem 4px 1.05rem;font:italic 400 .95rem/1.5 var(--display);font-size:1.02rem;color:var(--champ)}
+.gal figcaption{display:flex;gap:12px;align-items:baseline;padding:.95rem 4px 1.05rem;font:italic 400 1.02rem/1.5 var(--display);color:var(--champ)}
 .gal figcaption i{font:600 .58rem var(--sans);letter-spacing:.22em;color:var(--camel);font-style:normal}
 .gal figure.star{border-color:var(--champ)}
 .gal figure.star figcaption::after{content:"Solo";margin-left:auto;font:600 .52rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:.28rem .65rem}
@@ -293,14 +316,18 @@ html.has-cursor .cur{display:block}.cur.on{opacity:1}
 .phil-divider{width:84px;height:2px;background:var(--gold);margin:0 auto var(--s3)}
 .phil-body{max-width:35rem;margin:0 auto;font-size:.95rem;line-height:2.1;color:rgba(10,18,48,.84)}
 
-/* ---------- Contact ---------- */
-#contact{position:relative;background:linear-gradient(180deg,var(--imperial),var(--navy-d) 60%,var(--night));padding:clamp(8rem,17vw,16rem) var(--pad);text-align:center;overflow:hidden}
+/* ---------- Contact (peak-end) ---------- */
+#contact{position:relative;background:linear-gradient(180deg,var(--imperial),var(--navy-d) 60%,var(--night));padding:clamp(8rem,17vw,16rem) var(--pad) clamp(5rem,9vw,8rem);text-align:center;overflow:hidden}
 #contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0,rgba(228,206,151,.26),transparent 70%)}
-#contact>*{position:relative}
+#contact>*{position:relative;z-index:1}
 .contact-title{font:500 clamp(3.4rem,9vw,9.6rem)/.92 var(--display);letter-spacing:-.035em;color:var(--ivory);margin:0 0 1.6rem;text-shadow:0 8px 40px rgba(0,0,0,.5)}
 .contact-title em{font-style:italic;font-weight:400;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;padding-right:.06em}
 .contact-sub{font:italic 400 1.5rem var(--display);color:var(--mist);margin-bottom:var(--s4)}
 .contact-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:var(--s5) auto 0;border-top:1px solid rgba(191,161,108,.4)}
+.facts div{padding:var(--s2) 1rem 0;text-align:center}
+.facts small{display:block;font:600 .56rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--champ);margin-bottom:.6rem}
+.facts span{font:italic 400 1.3rem/1.3 var(--display);color:var(--ivory)}
 footer{background:#03050C;padding:var(--s3) var(--pad);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(191,161,108,.5)}
 .footer-logo img{height:30px;filter:brightness(0) invert(1) sepia(.35);opacity:.55}
 .footer-copy{font:500 .62rem var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(201,196,184,.7)}
@@ -324,6 +351,7 @@ footer{background:#03050C;padding:var(--s3) var(--pad);display:flex;align-items:
 .bt-photo{order:-1}.bt-prog{min-height:170px}
 .hero::before{inset:12px}
 .cred{grid-template-columns:1fr 1fr}.cred div:nth-child(2){border-right:0}.cred div:nth-child(-n+2){border-bottom:1px solid rgba(191,161,108,.2)}
+.facts{grid-template-columns:1fr;gap:1.2rem}
 .bar{display:block;position:fixed;inset:auto 0 0;z-index:50;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,8,22,.94);border-top:1px solid rgba(191,161,108,.5);transform:translateY(110%);transition:transform .6s var(--ease);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .bar.on{transform:none}.bar .btn{display:flex;width:100%}
 footer{flex-direction:column;text-align:center;padding-bottom:6rem}}
@@ -333,7 +361,7 @@ footer{flex-direction:column;text-align:center;padding-bottom:6rem}}
 .hero-content{width:100%;max-width:min(900px,100%)}
 .hero-title{font-size:clamp(2.8rem,12.4vw,6.4rem)}
 .hero-tag{justify-content:center;margin-bottom:1.1rem}.hero-tag::before{display:none}
-.hero-sub{display:none}.hero-cta{justify-content:center;margin-top:1.3rem}
+.hero-sub,.hero-proof{display:none}.hero-cta{justify-content:center;margin-top:1.3rem}
 .hero-photo{--iw:min(100vw,calc((100svh - 440px)*1.017));--fade:clamp(0px,calc((100vw - var(--iw))*2),90px);right:auto;left:50%;margin-left:calc(var(--iw)/-2);
 -webkit-mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100%),linear-gradient(90deg,rgba(0,0,0,0) 0,#000 var(--fade),#000 calc(100% - var(--fade)),rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in;
 mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100%),linear-gradient(90deg,rgba(0,0,0,0) 0,#000 var(--fade),#000 calc(100% - var(--fade)),rgba(0,0,0,0) 100%);mask-composite:intersect}
@@ -361,7 +389,7 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 .logo{gap:12px}.logo-img,#hdr.scrolled .logo-img{height:46px}
 .logo-name{font-size:.82rem;letter-spacing:.17em}.logo-sub{font-size:.54rem;letter-spacing:.26em;margin-top:7px}
 .hero{padding-top:max(112px,11svh)}.pq-mark{font-size:6rem}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rule{width:84px}html{scroll-behavior:auto}.hero-title .ln>span{transform:none}.fi{opacity:1}.curtain{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rule{width:84px}html{scroll-behavior:auto}.hero-title .ln>span{transform:none}.fi{opacity:1}.curtain,.letterbox,#dust{display:none}.w{opacity:1}}
 </style>
 </head>
 <body>
@@ -381,6 +409,10 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 </nav>
 </header>
 
+<nav class="dots" id="dots" aria-label="Penanda bab">
+<a href="#about" data-l="Director" aria-label="Director"></a><a href="#programs" data-l="Curriculum" aria-label="Curriculum"></a><a href="#achievements" data-l="Achievements" aria-label="Achievements"></a><a href="#students" data-l="Students" aria-label="Students"></a><a href="#performance" data-l="Performance" aria-label="Performance"></a><a href="#archive" data-l="Archive" aria-label="Archive"></a><a href="#philosophy" data-l="Philosophy" aria-label="Philosophy"></a><a href="#contact" data-l="Contact" aria-label="Contact"></a>
+</nav>
+
 <main>
 <section class="hero" aria-label="Sonata Music Studio">
 <div class="hero-bg"><picture>
@@ -391,6 +423,8 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 <source media="(max-width:820px),(max-aspect-ratio:1/1)" srcset="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/image.jpg">
 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sonata Music Studio — pengajar dan siswa belajar musik bersama">
 </picture></div>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="letterbox t" aria-hidden="true"></div><div class="letterbox b" aria-hidden="true"></div>
 <div class="hero-content">
 <span class="hero-tag fi">Jakarta &nbsp;&middot;&nbsp; Indonesia &nbsp;&middot;&nbsp; Est. 2024</span>
 <h1 class="hero-title"><span class="sr-only">Sonata Music Studio &mdash; </span>
@@ -399,6 +433,7 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 <span class="ln gold" style="--i:2"><span>Cultivated</span></span></h1>
 <p class="hero-sub fi" style="--d:.4s">Pendidikan piano klasik dengan disiplin teknik yang ketat, interpretasi yang jujur, dan standar kualitas modern.</p>
 <div class="hero-cta fi" style="--d:.6s"><a href="#contact" class="btn btn-gold">Enrolment Inquiry</a><a href="#about" class="btn btn-ghost hide-sm">Explore the Studio</a></div>
+<div class="hero-proof fi" style="--d:.8s"><span><b>Gold Award</b> IOMF 2025</span><span><b>Best Teacher</b> 2022</span><span><b>ABRSM</b> &amp; Trinity</span></div>
 </div>
 <div class="scroll-hint fi" style="--d:.9s"><span>Scroll</span><div class="scroll-line"></div></div>
 <div class="hero-meta fi" style="--d:1s"><b>Scene I</b>Overture</div>
@@ -423,7 +458,7 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 
 <div class="pq-section">
 <span class="pq-mark" aria-hidden="true">&ldquo;</span>
-<p class="pq-text rv">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.</p>
+<p class="pq-text lit">Music, like all of culture, helps us to understand our environment, each other, and ourselves. Culture helps us imagine a better future — and these things have never been more important.</p>
 <div class="pq-divider"></div>
 <span class="pq-attr">Yo&#8209;Yo Ma &nbsp;&mdash;&nbsp; Cellist &amp; Cultural Ambassador</span>
 </div>
@@ -452,10 +487,10 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 
 <div class="sec-div"></div>
 
-<section id="achievements">
-<div class="sec-head">
-<span class="eyebrow" style="justify-content:center"><i>III</i>Recognition</span><span class="rule centered rv"></span>
-<h2 class="display on-dark center rv">Jejak <em>Prestasi</em></h2>
+<section id="achievements" class="dk spot">
+<div class="sec-head ctr">
+<span class="eyebrow"><i>III</i>Recognition</span><span class="rule centered rv"></span>
+<h2 class="display center rv">Jejak <em>Prestasi</em></h2>
 <p class="sub rv">Penghargaan atas dedikasi dalam mengajar, menggubah, dan memimpin ansambel.</p>
 </div>
 <div class="ach-stats rv">
@@ -468,7 +503,7 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 <p class="hint">Klik baris untuk melihat sertifikat asli</p>
 </section>
 
-<section id="students">
+<section id="students" class="dk spot">
 <div class="sec-head">
 <span class="eyebrow"><i>IV</i>Our Students</span><span class="rule centered rv"></span>
 <h2 class="sec-h rv">Murid yang Tumbuh Bersama Kami</h2>
@@ -480,7 +515,7 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 <div class="sec-div"></div>
 
 <section id="performance">
-<span class="eyebrow" style="justify-content:center"><i>V</i>Recital</span><span class="rule centered rv"></span>
+<div class="ctr"><span class="eyebrow"><i>V</i>Recital</span></div><span class="rule centered rv"></span>
 <h2 class="display center rv">In <em>Performance</em></h2>
 <div class="stage rv"><div class="video" id="perfVideo">
 <button class="poster" id="perfPoster" type="button" aria-label="Putar video: Chopin Étude Op. 25 No. 1">
@@ -500,10 +535,10 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 
 <div class="sec-div"></div>
 
-<section id="archive">
-<div class="archive-head">
-<span class="eyebrow" style="justify-content:center"><i>VI</i>Visual Journey</span><span class="rule centered rv"></span>
-<h2 class="display on-dark center rv">The Studio <em>Archive</em></h2>
+<section id="archive" class="dk spot">
+<div class="archive-head ctr">
+<span class="eyebrow"><i>VI</i>Visual Journey</span><span class="rule centered rv"></span>
+<h2 class="display center rv">The Studio <em>Archive</em></h2>
 </div>
 <div class="gal" id="gal"></div>
 </section>
@@ -511,19 +546,24 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 <div class="sec-div"></div>
 
 <section id="philosophy">
-<span class="eyebrow" style="justify-content:center"><i>VII</i>Our Philosophy</span><span class="rule centered rv"></span>
-<p class="phil-quote rv">&ldquo;Tradition, met with Modern Excellence.<br>Every note a decision. Every silence, intentional.&rdquo;</p>
+<div class="ctr"><span class="eyebrow"><i>VII</i>Our Philosophy</span></div><span class="rule centered rv"></span>
+<p class="phil-quote lit">&ldquo;Tradition, met with Modern Excellence.<br>Every note a decision. Every silence, intentional.&rdquo;</p>
 <div class="phil-divider"></div>
 <p class="phil-body rv">Kami meyakini bahwa pendidikan musik kelas atas membutuhkan ketenangan dan konsentrasi. Studio kami dirancang untuk menjadi <em>sanctuary</em> bagi kreativitas — di mana tradisi musik klasik dirawat dengan standar kualitas modern yang tanpa kompromi.</p>
 </section>
 
 <div class="sec-div"></div>
 
-<section id="contact">
-<span class="eyebrow" style="justify-content:center;color:var(--champ)"><i>VIII</i>Inquiries</span><span class="rule centered rv"></span>
+<section id="contact" class="dk spot">
+<div class="ctr"><span class="eyebrow"><i>VIII</i>Inquiries</span></div><span class="rule centered rv"></span>
 <h2 class="contact-title rv">Begin Your<br><em>Journey</em></h2>
 <p class="contact-sub rv">Tersedia slot terbatas untuk konsultasi dan audisi siswa baru.</p>
 <div class="contact-btns rv"><a href="https://wa.me/6289656684852" class="btn btn-gold">WhatsApp Office</a><a href="https://instagram.com/felixsatia" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a></div>
+<div class="facts rv">
+<div><small>Lokasi</small><span>Jakarta, Indonesia</span></div>
+<div><small>Program</small><span>Piano &middot; Teori &middot; ABRSM &amp; Trinity</span></div>
+<div><small>WhatsApp</small><span>+62 896-5668-4852</span></div>
+</div>
 </section>
 </main>
 
@@ -546,32 +586,83 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var $=function(id){return document.getElementById(id)};
 var hdr=$('hdr'),bar=$('bar'),nav=$('nav'),burger=$('burger'),prog=$('progress');
-var heroBg=document.querySelector('.hero-bg'),heroC=document.querySelector('.hero-content'),raf=false,ys=0;
+var heroBg=document.querySelector('.hero-bg'),heroC=document.querySelector('.hero-content'),raf=false,ys=0,lastY=0;
 
-/* Scroll: header, progress, parallax berinersia */
+/* ---------- Kata-per-kata: cahaya menyala mengikuti scroll ---------- */
+var LIT=[];
+function splitWords(el){
+var words=[];
+(function walk(n){
+Array.prototype.slice.call(n.childNodes).forEach(function(c){
+if(c.nodeType===3){
+var parts=c.nodeValue.split(/(\s+)/),f=document.createDocumentFragment();
+parts.forEach(function(p){
+if(!p)return;
+if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}
+var s=document.createElement('span');s.className='w';s.textContent=p;f.appendChild(s);words.push(s)});
+c.parentNode.replaceChild(f,c)
+}else if(c.nodeType===1&&c.nodeName!=='BR'){walk(c)}})})(el);
+return words}
+document.querySelectorAll('.lit').forEach(function(el){LIT.push({el:el,w:splitWords(el)})});
+function updateLit(){
+var vh=window.innerHeight;
+LIT.forEach(function(o){
+var r=o.el.getBoundingClientRect();
+var p=reduce?1:Math.max(0,Math.min(1,(vh*.82-r.top)/(r.height+vh*.3)));
+var n=Math.round(p*o.w.length*1.04);
+o.w.forEach(function(s,i){s.classList.toggle('on',i<n)})})}
+
+/* ---------- Scroll: header, progress, parallax berinersia ---------- */
 function frame(){
 raf=false;
 var y=window.scrollY,h=window.innerHeight,max=document.documentElement.scrollHeight-h;
 ys=reduce?y:ys+(y-ys)*.1;
-hdr.classList.toggle('scrolled',y>55);bar.classList.toggle('on',y>h*.8);
+hdr.classList.toggle('scrolled',y>55);
+if(!nav.classList.contains('open')){
+if(y>600&&y>lastY+6)hdr.classList.add('hide');else if(y<lastY-6||y<600)hdr.classList.remove('hide')}
+lastY=y;
+bar.classList.toggle('on',y>h*.8);
 prog.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
 if(!reduce&&ys<h*1.3){
 heroBg.style.transform='translate3d(0,'+(ys*.16).toFixed(1)+'px,0)';
 heroC.style.transform='translate3d(0,'+(ys*-.08).toFixed(1)+'px,0)';
 heroC.style.opacity=Math.max(0,1-ys/(h*.85)).toFixed(3)}
+updateLit();
 if(Math.abs(y-ys)>.4){raf=true;requestAnimationFrame(frame)}}
 function onScroll(){if(!raf){raf=true;requestAnimationFrame(frame)}}
 window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);frame();
 
-burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';hdr.classList.remove('hide')});
 nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow=''})});
 
-/* Nav aktif sesuai section */
-var links={};nav.querySelectorAll('a[href^="#"]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+/* ---------- Navigasi aktif (menu + dots) ---------- */
+var links={};
+document.querySelectorAll('#nav a[href^="#"],#dots a[href^="#"]').forEach(function(a){var k=a.getAttribute('href').slice(1);if(!k)return;(links[k]=links[k]||[]).push(a)});
 if('IntersectionObserver' in window){
 var so=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].classList.toggle('act',k===e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].forEach(function(a){a.classList.toggle('act',k===e.target.id)})})}})},{rootMargin:'-45% 0px -50% 0px'});
 Object.keys(links).forEach(function(k){var s=$(k);if(s)so.observe(s)})}
+
+/* ---------- Debu emas sinematik di hero ---------- */
+(function(){
+var cv=$('dust');if(!cv||reduce||!cv.getContext)return;
+var ctx=cv.getContext('2d'),W=0,H=0,P=[],on=true,dpr=Math.min(2,window.devicePixelRatio||1);
+function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+function mk(init){return{x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*1.5+.4,vy:-(Math.random()*.22+.06),vx:(Math.random()-.5)*.12,a:Math.random()*.5+.15,ph:Math.random()*6.28}}
+size();var N=W<820?20:42;for(var i=0;i<N;i++)P.push(mk(true));
+window.addEventListener('resize',size);
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;if(on)tick()}).observe(cv);
+var run=false;
+function tick(){
+if(run&&!on)return;run=on;if(!on)return;
+ctx.clearRect(0,0,W,H);
+P.forEach(function(p,i){
+p.ph+=.012;p.x+=p.vx+Math.sin(p.ph)*.1;p.y+=p.vy;
+if(p.y<-10)P[i]=mk(false);
+var tw=.55+.45*Math.sin(p.ph*2);
+ctx.beginPath();ctx.fillStyle='rgba(228,206,151,'+(p.a*tw).toFixed(3)+')';ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill()});
+requestAnimationFrame(tick)}
+tick()})();
 
 /* ---------- Gambar dari GitHub ---------- */
 var BASE='https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/',FILES=null,PIC=[];
@@ -599,8 +690,8 @@ var ACH=[
 
 /* ====== KARTU MURID — CROP DIKUNCI SESUAI SCREENSHOT ======
    [nama, badge, judul, keterangan, foto, zoom, fokus-x, fokus-y]
-   Julian/Jaden: zoom 1 (kartu desain utuh, Julian Distinction fokus atas).
-   Claire: zoom 1.45 @ 58% dan 1.3 @ 62% — wajah, badan, dan piala terlihat. */
+   Julian/Jaden: zoom 1 (Distinction fokus atas 0%, Gold & Platinum 30%).
+   Claire: zoom 1.45 @ 58% dan zoom 1.3 @ 62% — wajah, badan, dan piala terlihat. */
 var IMG=['images (1) (67).jpeg','20250706_144605.jpg','IMG_20250707_114841_711.jpg','IMG-20251115-WA0007.jpg','20261106_111113.jpg'].map(function(n){return BASE+encodeURIComponent(n)});
 var STU=[
 ['Julian Ayden L.','Distinction','ABRSM Piano Grade 1','Ujian digital, Januari 2026',IMG[0],1,'50%','0%'],
@@ -668,8 +759,8 @@ fetch('https://api.github.com/repos/sonatamusicstudio/sonata-music-studio/conten
 .catch(function(){FILES=null})
 .then(build);
 
-/* ---------- Lightbox ---------- */
-var lb=$('lb'),lbi=$('lbi'),lbc=$('lbc'),cur=0;
+/* ---------- Lightbox (dengan swipe) ---------- */
+var lb=$('lb'),lbi=$('lbi'),lbc=$('lbc'),cur=0,tx0=null;
 function showLb(){lbi.src=PIC[cur][0];lbi.alt=PIC[cur][1];lbc.textContent=PIC[cur][1]}
 function openLb(i){if(i<0)return;cur=i;showLb();lb.classList.add('on');document.body.style.overflow='hidden'}
 function stepLb(d){cur=(cur+d+PIC.length)%PIC.length;showLb()}
@@ -678,6 +769,8 @@ lb.querySelector('.x').onclick=closeLb;
 lb.querySelector('.p').onclick=function(){stepLb(-1)};
 lb.querySelector('.n').onclick=function(){stepLb(1)};
 lb.onclick=function(e){if(e.target===lb)closeLb()};
+lb.addEventListener('touchstart',function(e){tx0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(tx0===null)return;var dx=e.changedTouches[0].clientX-tx0;if(Math.abs(dx)>50)stepLb(dx<0?1:-1);tx0=null});
 document.addEventListener('keydown',function(e){
 if(!lb.classList.contains('on'))return;
 if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')stepLb(-1);if(e.key==='ArrowRight')stepLb(1)});
@@ -731,6 +824,11 @@ document.querySelectorAll('.btn').forEach(function(b){
 b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2).toFixed(1)+'px,'+((e.clientY-r.top-r.height/2)*.32).toFixed(1)+'px)'});
 b.addEventListener('mouseleave',function(){b.style.transform=''})});
 document.querySelectorAll('.bt').forEach(glow);
+
+/* spotlight lembut di section gelap */
+document.querySelectorAll('.spot').forEach(function(s){
+s.addEventListener('mousemove',function(e){var r=s.getBoundingClientRect();s.style.setProperty('--sx',(e.clientX-r.left)+'px');s.style.setProperty('--sy',(e.clientY-r.top)+'px');s.classList.add('lit')});
+s.addEventListener('mouseleave',function(){s.classList.remove('lit')})});
 
 var fr=$('tiltFrame');
 if(fr){
