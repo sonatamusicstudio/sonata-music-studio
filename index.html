@@ -154,8 +154,7 @@ h1 .g>span{background:var(--gold);background-size:220% 100%;-webkit-background-c
 /* students — CROP DIKUNCI SESUAI SCREENSHOT (3:4, object-fit cover, fokus & zoom per kartu) */
 #students{position:relative;background:linear-gradient(180deg,var(--navy-d),var(--night) 60%,var(--ink));padding:clamp(3rem,6vw,5rem) 5% clamp(7rem,12vw,11rem);overflow:hidden}
 #students>*{position:relative;z-index:1}
-#students .sh{max-width:1360px;display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s3);align-items:end;text-align:left}
-#students .sh .eyebrow,#students .sh .rule{grid-column:1/-1}#students .sh .rule.c{margin-left:0}#students .sh .sub{margin:0}
+#students .sh{max-width:62rem;text-align:center;margin:0 auto var(--s4)}#students .sh .eyebrow{justify-content:center}#students .sh .rule.c{margin-inline:auto}#students .sh .sec-h{margin-bottom:1rem}
 .sec-h{font:700 clamp(2.2rem,4.236vw,4.236rem)/1.1 var(--sans);letter-spacing:-.025em;color:var(--ivory)}
 .sg{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,1.6vw,26px);max-width:1360px;margin:0 auto}
 .sc{position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#0E1C4A,var(--night));overflow:hidden;cursor:pointer;box-shadow:0 34px 64px -30px rgba(0,0,0,.85),0 0 0 1px rgba(191,161,108,.38);transition:transform .8s var(--ease),box-shadow .8s,opacity 1.2s var(--ease)}
@@ -227,7 +226,7 @@ footer img{height:30px;filter:brightness(0) invert(1) sepia(.35);opacity:.55}foo
 html.hc2 .cur{display:block}.cur.on{opacity:1}.cur.hov{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(228,206,151,.16)}
 /* responsive */
 @media(max-width:1480px){.nav{position:fixed;inset:0;background:var(--night);flex-direction:column;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .5s}.nav.open{opacity:1;pointer-events:auto}.nav a{font-size:.85rem}.burger{display:block}}
-@media(max-width:1100px){#students .sh{grid-template-columns:1fr;text-align:center}#students .sh .eyebrow{justify-content:center}#students .sh .rule.c{margin-left:auto}
+@media(max-width:1100px){
 .sg{grid-template-columns:repeat(6,1fr);max-width:900px}.sc{grid-column:span 2}.sc:nth-child(4){grid-column:2/span 2}.sc:nth-child(5){grid-column:4/span 2}}
 @media(max-width:960px){#about{grid-template-columns:1fr}.frame{margin:0 22px 22px 0;width:calc(100% - 22px)}.ph1{grid-template-columns:1fr;align-items:start}
 .bento{grid-template-columns:1fr;grid-auto-rows:auto}.bph,.ba,.bb,.bc,.bd,.bcta{grid-column:1/-1;grid-row:auto}.bph{order:-1}.bp1{min-height:170px}.hero::before{inset:12px}
@@ -235,7 +234,7 @@ html.hc2 .cur{display:block}.cur.on{opacity:1}.cur.hov{width:76px;height:76px;ma
 .bar{display:block;position:fixed;inset:auto 0 0;z-index:50;padding:10px 5% calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,8,22,.94);border-top:1px solid rgba(191,161,108,.5);transform:translateY(110%);transition:transform .6s var(--ease);backdrop-filter:blur(14px)}.bar.on{transform:none}.bar .btn{display:flex;width:100%}
 footer{flex-direction:column;text-align:center;padding-bottom:6rem}}
 @media(max-width:820px),(max-aspect-ratio:1/1){
-.hero{--gut:7vw;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:max(124px,11svh) 7vw 0}.hbg{display:none}.hphoto{display:block;--iw:min(100vw,calc((100svh - 440px)*1.017));left:50%;margin-left:calc(var(--iw)/-2)}
+.hero{--gut:7vw;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:max(124px,11svh) 7vw 0}.hbg{display:none}.hphoto{display:block;left:0;right:0;bottom:0;width:100%;height:min(66svh,calc(100vw*1.55));-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 30%,#000 82%,transparent 100%)}.hphoto img{object-position:50% 18%}.hero::before{display:none}
 .hc{width:100%;max-width:100%}h1{font-size:clamp(2.8rem,12.4vw,6.4rem)}.htag{justify-content:center;margin-bottom:1.1rem}.htag::before{display:none}.hsub,.hproof{display:none}.hcta{justify-content:center;margin-top:1.3rem}
 .hero::after{background:radial-gradient(ellipse 90% 30% at 50% 24%,rgba(5,8,22,.55),transparent 70%),linear-gradient(180deg,rgba(5,8,22,.75),transparent 22%,transparent 88%,var(--night))}.shint,.hmeta{display:none}}
 @media(max-width:860px){.row{grid-template-columns:76px 1fr;gap:16px}.row .y{font-size:1.5rem}.row h3{font-size:1.02rem}.row small{grid-column:2;justify-self:start}
@@ -391,14 +390,15 @@ var ACH=[
 ['2019','Rangking 4 dan 5, Cipta Nyanyian Liturgi','Komisi Liturgi Keuskupan Agung Jakarta','Pencipta Lagu','1728294846403.jpeg'],
 ['2018','Pemenang Lomba Cipta Lagu Arwah Komlit','KAJ 2018, <em>Hanya PadaMu Tuhan</em>','Pemenang','1728300782229.jpeg'],
 ['','Karya terpilih, Lomba Cipta Melodi Mazmur','LP3KN','Karya Terpilih','1728296617350.jpeg']];
-/* MURID — crop identik dengan screenshot: [nama,badge,judul,ket,foto,zoom,fokusX,fokusY] */
+/* MURID — CROP: [nama,badge,judul,ket,foto,zoom,fokusX,fokusY]
+   Tuning crop: ubah fokusY (0% = atas foto, 100% = bawah foto) dan zoom (1 = tanpa zoom). */
 var IMG=['images (1) (67).jpeg','20250706_144605.jpg','IMG_20250707_114841_711.jpg','IMG-20251115-WA0007.jpg','20261106_111113.jpg'].map(function(n){return BASE+encodeURIComponent(n)});
 var STU=[
 ['Julian Ayden L.','Distinction','ABRSM Piano Grade 1','Ujian digital, Januari 2026',IMG[0],1,'50%','0%'],
-['Julian Ayden L.','Gold Award','Free Selection B10','INPF Jabodetabek 2025, ICE BSD',IMG[1],1,'50%','30%'],
-['Jaden Alaric L.','Platinum Award','Kinder A1','INPF Jabodetabek 2025, ICE BSD',IMG[2],1,'50%','30%'],
-['Claire Deitra H.','1st Commendation','Kompetisi Piano','Rhapsodie.co',IMG[3],1.45,'50%','58%'],
-['Claire Deitra H.','3rd Commendation','Rhapsodie','NICE PIK 2',IMG[4],1.3,'50%','62%']];
+['Julian Ayden L.','Gold Award','Free Selection B10','INPF Jabodetabek 2025, ICE BSD',IMG[1],1,'50%','50%'],
+['Jaden Alaric L.','Platinum Award','Kinder A1','INPF Jabodetabek 2025, ICE BSD',IMG[2],1,'50%','50%'],
+['Claire Deitra H.','1st Commendation','Kompetisi Piano','Rhapsodie.co',IMG[3],1,'50%','50%'],
+['Claire Deitra H.','3rd Commendation','Rhapsodie','NICE PIK 2',IMG[4],1,'50%','50%']];
 var GAL=[
 [['Bali 2011'],'Solo Performance, Bali 2011',1],[['Bali 2011 2'],'Solo Performance, Bali 2011 (II)',1],
 [['img_8_1791283419704.jpg'],'Tampil di Bali, 2011'],[['img_9_1791283432702.jpg'],'Bali In&rsquo;t Music Camp, 2011'],
