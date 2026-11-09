@@ -295,13 +295,46 @@ mask-image:radial-gradient(ellipse 78% 56% at 50% 62%,#000 62%,rgba(0,0,0,0) 100
 .pq-mark{line-height:1;height:.8em;padding:.12em .15em 0;margin-bottom:2.2rem;overflow:visible}
 @media(max-width:540px){.pq-mark{font-size:5rem;margin-bottom:1.6rem}}
    </style>
+   <style>
+/* ===== HEADER GRAND: latar biru solid, logo besar, tanpa border ===== */
+:root{--hdr-blue:#0E1E52}
+
+#hdr{height:120px;background:var(--hdr-blue);box-shadow:none;
+-webkit-backdrop-filter:none;backdrop-filter:none}
+#hdr.scrolled{height:92px;background:var(--hdr-blue);
+box-shadow:0 18px 40px -22px rgba(0,0,0,.65)}
+#ticker{top:120px}
+#ticker.scrolled{top:92px}
+
+.logo{gap:20px}
+.logo-img{height:88px;filter:none}
+#hdr.scrolled .logo-img{height:64px}
+
+.logo-name{font:700 2.2rem/1 var(--serif);letter-spacing:.04em;text-transform:uppercase;color:var(--ivory)}
+.logo-sub{margin-top:9px;font:600 .68rem/1 var(--ui);letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
+#hdr.scrolled .logo-name{font-size:1.75rem}
+#hdr.scrolled .logo-sub{margin-top:7px;font-size:.58rem}
+
+/* hapus border hero */
+.hero::before{display:none}
+
+@media(max-width:540px){
+#hdr{height:96px;padding:0 4%}
+#hdr.scrolled{height:76px}
+#ticker{top:96px}
+#ticker.scrolled{top:76px}
+.logo{gap:12px}
+.logo-img,#hdr.scrolled .logo-img{height:60px}
+.logo-name,#hdr.scrolled .logo-name{font-size:1.45rem;letter-spacing:.03em}
+.logo-sub,#hdr.scrolled .logo-sub{font-size:.52rem;letter-spacing:.26em;margin-top:6px}
+}
+   </style>
 </head>
 <body>
 
-<header id="hdr">
 <a href="#" class="logo">
 <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/Merpati%20Emas%20Menghiasi%20Buku%20Terbuka.png" alt="Sonata Music Studio Logo" class="logo-img">
-<div><span class="logo-name">Sonata Music Studio</span><span class="logo-sub">Excellence in Artistry</span></div>
+<div><span class="logo-name">Sonata</span><span class="logo-sub">Music Studio</span></div>
 </a>
 <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
 <nav class="nav" id="nav" aria-label="Navigasi utama">
