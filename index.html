@@ -25,7 +25,6 @@
   --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +45,7 @@ a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
 [hidden] { display: none !important; }
 
-/* ——— HEADER ——— */
+/* HEADER */
 #hdr {
   position: fixed;
   inset: 0 0 auto;
@@ -68,11 +67,7 @@ a { color: inherit; text-decoration: none; }
   border-bottom-color: rgba(201, 176, 122, 0.18);
   box-shadow: 0 12px 40px -20px rgba(0,0,0,0.8);
 }
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+.logo { display: flex; align-items: center; gap: 1rem; }
 .logo-img {
   height: 52px;
   width: auto;
@@ -132,10 +127,9 @@ a { color: inherit; text-decoration: none; }
   width: 20px; height: 1.5px;
   background: var(--gold);
   margin: 5px auto;
-  transition: transform 0.3s, opacity 0.3s;
 }
 
-/* ——— HERO ——— */
+/* HERO */
 .hero {
   --gutter: max(6vw, calc((100vw - 1280px) / 2));
   position: relative;
@@ -157,11 +151,28 @@ a { color: inherit; text-decoration: none; }
   object-position: 70% 45%;
   filter: brightness(0.55) contrast(1.08) saturate(0.85);
 }
+.hero-photo {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  right: max(2vw, calc(var(--gutter) - 3vw));
+  bottom: -4%;
+  width: min(78svh, 62vw);
+  aspect-ratio: 0.55;
+  -webkit-mask-image: radial-gradient(ellipse 72% 56% at 50% 60%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 72% 56% at 50% 60%, #000 55%, transparent 100%);
+}
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+  filter: brightness(0.8) contrast(1.1) saturate(0.85);
+}
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   background:
     linear-gradient(105deg, rgba(3,5,10,0.92) 0%, rgba(3,5,10,0.55) 38%, rgba(3,5,10,0.15) 62%, rgba(3,5,10,0.4) 100%),
     linear-gradient(180deg, rgba(3,5,10,0.7) 0%, transparent 25%, transparent 70%, rgba(3,5,10,0.95) 100%);
@@ -169,7 +180,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 580px;
 }
 .hero-tag {
@@ -211,7 +222,7 @@ a { color: inherit; text-decoration: none; }
 }
 .scroll-hint {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   left: var(--gutter);
   bottom: 2.5rem;
   display: flex;
@@ -241,7 +252,7 @@ a { color: inherit; text-decoration: none; }
   100% { top: 120%; }
 }
 
-/* ——— BUTTONS ——— */
+/* BUTTONS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -276,7 +287,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
 }
 
-/* ——— SHARED ——— */
+/* SHARED */
 .eyebrow {
   display: block;
   font: 500 0.65rem/1 var(--sans);
@@ -326,13 +337,13 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(90deg, transparent, rgba(201,176,122,0.25), transparent);
 }
 
-/* ——— LIGHT SECTIONS ——— */
+/* LIGHT SECTIONS */
 .light {
   background: linear-gradient(180deg, #F7F4EE 0%, #EFEAE0 100%);
   color: var(--ink);
 }
 
-/* ——— ABOUT ——— */
+/* ABOUT + PROGRAMS */
 #about, #programs {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -361,7 +372,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 32px 64px -28px rgba(3,5,10,0.55);
 }
 
-/* ——— QUOTE ——— */
+/* QUOTE */
 .pq-section {
   position: relative;
   background: var(--navy);
@@ -410,7 +421,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 
-/* ——— PROGRAMS ——— */
+/* PROGRAMS LIST */
 .prog-list {
   list-style: none;
   margin: 0.75rem 0 2.5rem;
@@ -443,7 +454,7 @@ a { color: inherit; text-decoration: none; }
 }
 .prog-list li:hover::before { width: 28px; }
 
-/* ——— PHILOSOPHY ——— */
+/* PHILOSOPHY */
 #philosophy {
   background: linear-gradient(180deg, #F7F4EE 0%, #EFEAE0 100%);
   padding: clamp(5.5rem, 11vw, 9rem) clamp(1.5rem, 6vw, 7%);
@@ -473,7 +484,7 @@ a { color: inherit; text-decoration: none; }
   color: rgba(26,36,56,0.78);
 }
 
-/* ——— ACHIEVEMENTS ——— */
+/* ACHIEVEMENTS */
 #achievements {
   background: var(--void);
   padding: clamp(5.5rem, 10vw, 8.5rem) clamp(1.5rem, 6vw, 7%) clamp(2.5rem, 5vw, 4rem);
@@ -529,7 +540,6 @@ a { color: inherit; text-decoration: none; }
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(201,176,122,0.15);
   transition: background 0.4s, padding-left 0.4s var(--ease);
-  cursor: default;
 }
 .row:hover {
   padding-left: 12px;
@@ -575,7 +585,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--taupe);
 }
 
-/* ——— STUDENTS ——— */
+/* STUDENTS */
 #students {
   background: linear-gradient(180deg, var(--void) 0%, var(--navy) 100%);
   padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 5%) clamp(5.5rem, 10vw, 8.5rem);
@@ -651,7 +661,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: auto;
 }
 
-/* ——— PERFORMANCE ——— */
+/* PERFORMANCE */
 #performance {
   background: linear-gradient(180deg, #F7F4EE 0%, #EFEAE0 100%);
   padding: clamp(5.5rem, 10vw, 8.5rem) clamp(1.5rem, 6vw, 7%);
@@ -806,7 +816,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(169,144,94,0.1);
 }
 
-/* ——— ARCHIVE ——— */
+/* ARCHIVE */
 #archive {
   background: var(--void);
   padding: clamp(5.5rem, 10vw, 8.5rem) clamp(1.25rem, 4vw, 5%);
@@ -868,7 +878,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0.25rem 0.55rem;
 }
 
-/* ——— LIGHTBOX ——— */
+/* LIGHTBOX */
 .lb {
   position: fixed;
   inset: 0;
@@ -910,7 +920,7 @@ a { color: inherit; text-decoration: none; }
 .lb .p { left: 0.5rem; }
 .lb .n { right: 0.5rem; }
 
-/* ——— CONTACT ——— */
+/* CONTACT */
 #contact {
   background: linear-gradient(180deg, var(--navy) 0%, var(--void) 100%);
   padding: clamp(5.5rem, 11vw, 9rem) clamp(1.5rem, 6vw, 7%);
@@ -939,7 +949,7 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
 }
 
-/* ——— FOOTER ——— */
+/* FOOTER */
 footer {
   background: #020308;
   padding: 2.25rem clamp(1.5rem, 6vw, 7%);
@@ -975,7 +985,7 @@ footer {
 .bar.on { transform: none; }
 .bar .btn { width: 100%; justify-content: center; }
 
-/* ——— RESPONSIVE ——— */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .nav {
     position: fixed;
@@ -1008,6 +1018,35 @@ footer {
   .ach-stat:nth-child(-n+2) { border-bottom: 1px solid rgba(201,176,122,0.18); }
   .row { grid-template-columns: 72px 1fr; gap: 1rem; }
   .row small { grid-column: 2; justify-self: start; margin-top: 0.35rem; }
+}
+@media (max-width: 820px), (max-aspect-ratio: 1/1) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: max(140px, 14svh) 6vw 0;
+  }
+  .hero-bg { display: none; }
+  .hero-photo {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 0.72;
+    right: auto;
+    left: 0;
+    bottom: auto;
+    margin-top: 2rem;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+  }
+  .hero-content { max-width: 100%; }
+  .hero-rule { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+  .hero::after {
+    background: linear-gradient(180deg, rgba(3,5,10,0.75) 0%, transparent 30%, transparent 70%, rgba(3,5,10,0.95) 100%);
+  }
 }
 @media (max-width: 700px) {
   .sg { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
@@ -1072,6 +1111,12 @@ footer {
     <picture>
       <source media="(min-width:821px) and (min-aspect-ratio:1/1)" srcset="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/hero-landscape.jpg">
       <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/hero-landscape.jpg" alt="Sonata Music Studio — pengajar dan siswa belajar musik bersama">
+    </picture>
+  </div>
+  <div class="hero-photo">
+    <picture>
+      <source media="(max-width:820px),(max-aspect-ratio:1/1)" srcset="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/image.jpg">
+      <img src="https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/image.jpg" alt="Sonata Music Studio — pengajar dan siswa belajar musik bersama">
     </picture>
   </div>
   <div class="hero-content">
@@ -1254,135 +1299,267 @@ footer {
 <script>
 (function(){
 'use strict';
-var hdr=document.getElementById('hdr'),bar=document.getElementById('bar'),nav=document.getElementById('nav'),burger=document.getElementById('burger');
-function onScroll(){var y=window.scrollY;hdr.classList.toggle('scrolled',y>40);bar.classList.toggle('on',y>window.innerHeight*.75)}
-window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+var hdr = document.getElementById('hdr'),
+    bar = document.getElementById('bar'),
+    nav = document.getElementById('nav'),
+    burger = document.getElementById('burger');
 
-var BASE='https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
-var FILES=null,PIC=[],reg=function(u,c){return PIC.push([u,c])-1};
-function find(n){if(!FILES)return BASE+(Array.isArray(n)?n[0]:n);var a=Array.isArray(n)?n:[n];for(var i=0;i<a.length;i++){var x=FILES.find(function(f){return f.toLowerCase().indexOf(a[i].toLowerCase())!==-1});if(x)return BASE+x}return null}
-function load(u,ok,fail){var i=new Image();i.onload=function(){ok(u)};i.onerror=fail||function(){};i.src=u}
+function onScroll(){
+  var y = window.scrollY;
+  hdr.classList.toggle('scrolled', y > 40);
+  bar.classList.toggle('on', y > window.innerHeight * 0.75);
+}
+window.addEventListener('scroll', onScroll, {passive: true});
+onScroll();
 
-var ACH=[
-['2011','Solo Performance — Bali International Music Camp','Bali, Indonesia','Certificate'],
-['2012','Home Concert Yayasan Musik Jakarta','Jakarta','Performance'],
-['2014','STIKMI Concert','Jakarta','Ensemble'],
-['2014','JISMF Choir','Jakarta','Choir'],
-['2024','Gold Award — INPF Jabodetabek','ICE BSD','Gold'],
-['2025','Gold Award — Free Selection B10','INPF Jabodetabek','Gold'],
-['2025','Platinum Award — Kinder A1','INPF Jabodetabek','Platinum'],
-['2025','1st Commendation — Rhapsodie.co','Piano Competition','Commendation'],
-['2025','3rd Commendation — NICE PIK 2','Rhapsodie','Commendation'],
-['2026','ABRSM Piano Grade 1 — Distinction','Digital Exam','Distinction']
+burger.addEventListener('click', function(){
+  var o = nav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', o);
+});
+nav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+var BASE = 'https://github.com/sonatamusicstudio/sonata-music-studio/raw/main/';
+var FILES = null;
+var PIC = [];
+function reg(u, c){ return PIC.push([u, c]) - 1; }
+
+function find(names){
+  if (!Array.isArray(names)) names = [names];
+  if (!FILES) {
+    // fallback: try the first name directly
+    return BASE + names[0];
+  }
+  for (var i = 0; i < names.length; i++) {
+    var key = names[i].toLowerCase();
+    var match = FILES.find(function(f){
+      return f.toLowerCase().indexOf(key) !== -1;
+    });
+    if (match) return BASE + match;
+  }
+  return BASE + names[0];
+}
+
+function load(url, ok, fail){
+  var img = new Image();
+  img.onload = function(){ ok(url); };
+  img.onerror = fail || function(){};
+  img.src = url;
+}
+
+// Achievement rows (text only – certificates open if image can be found)
+var ACH = [
+  ['2011', 'Solo Performance — Bali International Music Camp', 'Bali, Indonesia', 'Certificate'],
+  ['2012', 'Home Concert Yayasan Musik Jakarta', 'Jakarta', 'Performance'],
+  ['2014', 'STIKMI Concert', 'Jakarta', 'Ensemble'],
+  ['2014', 'JISMF Choir', 'Jakarta', 'Choir'],
+  ['2024', 'Gold Award — INPF Jabodetabek', 'ICE BSD', 'Gold'],
+  ['2025', 'Gold Award — Free Selection B10', 'INPF Jabodetabek', 'Gold'],
+  ['2025', 'Platinum Award — Kinder A1', 'INPF Jabodetabek', 'Platinum'],
+  ['2025', '1st Commendation — Rhapsodie.co', 'Piano Competition', 'Commendation'],
+  ['2025', '3rd Commendation — NICE PIK 2', 'Rhapsodie', 'Commendation'],
+  ['2026', 'ABRSM Piano Grade 1 — Distinction', 'Digital Exam', 'Distinction']
 ];
 
-var SP=[
-'1728278677799.jpeg',
-'1728277959315.jpeg',
-'1728302182364.jpeg',
-'1728278413639.jpeg',
-'1728278362077.jpeg'
+// Student photos – using known working filenames from the original
+var SP = [
+  '1728278677799.jpeg',
+  '1728277959315.jpeg',
+  '1728302182364.jpeg',
+  '1728278413639.jpeg',
+  '1728278362077.jpeg'
 ];
 
-var STU=[
-['Julian Ayden L.','Distinction','ABRSM Piano Grade 1','Ujian digital, Januari 2026',[SP[0]],1,'50%','50%'],
-['Julian Ayden L.','Gold Award','Free Selection B10','INPF Jabodetabek 2025, ICE BSD',[SP[1]],1,'50%','50%'],
-['Jaden Alaric L.','Platinum Award','Kinder A1','INPF Jabodetabek 2025, ICE BSD',[SP[2]],1,'50%','50%'],
-['Claire Deitra H.','1st Commendation','Kompetisi Piano','Rhapsodie.co',[SP[3]],1,'50%','50%'],
-['Claire Deitra H.','3rd Commendation','Rhapsodie','NICE PIK 2',[SP[4]],1,'50%','50%']
+var STU = [
+  ['Julian Ayden L.', 'Distinction', 'ABRSM Piano Grade 1', 'Ujian digital, Januari 2026', [SP[0]], 1.55, '50%', '50%'],
+  ['Julian Ayden L.', 'Gold Award', 'Free Selection B10', 'INPF Jabodetabek 2025, ICE BSD', [SP[1]], 1.55, '50%', '50%'],
+  ['Jaden Alaric L.', 'Platinum Award', 'Kinder A1', 'INPF Jabodetabek 2025, ICE BSD', [SP[2]], 1.55, '50%', '50%'],
+  ['Claire Deitra H.', '1st Commendation', 'Kompetisi Piano', 'Rhapsodie.co', [SP[3]], 1.55, '50%', '50%'],
+  ['Claire Deitra H.', '3rd Commendation', 'Rhapsodie', 'NICE PIK 2', [SP[4]], 1.55, '50%', '50%']
 ];
 
-var GAL=[
-[['Bali 2011'],'Solo Performance, Bali 2011',1],
-[['Bali 2011 2'],'Solo Performance, Bali 2011 (II)',1],
-[['img_8_1791283419704.jpg'],'Tampil di Bali, 2011'],
-[['img_9_1791283432702.jpg'],'Bali In’t Music Camp, 2011'],
-[['1728302182364.jpeg'],'Bali In’t Music Camp, bersama peserta'],
-[['img_1_1793793014516.jpg'],'Resital piano'],
-[['1728278413639.jpeg'],'Home Concert Yayasan Musik Jakarta, 2012'],
-[['1728278362077.jpeg'],'Home Concert Yayasan Musik Jakarta, 2012'],
-[['img_9_1793793228435.jpg'],'Paduan suara JISMF 2014'],
-[['1728368821890.jpeg'],'STIKMI Concert, 12 April 2014'],
-[['1728368987536.jpeg'],'STIKMI Concert, April 2014'],
-[['1728277994217.jpeg'],'Cantata Christmas Choir'],
-[['1728311786057.jpeg'],'Paduan suara anak'],
-[['1728450251141.jpeg'],'Hari Guru, auditorium'],
-[['1728279819431.jpeg'],'Kelas di perpustakaan'],
-[['1728349078427.jpeg'],'Mengiringi misa']
+// Gallery – using the original captions + known filenames
+var GAL = [
+  [['Bali 2011'], 'Solo Performance, Bali 2011', 1],
+  [['Bali 2011 2'], 'Solo Performance, Bali 2011 (II)', 1],
+  [['img_8_1791283419704.jpg'], 'Tampil di Bali, 2011'],
+  [['img_9_1791283432702.jpg'], 'Bali In’t Music Camp, 2011'],
+  [['1728302182364.jpeg'], 'Bali In’t Music Camp, bersama peserta'],
+  [['img_1_1793793014516.jpg'], 'Resital piano'],
+  [['1728278413639.jpeg'], 'Home Concert Yayasan Musik Jakarta, 2012'],
+  [['1728278362077.jpeg'], 'Home Concert Yayasan Musik Jakarta, 2012'],
+  [['img_9_1793793228435.jpg'], 'Paduan suara JISMF 2014'],
+  [['1728368821890.jpeg'], 'STIKMI Concert, 12 April 2014'],
+  [['1728368987536.jpeg'], 'STIKMI Concert, April 2014'],
+  [['1728277994217.jpeg'], 'Cantata Christmas Choir'],
+  [['1728311786057.jpeg'], 'Paduan suara anak'],
+  [['1728450251141.jpeg'], 'Hari Guru, auditorium'],
+  [['1728279819431.jpeg'], 'Kelas di perpustakaan'],
+  [['1728349078427.jpeg'], 'Mengiringi misa']
 ];
 
-var tl=document.getElementById('tl'),sg=document.getElementById('sg'),gal=document.getElementById('gal');
-function renum(){var n=0;gal.querySelectorAll('figure:not([hidden]) figcaption i').forEach(function(i){i.textContent=String(++n).padStart(2,'0')})}
+var tl = document.getElementById('tl'),
+    sg = document.getElementById('sg'),
+    gal = document.getElementById('gal');
+
+function renum(){
+  var n = 0;
+  gal.querySelectorAll('figure:not([hidden]) figcaption i').forEach(function(i){
+    i.textContent = String(++n).padStart(2, '0');
+  });
+}
+
 function build(){
-ACH.forEach(function(a){
-var d=document.createElement('div');d.className='row rv';
-d.innerHTML='<div class="y">'+(a[0]||'—')+'</div><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div><small>'+a[3]+'</small>';
-tl.appendChild(d);
-var u=find([a[4]]);
-if(u)load(u,function(url){var k=reg(url,a[1]);d.style.cursor='pointer';d.tabIndex=0;d.onclick=function(){openLb(k)};d.onkeydown=function(e){if(e.key==='Enter')d.onclick()}});
-});
+  // Achievements
+  ACH.forEach(function(a){
+    var d = document.createElement('div');
+    d.className = 'row rv';
+    d.innerHTML = '<div class="y">' + (a[0] || '—') + '</div><div><h3>' + a[1] + '</h3><p>' + a[2] + '</p></div><small>' + a[3] + '</small>';
+    tl.appendChild(d);
+  });
 
-STU.forEach(function(s){
-var u=find(s[4]);if(!u)return;
-var c=document.createElement('div');c.className='sc rv';c.hidden=true;c.tabIndex=0;sg.appendChild(c);
-load(u,function(url){
-var k=reg(url,s[0]+' · '+s[1]+' · '+s[2]);
-c.innerHTML='<div class="pw"><img class="ph" src="'+url+'" alt="'+s[0]+'" style="--z:'+s[5]+';--fx:'+s[6]+';--fy:'+s[7]+'" decoding="async"></div><div class="tx"><b>'+s[1]+'</b><h3>'+s[0]+'</h3><p>'+s[2]+'<br>'+s[3]+'</p></div>';
-c.onclick=function(){openLb(k)};c.onkeydown=function(e){if(e.key==='Enter')c.onclick()};
-c.hidden=false;
-},function(){c.remove()});
-});
+  // Students – direct reliable loading
+  STU.forEach(function(s){
+    var url = BASE + s[4][0];
+    var c = document.createElement('div');
+    c.className = 'sc rv';
+    c.tabIndex = 0;
+    c.innerHTML =
+      '<div class="pw"><img class="ph" src="' + url + '" alt="' + s[0] + '" style="--z:' + s[5] + ';--fx:' + s[6] + ';--fy:' + s[7] + '" decoding="async" loading="lazy"></div>' +
+      '<div class="tx"><b>' + s[1] + '</b><h3>' + s[0] + '</h3><p>' + s[2] + '<br>' + s[3] + '</p></div>';
+    var k = reg(url, s[0] + ' · ' + s[1] + ' · ' + s[2]);
+    c.onclick = function(){ openLb(k); };
+    c.onkeydown = function(e){ if (e.key === 'Enter') c.onclick(); };
+    sg.appendChild(c);
+  });
 
-var seen={};
-GAL.forEach(function(g){
-var u=find(g[0]);if(!u||seen[u])return;seen[u]=1;
-var f=document.createElement('figure');f.className='rv'+(g[2]?' star':'');f.hidden=true;gal.appendChild(f);
-load(u,function(url){
-var k=reg(url,g[1]);
-f.innerHTML='<div class="im"><img src="'+url+'" alt="'+g[1].replace(/<[^>]+>/g,'')+'" decoding="async"></div><figcaption><i></i>'+g[1]+'</figcaption>';
-f.onclick=function(){openLb(k)};f.hidden=false;renum();
-},function(){f.remove();renum()});
-});
-watch();
+  // Gallery
+  var seen = {};
+  GAL.forEach(function(g){
+    var url = find(g[0]);
+    if (seen[url]) return;
+    seen[url] = 1;
+
+    var f = document.createElement('figure');
+    f.className = 'rv' + (g[2] ? ' star' : '');
+    f.hidden = true;
+    gal.appendChild(f);
+
+    load(url, function(finalUrl){
+      var k = reg(finalUrl, g[1]);
+      f.innerHTML =
+        '<div class="im"><img src="' + finalUrl + '" alt="' + g[1].replace(/<[^>]+>/g, '') + '" decoding="async" loading="lazy"></div>' +
+        '<figcaption><i></i>' + g[1] + '</figcaption>';
+      f.onclick = function(){ openLb(k); };
+      f.hidden = false;
+      renum();
+    }, function(){
+      f.remove();
+      renum();
+    });
+  });
+
+  watch();
 }
+
+// Try to get real file list from GitHub (helps gallery matching)
 fetch('https://api.github.com/repos/sonatamusicstudio/sonata-music-studio/contents/?ref=main')
-.then(function(r){return r.ok?r.json():Promise.reject()})
-.then(function(a){FILES=a.filter(function(x){return x.type==='file'&&/\.(jpe?g|png|webp|gif)$/i.test(x.name)}).map(function(x){return x.name})})
-.catch(function(){FILES=null})
-.then(build);
+  .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+  .then(function(a){
+    FILES = a
+      .filter(function(x){ return x.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(x.name); })
+      .map(function(x){ return x.name; });
+  })
+  .catch(function(){ FILES = null; })
+  .then(build);
 
-var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc'),cur=0;
-function showLb(){lbi.src=PIC[cur][0];lbi.alt=PIC[cur][1];lbc.textContent=PIC[cur][1]}
-function openLb(i){if(i<0)return;cur=i;showLb();lb.classList.add('on');document.body.style.overflow='hidden'}
-function stepLb(d){cur=(cur+d+PIC.length)%PIC.length;showLb()}
-function closeLb(){lb.classList.remove('on');document.body.style.overflow=''}
-lb.querySelector('.x').onclick=closeLb;
-lb.querySelector('.p').onclick=function(){stepLb(-1)};
-lb.querySelector('.n').onclick=function(){stepLb(1)};
-lb.onclick=function(e){if(e.target===lb)closeLb()};
-document.addEventListener('keydown',function(e){
-if(!lb.classList.contains('on'))return;
-if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')stepLb(-1);if(e.key==='ArrowRight')stepLb(1)});
+// Lightbox
+var lb = document.getElementById('lb'),
+    lbi = document.getElementById('lbi'),
+    lbc = document.getElementById('lbc'),
+    cur = 0;
 
-var VID='fVnfH2ow5bM',poster=document.getElementById('perfPoster'),vbox=document.getElementById('perfVideo');
-if(poster&&vbox){
-var thumb=poster.querySelector('img');
-var fallback=function(){if(thumb.src.indexOf('hqdefault')===-1)thumb.src='https://i.ytimg.com/vi/'+VID+'/hqdefault.jpg'};
-thumb.addEventListener('error',fallback);
-thumb.addEventListener('load',function(){if(thumb.naturalWidth&&thumb.naturalWidth<=120)fallback()});
-poster.addEventListener('click',function(){
-var f=document.createElement('iframe');
-f.src='https://www.youtube-nocookie.com/embed/'+VID+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-f.title='Felix Satia — Chopin Étude Op. 25 No. 1';
-f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-f.referrerPolicy='strict-origin-when-cross-origin';f.setAttribute('allowfullscreen','');
-vbox.appendChild(f);poster.remove()});
+function showLb(){
+  lbi.src = PIC[cur][0];
+  lbi.alt = PIC[cur][1];
+  lbc.textContent = PIC[cur][1];
+}
+function openLb(i){
+  if (i < 0) return;
+  cur = i;
+  showLb();
+  lb.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function stepLb(d){
+  cur = (cur + d + PIC.length) % PIC.length;
+  showLb();
+}
+function closeLb(){
+  lb.classList.remove('on');
+  document.body.style.overflow = '';
+}
+lb.querySelector('.x').onclick = closeLb;
+lb.querySelector('.p').onclick = function(){ stepLb(-1); };
+lb.querySelector('.n').onclick = function(){ stepLb(1); };
+lb.onclick = function(e){ if (e.target === lb) closeLb(); };
+document.addEventListener('keydown', function(e){
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') stepLb(-1);
+  if (e.key === 'ArrowRight') stepLb(1);
+});
+
+// Performance video
+var VID = 'fVnfH2ow5bM',
+    poster = document.getElementById('perfPoster'),
+    vbox = document.getElementById('perfVideo');
+
+if (poster && vbox){
+  var thumb = poster.querySelector('img');
+  var fallback = function(){
+    if (thumb.src.indexOf('hqdefault') === -1)
+      thumb.src = 'https://i.ytimg.com/vi/' + VID + '/hqdefault.jpg';
+  };
+  thumb.addEventListener('error', fallback);
+  thumb.addEventListener('load', function(){
+    if (thumb.naturalWidth && thumb.naturalWidth <= 120) fallback();
+  });
+  poster.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + VID + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    f.title = 'Felix Satia — Chopin Étude Op. 25 No. 1';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.setAttribute('allowfullscreen', '');
+    vbox.appendChild(f);
+    poster.remove();
+  });
 }
 
-var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12}):null;
-function watch(){document.querySelectorAll('.rv, .accent-rule').forEach(function(el){if(el.classList.contains('visible'))return;if(io)io.observe(el);else el.classList.add('visible')})}
+// Reveal on scroll
+var io = ('IntersectionObserver' in window)
+  ? new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.12})
+  : null;
+
+function watch(){
+  document.querySelectorAll('.rv, .accent-rule').forEach(function(el){
+    if (el.classList.contains('visible')) return;
+    if (io) io.observe(el);
+    else el.classList.add('visible');
+  });
+}
 watch();
 })();
 </script>
