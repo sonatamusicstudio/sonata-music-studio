@@ -567,6 +567,95 @@ h1,h2,h3,h4,.hero-title,.sec-heading,.pq-text,.phil-quote,
   #students .sc .tx{padding:10px!important}
 }
 </style>
+<style id="sonata-final-correction-2026">
+/* FINAL VISUAL SYSTEM — retain the approved navy / premium-gold identity */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{--serif:'Libre Baskerville',Georgia,'Times New Roman',serif!important;--sans:'Plus Jakarta Sans',Arial,sans-serif!important;--ui:'Plus Jakarta Sans',Arial,sans-serif!important}
+html,body,button,input,textarea,select{font-family:'Plus Jakarta Sans',Arial,sans-serif!important}
+h1,h2,h3,h4,.hero-title,.sec-heading,.phil-quote,#contact .contact-title,#contact .contact-sub,#performance .perf-title{font-family:'Libre Baskerville',Georgia,serif!important}
+/* Header and ticker: exact edge-to-edge alignment below the real header height */
+#hdr{z-index:100!important;height:120px!important}
+#hdr.scrolled{height:92px!important}
+#ticker{position:fixed!important;top:120px!important;left:0!important;right:0!important;z-index:101!important;height:2px!important;transition:top .35s ease!important}
+#ticker.scrolled{top:92px!important}
+@media(max-width:960px){#hdr{height:76px!important}#hdr.scrolled{height:68px!important}#ticker{top:76px!important}#ticker.scrolled{top:68px!important}}
+/* Hero: JS sizes the section to the selected source image's exact intrinsic ratio.
+   The image therefore fills the complete width without contain-bars or cropping. */
+.hero{position:relative!important;box-sizing:border-box!important;height:auto!important;min-height:0!important;overflow:hidden!important;isolation:isolate!important;padding-top:0!important;padding-bottom:0!important}
+.hero-bg,.hero-photo{position:absolute!important;inset:0!important;left:0!important;right:0!important;bottom:0!important;top:0!important;width:100%!important;height:100%!important;margin:0!important;overflow:hidden!important;z-index:0!important;display:block!important;mask-image:none!important;-webkit-mask-image:none!important}
+.hero-bg picture,.hero-photo picture{display:block!important;width:100%!important;height:100%!important}
+.hero-bg img,.hero-photo img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:fill!important;object-position:center!important;transform:none!important;animation:none!important}
+.hero-bg{z-index:0!important}.hero-photo{z-index:0!important;display:none!important}
+.hero::after{z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(5,13,30,.84) 0%,rgba(5,13,30,.60) 38%,rgba(5,13,30,.18) 78%,rgba(5,13,30,.08) 100%)!important}
+.hero-content{position:relative!important;z-index:3!important;width:min(720px,58vw)!important;max-width:720px!important;margin:0!important;padding:0!important;animation:rise 1.2s ease both!important}
+.hero-tag{font-family:'Plus Jakarta Sans',Arial,sans-serif!important;font-size:clamp(.58rem,.72vw,.72rem)!important;letter-spacing:.28em!important;margin-bottom:1.35rem!important}
+.hero-title{font-family:'Libre Baskerville',Georgia,serif!important;font-size:clamp(2.25rem,4.1vw,3.85rem)!important;font-weight:700!important;line-height:1.16!important;letter-spacing:-.035em!important;text-shadow:0 3px 26px rgba(0,0,0,.24)!important;max-width:760px!important}
+.hero-subtitle{display:inline!important;margin-left:.22em!important;font-family:'Libre Baskerville',Georgia,serif!important;font-size:inherit!important;font-weight:400!important;line-height:inherit!important;letter-spacing:inherit!important;font-style:normal!important}
+.hero-rule{margin:1.9rem 0!important}.hero-cta{justify-content:flex-start!important}
+/* Quote: open, bookish and expansive — not compressed or italic */
+.pq-text{font-family:Georgia,'Times New Roman',serif!important;font-style:normal!important;font-weight:400!important;font-size:clamp(1.18rem,1.85vw,1.62rem)!important;line-height:1.82!important;letter-spacing:.006em!important;max-width:940px!important;text-wrap:pretty}
+.pq-attribution{font-family:'Plus Jakarta Sans',Arial,sans-serif!important;letter-spacing:.22em!important}
+/* Section display scale: prestigious but not oversized against body copy */
+.sec-heading{font-family:'Libre Baskerville',Georgia,serif!important;font-weight:700!important;line-height:1.18!important;letter-spacing:-.035em!important}
+.sec-heading.xl{font-size:clamp(2.25rem,4.1vw,3.65rem)!important;margin-bottom:1.65rem!important}
+.sec-heading.lg{font-size:clamp(2rem,3.35vw,3rem)!important;margin-bottom:1.45rem!important}
+.sec-heading.md{font-size:clamp(1.75rem,2.8vw,2.35rem)!important}
+.body-p{font-size:clamp(.94rem,1vw,1.02rem)!important;line-height:1.9!important}
+#achievements .sec-heading{font-family:'Libre Baskerville',Georgia,serif!important;font-weight:700!important}
+/* Two-column memory-album student cards at every phone width */
+@media(max-width:820px){
+ .hero{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;text-align:left!important;padding:clamp(104px,18vw,150px) 7vw 0!important}
+ .hero-bg{display:none!important}.hero-photo{display:block!important}
+ .hero-content{width:min(88%,680px)!important;max-width:680px!important;padding:0!important}
+ .hero-tag{font-size:.58rem!important;letter-spacing:.2em!important;margin-bottom:.85rem!important}
+ .hero-title{font-size:clamp(1.85rem,6.2vw,3rem)!important;line-height:1.2!important;max-width:100%!important}
+ .hero-subtitle{display:inline!important;margin-left:.16em!important}
+ .hero-rule{margin:1rem 0!important}.hero-cta{justify-content:flex-start!important}
+ .hero::after{background:linear-gradient(180deg,rgba(5,13,30,.82) 0%,rgba(5,13,30,.48) 35%,rgba(5,13,30,.08) 72%,rgba(5,13,30,.34) 100%)!important}
+ #students .sg{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;align-items:stretch!important}
+ #students .sc,#students .sc:nth-child(4),#students .sc:nth-child(5){grid-column:auto!important;width:100%!important;max-width:none!important;justify-self:stretch!important;box-sizing:border-box!important}
+ #students .sc .pw{width:calc(100% - 14px)!important;aspect-ratio:3/4!important;height:auto!important;margin:7px 7px 0!important}
+ #students .sc .tx{padding:12px 10px!important}
+ .sec-heading.xl{font-size:clamp(1.9rem,5vw,2.8rem)!important}
+ .sec-heading.lg{font-size:clamp(1.75rem,4.4vw,2.45rem)!important}
+ .pq-text{font-size:clamp(1.05rem,3.4vw,1.35rem)!important;line-height:1.85!important}
+}
+@media(max-width:480px){
+ #students .sg{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #students .sc .pw{aspect-ratio:3/4!important}
+ #students .sc .tx{padding:10px 8px!important}
+ .hero{padding-top:108px!important}
+ .hero-title{font-size:clamp(1.65rem,6.1vw,2.25rem)!important}
+ .hero-cta .btn{width:auto!important}
+}
+</style>
+<script id="sonata-hero-intrinsic-sizing">
+(function(){
+  function sizeHero(){
+    var hero=document.querySelector('.hero'); if(!hero)return;
+    var mobile=window.matchMedia('(max-width:820px), (max-aspect-ratio:1/1)').matches;
+    var wrap=hero.querySelector(mobile?'.hero-photo':'.hero-bg');
+    var img=wrap&&wrap.querySelector('img');
+    if(!img)return;
+    function apply(){
+      if(!img.naturalWidth||!img.naturalHeight)return;
+      var ratio=img.naturalHeight/img.naturalWidth;
+      var h=Math.round(document.documentElement.clientWidth*ratio);
+      hero.style.height=h+'px';
+      hero.style.minHeight='0';
+      hero.style.setProperty('--hero-natural-ratio',String(ratio));
+    }
+    if(img.complete)apply(); else img.addEventListener('load',apply,{once:true});
+    if(!hero.__sonataResize){window.addEventListener('resize',function(){
+      var nowMobile=window.matchMedia('(max-width:820px), (max-aspect-ratio:1/1)').matches;
+      if(nowMobile!==mobile){sizeHero();return;} apply();
+    },{passive:true});hero.__sonataResize=true;}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sizeHero);else sizeHero();
+  window.addEventListener('load',sizeHero,{once:true});
+})();
+</script>
+
 </head>
 <body>
 
