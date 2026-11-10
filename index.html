@@ -411,6 +411,162 @@ footer{background:#050d1b!important;border-top:1px solid rgba(198,166,106,.42)!i
 }
 </style>
 
+
+<style id="sonata-uniform-student-card-layout">
+/* Mobile: undo the legacy half-width treatment applied only to the fifth card.
+   Every student card now occupies the same full grid track. */
+@media(max-width:540px){
+  #students .sg{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:stretch!important;
+  }
+  #students .sc,
+  #students .sc:nth-child(4),
+  #students .sc:nth-child(5){
+    grid-column:1 / -1!important;
+    width:100%!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+    box-sizing:border-box!important;
+  }
+  #students .sc .pw{
+    width:calc(100% - 20px)!important;
+    aspect-ratio:3 / 4!important;
+    height:auto!important;
+    margin:10px 10px 0!important;
+  }
+}
+</style>
+
+<style id="sonata-final-layout-and-type-refinement">
+/* Typography: one consistent editorial + corporate pairing */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{
+  --serif:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+  --sans:'Plus Jakarta Sans',Arial,sans-serif!important;
+  --ui:'Plus Jakarta Sans',Arial,sans-serif!important;
+}
+html,body,button,input,textarea,select{
+  font-family:'Plus Jakarta Sans',Arial,sans-serif!important;
+}
+h1,h2,h3,h4,.hero-title,.sec-heading,.pq-text,.phil-quote,
+#contact .contact-title,#contact .contact-sub,
+#performance .perf-title{
+  font-family:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+}
+/* Keep the approved clean wordmark and the refined achievement-heading style */
+#hdr .logo-name{
+  font-family:'Plus Jakarta Sans',Arial,sans-serif!important;
+  font-weight:800!important;
+  letter-spacing:.075em!important;
+  text-transform:uppercase!important;
+}
+#achievements .sec-heading{
+  font-family:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+  font-weight:700!important;
+}
+.hero-title{
+  font-family:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+  font-weight:700!important;
+  font-style:normal!important;
+  letter-spacing:-.045em!important;
+  text-shadow:0 3px 26px rgba(0,0,0,.2)!important;
+}
+.hero-subtitle{
+  font-family:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+  font-style:normal!important;
+  font-weight:400!important;
+}
+.pq-text{
+  font-family:'Libre Baskerville',Georgia,'Times New Roman',serif!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  letter-spacing:-.015em!important;
+}
+/* Ticker is a fixed, 2px gold line directly under the header at every scroll position */
+#hdr{z-index:80!important}
+#ticker{
+  position:fixed!important;
+  top:88px!important;
+  left:0!important;right:0!important;
+  z-index:81!important;
+  height:2px!important;
+  transition:top .35s ease!important;
+}
+#hdr.scrolled + #ticker{top:92px!important}
+/* Hero photographs: show the complete original photograph, never crop people out */
+.hero-bg{background:#071326!important}
+.hero-bg img{
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none!important;
+  animation:photoIn 1.2s ease both!important;
+}
+.hero-bg:after{
+  background:linear-gradient(90deg,rgba(5,15,32,.88) 0%,rgba(7,20,42,.68) 34%,rgba(7,20,42,.18) 72%,rgba(7,20,42,.08) 100%)!important;
+}
+.hero-photo{
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+.hero-photo img{
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none!important;
+  animation:photoIn 1.2s ease both!important;
+}
+/* Two-column memory-album layout on mobile; no single-photo vertical feed */
+@media(max-width:820px){
+  #hdr{height:76px!important}
+  #hdr.scrolled{height:68px!important}
+  #ticker{top:76px!important}
+  #hdr.scrolled + #ticker{top:68px!important}
+  #students .sg{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+    align-items:stretch!important;
+  }
+  #students .sc,
+  #students .sc:nth-child(4),
+  #students .sc:nth-child(5){
+    grid-column:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+    box-sizing:border-box!important;
+  }
+  #students .sc .pw{
+    width:calc(100% - 14px)!important;
+    aspect-ratio:3 / 4!important;
+    height:auto!important;
+    margin:7px 7px 0!important;
+  }
+  #students .sc .tx{padding:12px!important}
+  /* Keep the mobile hero photo whole and proportionate */
+  .hero-photo{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:auto!important;
+    margin:0!important;
+    overflow:visible!important;
+    opacity:1!important;
+  }
+  .hero-photo picture{height:auto!important}
+  .hero-photo img{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:auto!important;
+    object-fit:contain!important;
+  }
+}
+@media(max-width:480px){
+  #students .sg{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #students .sc .pw{aspect-ratio:3 / 4!important}
+  #students .sc .tx{padding:10px!important}
+}
+</style>
 </head>
 <body>
 
