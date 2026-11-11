@@ -295,6 +295,116 @@ mask-image:linear-gradient(to bottom, transparent 0%, #000 25%, #000 100%)}
 .pq-mark{line-height:1;height:.8em;padding:.12em .15em 0;margin-bottom:2.2rem;overflow:visible}
 @media(max-width:540px){.pq-mark{font-size:5rem;margin-bottom:1.6rem}}
    </style>
+
+<style id="sonata-master-refinement">
+/* Refinement pass: preserve the supplied master design; correct scale and responsive fit. */
+:root {
+  --type-body: 1rem;
+  --type-eyebrow: .64rem;
+  --type-section: clamp(1.9rem, 3.15vw, 2.75rem);
+}
+
+/* A calmer, consistent hierarchy across the main sections. */
+.eyebrow {
+  font-size: var(--type-eyebrow);
+  letter-spacing: .32em;
+  line-height: 1.5;
+  margin-bottom: .85rem;
+}
+.sec-heading { line-height: 1.16; letter-spacing: -.02em; }
+.sec-heading.xl {
+  font-size: clamp(2.65rem, 4.5vw, 4rem);
+  line-height: 1.08;
+  margin-bottom: 1.65rem;
+}
+.sec-heading.lg {
+  font-size: var(--type-section);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.sec-heading.md {
+  font-size: clamp(1.85rem, 2.9vw, 2.55rem);
+  line-height: 1.2;
+}
+.sec-head { max-width: 720px; margin-bottom: 3.2rem; }
+.sec-head .sub {
+  max-width: 620px;
+  margin: .85rem auto 0;
+  font-size: .94rem;
+  line-height: 1.8;
+}
+.body-p, .phil-body, .perf-body { font-size: var(--type-body); }
+.contact-title {
+  font-size: clamp(2.15rem, 4vw, 3.35rem);
+  line-height: 1.14;
+}
+.contact-sub { font-size: .96rem; line-height: 1.8; margin-bottom: 2.8rem; }
+.perf-title { font-size: clamp(1.45rem, 2.35vw, 1.95rem); }
+.perf-comp, .perf-by { letter-spacing: .28em; }
+
+/* Keep the hero headline inside its own safe text column at every width. */
+.hero-content { width: 100%; max-width: min(680px, 52vw); }
+.hero-title {
+  max-width: 100%;
+  font-size: clamp(2.2rem, 4.15vw, 4.05rem);
+  line-height: 1.12;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+.hero-subtitle { display: block; }
+
+/* Footer should read as a quiet signature, not another headline. */
+footer { gap: 1.4rem 2rem; }
+.footer-copy {
+  font-size: .62rem;
+  line-height: 1.7;
+  letter-spacing: .17em;
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .hero-content { max-width: min(620px, 58vw); }
+  .sec-heading.xl { font-size: clamp(2.5rem, 5vw, 3.7rem); }
+}
+@media (max-width: 820px), (max-aspect-ratio: 1/1) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding: max(132px, 14svh) 7vw 3rem;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 6vw, 3.15rem);
+    line-height: 1.15;
+  }
+  .hero-tag { font-size: .58rem; letter-spacing: .2em; margin-bottom: 1rem; }
+  .hero-rule { margin: 1.25rem auto; }
+  .hero-cta { justify-content: center; }
+  .sec-heading.xl { font-size: clamp(2.35rem, 8vw, 3.35rem); }
+  .sec-heading.lg { font-size: clamp(1.85rem, 6vw, 2.55rem); }
+  .sec-heading.md { font-size: clamp(1.8rem, 5.7vw, 2.4rem); }
+  .sec-head { margin-bottom: 2.5rem; }
+  .sec-head .sub { font-size: .88rem; }
+  .contact-title { font-size: clamp(2rem, 7vw, 2.8rem); }
+  footer { text-align: center; }
+  .footer-copy { text-align: center; font-size: .58rem; letter-spacing: .14em; }
+}
+@media (max-width: 700px) {
+  /* All five student cards remain in the same two-column album grid. */
+  .sc:nth-child(5) { grid-column: auto; width: auto; justify-self: stretch; }
+}
+@media (max-width: 540px) {
+  .sec-heading.xl { font-size: clamp(2.2rem, 9vw, 2.9rem); }
+  .sec-heading.lg { font-size: clamp(1.75rem, 7vw, 2.25rem); }
+  .sec-heading.md { font-size: clamp(1.7rem, 6.5vw, 2.1rem); }
+  .sec-head .sub { font-size: .84rem; line-height: 1.75; }
+  .hero-title { font-size: clamp(1.75rem, 7.2vw, 2.55rem); }
+  .hero-cta .btn { padding: 1rem 1.65rem; font-size: .62rem; letter-spacing: .18em; }
+  .footer-copy { max-width: 100%; }
+}
+</style>
+
 </head>
 <body>
 
